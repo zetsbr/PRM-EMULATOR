@@ -1,0 +1,64 @@
+//===== rAthena Script ======================================= 
+//= Job Repairs
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Removes potentially conflicting job data.
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//= 1.1 Added GM management function. [Euphy]
+//= 2.0 Prontera castle map changed in ep16.1 [Capuche]
+//============================================================ 
+
+// Job Variables
+//============================================================
+/*
+rAthena -> official job variable conversion
+-------------------------------------------
+
+Knight: KNIGHT_Q -> job_knight_q
+Priest: PRIEST_Q -> job_priest_q
+Wizard: WIZ_Q -> job_wizard_q
+Blacksmith: BSMITH_Q -> job_black
+Assassin: ASSIN_Q -> job_assasin
+Hunter: HNTR_Q -> job_hunter
+Crusader: CRUS_Q -> job_crusader_q
+Monk: MONK_Q -> job_monk
+Sage: SAGE_Q -> job_sage_q
+Alchemist: ALCH_Q -> job_alchemist_q
+Rogue: ROGUE_Q -> job_rogue
+Bard: BARD_Q -> job_bard_q
+Dancer: DANC_Q -> job_dancer
+
+Rebirth: ADVJOB -> job_karma
+
+Rune Knight: job_rune_edq
+Arch Bishop: job_arch
+Warlock: job_wl
+Mechanic: job__mechanic -> job_mechanic
+Guillotine Cross: job_3rd_gc
+Ranger: job_ranger01
+Royal Guard: job_royal -> job_roy
+Sura: job_shu
+Sorcerer: job_soc
+Geneticist: job_gen
+Shadow Chaser: job_sha -> job_3rd_sc
+Minstrel: job_min
+Wanderer: job_wan
+
+Gunslinger: GUNS_Q -> hg_gun
+Ninja: NINJ_Q -> hg_nin
+Kagerou/Oboro: job_kagero
+Taekwon: TK_Q -> job_taekwon
+Star Gladiator: STGL_Q -> job_star
+Soul Linker: SOUL_Q -> job_linker
+Super Novice: SUPNOV_Q -> job_super
+Expanded Super Novice: EXSUPNOV_Q -> job_super2
+*/
+
+// Main NPCs :: job_repair

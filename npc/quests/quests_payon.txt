@@ -1,0 +1,42 @@
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Payon
+//===== By: ================================================== 
+//= kobra_k88
+//===== Current Version: ===================================== 
+//= 1.7
+//===== Compatible With: ===================================== 
+//= rAthena Project; 7.15 +
+//===== Description: ========================================= 
+//= Pretend Murder, Ear Muffs, Oxygen, Derivuchi Cap, Helm of Angel Quests.
+//===== Additional Comments: ================================= 
+//= 1.1 Helm of Angel bug fixed [Lupus]
+//= 1.2 Fixed skirt of virgin [Lupus]
+//= 1.3 Fixed exploits [Lupus]
+//= 1.4 Removed Duplicates [Silent]
+//= 1.5 Updated Dialogs from "Pretend Murdered Quest" [Samuray22]
+//= 1.5a replaced item "names" with item id. [Lupus]
+//= 1.6 Updated Dialogs from "Oxygen Mask Quest" [Samuray22]
+//= 1.7 Updated headgear quests. [L0ne_W0lf]
+//= 1.8 Updating NPC Position. [JohnnyPlayy]
+//============================================================ 
+
+// 'Pretend Murdered' Quest
+//============================================================
+payon_in01,99,72,4	script	Granny	103,{
+		mes "[Granny]";
+		mes "I wish I could make some clothing for my grandchildren for the festival season...";
+			close;
+		}
+
+// 'Oxygen Mask' Quest
+//============================================================
+payon_in02,25,71,4	script	Boy	86,{
+		mes "[Young Man]";
+		mes "ArrrGggghh!";
+		mes "Ah, No I can't...";
+		next;
+		mes "[Young Man]";
+		mes "*Huk*";
+		mes "Now even my eyes have gone mad!! Why do these bugs suddenly seem so cute?! Nooooooo~!!!";
+			close;
+		}

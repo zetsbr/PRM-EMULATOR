@@ -1,0 +1,13 @@
+# Visual Studio
+.vs
+*.VC.db
+*.VC.opendb
+
+/.idea/.name
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/rathena.iml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/build/
+/cbuild/

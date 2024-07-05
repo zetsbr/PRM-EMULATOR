@@ -1,0 +1,25 @@
+//===== rAthena Script =======================================
+//= 2008 Headgear Quests
+//===== By: ==================================================
+//= Masao
+//= Credits: Muad_Dib
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Cats Footprint, Cute Ribbon Dyer and Brides Corolla.
+//===== Additional Comments: =================================
+//= 1.0 First Version. [Masao]
+//============================================================
+
+in_orcs01,119,106,3	script	Orc Lady#2008hat03	1273,2,2,{
+	
+		mes "[Orc Lady]";
+		mes ".. ...";
+		mes "Go Away Adventurer! You're not welcome in our village!";
+		close2;
+		warp "gef_fild10",223,203;
+		end;
+}

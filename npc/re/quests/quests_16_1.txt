@@ -1,0 +1,739 @@
+//===== rAthena Script =======================================
+//= Banquet Quests
+//===== Description: =========================================
+//= [Official Conversion]
+//--- NPCs quests for Episode 16.1
+//===== Changelogs: ==========================================
+//= 1.0 First version. [Capuche]
+//= 1.1 Fixed spelling mistakes [crazy-arashi]
+//= 2.0 Official Conversion. [Capuche]
+//============================================================
+
+prontera,150,331,4	script	Royal Guard#ep16_ect01	8W_SOLDIER,4,4,{
+	npctalk "Don't do anything you shouldn't, Orphan.", bc_self;
+}
+prontera,161,331,4	duplicate(Royal Guard#ep16_ect01)	Royal Guard#ep16_ect02	8W_SOLDIER
+
+prt_cas,217,150,3	script	Chamberlain Bell#ep16_01	4_M_RUSMAN1,{
+		mes "[Chamberlain Bell]";
+		mes "I am Chamberlain Bell Twilight. I am here in service of the King.";
+		close;
+}
+		
+prt_cas_q,28,28,3	script	Court Mage Nillem#ep16_wiz01	4_M_JOB_WIZARD,{
+		mes "[Nillem]";
+		mes "Exploring through the fissure of dimensions to uncover the secret of the palace...!";
+		next;
+		mes "[Nillem]";
+		mes "No mage would say no to that! No wonder I am excited!";
+		close;
+}
+
+
+prt_lib,76,80,3	script	Lindt the Librarian#ep16_lindt	1_M_01,{
+		mes "[Librarian]";
+		mes "There's a Distortion here in the castle. You can apparently connect to a far future where our famous War of Emperium is no longer a field of glory, but of death...";
+	close;
+}
+
+prt_lib,91,71,3	script	Distortion Mage#ep16_warp	4_M_JOB_WIZARD,{	
+		mes "[Mage]";
+		mes "Be careful if you decide to cross to the other side. It's a place so dangerous few people ever come back alive.";
+		close;
+}
+
+
+prt_cas,213,177,5	script	Royal Chef#ep16_1	1_ETC_01,{
+	mes "[Royal Chef]";
+	mes "I am living in a whirl of business!";
+	mes "I have been seeing too many people these days that I am even confused about the familiar faces now.";
+	close;
+}
+
+// Kitchen
+prt_cas,309,200,5	script	Royal Head Chef#ep16_1	4_EP16_COOK,{
+		mes "[Head Chef]";
+		mes "Argh!";
+		mes "When will this special's assistant chef arrive here?";
+		emotion ET_FRET;
+		next;
+		mes "[Head Chef]";
+		mes "Of course!";
+		mes "The food for the royal family is perfect!";
+		next;
+		mes "[Head Chef]";
+		mes "More!";
+		mes "More!";
+		mes "More!";
+		mes "Much more!";
+		mes "I want to satisfy the royalty!";
+		next;
+		mes "[Head Chef]";
+		mes "I can't just accept anything less than perfect!";
+		mes "It should be more fabulous!";
+		mes "No, much more fabulous!";
+		next;
+		mes "[Head Chef]";
+		mes "Hum...";
+		mes "I won't be satisfied if it was not miraculously luxurious and superlatively fabulous!";
+		emotion ET_FRET;
+		close;
+	}
+	
+prt_cas,319,211,3	script	Royal Sauce Master#ep16	4_M_ALCHE_B,{
+		mes "[Oriental Oyster]";
+		mes "Hum... How savory!";
+		mes "The perfect combinations is just divine...";
+		close;
+	}
+
+prt_cas,302,205,5	script	Dishwasher#ep16_1	4_M_ALCHE_D,{
+			mes "[Dishwasher]";
+			mes "I wash the dishes again... Again... Again...";
+			mes "And it never ends!";
+			next;
+			mes "[Dishwasher]";
+			mes "However, this is the fate of a Dishwasher!";
+			next;
+			mes "[Dishwasher]";
+			mes "It is a fate!";
+			mes "I have to endure it!";
+			next;
+			mes "[Dishwasher]";
+			mes "Please bring me!";
+			mes "More dishes to wash!";
+			next;
+			mes "[Dishwasher]";
+			mes "I'll get over it!";
+			mes "My fate!";
+			close;
+		}
+		
+
+prt_cas,313,204,3	script	Chef#ep16_2	4_COOK,{
+	mes "[Chef]";
+	mes "I cannot believe that I am able to cook with the Head Chef!";
+	mes "It feels like I am dreaming!";
+	close;
+}
+
+prt_cas,313,200,3	script	Chef#ep16_4	4_COOK,{
+	mes "[Chef]";
+	mes "I prefer to have it with salt than sugar!";
+	close;
+}
+
+prt_cas,313,196,3	script	Chef#ep16_5	4_COOK,{
+	mes "[Chef]";
+	mes "The best way to taste it is to taste it as it is! The best flavor is the flavor of the ingredient itself!";
+	close;
+}
+
+
+alberta,187,147,7	script	Guardian Knight#ep16wal	4_M_KNIGHT_SILVER,{
+	
+		mes "[Simon]";
+		mes "I am a Knight of the Walter Family. If you're not here on official business, please, leave me alone.";
+		close;
+	}
+	
+alberta,48,30,7	script	Butler for the Walthers#ep16wal	4_M_MANAGER,{
+		mes "[Butler for the Walthers]";
+		mes "What a fine day. However, the house feels to empty and lonely.";
+		next;
+		mes "[Butler for the Walthers]";
+		mes "Since everyone has left for Prontera, you cannot meet the master now.";
+		close;
+	}
+
+prontera,271,70,3	script	Kiddo#ep16lug01	4_M_MIKID,{
+		mes "[Allen]";
+		mes "Do you want business with us? But we don't meet with anybody.";
+		next;
+		mes "[Allen]";
+		mes "We are not easy people anybody can speak to.";
+		mes "Go back.";
+		close;
+	}
+
+prontera,271,68,1	script	Kiddo#ep16lug02	4_M_KID1,{
+
+		mes "[Jin]";
+		mes "Don't bother me please. I'm trying to play with my friends!";	
+		close;
+	}
+
+prontera,269,69,5	script	Kiddo#ep16lug03	4_F_KID2,{
+		mes "[Harriet]";
+		mes "How beautiful and shining the dresses of princesses would be! I wish I could wear as many pretty dresses as possible.";
+		close;
+}
+
+yuno_fild01,239,173,7	script	Border Guards#ep16lug01	4_M_JOB_KNIGHT2,{ end; }
+yuno_fild01,241,173,7	duplicate(Border Guards#ep16lug01)	Border Guards#ep16lug02	4_M_KNIGHT_GOLD
+yuno_fild01,243,173,1	duplicate(Border Guards#ep16lug01)	Border Guards#ep16lug03	4_M_KNIGHT_GOLD
+yuno_fild01,245,173,1	duplicate(Border Guards#ep16lug01)	Border Guards#ep16lug04	4_M_JOB_KNIGHT2
+yuno_fild01,239,171,7	duplicate(Border Guards#ep16lug01)	Border Guards#ep16lug05	4_M_PECOKNIGHT
+yuno_fild01,241,171,7	duplicate(Border Guards#ep16lug01)	Border Guards#ep16lug06	4_M_JOB_WIZARD
+yuno_fild01,243,171,1	duplicate(Border Guards#ep16lug01)	Border Guards#ep16lug07	4_M_JOB_WIZARD
+yuno_fild01,245,171,1	duplicate(Border Guards#ep16lug01)	Border Guards#ep16lug08	4_M_PECOKNIGHT
+
+yuno_fild01,242,175,5	script	Helmut Roegenburg#ep16lug02	4_EP16_HELMUT,5,5,{
+		mes "[Helmut]";
+		mes "I'm Helmut Regenburg. Please don't waste my time. I'm on a mission for the king.";
+		close;
+	}
+	
+yuno_fild01,244,176,3	script	Kalbern#ep16lug02	4_M_RUSCHILD,{
+	mes "[Kalbern]";
+	mes "Now it is the time that Lord Helmut begins to feel thirsty.";
+	mes "I think I should prepare something to drink.";
+	close;
+}
+
+prontera,221,283,5	script	Ordinary Man#ep16lug02	4_M_04,{
+	mes "[Ordinary Man]";
+	mes "Oh Man!";
+	mes "I need to save some money for a Medic Manual!";
+	close;
+}
+
+prt_cas,322,216,5	script	Maid#ep16wig02	1_F_04,{
+		mes "[Maid]";
+		mes "I am cleaning the kitchen now, which is the hardest place to clean. It is really difficult to get rid of all the dirt in here.";
+		mes "My arms are way too weak to handle it.";
+		close;
+}
+
+prontera,68,68,5	script	Furniture Deliveryman#ep16wig	1_M_HOF,{
+		mes "[Furniture Deliveryman]";
+		mes "Oh, my arms, legs, back and my entire body hurts. Well, I am just glad that today's work is done. I can take some rest now. I should go have some hot soup. Is it supposed to be the meat soup for today?";
+		close;
+	}
+
+
+prt_cas,165,245,0	script	Investigator Ryosun#ep16	4_M_ALCHE_A,{
+	emotion ET_CRY;
+	mes "[Ryosun]";
+	mes "I finally have the strawberry cake no one has ever touched.";
+	mes "The things I have been through to keep the cake in the expedition camp... I am about to burst into tears... Aww...";
+	next;
+	mes "[Ryosun]";
+	mes "Strawberry! Strawberry! This strawberry cake belongs to Ryosun! I won't give it to anyone.";
+	close;
+}
+
+
+prt_cas,97,216,2	script	Chamberlain#vip_alimi	4_M_RUSMAN2,{
+	mes "[Chamberlain]";
+	mes "The Judges have their HQ here in the castle. The access however, is forbidden to anyone not a member or part of the royal family.";
+	close;
+}
+
+prt_cas,91,237,3	script	Ekinasia#ep16_etc01	1_F_SIGNZISK,{
+		mes "[Ekinasia]";
+		mes "It seems like even Orphans are allowed here... hmph.";
+		close;
+}
+
+prt_cas,89,238,5	script	Lin#ep16_etc02	4_F_ACROSS,{
+	mes "[Lin]";
+	mes "Don't mind my friend. She's just annoying sometimes. ha ha.";
+	close;
+}
+
+prt_cas,113,243,3	script	Banquet Hall Aristocrat#1	4_F_01,{
+	mes "[Banquet Hall Aristocrat]";
+	mes "Magister Leon Damon is quite a handsome man. I hope I get a chance to talk to him...";
+	close;
+}
+
+prt_cas,91,248,5	script	Court Musician#4	4_M_MINSTREL,{
+	emotion ET_DELIGHT, getnpcid(0, "Court Musician#4");
+	mes "[Court Musician Occi]";
+	mes "King Nihil has great taste in music. Much better than the late King Tristram III";
+	next;
+	emotion ET_THINK;
+	mes "[Court Musician Dwit]";
+	mes "This place feels much more lively with the new King.";
+	close;
+}
+
+prt_cas,95,248,5	script	Court Musician#occi	4_F_WANDERER,{
+	emotion ET_DELIGHT;
+	mes "[Court Musician Occi]";
+	mes "King Nihil has great taste in music. Much better than the late King Tristram III";
+	next;
+	emotion ET_THINK, getnpcid(0, "Court Musician#4");
+	mes "[Court Musician Dwit]";
+	mes "This place feels much more lively with the new King.";
+	close;
+}
+
+
+prt_cas,75,227,7	script	Instructor Igrid#ep16	4_M_CRU,{
+	mes "[Instructor Igrid]";
+	mes "If they really want to do something for us, they really let us take a rest.";
+	mes "I keep being deployed from a mission to another...";
+	close;
+}
+
+prt_cas,87,226,5	script	Bruna#ep16_1	4_F_SURA,{
+	mes "[Bruna]";
+	mes "Argh... I have never been to a place like this...";
+	mes "I am so nervous... I shouldn't have come...";
+	cutin "3rd_sura_bruno03",0;
+	next;
+	mes "[Bruna]";
+	mes "Everyone dresses so fancy...";
+	next;
+	mes "[Bruna]";
+	mes "By the way, where has the master gone leaving me alone?";
+	close3;
+}
+
+// Library
+prt_cas,343,67,4	script	Royal Librarian#ep16lug	1_F_LIBRARYGIRL,{
+	set .@npc$, "[Librarian Latenna]";
+	mes "Oh an Orphan. Is there something you need to know about the World?";
+	next;
+	switch(select("No Thanks:What happened to Satan Morroc?:Any new places that have been explored?:Any essential geo-political changes?")) {
+	case 1:
+		emotion ET_THINK;
+		mes .@npc$;
+		mes "If you have questions, ask them.";
+		close;
+	case 2:
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "When Satan Morroc was resurrected, he completely destroyed morroc and fled to the Dimensional Gorge, a space where time is compressed and completely changed.";
+		next;
+		mes .@npc$;
+		mes "A massive group of adventurers also went there to fight him. THey used everything they could. Job Guilds were forced to use their trumph cards such as the Guillotine Crosses and Rune Knights.";
+		next;
+		mes .@npc$;
+		mes "However, the fight was harsh. So brutal in fact that many people died during it. The amount of negative energy was increasing, and the burden, heavy.";
+		next;
+		mes .@npc$;
+		mes "Eventually, the energy of the fight liberated has caused a massive cataclysm in the universe. I'm honestly not sure he was defeated but...it seems like it.";
+		next;
+		mes .@npc$;
+		mes "The Dimensional Gorge has been permanently closed for 5 years now. The desert is as it had been before. You can still find small monuments near the gorge location, in honor of those fallen.";
+		next;
+		mes .@npc$;
+		mes "The explosion also caused the strange energy of The Marks and The Shadows, that now affects you and other Orphans. Apparently they are small fragments from his soul.";
+		next;
+		mes .@npc$;
+		mes "Nobody has any idea how to remove them, but they seem to have a bigger purpose... I guess we eventually will have to deal with it.";
+		next;
+		mes .@npc$;
+		mes "It's important that you understand this situation and learn to adapt to it. As reality might be harder to handle now.";
+		close;
+	case 3:
+		emotion ET_SCRATCH;
+		mes .@npc$;
+		mes "Well...the forests near comodo... the snow fields around lutie...some dead lands near Rachel... actual field exploration has grown indeed.";
+		next;
+		mes .@npc$;
+		mes "If you're looking for tough monsters however, there are quite a few places we have found. You might wish to check for details on your map and inquire the locals near those places.";
+		next;
+		mes .@npc$;
+		mes "Some people are specially curious about Varmundt's Mansion, since it's master exists in both past, present and future at the same time, in 3 different bodies.";
+		next;
+		mes .@npc$;
+		mes "Some new places have also been found, such as a faceworm nest  right behind payon's archer village, or a Waterfall Cave near Malaya... Have you heard about Malaya?";
+		close;
+	case 4:
+		emotion ET_SCRATCH;
+		switch(select("What happened in Rune-Midgard?:What happened in Schwarzwald?:What happened in Arunafeltz?:What happened in the Eastern Islands?:What happened on the Snow Fields?")) {
+			case 1:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Well...since king tristam III was found dead in Nameless Island, The royal families needed a new king, among the royal families, Nihil Miseria Heine was declared the best choice.";
+			next;
+			mes .@npc$;
+			mes "There was a massive coronation banquet and everything went according to plan, Nihil is considered to be the most determined king in history.";
+			next;
+			mes .@npc$;
+			mes "There are some people who are not very happy with it. But this happens with every king I guess... Regardless, the king has a special unit of Judges to take care of any evil that may be a threat.";
+			next;
+			mes .@npc$;
+			mes "The Judges apparently come from the same training regiment of the Rebellions and Gunslingers, but have a sworn oath of loyalty to the royal family. Seeing one around is always an event. And bad news.";
+			next;
+			mes .@npc$;
+			mes "Other than that... There's a new Luxury bathhouse in Comodo, the guests there can be quite annoying or straight up murderous sometimes. Oh those entitled people...";
+			next;
+			mes .@npc$;
+			mes "Payon has  been explored quite heavily as well, as they found an ancient temple to rival Geffenia under the castle...not to mention a scary Faceworm nest near the archer village.";
+			next;
+			mes .@npc$;
+			mes "Funnily enough, the Ant Hell insects have been working with a new species of Scarabas and have made a gigantic insect society. It's a very dangerous place so I'd avoid it.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+			case 2:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Oh... that's a VERY interesting story to tell.";
+			next;
+			mes .@npc$;
+			mes "A group of adventurers finally unmasked Rekenber and its exploits. They had a secret lab where they used people as test subjects for rune experiments.";
+			next;
+			mes .@npc$;
+			mes "These runes were then used by the Knights, responsibly of course, to help with fighting and they even made a new rank, the Rune Knights, wielders of magic and Dragons.";
+			next;
+			mes .@npc$;
+			mes "Not only that.These Runes were correctly studied and helped develop new progress for our world, including unlocking power limits and finding magic areas.";
+			next;
+			mes .@npc$;
+			mes " Only one rune can be used a time, unlike what Rekenber was doing, infusing people with a load of them...those bastards...crazy.";
+			next;
+			mes .@npc$;
+			mes "So the Rekenber corporation is no more. There are rumors about them operating underground, but there's no proof anywhere. Lighthalzen unfortunately... is a dead city nowadays.";
+			next;
+			mes .@npc$;
+			mes "Most of the experiments escaped and completely destroyed the city... At least the souls of those heroes from the past can now rest in peace.";
+			next;
+			mes .@npc$;
+			mes "Verus was also found underground, past Juperos...seems to be a ruined old city.";
+			next;
+			mes .@npc$;
+			mes "Other than that... The old Laboratory can be accessed by anyone brave enough to help cleaning it...just don't expect to find an army of clones there.";
+			next;
+			mes .@npc$;
+			mes "Varmundt, one of the sages isolated by Rekenber and forced to work can now be contacted at his mansion. He is one of the leaders of the research regarding The Mark.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close;
+			case 3:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "That place always seem to be stuck in time, doesn't it?";
+			next;
+			mes .@npc$;
+			mes "Veins merchants have found an island near the shore. It has an active volcano and is called Dewata. It seems to be a very friendly place. Except for the volcano part.";
+			next;
+			mes .@npc$;
+			mes "Nameless Island is off limits. Someone in Veins saw a massive shadow laughing leaving that place and moving in direction of Lighthalzen shortly after Rekenber's Fall, I wonder why...";
+			next;
+			mes .@npc$;
+			mes "The temple of Rachel is doing their usual stuff, those people are very weird in my opinion...They do seem to have massively improved their ranks however and they have long chants everyday.";
+			next;
+			mes .@npc$;
+			mes "There was also found a Nomad Village across the abyssal canyon Northeast of Rachel... a lot of Orphans live there secluded from society.";
+			next;
+			mes .@npc$;
+			mes "Not much has changed there other than that... Not that i'm aware of.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+			case 4:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Everyday we find new stories around those parts.";
+			next;
+			mes .@npc$;
+			mes "Gonryun has fallen from the sky and sunk... It was a tragedy, a lot of people died... the Tsunami it caused also flooded Louyang and the place is completely underwater.";
+			next;
+			mes .@npc$;
+			mes "Amatsu is prospering as usual, they stopped trying to hide the dungeon's secrets and have many festivals around there.";
+			next;
+			mes .@npc$;
+			mes "Malaya is a nice port town with beautiful vistas. It does seem to carry some weird secrets but the Waterfall caves are a very nice place to visit at least once in life.";
+			next;
+			mes .@npc$;
+			mes "Moscovia didn't really change at all. Only issue is that the Whale Island never again came close, so it's forever lost and there's no word about it.";
+			next;
+			mes .@npc$;
+			mes "Ayothaya is same as always, except for it's dungeon, It seems the temple has awakened some spirits from eons past.";
+			next;
+			mes .@npc$;
+			mes "We also found an Island full of cat-people. It was so weird we're never going back there. Seems like a terrible idea.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+			case 5:
+			emotion ET_THINK;
+			mes .@npc$;
+			mes "Well...Lutie stills a nice welcoming town, and the toy factory is working as expected... It's the fields that have been checked.";
+			next;
+			mes .@npc$;
+			mes "There was an avalanche and a small mountain has collapsed to the east... showing a whole network of new fields and places to check. Even a Crystal Cave!";
+			next;
+			mes .@npc$;
+			mes "There's a place called Dicastes Diel to the north that seems to be an ancient race's lost city. The people there seem specially skilled and studies time travel.";
+			next;
+			mes .@npc$;
+			mes "There are quite a few other situations going on, I'd recommend you to check your map and talk to people for details.";
+			close2;
+			cutin "",255;
+			end;
+			break;
+		}
+}
+}
+
+// prt_cas,364,69,3	script	Nervous Man#ep16lug01	4_M_ALCHE_A,5,5,{
+prt_cas,364,68,3	script	Nervous Man#ep16lug01	4_M_ALCHE_A,{
+		mes "[Nervous Man]";
+		mes "It is not here either....";
+		next;
+		mes "[Taunting Man]";
+		mes "Why do you need that book? Just go without it.";
+		next;
+		mes "[Nervous Man]";
+		mes "The first impression is the most important. The first greeting has a big impact! By the way, what should I speak as a greeting?";
+		next;
+		mes "[Nervous Man]";
+		mes "'Good morning, sir. I, an unworthy person, live in Prontera....' No. No. I cannot speak like to a person who is younger than me.";
+		npctalk "That's good!!", "Taunting Man#ep16lug01";
+		next;
+		mes "[Nervous Man]";
+		mes "Hi? Your brother told me to meet her here later. No. No. this is not either. My patner is a princess!";
+		npctalk "Gross~", "Taunting Man#ep16lug01";
+		next;
+		mes "[Nervous Man]";
+		mes "Why is there no book such as ¡®Royal Etiquette - Meet Princess First Time' It's a royal library.";
+		npctalk "Because it is a palace.", "Taunting Man#ep16lug01";
+		next;
+		mes "[Nervous Man]";
+		mes "He sent me on the excuse of being busy. Jonathan, I'll get you.";
+		npctalk "If you hurt Jonathan, you will be arrested.", "Taunting Man#ep16lug01";
+		close;
+}
+
+prt_cas,365,67,3	script	Taunting Man#ep16lug01	4_M_HUMAN_01,{ end; }
+
+
+
+prt_cas,379,124,3	script	Glamorous Girl#pop	4_F_ARUNA_POP,{
+		cutin "ra_bishop.bmp",2;
+		mes "- There is a girl with a expressionless face looking at the table. Her outfit seems rather unusual in Prontera. She could be a guest. -";
+		next;
+		mes "[Glamorous Girl]";
+		mes "......";
+		mes "...I am hungry.";
+		close3;
+}
+
+// Corridor left
+prt_cas,161,168,5	script	Royal Guardian Knight#02	4_M_CRU,{
+	mes "[Guardian Knight]";
+	mes "You are a visitor to the Prontera Palace.";
+	mes "Do you need a guide?";
+	next;
+	switch( select( "Valkyrie Realm", "Royal Villa", "Royal Hall" ) ) {
+	case 1:
+		mes "[Guardian Knight]";
+		mes "You may move to the northern corridor from here.";
+		mes "There is the entrance to Valkyrie Realm in the middle of the northern corridor.";
+		close;
+	case 2:
+		mes "[Guardian Knight]";
+		mes "The door on the left is the entrance to the royal villa.";
+		mes "There are the residences for the Heine, Nerius and Walther families and a room reserved for a special guest.";
+		close;
+	case 3:
+		mes "[Guardian Knight]";
+		mes "You can enter the Royal Hall through the big gate which appears when you go to the center by following the corridor on the right from here.";
+		close;
+	}
+}
+
+
+prt_cas,270,168,3	duplicate(Royal Guardian Knight#02)	Royal Guardian Knight#03	4_M_CRU
+
+prt_cas,165,255,7	script	Commissary#ep16	4_M_JOB_KNIGHT2,{
+	mes "[Commissary Arner]";
+	mes "I've been serving King Nihil to the best of my abilities. I'm sure he recognizes my talent.";
+	close;
+}
+
+prt_cas,180,275,5	script	Logistics Manager#sin	4_M_JOB_KNIGHT1,{
+	mes "[Sin the Logistics Manager]";
+	mes "Are you lost? This place has nothing for you, please, leave.";
+	close;
+}
+prt_cas,180,264,3	script	Guardian Knight#ep16_prigate01	4_M_CRU,{
+	npctalk "The Crusader's Office is at the end of the corridor.", "Guardian Knight#ep16_prigate01", bc_self;
+	end;
+}
+
+prt_cas,180,251,3	script	Guardian Knight#ep16_prigate02	4_M_CRU,{
+	npctalk "...On duty. No problem...", "Guardian Knight#ep16_prigate02", bc_self;
+	setpcblock PCBLOCK_NPC, true;
+	sleep2 2000;
+	setpcblock PCBLOCK_NPC, false;
+	npctalk "I want to go home now.", "Guardian Knight#ep16_prigate02", bc_self;
+	end;
+}
+
+prt_q,159,328,6	script	Medic#EP162PS18	4_F_ACOLYTE,{
+	specialeffect EF_HEAL3,AREA,"Wounded Soldier#EP161PS";
+	mes "[Soldier]";
+	mes "Hey, you need to be cured first.";
+	close;
+}
+
+prt_q,160,327,5	script	Wounded Soldier#EP161PS17	8W_SOLDIER,{
+	emotion ET_STARE;
+	mes "[Soldier]";
+	mes "Argh... Those undead bastards... I'll kill them all...";
+	close;
+}
+
+prt_q,156,324,6	script	Chief Guard#EP161PG	4_EP16_SPIEGEL,{
+		mes "[Chief Guard Spiegel]";
+		mes "This place is dangerous! Hurry inside the castle! Or give me a hand and protect the city!";
+		close;
+	}
+
+prt_q,221,193,4	script	Village Lad#EP161HO01	4_M_03,{
+		emotion ET_CRY;
+		mes "[Village Lad]";
+		mes "Whoa... You are not an undead, aren't you?";
+		next;
+		mes "[Village Lad]";
+		mes "Haha... I am alive now.";
+		next;
+		mes "[Village Lad]";
+		mes "Do you know how scare I have been? This place was packed with the undead, and I heard screams from everywhere.";
+		next;
+		mes "[Village Lad]";
+		mes "Stay safe friend!";
+		close;
+	}
+
+prt_q,276,242,4	script	Girl#EP161GU01	4_F_RUSCHILD,{
+		mes "[Lowen]";
+		mes "I was running to the church with my sister, Rosa... And I lost her... Awww...";
+		next;
+		emotion ET_HNG;
+		mes "[Lowen]";
+		mes "Rosa should have held on to my hand tightly. How clumsy of her to be lost!";
+		close;
+	}
+	
+prt_q,235,315,4	script	Cathedral Knight#EP161GU04	4_F_CRU,5,5,{
+		mes "[Cathedral Knight]";
+		mes "Be careful on the streets. I'll protect the cathedral!";
+		close;
+}
+
+prt_q,47,339,5	script	Soldier#EP161ETC01	8W_SOLDIER,{
+	emotion ET_PROFUSELY_SWEAT;
+	mes "[Soldier]";
+	mes "This the knight's building, i'm guarding the arsenal for the defense of Prontera.";
+	close;
+}
+prt_q,52,344,5	duplicate(Soldier#EP161ETC01)	Soldier#EP161ETC02	8W_SOLDIER
+
+prt_q,52,340,6	script	Knight Gray#EP161GU05	2_M_SWORDMASTER,7,7,{
+		mes "[Knight Gray]";
+		mes "Who are you? Eh, doesn't matter, help us protect the city!";
+		close;
+	}
+
+prt_q,41,337,5	script	Mercenary Guild Admin#EP161ETC03	8W_SOLDIER,{
+	mes "[Mercenary Guild Admin]";
+	mes "Are you here to hire a mercenary?";
+	next;
+	mes "[Mercenary Guild Admin]";
+	mes "I am sorry, but all mercenaries dispatched in this area have been hired by the palace.";
+	next;
+	emotion ET_SORRY;
+	mes "[Mercenary Guild Admin]";
+	mes "I am sorry.";
+	close;
+}
+
+prt_q,55,347,6	script	Rosa Erinin#EP161GU07	4W_F_01,{
+		mes "[Rosa Erinin]";
+		mes "Lowen, where did you go this time?";
+		close;
+	}
+	
+prt_q,140,304,6	script	Soldier#EP161HU01	4_M_GEF_SOLDIER,{
+		mes "[Soldier]";
+		mes "Argh! The undead! Bring it on!";
+		close;
+}
+
+prt_q,68,336,4	script	Soldier#EP161HU02	4_M_GEF_SOLDIER,{
+		mes "[Soldier]";
+		mes "I was going to help the knights defending the knight's building since I heard that many residents had been fled there. However, there seem to be enough troops here.";
+		mes "[Soldier]";
+		mes "If I show my face, it may just disturb their concentration. I'd rather go without seeing them.";
+		next;
+		mes "[Soldier]";
+		mes "I shall go join the defense on another place. I guess I can join the troops at the village office down there.";
+		close;
+}
+
+prt_q,38,261,6	script	Eryus#EP161BU01	4_F_03,{
+		emotion ET_THANKS;
+		mes "[Eryus]";
+		mes "Are you an adventurer?";
+		mes "Oh, Odin... Thank you! Dear adventurer, please kill these monsters! Save our city!";
+		close;
+}
+
+prt_q,108,164,4	script	Female#EP161BU03	4W_F_01,{
+		emotion ET_QUESTION;
+		mes "[Ellie]";
+		mes "Who are you?";
+		mes "This place is dangerous. I'm trying to hide!";
+		close;
+	}
+
+prt_q,148,49,0	script	Sign#EP161ETC12	2_BULLETIN_BOARD,{
+	mes "[Prontera, the Capital of Rune-Midgarts Kingdom]";
+	mes "Welcome to Prontera";
+	mes "in the heart of Rune-Midgarts!";
+	mes "Prontera is located";
+	mes "in the center of the continent,";
+	mes "and it is famous as the busy city";
+	mes "of commerce and trade.";
+	next;
+	mes "[Prontera, the Capital of Rune-Midgarts Kingdom]";
+	mes "There are major buildings including";
+	mes "the Prontera Palace where job change to Crusader is available;";
+	mes "Prontera Cathedral where job changes to Acolyte, Priest are available";
+	mes "and wedding ceremonies are held;";
+	mes "the Knight's Building, etc.";
+	next;
+	mes "[Prontera, the Capital of Rune-Midgarts Kingdom]";
+	mes "There are many people and stores";
+	mes "as well so make sure to look around.";
+	next;
+	mes "[Prontera, the Capital of Rune-Midgarts Kingdom]";
+	mes "Also, in the south east of the central fountain,";
+	mes "there is the historic Quadro Blacksmith's Workshop.";
+	mes "Drop by the place if you want to get";
+	mes "your equipment";
+	mes "repaired.";
+	next;
+	mes "[Prontera, the Capital of Rune-Midgarts Kingdom]";
+	mes "There is Izlude in the south east, Payon in the south, Geffen in the west and Al De Baran in the north.";
+	close;
+}
+
+prt_pri00,51,116,8	script	Ellond Lawrence#EP161ER	4_M_CRU,1,1,{
+		mes "[Ellond Lawrence]";
+		mes "~Laughs~ You're an adventurer.";
+		mes "Be careful inside the prison. Kid.";
+		close;
+}

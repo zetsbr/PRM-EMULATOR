@@ -1,0 +1,19 @@
+//===== rAthena Script ======================================= 
+//= Renewal Swordman Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Swordman Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//============================================================ 
+izlude_in,74,172,4	script	Swordman#swd	119,{
+			mes "[Swordman Guildsman]";
+			mes "I'm sorry, you're not allowed to be part of our guild. That would be a big risk. Take Care.";
+			close;
+}

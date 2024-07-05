@@ -1,0 +1,19 @@
+//===== rAthena Script ======================================= 
+//= Hugel Airport NPCs
+//===== By: ================================================== 
+//= rAthena Dev Team
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Hugel Airport NPCs
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================ 
+
+hugel,178,142,0	script	Airport Staff#hugel	90,{
+	mes "[Airport Staff]";
+	mes "I'm Sorry, Orphans can't ride the airship. Have you not seen what happened when flying over Mjolnir?";
+	close;
+}

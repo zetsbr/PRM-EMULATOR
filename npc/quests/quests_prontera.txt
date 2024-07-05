@@ -1,0 +1,153 @@
+//===== rAthena Script =======================================
+//= Quest NPCs related to Prontera
+//===== Description: =========================================
+//= Collection of Prontera-based quests.
+//= * Culvert Access
+//= * Ph.D Hat Quest
+//= * Geoborg Family Curse
+//===== Comments: ============================================
+//= Culvert Access:
+//= - [Official Conversion]
+//= - Variable in use: MISC_QUEST (bit 8)
+//= Ph.D Hat Quest:
+//= - [Official Conversion]
+//= - n/a
+//= Geoborg Family Curse:
+//= - [Official Conversion]
+//= - Variable in use: prt_curse (max 61)
+//===== Changelogs: ==========================================
+//= 1.0 First Version. [kobra_k88] [L0ne_W0lf]
+//= Fixed flower name Dreamy -> Illusion
+//= 1.2 Fixed exploit [Lupus]
+//= 1.3 Removed Duplicates [Silent]
+//= 1.4 Moved Culvert from cities/prontera.txt [Evera]
+//= 1.5 Culvert has been rescripted from the ground up. [L0ne_W0lf]
+//= 1.6 Added Geoborg Family Curse quest. [L0ne_W0lf]
+//= 1.6a Fixed a couple spelling mistakes. [L0ne_W0lf]
+//= 1.7 Updated "Ph.D Quest" Dialogs. [Samuray22]
+//= 1.7b Fixed some minor typos. [SinSloth]
+//= 1.7c replaced item "names" with item id. [Lupus]
+//= 1.8 Fixed experience gains to match upcoming rate adjustments. [SinSloth]
+//= 1.9 Fixed "him" -> "her" in Ph.D hat quest. THansk to yyCC. [L0ne_W0lf]
+//= 2.0 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 2.0a Corrected a Typo error ";;". [Samuray22]
+//= 2.0b Corrected a Typo error. (bugreport:950) [Samuray22]
+//= 2.1 Added missing checkweights. [L0ne_W0lf]
+//= 2.2 Added Nameless Island quest addition. [L0ne_W0lf]
+//= 2.3 Bamph will now talk to those who failed the Geoborg quest. [L0ne_W0lf]
+//= 2.3a Touch up to Bamph fo other fail-points. [L0ne_W0lf]
+//= 2.3b Hopefully the last change needed for Nameless quest. [L0ne_W0lf]
+//= 2.4 Updated Headgear Quest. [L0ne_W0lf]
+//= 2.5 Fixed requirements for PH D. Hat. [L0ne_W0lf]
+//= 2.5a Fixed requirements for PH D. Hat agian lol. [L0ne_W0lf]
+//= 2.6 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 2.7 Corrected 'IProntera' typo. (bugreport:4522) [L0ne_W0lf]
+//= 2.8 Updated RE/Pre-RE EXP. [Euphy]
+//= 2.9 Updated Nameless Island addition and added questlog support. [Euphy]
+//============================================================
+
+// Prontera Culvert :: prt_npc
+//============================================================
+prt_in,88,105,2	script	Recruiter	105,{
+		mes "[Recruiter]";
+		mes "Ah...";
+		mes "I know those eyes.";
+		mes "Full of compassion";
+		mes "...and darkness, eh Orphan?";
+		next;
+		mes "[Recruiter]";
+		mes "Do you want to visit the Culverts? I'm not gonna help you of course. Hehe.";
+		if (select("Warp to Culvert Entrance.:Quit.") == 1) {
+			warp "prt_fild05",274,208;
+			end;
+		}
+		close;
+}
+
+prt_fild05,270,212,5	script	Culvert Guardian	105,{
+		mes "[Culvert Guardian]";
+		mes "Ah, You're an Orphan.";
+		mes "Do you wish to";
+		mes "go inside the culvert?";
+		next;
+		if (select("Sure.:Quit.") == 1) {
+			warp "prt_sewb1",131,247;
+			end;
+		}
+		close;
+	}
+
+// Ph.D Hat Quest :: npc_6cript
+//============================================================
+prt_in,38,108,4	script	Teacher	53,{
+		mes "[Teacher]";
+		mes "Don't you think...";
+		mes "Flowers are pretty?";
+		next;
+			mes "[Teacher]";
+			mes "One of these days I will cover this whole world with Flowers.";
+			close;
+		}
+
+// Geoborg Family Curse :: prt_curse
+//============================================================
+prontera,248,212,3	script	Busy Boy#prt	706,3,3,{
+			mes "[Busy-Looking Boy]";
+			mes "I delivered some books to the library, now I can take a cool walk around prontera! Lalala~~";
+		close;
+		}
+		
+yuno,311,195,3	script	Historian#prt01	754,{
+		mes "[Historian]";
+		mes "Juno's mysterious past";
+		mes "holds some great secret.";
+		mes "I'm sure of it! It excites me";
+		mes "to know that my research";
+		mes "brings me that much closer";
+		mes "to finally unveiling it!";
+		next;
+		mes "[Historian]";
+		mes "But I'll admit that even I don't know how much digging I'll";
+		mes "have to do to learn what I want. It's our duty as historians to";
+		mes "find out the truth of the past, but it definitely won't be easy.";
+		next;
+		mes "[Historian]";
+		mes "To understand, to see the";
+		mes "truth of the past with my";
+		mes "own eyes... I'd even sell";
+		mes "my soul for the opportunity.";
+		close;
+	}
+	
+morocc_in,45,126,3	script	Historian#prt02	702,{
+
+		mes "[Historian Rodafrian]";
+		mes "Oh, how does this place";
+		mes "have to be so hot? This";
+		mes "can't be good for my skin...";
+		mes "Ooh, I wish I were back home";
+		mes "in the Schwarzwald Republic~";
+		emotion ET_CRY;
+					close;
+}
+prt_church,115,122,0	warp	#sazekan	1,1,prt_church,168,106
+prt_church,166,106,0	warp	#prtchhall	1,1,prt_church,112,122
+
+prt_church,185,106,3	script	Father Bamph	60,{
+		mes "[Father Bamph]";
+		mes "Welcome to";
+		mes "Prontera Church.";
+		mes "Please relax, and";
+		mes "let your mind and";
+		mes "spirit find rest in";
+		mes "these hallowed halls. Morroc's Mark is a heavy burden to bear.";
+		close;
+	}
+	
+prt_in,162,99,4	script	Librarian#curse	67,{
+			mes "[Librarian]";
+			mes "Please keep silent";
+			mes "while inside the library.";
+			mes "Thank you for cooperating.";
+			close;
+		}

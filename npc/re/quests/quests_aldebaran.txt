@@ -1,0 +1,33 @@
+//===== rAthena Script =======================================
+//= NPCs related to Aldebaran Clock Tower (Nightmare)
+//===== By: ==================================================
+//= Ridley8819
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= 1.0 Initial release [Ridley8819]
+//= 1.1 Dialogue cleanup [Aleos]
+//============================================================
+
+c_tower1,232,222,5	script	Belljamin Button#ct	968,{
+	mes "[Belljamin Button]";
+	mes "The monsters here are able to control time.";
+	mes "Time, memories, environments... all can become warped here.";
+	next;
+	mes "[Belljamin Button]";
+	mes "I'm begging you not to ask more about it. It might put your life in danger.";
+	close;
+}
+
+c_tower2_,274,26,3	script	Belljamin Button#nct1	962,{
+	mes "[Belljamin Button]";
+	mes "Perhaps you've seen me before?";
+	next;
+	mes "[Belljamin Button]";
+	mes "You saw me in a different place, with a different look.";
+	close;
+}
+
+c_tower3_,59,148,5	duplicate(Belljamin Button#nct1)	Belljamin Button#nct2	574

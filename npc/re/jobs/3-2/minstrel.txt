@@ -1,0 +1,118 @@
+//===== rAthena Script ======================================= 
+//= Minstrel Job Quest
+//===== By: ================================================== 
+//= Muad_Dib
+//===== Current Version: ===================================== 
+//= 1.4
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job change Quest from Bard / Clown -> Minstrel.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Masao]
+//= 1.1 Fix the checking of requirements before job change to Minstel [JayPee]
+//= 1.2 Optimized. [Euphy]
+//= 1.3 Updated script. [Euphy]
+//= 1.4 Added VIP features. [Euphy]
+//============================================================
+
+alberta,196,133,4	script	Bard#job_min	486,{
+			mes "[Bard]";
+			mes "The voice of heaven revolves around in my ears";
+			mes "like a wandering wind,";
+			next;
+			mes "[Bard]";
+			mes "Even though I close my eyes and cover my ears,";
+			mes "I can hear a voice from somewhere,";
+			next;
+			mes "[Bard]";
+			mes "It put temptation in exhausted crewman to deep sleep,";
+			mes "made them feel as if they were in a land of dreams.";
+			next;
+			mes "[Girl]";
+			mes "Ahhh!! Awesome!!";
+			next;
+			mes "[Boy]";
+			mes "Encore!! Encore!!!";
+			next;
+			mes "[Old Man passing by]";
+			mes "Eeeee~ that's not real song...";
+			close;
+}
+
+prontera,141,97,4	script	Warmhearted woman	701,{
+	mes "[Warmhearted woman]";
+	mes "I heard that a ^f57d7dman wearing glasses near the gate of the castle^000000 is making a 100 hit song book~";
+	close;
+}
+
+prontera,140,331,6	script	Glasses-wearing Man	883,{
+	mes "[Glasses-wearing Man]";
+	mes "Once this book is completed, I'll be rich!";
+	mes "Haha!!";
+	close;
+}
+
+prontera,146,218,4	script	Woman#job_min	90,{
+	mes "[Woman]";
+	mes "My boy is a wonderful Minstrel in Alberta, He's always making nice songs.";
+	close;
+}
+
+hu_in01,267,5,3	script	Karian#job_min2	486,{
+	mes "[Karian]";
+	mes "Of course it's easy to take an airship, but sometimes it can be good to walk.";
+	close;
+}
+
+hu_in01,361,103,3	script	Tone-deaf person	995,{
+	mes "[Tone-deaf person]";
+	mes "Lala~ lalal~";
+	mes "Lulu~?";
+	next;
+	mes "[Tone-deaf person]";
+	mes "Lalalal~";
+	mes "Lululul~";
+	next;
+	mes "-It's very hard to hear.-";
+	mes "-You start to have doubts-";
+	mes "-that such a sound can be-";
+	mes "-coming out a human.-";
+	close;
+}
+
+lighthalzen,155,119,3	script	Little girl#job_min	891,3,3,{
+	mes "[Little Girl]";
+	mes "Ah!!!!";
+	mes "Teddy bear!!!";
+	next;
+	mes "[Little Girl]";
+	mes "I'm having a lot of fun playing with the Teddy Bears!";
+	next;
+	mes "[Little Girl]";
+	mes "Do you like teddy bears?";
+	mes "I love 'em!!!!!";
+	close;
+}
+
+ra_in01,358,130,4	script	Old Woman#job_min	979,{
+	mes "[Old Woman]";
+	mes "I heard that Comodo is a very fun place, I want to go there before I die.";
+	close;
+}
+
+comodo,192,119,0	script	Kayak Master#job_min	98,{
+	mes "[Kayak Master]";
+	mes "The sea is man's dream.";
+	next;
+	mes "[Kayak Master]";
+	mes "It's my hope that I can cross over to Hugel someday!";
+	close;
+}
+
+comodo,159,316,4	script	Woman Roasting Meat	701,{
+	mes "[Woman Roasting Meat]";
+	mes "Whats up? Need some meat?";
+	close;
+}

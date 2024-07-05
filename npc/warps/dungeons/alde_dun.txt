@@ -1,0 +1,8 @@
+//Warps for Distortion Clock Tower
+
+alde_dun03,277,183,0	warp	distalde01	1,1,alde_dun03,192,35
+alde_dun03,192,31,0	warp	distalde02	1,1,alde_dun03,277,179
+alde_dun03,130,124,0	warp	distalde03	1,1,alde_dun03,175,130
+alde_dun03,172,128,0	warp	distalde04	1,1,alde_dun03,130,128
+alde_dun03,276,48,0	warp	distalde05	1,1,alde_dun04,204,222
+alde_dun04,207,225,0	warp	distalde06	1,1,alde_dun03,276,52

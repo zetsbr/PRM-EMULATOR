@@ -1,0 +1,2571 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Item Random Option Group Database
+###########################################################################
+#
+# Item Random Option Group Settings
+#
+###########################################################################
+# - Id                  Item Random Option Group ID.
+#   Group               Item Random Option Group constant.
+#   Slots:              Slot in which an Item Random Option is guaranteed to be applied. Max of MAX_ITEM_RDM_OPT.
+#     - Slot            Slot number.
+#       Options:        List of possible Item Random Options for slot.
+#         - Option      Item Random Option constant.
+#           MinValue    Minimum value. (Default: 0)
+#           MaxValue    Maximum value. (Default: 0)
+#           Param       Parameter value. (Default: 0)
+#           Chance      Chance applied specifically to this Item Random Option (1 = 0.01%, 10000 = 100%). (Default: 0)
+#   MaxRandom           Maximum amount of random options applied. These options are not guaranteed to be applied. Max of (MAX_ITEM_RDM_OPT - Total 'Slots'). (Default: 0)
+#   Random:             List of possible Item Random Options for remaining slots. (Optional)
+#     - Option          Item Random Option constant.
+#       MinValue        Minimum value. (Default: 0)
+#       MaxValue        Maximum value. (Default: 0)
+#       Param           Parameter value. (Default: 0)
+#       Chance          Chance applied specifically to this Item Random Option (1 = 0.01%, 10000 = 100%). (Default: 0)
+###########################################################################
+
+Header:
+  Type: RANDOM_OPTION_GROUP
+  Version: 1
+
+Body:
+  - Id: 1
+    Group: armor
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 5000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 5000
+      - Slot: 3
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_INSECT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+          - Option: ADDEXPPERCENT_KILLRACE_FISHS
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+          - Option: HEAL_MODIFY_PERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 5000
+  - Id: 2
+    Group: shield
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_ITEMDEFPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 4000
+          - Option: VAR_MDEFPOWER
+            MinValue: 1
+            MaxValue: 3
+            Chance: 4000
+          - Option: VAR_PLUSAVOIDSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 2
+            Chance: 4000
+      - Slot: 3
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_INSECT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+          - Option: ADDEXPPERCENT_KILLRACE_FISHS
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+          - Option: HEAL_MODIFY_PERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 5000
+  - Id: 3
+    Group: garment
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_AVOIDSUCCESSVALUE
+            MinValue: 5
+            MaxValue: 10
+            Chance: 5000
+          - Option: VAR_PLUSAVOIDSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+      - Slot: 3
+        Options:
+          - Option: VAR_HPACCELERATION
+            MinValue: 10
+            MaxValue: 20
+            Chance: 1000
+          - Option: VAR_SPACCELERATION
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+          - Option: BODY_ATTR_FIRE
+            MinValue: 2
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 250
+  - Id: 4
+    Group: shoes
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_NOTHING
+            MinValue: 5
+            MaxValue: 10
+            Chance: 5000
+          - Option: VAR_PLUSASPDPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 5000
+      - Slot: 3
+        Options:
+          - Option: DEC_SPELL_CAST_TIME
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+          - Option: DEC_SPELL_DELAY_TIME
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+          - Option: BODY_ATTR_WIND
+            MinValue: 1
+            MaxValue: 1
+            Chance: 1000
+  - Id: 5
+    Group: accessory
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+  - Id: 6
+    Group: manual
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+  - Id: 7
+    Group: dagger
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_CRITICALSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 3000
+          - Option: VAR_HITSUCCESSVALUE
+            MinValue: 10
+            MaxValue: 20
+            Chance: 3000
+          - Option: ADDEXPPERCENT_KILLRACE_HUMAN
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+      - Slot: 3
+        Options:
+          - Option: ADDSKILLMDAMAGE_ALL
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: DAMAGE_SIZE_PERFECT
+            Chance: 1000
+          - Option: REFLECT_DAMAGE_PERCENT
+            MinValue: 100
+            MaxValue: 100
+            Chance: 1000
+      - Slot: 4
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_ALL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_UNDEAD
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DEVIL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANGEL
+            MinValue: 2
+            MaxValue: 2
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DRAGON
+            MinValue: 1
+            MaxValue: 1
+            Chance: 1000
+  - Id: 8
+    Group: sword
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_CRITICALSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 3000
+          - Option: VAR_HITSUCCESSVALUE
+            MinValue: 10
+            MaxValue: 20
+            Chance: 3000
+          - Option: ADDEXPPERCENT_KILLRACE_HUMAN
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+      - Slot: 3
+        Options:
+          - Option: ADDSKILLMDAMAGE_ALL
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: RANGE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: DAMAGE_SIZE_PERFECT
+            Chance: 1000
+          - Option: REFLECT_DAMAGE_PERCENT
+            MinValue: 100
+            MaxValue: 100
+            Chance: 1000
+      - Slot: 4
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_ALL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 4000
+          - Option: CLASS_IGNORE_DEF_PERCENT_NORMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 1000
+          - Option: CLASS_IGNORE_MDEF_PERCENT_NORMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DEVIL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANGEL
+            MinValue: 3
+            MaxValue: 3
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DRAGON
+            MinValue: 1
+            MaxValue: 1
+            Chance: 1000
+  - Id: 9
+    Group: axe
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: DEC_SPELL_DELAY_TIME
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 3000
+          - Option: VAR_HITSUCCESSVALUE
+            MinValue: 10
+            MaxValue: 20
+            Chance: 3000
+          - Option: ADDEXPPERCENT_KILLRACE_HUMAN
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+      - Slot: 3
+        Options:
+          - Option: ADDSKILLMDAMAGE_ALL
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: DAMAGE_SIZE_PERFECT
+            Chance: 1000
+          - Option: REFLECT_DAMAGE_PERCENT
+            MinValue: 100
+            MaxValue: 100
+            Chance: 1000
+      - Slot: 4
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_ALL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_INSECT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_FISHS
+            MinValue: 1
+            MaxValue: 3
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DEVIL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANGEL
+            MinValue: 4
+            MaxValue: 4
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DRAGON
+            MinValue: 2
+            MaxValue: 2
+            Chance: 1000
+  - Id: 10
+    Group: katar
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_CRITICALSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 3000
+          - Option: VAR_HITSUCCESSVALUE
+            MinValue: 10
+            MaxValue: 20
+            Chance: 3000
+          - Option: ADDEXPPERCENT_KILLRACE_HUMAN
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+      - Slot: 3
+        Options:
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: DAMAGE_SIZE_PERFECT
+            Chance: 1000
+          - Option: REFLECT_DAMAGE_PERCENT
+            MinValue: 100
+            MaxValue: 100
+            Chance: 1000
+      - Slot: 4
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_ALL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 4000
+          - Option: CLASS_IGNORE_DEF_PERCENT_NORMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DEVIL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANGEL
+            MinValue: 2
+            MaxValue: 2
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DRAGON
+            MinValue: 1
+            MaxValue: 1
+            Chance: 4000
+  - Id: 11
+    Group: scythe
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_CRITICALSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 3000
+          - Option: VAR_HITSUCCESSVALUE
+            MinValue: 10
+            MaxValue: 20
+            Chance: 3000
+          - Option: ADDEXPPERCENT_KILLRACE_HUMAN
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+      - Slot: 3
+        Options:
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: RANGE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: REFLECT_DAMAGE_PERCENT
+            MinValue: 100
+            MaxValue: 100
+            Chance: 1000
+      - Slot: 4
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_ALL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DEVIL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANGEL
+            MinValue: 7
+            MaxValue: 7
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DRAGON
+            MinValue: 1
+            MaxValue: 1
+            Chance: 4000
+          - Option: ADDSKILLMDAMAGE_UNDEAD
+            MinValue: 1
+            MaxValue: 1
+            Chance: 4000
+  - Id: 12
+    Group: bow
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_CRITICALSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 3000
+          - Option: VAR_HITSUCCESSVALUE
+            MinValue: 10
+            MaxValue: 20
+            Chance: 3000
+          - Option: ADDEXPPERCENT_KILLRACE_HUMAN
+            MinValue: 1
+            MaxValue: 10
+            Chance: 3000
+      - Slot: 3
+        Options:
+          - Option: ADDSKILLMDAMAGE_ALL
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: RANGE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 10
+            Chance: 4000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 2000
+          - Option: ADDSKILLMDAMAGE_UNDEAD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 1000
+      - Slot: 4
+        Options:
+          - Option: ADDEXPPERCENT_KILLRACE_ALL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_UNDEAD
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DEVIL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_ANGEL
+            MinValue: 1
+            MaxValue: 1
+            Chance: 4000
+          - Option: ADDSKILLMDAMAGE_UNDEAD
+            MinValue: 1
+            MaxValue: 1
+            Chance: 1000
+  - Id: 13
+    Group: deck
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 7
+            Chance: 5000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 7
+            Chance: 5000
+      - Slot: 2
+        Options:
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 7
+            Chance: 10000
+      - Slot: 3
+        Options: 
+          - Option: BODY_ATTR_WIND
+            MinValue: 1
+            MaxValue: 7
+            Chance: 1000
+  - Id: 14
+    Group: spear
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 5000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 5000
+      - Slot: 2
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 5000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 5000
+      - Slot: 3
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+  - Id: 15
+    Group: shadow
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: DAMAGE_PROPERTY_NOTHING_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WIND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WIND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_POISON_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_POISON_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_SAINT_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_SAINT_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_DARKNESS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_DARKNESS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_TELEKINESIS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_TELEKINESIS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_UNDEAD_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_UNDEAD_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_NOTHING_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WATER_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_GROUND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_FIRE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WIND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WIND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_POISON_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_POISON_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_SAINT_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_SAINT_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_DARKNESS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_DARKNESS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_TELEKINESIS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_TELEKINESIS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_UNDEAD_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_UNDEAD_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_NORMAL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_BOSS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_NORMAL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_BOSS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_NORMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_BOSS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_SMALL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_MIDIUM_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_LARGE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_SMALL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_MIDIUM_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_LARGE_USER
+            MinValue: 2000
+            MaxValue: 2000
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_LARGE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_USER
+            MinValue: 3000
+            MaxValue: 3000
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_USER
+            MinValue: 5000
+            MaxValue: 5000
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_LARGE_USER
+            MinValue: 5000
+            MaxValue: 5000
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_HUMAN
+            MinValue: 5000
+            MaxValue: 5000
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_ANGEL
+            MinValue: 2000
+            MaxValue: 2000
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_WATER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_GROUND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_FIRE
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_WIND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_POISON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_SAINT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_DARKNESS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_TELEKINESIS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_WATER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_GROUND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ATTR_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ATTR_TOLERACE_ALLBUTNOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ATTR_TOLERACE_TELEKINESIS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_POISON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_SAINT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_DARKNESS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_TELEKINESIS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 16
+    Group: dracoorb
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: BODY_ATTR_UNDEAD
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+      - Slot: 2
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+  - Id: 17
+    Group: dracomvp
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: BODY_ATTR_UNDEAD
+            MinValue: 4
+            MaxValue: 5
+            Chance: 5000
+      - Slot: 2
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 4
+            MaxValue: 5
+            Chance: 5000
+  - Id: 18
+    Group: codex
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 10
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 10
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 10
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 10
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 10
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 10
+            Chance: 2000
+  - Id: 19
+    Group: whip
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+      - Slot: 2
+        Options:
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 5
+            Chance: 4000
+          - Option: RANGE_ATTACK_DAMAGE_TARGET
+            MinValue: 1
+            MaxValue: 5
+            Chance: 4000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 1
+            MaxValue: 5
+            Chance: 2000
+          - Option: DAMAGE_CRI_TARGET
+            MinValue: 1
+            MaxValue: 5
+            Chance: 4000
+      - Slot: 3
+        Options:
+          - Option: VAR_PLUSASPD
+            MinValue: 1
+            MaxValue: 2
+            Chance: 3000
+          - Option: DEC_SPELL_DELAY_TIME
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: VAR_CRITICALSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 5
+            Chance: 3000
+  - Id: 20
+    Group: astrologika
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: VAR_MAXHPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+          - Option: VAR_MAXSPPERCENT
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+          - Option: VAR_ATTPOWER
+            MinValue: 1
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_ATTMPOWER
+            MinValue: 1
+            MaxValue: 3
+            Chance: 5000
+      - Slot: 3
+        Options:
+          - Option: DEC_SPELL_DELAY_TIME
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+          - Option: VAR_PLUSASPDPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+          - Option: BODY_ATTR_WIND
+            MinValue: 1
+            MaxValue: 1
+            Chance: 1000
+          - Option: VAR_PLUSAVOIDSUCCESSVALUE
+            MinValue: 1
+            MaxValue: 3
+            Chance: 1000
+          - Option: VAR_PLUSASPDPERCENT
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+          - Option: BODY_ATTR_WIND
+            MinValue: 1
+            MaxValue: 1
+            Chance: 1000
+          - Option: VAR_HPACCELERATION
+            MinValue: 10
+            MaxValue: 20
+            Chance: 1000
+          - Option: VAR_SPACCELERATION
+            MinValue: 5
+            MaxValue: 15
+            Chance: 1000
+          - Option: ADDEXPPERCENT_KILLRACE_ANIMAL
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+          - Option: ADDEXPPERCENT_KILLRACE_NOTHING
+            MinValue: 5
+            MaxValue: 10
+            Chance: 1000
+      - Slot: 4
+        Options:
+          - Option: DAMAGE_PROPERTY_NOTHING_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WIND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_WIND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_POISON_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_POISON_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_SAINT_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_SAINT_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_DARKNESS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_DARKNESS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_TELEKINESIS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_TELEKINESIS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_UNDEAD_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_PROPERTY_UNDEAD_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_NOTHING_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_NOTHING_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WATER_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WATER_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_GROUND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_GROUND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_FIRE_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_FIRE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WIND_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_WIND_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_POISON_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_POISON_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_SAINT_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_SAINT_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_DARKNESS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_DARKNESS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_TELEKINESIS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_TELEKINESIS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_UNDEAD_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_PROPERTY_UNDEAD_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_ANGEL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_MDEF_PERCENT_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_NORMAL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_BOSS_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_NORMAL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_DAMAGE_BOSS_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_NORMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: CLASS_MDAMAGE_BOSS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_SMALL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_MIDIUM_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_LARGE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_SMALL_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_MIDIUM_USER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: DAMAGE_SIZE_LARGE_USER
+            MinValue: 2000
+            MaxValue: 2000
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_LARGE_TARGET
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_SMALL_USER
+            MinValue: 3000
+            MaxValue: 3000
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_MIDIUM_USER
+            MinValue: 5000
+            MaxValue: 5000
+            Chance: 1000
+          - Option: MDAMAGE_SIZE_LARGE_USER
+            MinValue: 5000
+            MaxValue: 5000
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_ANIMAL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_PLANT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_INSECT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_FISHS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_DEVIL
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_HUMAN
+            MinValue: 5000
+            MaxValue: 5000
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_ANGEL
+            MinValue: 2000
+            MaxValue: 2000
+            Chance: 1000
+          - Option: RACE_WEAPON_TOLERACE_DRAGON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_TOLERACE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_DAMAGE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_MDAMAGE_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_CRI_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_PLAYER_HUMAN
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: RACE_IGNORE_DEF_PERCENT_PLAYER_DORAM
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_WATER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_GROUND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_FIRE
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_WIND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_POISON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_SAINT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_DARKNESS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ADDSKILLMDAMAGE_TELEKINESIS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_NOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_WATER
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_GROUND
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ATTR_TOLERACE_UNDEAD
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ATTR_TOLERACE_ALLBUTNOTHING
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: ATTR_TOLERACE_TELEKINESIS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_POISON
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_SAINT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_DARKNESS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+          - Option: BODY_ATTR_TELEKINESIS
+            MinValue: 5
+            MaxValue: 5
+            Chance: 1000
+  - Id: 21
+    Group: lowerscroll
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 2
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: ATTR_TOLERACE_WATER
+            MinValue: 1
+            MaxValue: 10
+            Chance: 10000
+      - Slot: 3
+        Options:
+          - Option: ATTR_TOLERACE_GROUND
+            MinValue: 1
+            MaxValue: 10
+            Chance: 10000
+  - Id: 22
+    Group: higherscroll
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_STRAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_AGIAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_VITAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_INTAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_DEXAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+          - Option: VAR_LUKAMOUNT
+            MinValue: 1
+            MaxValue: 1
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: ATTR_TOLERACE_WATER
+            MinValue: 1
+            MaxValue: 5
+            Chance: 10000
+      - Slot: 3
+        Options:
+          - Option: ATTR_TOLERACE_GROUND
+            MinValue: 1
+            MaxValue: 5
+            Chance: 10000
+            

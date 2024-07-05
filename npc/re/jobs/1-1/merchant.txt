@@ -1,0 +1,21 @@
+//===== rAthena Script ======================================= 
+//= Renewal Merchant Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Merchant Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//============================================================ 
+alberta_in,53,43,6	script	Merchant#mer	86,{
+			mes "[Chief Mahnsoo]";
+			mes "^333333*Sigh*^000000";
+			mes "I'm so bored...";
+			mes "When will I hear from my lovely Blossom?";
+			close;
+}

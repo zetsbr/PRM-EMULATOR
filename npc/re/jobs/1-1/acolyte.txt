@@ -1,0 +1,40 @@
+//===== rAthena Script ======================================= 
+//= Renewal Acolyte Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Acolyte Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added back the npcs used for the priest quest.
+//= 1.2 Added support for Baby classes. [Euphy]
+//============================================================ 
+prt_church,184,41,4	script	Cleric#aco	60,{
+					mes "[Father Mareusis]";
+					mes "Unfortunately, I don't think you're fit become an Acolyte. Morroc's Mark might bring fear to people.";
+					close;
+				}
+				
+prt_fild03,365,255,2	script	Ascetic#aco	89,{
+			mes "[Father Rubalkabara]";
+			mes "Welcome to the Deep. Feel free to sit and contemplate God's message with me. This place is beautiful, even if danger accompanies its sense of serenity...";
+			close;
+		}
+
+moc_fild07,41,355,4	script	Ascetic#2aco	95,{
+			mes "[Mother Mathilda]";
+			mes "May God";
+			mes "be with you...";
+			close;
+		}
+
+prt_fild00,208,218,6	script	Ascetic#3aco	98,{
+			mes "[Father Yosuke]";
+			mes "If you'd like, come sit here with me and meditate the great truths. God's majesty is truly inspiring...";
+			close;
+		}
+

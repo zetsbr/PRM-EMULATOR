@@ -1,0 +1,478 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Elemental Attribute Damage Adjustment Tables
+###########################################################################
+#
+# Elemental Attribute Damage Adjustment Settings
+#
+###########################################################################
+# - Level                        Level of the Attribute.
+#   <element>:                   Attacker's weapon element.
+#       <element>: <value>       Target's defense element. <value> in %, default 100. Value accepted from -100 to 200.
+###########################################################################
+
+Header:
+  Type: ATTRIBUTE_DB
+  Version: 1
+
+Body:
+  - Level: 1
+    Neutral:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 75
+      Holy: 90
+      Dark: 100
+      Ghost: 75
+      Undead: 100
+    Water:
+      Neutral: 100
+      Water: 50
+      Earth: 100
+      Fire: 125
+      Wind: 75
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Earth:
+      Neutral: 100
+      Water: 100
+      Earth: 50
+      Fire: 75
+      Wind: 125
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Fire:
+      Neutral: 100
+      Water: 75
+      Earth: 125
+      Fire: 50
+      Wind: 100
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Wind:
+      Neutral: 100
+      Water: 125
+      Earth: 75
+      Fire: 100
+      Wind: 50
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Poison:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 50
+      Holy: 90
+      Dark: 100
+      Ghost: 75
+      Undead: 75
+    Holy:
+      Neutral: 110
+      Water: 90
+      Earth: 90
+      Fire: 90
+      Wind: 90
+      Poison: 110
+      Holy: 50
+      Dark: 125
+      Ghost: 110
+      Undead: 110
+    Dark:
+      Neutral: 90
+      Water: 110
+      Earth: 110
+      Fire: 110
+      Wind: 110
+      Poison: 90
+      Holy: 125
+      Dark: 50
+      Ghost: 90
+      Undead: 90
+    Ghost:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 90
+      Dark: 100
+      Ghost: 50
+      Undead: 125
+    Undead:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 90
+      Dark: 100
+      Ghost: 125
+      Undead: 50
+  - Level: 2
+    Neutral:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 75
+      Holy: 90
+      Dark: 100
+      Ghost: 75
+      Undead: 100
+    Water:
+      Neutral: 100
+      Water: 50
+      Earth: 100
+      Fire: 125
+      Wind: 75
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Earth:
+      Neutral: 100
+      Water: 100
+      Earth: 50
+      Fire: 75
+      Wind: 125
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Fire:
+      Neutral: 100
+      Water: 75
+      Earth: 125
+      Fire: 50
+      Wind: 100
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Wind:
+      Neutral: 100
+      Water: 125
+      Earth: 75
+      Fire: 100
+      Wind: 50
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Poison:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 50
+      Holy: 90
+      Dark: 100
+      Ghost: 75
+      Undead: 75
+    Holy:
+      Neutral: 110
+      Water: 90
+      Earth: 90
+      Fire: 90
+      Wind: 90
+      Poison: 110
+      Holy: 50
+      Dark: 125
+      Ghost: 110
+      Undead: 110
+    Dark:
+      Neutral: 90
+      Water: 110
+      Earth: 110
+      Fire: 110
+      Wind: 110
+      Poison: 90
+      Holy: 125
+      Dark: 50
+      Ghost: 90
+      Undead: 90
+    Ghost:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 90
+      Dark: 100
+      Ghost: 50
+      Undead: 125
+    Undead:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 90
+      Dark: 100
+      Ghost: 125
+      Undead: 50
+  - Level: 3
+    Neutral:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 75
+      Holy: 90
+      Dark: 100
+      Ghost: 75
+      Undead: 100
+    Water:
+      Neutral: 100
+      Water: 50
+      Earth: 100
+      Fire: 125
+      Wind: 75
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Earth:
+      Neutral: 100
+      Water: 100
+      Earth: 50
+      Fire: 75
+      Wind: 125
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Fire:
+      Neutral: 100
+      Water: 75
+      Earth: 125
+      Fire: 50
+      Wind: 100
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Wind:
+      Neutral: 100
+      Water: 125
+      Earth: 75
+      Fire: 100
+      Wind: 50
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Poison:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 50
+      Holy: 90
+      Dark: 100
+      Ghost: 75
+      Undead: 75
+    Holy:
+      Neutral: 110
+      Water: 90
+      Earth: 90
+      Fire: 90
+      Wind: 90
+      Poison: 110
+      Holy: 50
+      Dark: 125
+      Ghost: 110
+      Undead: 110
+    Dark:
+      Neutral: 90
+      Water: 110
+      Earth: 110
+      Fire: 110
+      Wind: 110
+      Poison: 90
+      Holy: 125
+      Dark: 50
+      Ghost: 90
+      Undead: 90
+    Ghost:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 90
+      Dark: 100
+      Ghost: 50
+      Undead: 125
+    Undead:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 90
+      Dark: 100
+      Ghost: 125
+      Undead: 50
+  - Level: 4
+    Neutral:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 50
+      Holy: 75
+      Dark: 100
+      Ghost: 50
+      Undead: 100
+    Water:
+      Neutral: 100
+      Water: 25
+      Earth: 100
+      Fire: 125
+      Wind: 50
+      Poison: 100
+      Holy: 100
+      Dark: 75
+      Ghost: 100
+      Undead: 100
+    Earth:
+      Neutral: 100
+      Water: 100
+      Earth: 25
+      Fire: 50
+      Wind: 125
+      Poison: 100
+      Holy: 100
+      Dark: 75
+      Ghost: 100
+      Undead: 100
+    Fire:
+      Neutral: 100
+      Water: 50
+      Earth: 125
+      Fire: 25
+      Wind: 100
+      Poison: 100
+      Holy: 100
+      Dark: 75
+      Ghost: 100
+      Undead: 100
+    Wind:
+      Neutral: 100
+      Water: 125
+      Earth: 50
+      Fire: 100
+      Wind: 25
+      Poison: 100
+      Holy: 100
+      Dark: 90
+      Ghost: 100
+      Undead: 100
+    Poison:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 25
+      Holy: 75
+      Dark: 100
+      Ghost: 50
+      Undead: 50
+    Holy:
+      Neutral: 110
+      Water: 75
+      Earth: 75
+      Fire: 75
+      Wind: 75
+      Poison: 110
+      Holy: 25
+      Dark: 125
+      Ghost: 110
+      Undead: 110
+    Dark:
+      Neutral: 75
+      Water: 110
+      Earth: 110
+      Fire: 110
+      Wind: 110
+      Poison: 75
+      Holy: 125
+      Dark: 25
+      Ghost: 75
+      Undead: 75
+    Ghost:
+      Neutral: 125
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 75
+      Dark: 100
+      Ghost: 25
+      Undead: 125
+    Undead:
+      Neutral: 100
+      Water: 100
+      Earth: 100
+      Fire: 100
+      Wind: 100
+      Poison: 125
+      Holy: 75
+      Dark: 100
+      Ghost: 125
+      Undead: 25

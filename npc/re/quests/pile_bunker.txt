@@ -1,0 +1,22 @@
+//===== rAthena Script ======================================= 
+//= Pile Bunker Quest
+//===== By: ================================================== 
+//= JayPee Mateo
+//===== Current Version: ===================================== 
+//= 2.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= 1.0 A Pile Bunker quest based on iRO WiKi. [JayPee Mateo]
+//= 2.0 Rewrited the Script a little so it looks a bit better. [Masao]
+//= 2.1 Switched to official script, coded by Gennosuke Kouga. [Euphy]
+//= 2.2 Updated to match the official script. [Euphy]
+//============================================================ 
+
+// Main NPC :: mech_book
+//============================================================
+yuno,179,174,4	script	Gomer	851,{
+		mes "[Gomer]";
+		mes "I'm a retired Mechanic and I don't think I have any business with you.";
+		close;
+}

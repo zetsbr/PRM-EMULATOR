@@ -1,0 +1,103 @@
+//===== rAthena Script ======================================= 
+//= Alchemist Job Quest
+//===== By: ==================================================
+//= nestor_zulueta (Fusion), converted by Darkchild
+//===== Current Version: ===================================== 
+//= 3.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job quest for Alchemist classes
+//===== Additional Comments: ================================= 
+//= 2.5 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
+//=     No longer uses function "F_BlockHigh"
+//= 2.6 Corrected a bug in advanced class checking. [L0ne_W0lf]
+//= 2.7 Added missing checkweights. [L0ne_W0lf]
+//= 2.8 Fixed minor typo in test section. [L0ne_W0lf]
+//= 2.9 Added Quest Log commands. [Kisuka]
+//= 3.0 Removed the need for use of 'goto.' [L0ne_W0lf]
+//= 3.1 Added missing changequest commands. [Kisuka]
+//============================================================ 
+
+alde_alche,27,185,5	script	Alchemist Guildsman#am	744,{
+	mes "[Parmy Gianino]";
+		mes "Welcome to the";
+		mes "Alchemist Unio--";
+		mes "You're an Orphan.";
+		mes "Go away.";
+		close;
+}
+
+alde_alche,175,107,3	script	Fastidious Alchemist#am	749,{
+	mes "[Raspuchin Gregory]";
+			mes "Heeheehee";
+			mes "keheheh~!";
+			mes "Eh? What do you want?!";
+			next;
+			mes "[Raspuchin Gregory]";
+			mes "You're not here to steal my experimental results or plagiarize my work, are you? How dare you consider intellectual theft!";
+			next;
+			mes "[Raspuchin Gregory]";
+			mes "You're not, are you?";
+			mes "Well, as a member of the fortress, Don't even try, you have no Idea what I'm capable of!";
+			close;
+		}
+alde_alche,13,15,7	script	Studying Man#am	750,{
+	mes "[Darwin]";
+			mes "These cursed eyes...";
+			mes "They've lost sight of";
+			mes "my dreams a long time ago.";
+			mes "Ha ha ha ha...";
+			close;
+}
+
+alde_alche,79,19,5	script	Experiment Expert#am	748,{
+	mes "[Van Helmont]";
+			mes "What do you want?";
+			mes "I'm busy!! Don't";
+			mes "bother me and get";
+			mes "on your way.";
+			close;
+}
+alde_alche,101,184,4	script	Master Alchemist#am	122,{
+	cutin "job_alche_vincent",2;
+	mes "[Vincent Carsciallo]";
+			mes "[Vincent Carsciallo]";
+			mes "At times you get results that are unexpected from an experiment. Although these may be setbacks in your research, such results can also lead to new discoveries.";
+			next;
+			mes "[Vincent Carsciallo]";
+			mes "If you discover something new,";
+			mes "come and tell us. Don't forget that we are all working together to unlock the mysteries of science!";
+		close2;
+		cutin "",255;
+		end;
+}
+
+alde_alche,145,19,1	script	Chief Researcher#am	57,{
+		mes "[Nicholas Flamel]";
+		mes "Blast Jugglers cause a mess with their lack of care. We always get the blame for what they do!";
+		close;
+}
+
+//============================================================ 
+// Old changelog
+//============================================================ 
+//= 1.0 Working.
+//=     npc/quests/counteragent_mixture.txt Also Needed
+//=     npc/quests/quests_yuno.txt Also Needed [Darkchild]
+//= 1.1 Fixed some minor bugs.  Optimized some lines. Re-organized the script a bit. 
+//=     Giving Parmry NPC, Hammer and Old Book now waves the 50000 fee. (based of mRO website)
+//=     Having a joblvl of 50 allows you to skip Rasputin's test. (based of mRO website) [kobra_k88]
+//= 1.2 fixed a few typos (have to hunt more) [Lupus]
+//= 1.3 Added Baby Class Support [Lupus]
+//= 1.6 Added a func which prevent advanced classes passing
+//=     2nd Job Quests again. It also guides adv classes where
+//=     to go. [Lupus]
+//= 1.6a fixed some wrong answers, thanks to zlider for info [Lupus]
+//= 2.0 Changed numbers to constants. [Vicious]
+//= 2.2 Got rid of 'al_morgen' var. Now uses (MISC_QUEST & 4) [Lupus]
+//= 2.3 Optimized, changed job numbers to constants. Fixed some spelling [Lupus]
+//= 2.4 Added alternative prizes according to JobLevel [Lupus]
+//= 2.4a Fixed 2 wrong answers in Rasputin's test [Lupus]
+//============================================================ 

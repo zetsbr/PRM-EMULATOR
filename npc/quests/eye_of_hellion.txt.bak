@@ -1,0 +1,266 @@
+//===== rAthena Script =======================================
+//= The Eye of Hellion Quest
+//===== By: ==================================================
+//= MasterOfMuppets
+//===== Current Version: =====================================
+//= 2.1
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Quest for getting a Nile Rose
+//= There are two versions of this quest.
+//= Version 1 (not implemented) was used on iRO as an event
+//= for its anniversary, while version 2 (this version)
+//= is the one that remained active on main servers.
+//===== Additional Comments: =================================
+//= 1.5 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//=     Tracking variable is not backwards compatable meaning
+//=     you can again repeat this quest from the start.
+//= 1.6 Fixed issue with #prt_key-1-1. [L0ne_W0lf]
+//= 1.7 Corrected remnants from Official Conversion. [L0ne_W0lf]
+//= 1.8 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 1.9 Removed duplicate text. [Kisuka]
+//= 2.0 Updated EXP rewards.
+//= 2.1 Updated RE/Pre-RE EXP. [Euphy]
+//============================================================
+
+morocc_in,116,101,3	script	Old Scholar Tyus#hellion	735,3,3,{
+		mes "[Sir Chilias'Tyus]";
+		mes "Greetings...";
+		mes "My name is Sir Chilias'Tyus.";
+		mes "I've lived a long time here in";
+		mes "Rune-Midgarts and I've come";
+		mes "to see and know a lot of things. Power, jealously, hardship...";
+		next;
+		mes "[Sir Chilias'Tyus]";
+		mes "This land has grown corrupt";
+		mes "with the diseases of greed";
+		mes "and selfishness. Everywhere";
+		mes "you go, people are heartless, they hate Orphans.";
+		next;
+		mes "[Sir Chilias'Tyus]";
+		mes "There is no shortage of";
+		mes "brave and strong warriors";
+		mes "in these dangerous times.";
+		mes "But good people are few and far.";
+		close;
+}
+
+prontera,269,326,3	script	Clanux Heffron#hellion	50,{
+		mes "[Clanux Heffron]";
+		mes "What's wrong with";
+		mes "this map?! I can't";
+		mes "find a blasted thing";
+		mes "on it! How can finding";
+		mes "something be so hard?";
+		close;
+}
+
+geffen,110,200,3	script	Sage Welshyun#hellion	754,3,3,{
+		mes "[Welshyun]";
+		mes "Valaskjalf~ I wonder how that guy got it right...";
+		close;
+	}
+
+OnTouch_:
+	if (HELLIONQ == 58 && countitem(7335) > 0) {
+		specialeffect2 EF_HEAL2;
+		specialeffect EF_HEAL2;
+		mes "^3355FFThe piece of tablet";
+		mes "that you have is shining";
+		mes "with light as if in response";
+		mes "to something in the area.^000000";
+		close;
+	}
+	end;
+}
+
+gef_tower,116,37,0	script	Enoz#hellion	748,{
+	if (HELLIONQ == 59 || HELLIONQ == 62) {
+		mes "[Enoz]";
+		mes "It's gone, it's gone!";
+		mes "Where the hell did it go?!";
+		mes "Oh man, who could have";
+		mes "taken it? Wait, was it... You?!";
+		next;
+		if (select("Actually, Welshyun sent me.:No way man, don't go nuts.") == 1) {
+			mes "[Enoz]";
+			mes "My mentor, Welshyun?";
+			mes "Huh. Is there a report";
+			mes "I haven't submitted to him";
+			mes "yet? So what was it called?";
+			next;
+			input .@input$;
+			if (.@input$ == "Monster Life in the Geffen Area") {
+				mes "[Enoz]";
+				mes "''Monster Life in";
+				mes "the Geffen Area?''";
+				mes "Oh no. My mentor took";
+				mes "that three days ago!";
+				mes "Is he still up to his";
+				mes "old tricks again?";
+				next;
+				mes "[Enoz]";
+				mes "Awww nuts!";
+				mes "Where the heck is";
+				mes "my Master Science";
+				mes "Reference Book? ";
+				mes "It was right here";
+				mes "three days ago...";
+				set HELLIONQ,63;
+				close;
+			}
+			mes "[Enoz]";
+			mes "" + .@input$ + "?";
+			mes "I haven't completed";
+			mes "any research related";
+			mes "to that subject. Or did I?";
+			mes "Anyway, I need the exact";
+			mes "name of the report you want!";
+			close;
+		}
+		mes "[Enoz]";
+		mes "Nuts?! Oh, you wanna";
+		mes "see crazy, is that it?! You";
+		mes "wanna see insaaaane?!";
+		mes "Cuz I'll go freakin' medieval";
+		mes "if you keep bothering me!!";
+		close;
+	}
+	else if (HELLIONQ == 63) {
+		mes "[Enoz]";
+		mes "My mentor Welshyun's";
+		mes "been playing jokes again,";
+		mes "so you better go talk to him.";
+		mes "Damn. Where is that Master";
+		mes "Science Reference Book?";
+		close;
+	}
+	else if (HELLIONQ == 64) {
+		mes "[Enoz]";
+		mes "Oh hey, I remember you~";
+		mes "So did my mentor send you";
+		mes "to me again for some reason?";
+		next;
+		mes "^3355FFYou cautiously hand Enoz the";
+		mes "Master Science Reference Book.^000000";
+		next;
+		mes "[Enoz]";
+		mes "Yes! Oh yes!";
+		mes "This is the book";
+		mes "I lost three days";
+		mes "ago! Thanks so much!";
+		mes "Now I can finally finish";
+		mes "this research project that--";
+		next;
+		mes "[Enoz]";
+		mes "Wait, the page I really";
+		mes "need is missing! And there's";
+		mes "some sort of note... Umm...";
+		mes "^333333''Enoz, I think this page";
+		mes "is worth at least one Apple";
+		mes "Juice. Right? --Welshyun.''^000000";
+		next;
+		mes "[Enoz]";
+		mes "NOooOOoOo!";
+		mes "Not agaaaaain!";
+		mes "Why is he always";
+		mes "playing these pranks?!";
+		mes "Apple Juice! I need";
+		mes "some Apple Juice!";
+		set HELLIONQ,65;
+		next;
+		mes "^3355FFIt looks like it's time";
+		mes "to get 1 Blue Gemstone,";
+		mes "and then bring it back";
+		mes "to Welshyun the Sage.^000000";
+		close;
+	}
+	mes "[Enoz]";
+	mes "Gone! It's gone!";
+	mes "Where did the book";
+	mes "I really need go to?";
+	mes "Oh no oh no oh no oh no!";
+	mes "Waaaaaah, I'm gonna cry!";
+	close;
+}
+
+gef_fild09,296,59,0	script	Hidden Cave#hellion	111,3,3,{
+	if (HELLIONQ == 68) {
+		mes "^3355FFAmongst the wild bushes";
+		mes "and overgrown grass, you";
+		mes "see a large rock slab that";
+		mes "resembles a door. As you";
+		mes "come closer, you can see a";
+		mes "groove on the rock's surface.^000000";
+		next;
+		if (select("Insert the Tablet.:Ignore.") == 1) {
+			mes "^3355FFYou insert the tablet into";
+			mes "the rock's groove and the";
+			mes "Hellion's gem begins to hum";
+			mes "and glow. The rock slides open,";
+			mes "revealing an engraved message";
+			mes "on the ground for you to read.^000000";
+			next;
+			mes "^4D4DFF''To you who have found this";
+			mes "place, I reveal the truth about";
+			mes "the Hellion Revenant. It was";
+			mes "never a devil, like we believed, but a human being, slowly";
+			mes "corrupted by the darkness";
+			mes "of the Hellion's gem.''^000000";
+			next;
+			mes "^4D4DFF''I learned this horrible";
+			mes "truth too late. Already,";
+			mes "I can feel the darkness";
+			mes "welling up within me.";
+			mes "It is all I can do to trap";
+			mes "myself in this chamber";
+			mes "before I lose all reason.''^000000";
+			next;
+			mes "^4D4DFF''I failed and it's too";
+			mes "late for me, but I hope";
+			mes "someone in the future";
+			mes "can seal the Hellion gem's";
+			mes "dark power. And I hope that";
+			mes "someone will grant me the";
+			mes "sweet release I crave...''^000000";
+			next;
+			mes "^4D4DFF''Brave hero, I beg of";
+			mes "you. Please kill me and";
+			mes "bring salvation to my soul.";
+			mes "Please release me so that";
+			mes "I can finally join my friends.";
+			mes "^FFFFFF_^000000";
+			mes "^FFFFFFOOOOOOOOOOO^4D4DFF-Tyus''^000000";
+			close2;
+			warp "gef_dun03",140,119;
+			end;
+		}
+		mes "^3355FFYou do nothing.";
+		mes "And nothing happens.^000000";
+		close;
+	}
+
+OnTouch_:
+	if (HELLIONQ == 68 && countitem(7332) > 0) {
+		specialeffect2 EF_HEAL2;
+		specialeffect EF_HEAL2;
+		mes "^3355FFThe tablet in your";
+		mes "hands begins to shine";
+		mes "with light, responding";
+		mes "to something in the area.^000000";
+		close;
+	}
+	end;
+}
+
+//============================================================ 
+// Old changelog
+//============================================================ 
+//= 1.0 First version [MasterOfMuppets]
+//= 1.1 a ',' that should be ';' [FlavioJS]
+//= 1.2 Fixed experience gains to match upcoming rate adjustments. [SinSloth]
+//= 1.3 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 1.4 Moved Enoz from the wizard quest skill to here. [L0ne_W0lf]
+//============================================================ 

@@ -1,0 +1,58 @@
+//===== rAthena Script ======================================= 
+//= Sura Job Quest
+//===== By: ================================================== 
+//= Muad_Dib, Gepard
+//===== Current Version: ===================================== 
+//= 1.5
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job change Quest from Monk / Champion -> Sura.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Masao]
+//= 1.1 Removed disablenpc which causes players stucked in waitingroom. [Joseph]
+//= 1.2 Updated script, optimized. [Euphy]
+//= 1.3 Added GM management function. [Euphy]
+//= 1.4 Added VIP features. [Euphy]
+//= 1.5 Fixed players stuck in waiting room, event triggers properly [Luciar]
+//============================================================
+
+ve_in,237,125,0	script	King Crab#job_shu	107,{
+		mes "[King Crab]";
+		mes "The Monsters... They're gonna pay for it!";
+		next;
+		mes "[Sludge Worm]";
+		mes "Those arrogant fellows deserve a bitter lesson.";
+		mes "How dare them attack you, boss!";
+		next;
+		mes "[King Crab]";
+		mes "Ha ha ha ha ha ha ha!!!!";
+		next;
+		mes "[Sludge Worm]";
+		mes "Maybe tomorrow... or next week...we'll get them!";
+		close;
+}
+ve_in,241,128,4	duplicate(King Crab#job_shu)	Sludge Worm#job_shu	110
+
+ve_in,244,126,3	script	Waitress#job_shu	69,{
+	mes "[Waitress]";
+		mes "What an ORPHAN!?!? - I mean...";
+		mes "Do you need any help?";
+		close;
+}
+	
+ve_in,98,159,0	script	Fighter#job_shu	484,{
+		mes "[Fighter]";
+		mes "Ahhhh~ I'm so tired.";
+		mes "Training is so tough and I have a long way to go!";
+		close;
+}
+yuno_fild07,254,176,7	script	Buddy#job_shu	753,{
+		mes "[Buddy]";
+		mes "Haaap!!! Haaaap!!! Whoo!! Haahhp!!!";
+		next;
+		mes "[Buddy]";
+		mes "I don't know why you're here but please don't stand behind me unless you want to die.";
+		close;
+	}

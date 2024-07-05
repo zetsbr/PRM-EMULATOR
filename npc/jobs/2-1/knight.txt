@@ -1,0 +1,123 @@
+//===== rAthena Script ======================================= 
+//= Knight Job Quest
+//===== By: ================================================== 
+//= PGRO TEAM (Aegis).
+//= Converted by kobra_k88
+//= Further bugfixed and tested by Lupus
+//===== Current Version: ===================================== 
+//= 3.3
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job Change quest for Knight class.
+//===== Additional Comments: ================================= 
+//= 1.0 Fully working.  Please comment out any pre-existing warps for the
+//= test rooms in any other files so that the ones specified here can work.
+//= 1.1 Fixed a major bug.  Now using the initnpctimer command,
+//= donpcevent, and new waitingroom event commands.  No more addtimer
+//= spamming.  No longer have to talk to the npc to take the test.  Just enter the chat room.
+//= 1.2 More bug fixes.  Changed global variable names to unique ones.
+//= Added second set of items to first test. Added Awake pots award for job change.
+//= 1.3 Added Baby Class support [Lupus]
+//= 1.5 Fixed possible EXP abuse [Lupus]
+//= 1.6 Added a func which prevent advanced classes passing
+//= 2nd Job Quests again. It also guides adv classes where
+//= to go. [Lupus]
+//= 2.0 Changed numbers to constants. [Vicious]
+//= 2.1 Merged JFunc [Lupus]
+//= 2.2 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//= 2.3 Several bugfixes with the help of Barron-Monster. [L0ne_W0lf]
+//= 2.4 Minor fixes to timer#knt. [L0ne_W0lf]
+//= 2.5 Fixes a small bug with making claymores. [L0ne_W0lf]
+//=     Corrected usages of killmonster and killmonsterall.
+//= 2.6 Corrected an improper areawarp destination. [L0ne_W0lf]
+//= 2.7 Deleted unused variables. [Samuray22]
+//= 2.7a Corrected a Typo error ";;". [Samuray22]
+//= 2.8 Now uses enable and disable waitingroomevent. [L0ne_W0lf]
+//= 2.9 Added Quest Log commands. [Kisuka]
+//= 3.0 Removed the need for use of 'goto.' [L0ne_W0lf]
+//= 3.1 Modified the quest to renewal. [Vali] (Thanks to Muad_Dib for the necessary info).
+//= 3.2 More Renewal updates and some optimization. [Euphy]
+//= 3.3 Fixed missing changequest. [Joseph]
+//============================================================ 
+
+prt_in,88,101,4	script	Chivalry Captain#knt	56,{
+	mes "[Captain Herman]";
+	mes "Welcome,";
+	mes "this is the";
+	mes "Prontera Chivalry.";
+	next;
+	mes "[Captain Herman]";
+	mes "Orphans can't be Knights. Ever. Leave please.";
+	close;				
+}
+prt_in,75,107,4	script	Sir Andrew#knt	65,{
+	mes "[Sir Andrew]";
+			mes "You must work diligently to gather food as well as save zeny to buy equipment. Save everything you find in battle, even the smallest Jellopy.";
+			next;
+			mes "[Sir Andrew]";
+			mes "You're gonna need everything you can. The world won't be kind to you.";
+			close;
+}
+
+prt_in,71,91,0	script	Sir Siracuse#knt	65,{
+	mes "[Sir Siracuse]";
+				mes "Hey there!";
+			mes "How are you doing?";
+			mes "The Chivalry's been";
+			mes "doing pretty well.";
+			next;
+			mes "[Sir Siracuse]";
+			mes "We've been";
+			mes "testing new members, but we can't take Orphans.";
+			next;
+			mes "[Sir Siracuse]";
+			mes "I hope these new recruits all behave themselves, and don't";
+			mes "bring shame to the Chivalry.";
+			next;
+			mes "[Sir Siracuse]";
+			mes "If you catch any of the new guys acting in a way unbecoming of a Knight, scold them for me please?";
+			close;
+}
+
+prt_in,79,94,4	script	Sir Windsor#knt	733,{
+	mes "[Sir Windsor]";
+	mes "...Seyren was my brother. May his soul rest in peace.";
+	close;
+}
+
+// Test 3 (Manners)
+//==========================================================
+prt_in,69,107,6	script	Lady Amy#knt	728,{
+	mes "[Lady Amy]";
+			mes "Oh...!";
+			mes "I wonder, why";
+			mes "have you come";
+			mes "to visit me?";
+			next;
+			mes "[Lady Amy]";
+			mes "You're not having";
+			mes "trouble as an Orphan,";
+			mes "are you? Well, I think";
+			mes "you're doing well~";
+			close;
+}
+prt_in,70,99,6	script	Sir Edmond#knt	734,{
+	mes "[Sir Edmond]";
+	mes "Everything in this world exists in harmony. Living without disrupting this harmony is the right way to live...";
+	close;
+}
+
+prt_in,87,92,4	script	Sir Gray#knt	119,{
+	mes "[Sir Gray]";
+			mes "The glint of light";
+			mes "that shines off this blade cannot be put into words. This is the weapon every Knight must have.";
+			next;
+			mes "[Sir Gray]";
+			mes "Yes...";
+			mes "^3355FFWarrior's Blade^000000!";
+			mes "Every Knight";
+			mes "would want one!";
+			close;
+}

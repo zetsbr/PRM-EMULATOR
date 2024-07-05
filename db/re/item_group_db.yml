@@ -1,0 +1,288 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Item Group Database
+###########################################################################
+#
+# Item Group Settings
+#
+###########################################################################
+# - Group                      Group name of the item.
+#   SubGroups:
+#     - SubGroup:              SubGroup number associated with the list of item. See doc/item_group.txt for more information.
+#       List:                  List of item(s) for the SubGroup.
+#        - Item                AegisName of item that will be obtained from this item group.
+#          Rate                Probability to get the item. See doc/item_group.txt for more information. (Default: 0)
+#          Amount              Amount of item that will be obtained. (Default: 1)
+#          Duration            Makes the item a rental item which will expire within the given amount in minutes. Not intended for use with stackable items. (Default: 0)
+#          Announced           If player obtains this item it will be broadcasted to the server. (Default: false)
+#          UniqueId            Makes the given item(s) have a Unique ID. (Default: UniqueId from item_db)
+#          Stacked             Whether stackable items are given stacked or not. (Default: true)
+#          Named               Inscribes the item with the obtainer's name. (Default: false)
+#          Bound               Binds the obtained item. (Default: None)
+#          Clear               Remove the given item. (Optional)
+#       Clear                  Remove the given SubGroup. (Optional)
+###########################################################################
+
+Header:
+  Type: ITEM_GROUP_DB
+  Version: 1
+
+Body:
+  - Group: BOMB
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Apple_Bomb
+            Rate: 1
+          - Item: Coconut_Bomb
+            Rate: 1
+          - Item: Melon_Bomb
+            Rate: 1
+          - Item: Pineapple_Bomb
+            Rate: 1
+          - Item: Banana_Bomb
+            Rate: 1
+          - Item: Black_Lump
+            Rate: 1
+          - Item: Black_Hard_Lump
+            Rate: 1
+          - Item: Very_Hard_Lump
+            Rate: 1
+  - Group: FOOD
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Royal_Jelly
+            Rate: 5
+          - Item: Str_Dish02
+            Rate: 10
+          - Item: Agi_Dish02
+            Rate: 10
+          - Item: Vit_Dish03
+            Rate: 10
+          - Item: Dex_Dish02
+            Rate: 10
+          - Item: Luk_Dish03
+            Rate: 10
+          - Item: Int_Dish02
+            Rate: 10
+          - Item: Apple_Juice
+            Rate: 30
+          - Item: Banana_Juice
+            Rate: 30
+          - Item: Grape_Juice
+            Rate: 30
+          - Item: Carrot_Juice
+            Rate: 30
+          - Item: Well_Baked_Cookie
+            Rate: 30
+          - Item: Ice_Cream
+            Rate: 50
+          - Item: Fish_Slice
+            Rate: 50
+          - Item: Cheese
+            Rate: 50
+          - Item: Shusi
+            Rate: 50
+          - Item: Bun
+            Rate: 50
+          - Item: Mojji
+            Rate: 50
+          - Item: Pumpkin
+            Rate: 50
+          - Item: Sweet_Potato
+            Rate: 100
+          - Item: Banana
+            Rate: 100
+          - Item: Apple
+            Rate: 600
+  - Group: POISON
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Poison_Paralysis
+            Rate: 1
+          - Item: Poison_Leech
+            Rate: 1
+          - Item: Poison_Oblivion
+            Rate: 1
+          - Item: Poison_Contamination
+            Rate: 1
+          - Item: Poison_Numb
+            Rate: 1
+          - Item: Poison_Fever
+            Rate: 1
+          - Item: Poison_Laughing
+            Rate: 1
+          - Item: Poison_Fatigue
+            Rate: 1
+  - Group: TAMING
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Unripe_Apple
+            Rate: 1
+          - Item: Orange_Juice
+            Rate: 1
+          - Item: Bitter_Herb
+            Rate: 1
+          - Item: Rainbow_Carrot
+            Rate: 1
+          - Item: Earthworm_The_Dude
+            Rate: 1
+          - Item: Rotten_Fish
+            Rate: 1
+          - Item: Lusty_Iron
+            Rate: 1
+          - Item: Monster_Juice
+            Rate: 1
+          - Item: Sweet_Milk
+            Rate: 1
+          - Item: Well_Dried_Bone
+            Rate: 1
+          - Item: Singing_Flower
+            Rate: 1
+          - Item: Dew_Laden_Moss
+            Rate: 1
+          - Item: Deadly_Noxious_Herb
+            Rate: 1
+          - Item: Fatty_Chubby_Earthworm
+            Rate: 1
+          - Item: Baked_Yam
+            Rate: 1
+          - Item: Tropical_Banana
+            Rate: 1
+          - Item: Horror_Of_Tribe
+            Rate: 1
+          - Item: No_Recipient
+            Rate: 1
+          - Item: Old_Broom
+            Rate: 1
+          - Item: Silver_Knife_Of_Chaste
+            Rate: 1
+          - Item: Armlet_Of_Obedience
+            Rate: 1
+          - Item: Shining_Stone
+            Rate: 1
+          - Item: Contracts_In_Shadow
+            Rate: 1
+          - Item: Book_Of_Devil
+            Rate: 1
+          - Item: Heart_Of_Her
+            Rate: 1
+          - Item: Prohibition_Red_Candle
+            Rate: 1
+          - Item: Sway_Apron
+            Rate: 1
+          - Item: Skull_Helm
+            Rate: 1
+          - Item: Monster_Oxygen_Mask
+            Rate: 1
+          - Item: Transparent_Headgear
+            Rate: 1
+          - Item: Pacifier
+            Rate: 1
+          - Item: Wig
+            Rate: 1
+          - Item: Queen's_Hair_Ornament
+            Rate: 1
+          - Item: Silk_Ribbon
+            Rate: 1
+          - Item: Punisher
+            Rate: 1
+          - Item: Wild_Flower
+            Rate: 1
+          - Item: Battered_Pot
+            Rate: 1
+          - Item: Stellar_Hairpin
+            Rate: 1
+          - Item: Tiny_Egg_Shell
+            Rate: 1
+          - Item: Backpack
+            Rate: 1
+          - Item: Rocker_Glasses
+            Rate: 1
+          - Item: Green_Lace
+            Rate: 1
+          - Item: Golden_Bell
+            Rate: 1
+          - Item: Bark_Shorts
+            Rate: 1
+          - Item: Monkey_Circlet
+            Rate: 1
+          - Item: Red_Muffler
+            Rate: 1
+          - Item: Sword_Of_Grave_Keeper
+            Rate: 1
+          - Item: Boy's_Naivety
+            Rate: 1
+          - Item: Flaming_Ice
+            Rate: 1
+          - Item: Tantanmen
+            Rate: 1
+  - Group: THROWABLE
+    SubGroups:
+      - SubGroup: 1
+        List:
+          - Item: Mysterious_Powder
+            Rate: 1
+          - Item: Boost500_To_Throw
+            Rate: 1
+          - Item: Full_SwingK_To_Throw
+            Rate: 1
+          - Item: Mana_Plus_To_Throw
+            Rate: 1
+          - Item: Cure_Free_To_Throw
+            Rate: 1
+          - Item: Stamina_Up_M_To_Throw
+            Rate: 1
+          - Item: Digestive_F_To_Throw
+            Rate: 1
+          - Item: HP_Inc_PotS_To_Throw
+            Rate: 1
+          - Item: HP_Inc_PotM_To_Throw
+            Rate: 1
+          - Item: HP_Inc_PotL_To_Throw
+            Rate: 1
+          - Item: SP_Inc_PotS_To_Throw
+            Rate: 1
+          - Item: SP_Inc_PotM_To_Throw
+            Rate: 1
+          - Item: SP_Inc_PotL_To_Throw
+            Rate: 1
+          - Item: En_White_PotZ_To_Throw
+            Rate: 1
+          - Item: Vitata500_To_Throw
+            Rate: 1
+          - Item: En_Cel_Juice_To_Throw
+            Rate: 1
+          - Item: Savage_BBQ_To_Throw
+            Rate: 1
+          - Item: Wug_Cocktail_To_Throw
+            Rate: 1
+          - Item: M_Brisket_To_Throw
+            Rate: 1
+          - Item: Siroma_Icetea_To_Throw
+            Rate: 1
+          - Item: Drocera_Stew_To_Throw
+            Rate: 1
+          - Item: Petti_Noodle_To_Throw
+            Rate: 1
+          - Item: Black_Thing_To_Throw
+            Rate: 1

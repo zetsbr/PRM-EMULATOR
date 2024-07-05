@@ -1,0 +1,35 @@
+//===== rAthena Script =======================================
+//= Abyss Lake Dungeon Monster Spawn Script
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
+//= 1.3
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= 1.0 Real spawns by Poki#3 [Nexon]
+//= 1.1 More official spawns [Playtester]
+//= 1.2 Official X.3 spawns [Playtester]
+//= 1.3 Corrected MVP spawn variance. [L0ne_W0lf]
+//============================================================
+
+//==================================================
+// abyss_01 - Abyss Lake Underground Cave
+//==================================================
+abyss_02,0,0	monster	Hydrolancer	1720,1,1800000
+abyss_03,0,0	monster	Hydrolancer	1720,1,1800000
+abyss_03,0,0,0,0	boss_monster	Detardeurus	1719,1,2700000,5400000,0
+//
+abyss_01,0,0	monster	Green Ferus	1717,40,5000
+abyss_01,0,0	monster	Red Ferus	1714,20,5000
+abyss_01,0,0	monster	Ancient Mimic	1699,5,5000
+abyss_01,0,0	monster	Blue Acidus	1716,5,5000
+//
+abyss_02,0,0	monster	Red Ferus	1714,20,5000
+abyss_02,0,0	monster	Ancient Mimic	1699,10,5000
+abyss_02,0,0	monster	Blue Acidus	1716,35,5000
+abyss_02,0,0	monster	Black Acidus	1713,5,5000
+//
+abyss_03,0,0	monster	Ancient Mimic	1699,5,5000
+abyss_03,0,0	monster	Blue Acidus	1716,25,5000
+abyss_03,0,0	monster	Black Acidus	1713,15,5000

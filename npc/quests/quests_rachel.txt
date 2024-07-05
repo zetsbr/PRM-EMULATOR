@@ -1,0 +1,328 @@
+//===== rAthena Script ======================================= 
+//= Rachel Quests
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 3.6
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Collection of Rachel Quests 
+//= Lost Child Quest:
+//= - End of quest coincides with opening the Sanctuary.
+//= - Variable in use: lost_boy (max 13)
+//= Bruspetti Quest:
+//= - [Official Conversion]
+//= - Requires friendship quest as a prerequisite.
+//= - Variable in use: rach_vice (max 24)
+//= Ice Necklace Quest:
+//= - iRO uses a different sprite for Urstia, and no cutins.
+//= - Variable in use: ice_necklace_q (max 7)
+//= Sanctuary Quest:
+//= - Actually two quests in one. Donation and dungeon quest.
+//= - Requires 10000 donations before players can start the quest.
+//= - Variable in use: ra_tem_q (max 23) (unset at end)
+//= - Variable in use: Once completed MISC_QUEST bit 8192 is set
+//= - Variable in use: ra_have_donated (0 no/1 yes)
+//= - Variable in use: $rachel_donate (max 10000)
+//===== Additional Comments: ================================= 
+//= 3.0 Large reordering of Zhed, and Peace to the Arunafeltz addition. [L0ne_W0lf]
+//=     Some more numeric conversion, and some other cleanup.
+//= 3.1 Updated Ice Necklace quest, added missing checks. [L0ne_W0lf]
+//= 3.2 Added missing updates for Peace to the Arunafeltz quest. [L0ne_W0lf]
+//= 3.3 Fixed occurance of PcName. [L0ne_W0lf]
+//=     Fixed level 4 ID warps always being usable.
+//= 3.3a Fixed level 4 ID warps again. (Bugreport:4102) [L0ne_W0lf]
+//= 3.4 Added quest log entries for:
+//=     - Ice Necklace Quest
+//=     - Thor Volcano Base Quest addition.
+//= 3.5 Updated RE/Pre-RE EXP. [Euphy]
+//= 3.6 Added questlog support. [Euphy]
+//============================================================ 
+
+// Lost Child Quest (Prerequisite to High Priest quest) :: rachel_wonjumin
+//============================================================ 
+ra_in01,384,246,3	script	Vincent#ra_in01	47,{
+		mes "[Vincent]";
+		mes "You're inside Sir Zhed's";
+		mes "looking for new employees,";
+		mes "I don't think you're suited";
+		mes "for this kind of domestic";
+		mes "work, brave orphan.";
+		close;
+	}
+
+rachel,114,232,3	script	Logan#ra_in01	869,{
+		mes "[Logan]";
+		mes "I'm Logan, one";
+		mes "of the many servants";
+		mes "working here in Sir Zhed's";
+		mes "glorious mansion. I've got";
+		mes "a lot of work to do, so don't";
+		mes "don't distract me, please.";
+		close;
+}
+
+ra_in01,372,200,3	script	Manson#ra_in01	929,{
+		mes "[Manson]";
+		mes "I am Manson, one of the";
+		mes "many servants working here";
+		mes "in Sir Zhed's mansion. Er,";
+		mes "would you be more careful";
+		mes "walking around here? I hate";
+		mes "cleaning up after visitors. Specially the undesired ones.";
+		close;
+	}
+
+rachel,48,237,3	script	Jenny#ra_in01	894,{
+		mes "[Jenny]";
+		mes "These grounds are owned by";
+		mes "Sir Zhed and are considered";
+		mes "private property. Please";
+		mes "leave immediately, your kind isn't welcome here, or in this city!";
+		close;
+}
+
+rachel,138,73,5	script	Idle Merchant#ra_in01	85,{
+		mes "[Idle Merchant]";
+		mes "Man! Business is going";
+		mes "sooo slooow right now!";
+		mes "Well, no point standing";
+		mes "around this dump much";
+		mes "longer. Maybe I should";
+		mes "pack it up and go home.";
+		close;
+	}
+
+rachel,120,47,3	script	Idle Merchant#ra_in01_2	85,{
+		mes "[Idle Merchant]";
+		mes "I'm thinking of quitting";
+		mes "this business... No one";
+		mes "seems to want whatever";
+		mes "I'm selling! I definitely can't";
+		mes "make a living like this.";
+		close;
+	}
+
+ra_fild01,245,325,3	script	Suspicious Man#ra_in01	934,{
+		mes "[Suspicious Man]";
+		mes "Maybe I shouldn't attack people out of nowhere. They might think I'm one of those Orphan Hunters...";
+		close;
+	}
+
+rachel,263,32,3	script	Kid#ra_in01	931,{
+		mes "[Kid]";
+		mes "I had many issues with my father in the past. I don't ever want to see him again.";
+		close;
+	}
+
+// Bruspetti Quest (Perequisite: Lighthalzen "Friendship" quest) :: rachel_ryu
+//============================================================ 
+ra_in01,235,194,5	script	Katinshuell	931,{
+		mes "[Katinshuell]";
+		mes "If I had only turned";
+		mes "myself in... Maybe if I had";
+		mes "made an effort to pay for";
+		mes "my crime, me and Bruspetti";
+		mes "could have had a chance...";
+		close;
+	}
+
+ra_in01,250,19,3	script	Mr. Shendar	929,{
+		mes "[Mr. Shendar]";
+		mes "When will my precious";
+		mes "daughter Bruspetti be";
+		mes "coming home? I'm sure that";
+		mes "she can take care of herself,";
+		mes "but a father can't help but";
+		mes "worry himself to death.";
+		next;
+		mes "[Mr. Shendar]";
+		mes "Ah, if you happen to";
+		mes "see my daughter in your";
+		mes "travels, please tell her";
+		mes "that her daddy is waiting";
+		mes "for her to come home.";
+		mes "Thanks, adventurer.";
+		close;
+	}
+
+rachel,73,244,3	script	Lachellen	919,{
+		mes "[Lachellen]";
+		mes "If you happen to see";
+		mes "Bruspetti, tell her to";
+		mes "come talk to me. I need";
+		mes "to know whether I figured";
+		mes "out who her boyfriend is!";
+		mes "I can't wait to see her~";
+		close;
+	}
+
+rachel,266,35,3	script	Grandma#rachel	918,{
+		mes "[Grandma]";
+		mes "When you get to be my";
+		mes "age, you'll cherish all";
+		mes "of your memories, even if";
+		mes "the experience was hurtful";
+		mes "when it actually happened.";
+		next;
+		mes "[Grandma]";
+		mes "Your memories are part";
+		mes "of who you are and what";
+		mes "makes you unique. I can";
+		mes "appreciate living the life";
+		mes "that I have, even if it's";
+		mes "not particularly special.";
+		close;
+}
+
+rachel,157,183,3	script	Sincere Follower Urstia	916,{
+	cutin "ra_usti1",2;
+		mes "[Urstialla]";
+		mes "Oh, are you an adventurer";
+		mes "from the outside? Praise be";
+		mes "to Freya! Her love and grace";
+		mes "reaches all over the world,";
+		mes "touching even the hearts of";
+		mes "foreigners, leading them here!";
+		next;
+		mes "[Urstialla]";
+		mes "You should consider going to the Temple. I'm sure you will be very well treated there!";
+		close2;
+		cutin "",255;
+		end;
+}
+
+ice_dun02,120,105,3	script	Man Stuck in Ice#cave	924,5,5,{
+		cutin "ra_magic3",2;
+		emotion ET_HUK;
+		mes "[Man Stuck in Ice]";
+		mes "This is so humiliating...";
+		mes "Me, the greatest mage";
+		mes "of our age, Maheo, stuck";
+		mes "in this pillar of ice.";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Wait...";
+		mes "You're Maheo?";
+		next;
+		cutin "ra_magic1",2;
+		emotion ET_KIK;
+		mes "[Maheo]";
+		mes "It's true. You're speaking to";
+		mes "Maheo, the greatest mage,";
+		mes "and master of arcane spells.";
+		mes "I know magic that even High";
+		mes "Wizards can never hope to";
+		mes "learn in their lifetimes!";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "I Never heard of you.";
+		next;
+		cutin "ra_magic3",2;
+		mes "[Maheo]";
+		mes "What? J-Just leave me alone will you now? That's not funny!";
+		close2;
+		cutin "",255;
+		end;
+	}
+
+rachel,265,98,3	script	Hamion#aru	930,{
+		mes "[Hamion]";
+		mes "Hm? Did you need";
+		mes "something? If it's not too";
+		mes "important, then I'd like to";
+		mes "get back to reading my book.";
+		close;
+	}
+
+rachel,113,97,5	script	Mohadian	929,10,10,{
+		mes "[Mohadian]";
+		mes "Welcome to--";
+		mes "Er? Hello?";
+		mes "Excuse me?";
+		close;
+	}
+	
+ra_temple,116,174,3	script	Nemma#ra_temple	920,{
+			cutin "ra_nemma03",2;
+			mes "[Priestess Nemma]";
+			mes "Good day, adventurer.";
+			mes "May I ask what brings";
+			mes "you to the temple today?";
+			next;
+			if (select("Just sight-seeing.:I came to pray.") == 1) {
+				cutin "ra_nemma01",2;
+				mes "[Priestess Nemma]";
+				mes "I guess most foreigners";
+				mes "aren't familiar with our";
+				mes "faith, so I suppose they";
+				mes "wouldn't come here to pray... That's expected.";
+				next;
+				mes "[Priestess Nemma]";
+				mes "We are always looking for new followers, Consider joining us, young Orphan.";
+				close2;
+				cutin "",255;
+				end;
+			}
+				mes "[Priestess Nemma]";
+				mes "Oh! If you'd like some";
+				mes "information about our temple,";
+				mes "I'd be happy to guide you to one of the hidden chambers so you can pray in silence.";
+				close2;
+				cutin "",255;
+				end;
+}
+
+rachel,243,37,3	script	Kid#Candy Addict	921,{
+		mes "[Kid]";
+		mes "Hey! What's that";
+		mes "smile for? You're not";
+		mes "gonna come pat my head,";
+		mes "are you? No! I hate that!";
+		next;
+		mes "[Kid]";
+		mes "Don't come here!";
+		mes "I don't want you to";
+		mes "pat my head! Grrr...";
+		mes "I-I'm warning you!";
+		next;
+		mes "[Kid]";
+		mes "Hey, look at your";
+		mes "clothes! Where did";
+		mes "you come from, huh?";
+		next;
+		mes "[Kid]";
+		mes "Are you from a";
+		mes "different country?";
+		next;
+		mes "[Kid]";
+		mes "Huh, huh?";
+		mes "What country";
+		mes "are you from?";
+		next;
+		mes "[Kid]";
+		mes "Eh, whatever.";
+		close;
+	}
+	
+
+
+ra_temple,146,148,4	script	Panno#rachel	920,{
+		cutin "ra_fano03",2;
+		mes "[Priestess Panno]";
+		mes "Greetings.";
+		mes "May Freya fill";
+		mes "your days with the pain of hatred and society, Orphan.";
+	close2;
+	cutin "",255;
+	end;
+}
+
+ra_temple,119,153,5	script	Pope Replica#rachel	936,{
+		cutin "ra_bishop",2;
+		mes "^3355FFTh-this little girl is the pope...?! No... this is just a statue... That's unnerving...I should be careful.^000000";
+		close2;
+		cutin "",255;
+		end;
+	}

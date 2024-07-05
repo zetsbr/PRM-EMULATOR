@@ -1,0 +1,132 @@
+//===== rAthena Script =======================================
+//= Dewata Quest NPCs
+//===== By: ==================================================
+//= Gennosuke Kouga, Muad_Dib
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Quest NPCs related to Dewata:
+//== "Dewata Legend"
+//== "Help Out the Old Man"
+//== "Traditional Weapon"
+//===== Additional Comments: =================================
+//= 1.0 First version.
+//= 1.1 Standardized. [Euphy]
+//= 1.2 Updated to match the official script. [Lemongrass/Euphy]
+//============================================================
+
+
+dew_in01,22,48,3	script	Sage Kasyapa#dew	541,{
+		mes "[Sage Kasyapa]";
+		mes "Ah, a stranger to our land.";
+		mes "Are you lost?";
+		mes "I hope you did not encounter much danger on your journey here.";
+		close;
+	}
+
+dew_in01,15,49,4	script	Tribal Chief Paiko#dew	540,{
+		mes "[Tribal Chief Paiko]";
+		mes "I am the leader of this tribe, ^0000FFPaiko^000000.";
+		mes "You're welcome in our island, Orphan.";
+		close;
+}
+
+dew_fild01,78,288,6	script	Jaty Tribe Warrior#dew	541,{
+	mes "[Jaty Tribe Warrior]";
+	mes "We revere strength and bravery.";
+	mes "We are ^FF0000Jaty^000000 Tribe.";
+	next;
+	mes "[Jaty Tribe Warrior]";
+	mes "Unlike the ancient times when our tribe's warriors fought and shed their blood the world has become more peaceful nowadays but our tribe's territory has shrunk drastically.";
+	next;
+	mes "[Jaty Tribe Warrior]";
+	mes "Nevertheless we will continue keeping the warrior tradition of our tribe alive and we will preserve the pride we have earned through the sacrifice of those past warriors.";
+	next;
+	mes "[Jaty Tribe Warrior]";
+	mes "I hope that your perseverance and pride remain with you in your travels.";
+	close;
+}
+
+dew_fild01,185,300,6	script	Tribe Manager#dew	541,{
+	mes "[Tribe Manager]";
+	mes "Keeping our culture and tradition is very important.";
+	mes "Although it is a little boring...";
+	close;
+	}
+
+//Original name: Gatekeeper of Krakatau Volcano
+dewata,235,56,4	script	Gatekeeper of Krakatau#1	534,{
+		mes "[Gatekeeper of Krakatau Volcano]";
+		mes "You are a traveler who came to fight for our people?";
+		next;
+		mes "[Gatekeeper of Krakatau Volcano]";
+		mes "Well, I will let you pass but ^8B4513Krakatau Volcano^000000 is dangerous so please take care.";
+		close2;
+		warp "dew_dun01",289,160;
+		end;
+}
+
+//Original name: Gatekeeper of Krakatau Volcano
+dew_dun01,292,164,4	script	Gatekeeper of Krakatau#2	541,{
+	mes "[Gatekeeper of Krakatau Volcano]";
+	mes "Want to go back";
+	mes "to Dewata?";
+	next;
+	switch(select("Yes:No")) {
+	case 1:
+		close2;
+		warp "dewata",232,53;
+		end;
+	case 2:
+		mes "[Gatekeeper of Krakatau Volcano]";
+		mes "^8B4513Krakatau Volcano^000000 is";
+		mes "a dangerous place.";
+		mes "You should go back now.";
+		close;
+	}
+}
+
+dewata,78,192,6	script	Borobudur Temple Manager	536,{
+	mes "[Borobudur Temple Manager]";
+	mes "The weather today is so beautiful.";
+	next;
+	mes "[Borobudur Temple Manager]";
+	mes "I am not certain of when we will cross paths again but I hope we will meet again someday.";
+	mes "I wish you a pleasant journey, young traveler.";
+	close;
+}
+
+// Help Out the Old Man :: dewata_drink
+//============================================================
+dewata,109,262,4	script	Memo#dew_drink	534,{
+		mes "[Memo]";
+		mes "What should I do? I still don't have any news from the Jaty tribe.";
+		emotion ET_PROFUSELY_SWEAT;
+		next;
+		mes "[Memo]";
+		mes "Oh no~ All the liquid is going to spoil...";
+		close;
+	}
+
+// Traditional Weapon Quest :: dewata_weapon
+//============================================================
+dew_fild01,127,240,4	script	Gatti#weapon	813,{
+		mes "[Gatti]";
+		mes "Hey there, young "+((Sex == SEX_MALE)?"man":"lady")+"~ Are you from around here?";
+		next;
+		mes "[Gatti]";
+		mes "Cough... cough...";
+		next;
+		mes "[Gatti]";
+		mes "Oh... Sorry~ Sorry. I was so happy that I finally arrived at Dewata Island.";
+		next;
+		mes "[Gatti]";
+		mes "This is not a short story. Oh! I have to introduce myself first. I am Mastersmith Gatti, also an Adventurer.";
+		next;
+		mes "[Gatti]";
+		mes "I've come to slay the mighty Scylla! I plan to get inside the volcano and kill it!";
+		close;
+}

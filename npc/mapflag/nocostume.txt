@@ -1,0 +1,10 @@
+//===== rAthena Script =======================================
+//= Mapflag: nocostume
+//===== Description: =========================================
+//= A mapflag to disable costume's sprite on map.
+//= Usage:
+//=     [mapname]	mapflag	nocostume
+//===== Changelogs: ==========================================
+//= 1.0 Initial release. [Cydh]
+//= 1.0.1 Added arug_dun01 and schg_dun01 to the list. [Cydh]
+//============================================================

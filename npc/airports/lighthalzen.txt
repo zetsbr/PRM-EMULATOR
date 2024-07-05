@@ -1,0 +1,56 @@
+//===== rAthena Script ======================================= 
+//= Lighthalzen Airport Staff
+//===== By: ================================================== 
+//= L0ne_W0lf, Muad_Dib
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Lighthalzen Airport Staff
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================ 
+
+lighthalzen,305,76,5	script	Airport Staff#lhz_air1a::lhz_airport1	90,{
+	mes "[Airport Staff]";
+	mes "Welcome to the Lighthalzen Airport, where we used to offer flights all around the world.";
+	next;
+	mes "[Airport Staff]";
+	mes "Due to our current situation, we can't help you anymore with it, but we can take you to Varmundt's Mansion. Would you like to go?";
+	next;
+	mes "[Airport Staff]";
+	mes "The boarding fee is 5000z";
+	next;
+	if (select("Board the Airship.:Cancel.") == 1) {
+			if (Zeny >= 5000) {
+				set Zeny, Zeny - 5000;
+				warp "va_mansion",37,216;
+				end;
+			}
+			mes "[Airship Staff]";
+			mes "I'm sorry, but you don't";
+			mes "have 5000 zeny to pay";
+			mes "for the boarding fee.";
+			close;
+		}
+	mes "[Airport Staff]";
+	mes "Thank you and";
+	mes "please come again.";
+	mes "Have a good day~";
+	close;
+}
+
+va_mansion,34,222,5	script	Varmundt Staff#airplane	90,{
+	mes "[Varmundt Staff]";
+	mes "Hello. Do you want to return to Lighthalzen?";
+	next;
+
+	if (select("Board the Airship.:Cancel.") == 1) {
+				warp "lighthalzen",263,76;
+				end;
+		}
+	mes "[Varmundt Staff]";
+	mes "Take care.";
+	close;
+}

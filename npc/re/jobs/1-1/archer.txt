@@ -1,0 +1,20 @@
+//===== rAthena Script ======================================= 
+//= Renewal Archer Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Archer Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//============================================================ 
+payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
+			mes "[Archer Guildsman]";
+			mes "I can tell that you're not cut out to be an Archer. It sort of feels like you're meant to do";
+			mes "something else...";
+			close;
+		}

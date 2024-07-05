@@ -1,0 +1,20 @@
+//===== rAthena Script =======================================
+//= Merchant Skills Quests
+//===== Description: =========================================
+//= [Official Conversion]
+//- NPC for skills Pushcart Decoration.
+//===== Changelogs: ==========================================
+//= 1.0 First version. [Capuche]
+//============================================================
+
+alberta,47,37,5	script	Cart Remodel Expert	4_M_REPAIR,{
+		mes "[Jason]";
+		mes "The original pushcart is beautiful!";
+		next;
+		mes "[Jason]";
+		mes "The solid grey color pushcart.";
+		next;
+		mes "[Jason]";
+		mes "I can't just remodel it into new cute designs. It's already perfect!";
+			close;
+		}

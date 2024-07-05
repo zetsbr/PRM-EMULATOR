@@ -1,0 +1,33 @@
+//===== rAthena Script =======================================
+//= Ant Hell Monster Spawn Script
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= 1.1 Official kRO 10.1 spawns [Playtester]
+//= 1.2 Corrected MVP spawn variance. [L0ne_W0lf]
+//============================================================
+
+//==================================================
+// anthell01 - Ant Hell
+//==================================================
+anthell01,0,0	monster	Andre Larva	1160,40,5000
+anthell01,0,0	monster	Andre Soldier	1105,15,5000
+anthell01,0,0	monster	Horned Scaraba	2084,35,5000
+anthell01,0,0	monster	Rake Scaraba	2086,15,5000
+anthell01,0,0	monster	Andre	1095,35,5000
+anthell01,0,0	monster	Vitata	1176,10,5000
+anthell01,0,0	boss_monster	Maya Purple	1289,1,600000,1800000,1
+
+anthell02,0,0	monster	Andre Larva	1160,10,5000
+anthell02,0,0	monster	Andre Soldier	1105,35,5000
+anthell02,0,0	monster	Horned Scaraba	2084,25,5000
+anthell02,0,0	monster	Rake Scaraba	2086,35,5000
+anthell02,0,0	monster	Andre	1095,25,5000
+anthell02,0,0	monster	Vitata	1176,10,5000
+anthell02,0,0	boss_monster	Maya Purple	1289,1,600000,1800000,1
+anthell02,0,0,0,0	boss_monster	Queen Maya	1147,1,2700000,5400000,0
+anthell02,0,0,0,0	boss_monster	Queen Scaraba	2087,1,2700000,5400000,0

@@ -1,0 +1,29 @@
+//===== rAthena Script ======================================= 
+//= Alchemist Shop
+//===== By: ================================================== 
+//= rAthena Dev Team
+//===== Current Version: ===================================== 
+//= 1.8
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Merchants for Alchemist Materials and Manuals.
+//===== Additional Comments: ================================= 
+//= 1.1 fixed Medicine Bowl issue, thanx 2 MasterOfMuppets
+//= 1.2 Reddozen's fixes of typos. added optional Elemental
+//=     Potion Guide. [Lupus]
+//= 1.3 Deleted Elemental Potions Guide due to original quest [Lupus]
+//= 1.4 Alchemists can now purchase 2000 Medicine Bowls at once. [SinSloth]
+//= 1.5 Updated to Aegis 10.3 Standards. [L0ne_W0lf]
+//= 1.6 Corrected canceling purchase. [L0ne_W0lf]
+//= 1.7 Updated to match AEGIS script. [Masao]
+//= 1.8 Moved Craft Book Merchant to Renewal path. [Euphy]
+//============================================================ 
+
+alde_alche,24,188,3	script	Guild Dealer	740,{
+	mes "[Gever Al Sharp]";
+	mes "Welcome to the";
+	mes "Alchemist Union.";
+	mes "Please don't touch any dangerous looking objects!";
+	close;
+}

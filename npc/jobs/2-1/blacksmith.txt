@@ -1,0 +1,141 @@
+//===== rAthena Script =======================================
+//= Blacksmith Job Quest
+//===== By: ==================================================
+//= EREMES THE CANIVALIZER(Aegis)
+//= Translated by: yoshiki.
+//= Converted by: Komurka.
+//= Optimized and further edited by kobra_k88.
+//= Further bugfixed and tested by Lupus
+//===== Current Version: =====================================
+//= 2.9
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Job Change quest for Blacksmith class.
+//===== Additional Comments: =================================
+//= Changed some npc names to the iRO names. Changed some variable
+//= names and labels. Edited some text.[kobra_k88]
+//= Removed "if (JobLevel > 48) goto higher". It was a left over line.
+//= Thx to "Decker".[kobra_k88]
+//= Fixed some typos, thanks to Riotblade [celest]
+//= 1.3-1.5 Added Baby Class support [Lupus]
+//= 1.6 Added a func which prevent advanced classes passing
+//=     2nd Job Quests again. It also guides adv classes where
+//=     to go. [Lupus]
+//= 1.7 item quantity/ids typos fix
+//= 1.8 Moved the Quest to Einbroch [Poki#3]
+//= 2.0 Changed numbers to constants. [Vicious]
+//= 2.1 Removed Duplicates [Silent]
+//= 2.2 Merged Jfunc, changed job numbers to constants [Lupus]
+//= 2.3 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//= 2.4 Several bugfixes with the help of Barron-Monster. [L0ne_W0lf]
+//= 2.4a Changed a BaseJob to baseclass. [L0ne_W0lf]
+//= 2.4b Further bug fixes with teh hel of Barron-Monster. [L0ne_W0lf]
+//= 2.4c More fixes courtosy of Micktu. [L0ne_W0lf]
+//= 2.4d Fixed an incorrect answer in the quiz. (Trojal) [L0ne_W0lf]
+//= 2.4e Touched up a few issues as pointed out by Ultramage. [L0ne_W0lf]
+//= 2.5 Krongast is in Lighthalzen. (DarkValmir) [L0ne_W0lf]
+//= 2.6 Fixed 4 bugs [Lupus]
+//= 2.6a Typo fix [Yommy]
+//= 2.7 Added Quest Log commands. [Kisuka]
+//= 2.8 Removed the need for use of 'goto.' [L0ne_W0lf]
+//= 2.9 Updated with some extra conditions. [Euphy]
+//==============================================================
+
+ein_in01,18,28,4	script	Guildsman#BLS	731,{
+		mes "[Altiregen]";
+		mes "Hey hey. I don't have time for chit-chat, I'm a pretty busy guy. There's all these Merchants working hard to become Blacksmiths.";
+		close;
+}
+
+ein_in01,201,27,3	script	Guildsman#alberta	63,{
+	mes "[Geschupenschte]";
+	mes "Hello there!";
+	mes "I'm ^8E6B23Geschupenschte^000000,";
+	mes "a Blacksmith by trade.";
+	mes "Nice to meet you!";
+	next;
+	mes "[Geschupenschte]";
+	mes "I'm helping merchants with learning the forge. THat's not a job for you, so excuse me.";
+	close;
+}
+
+geffen,46,164,1	script	Baisulist#BLS	69,{
+		mes "[Baisulist]";
+		mes "Oh...";
+		mes "It's been a while";
+		mes "since I've been";
+		mes "to Alberta.";
+		next;
+		mes "[Baisulist]";
+		mes "I ordered something";
+		mes "from there a while ago,";
+		mes "and a lot of people brought";
+		mes "my delivery...";
+		next;
+		mes "[Baisulist]";
+		mes "I wonder...how could they do it so many times? Am I being tricked?";
+		close;
+}
+
+morocc,27,112,4	script	Wickebine#BLS	725,{
+		mes "[Wickebine]";
+		mes "Huh weird... I know you from somewhere...";
+		next;
+		emotion ET_SURPRISE;
+		mes "[Wickebine]";
+		mes "Oh yeah! The Orphanage!";
+		close;
+}
+
+lighthalzen,209,80,4	script	Krongast#BLS	734,{
+		mes "[Krongast]";
+		mes "...";
+		next;
+		mes "[Krongast]";
+		mes "...";
+		mes "......";
+		next;
+		mes "[Krongast]";
+		mes "When will the sword";
+		mes "I ordered finally arrive?";
+		mes "I need to try my ultimate skill, ^2F4F4FWind Slash^000000 with it.";
+		next;
+		mes "[Krongast]";
+		mes "Ahhhhhhh!";
+		mes "I need to";
+		mes "have that sword!";
+		close;
+}
+payon,214,79,4	script	Talpiz#BLS	59,{
+		next;
+		mes "[Talpiz]";
+		mes "Ahhhhhh...";
+		mes "Finally I've come to smell some better air than Einbroch. That place stinks!";
+		close;
+}
+
+hugel,168,183,1	script	Bismarc#BLS	118,{
+		mes "[Bismarc]";
+		mes "I heard weird noises coming from Odin's Temple. Must be Valkyries...";
+		close;
+}
+
+ein_in01,24,41,5	script	Blacksmith Guildsman#moc	726,{
+		emotion ET_SCRATCH;
+		mes "[Mitehmaeeuh]";
+		mes "Oh...so you're the one who wants to be a blacksmith?";
+		mes "Too bad you're an Orphan. I'm sorry I can't help you.";
+		close;
+}
+
+geffen_in,109,170,3	script	Blacksmith Guildsman#gef	726,{
+	mes "[Blacksmith Guildsman]";
+	mes "Good day, are you here to visit Blacksmith Guild?";
+	next;
+	mes "[Blacksmith Guildsman]";
+	mes "I thank you for coming this far to visit our guild. However, I regret to inform you that Blacksmith Guild has been";
+	mes "moved to ^3131FF'Einbroch' in the Schwarzwald Republic^000000.";
+	close;
+}

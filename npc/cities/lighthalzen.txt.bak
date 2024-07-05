@@ -1,0 +1,376 @@
+//===== rAthena Script =======================================
+//= Lighthalzen City
+//===== By: ==================================================
+//=  erKURITA, Au{R}oN (Translated by Alan), $ephiroth
+//===== Current Version: =====================================
+//= 2.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Lighthalzen NPCs (Temporal names for now) [erKURITA]
+//===== Additional Comments: ==================================
+//= 0.1 Placed temporal names, why there weren't on the SVN before? [erKURITA]
+//= 0.2 Implemented some crap NPCs [MasterOfMuppets]
+//= 0.3 Another load of NPCs. Scripted by Kargha [MasterOfMuppets]
+//= 0.4 More Town NPCs. [Musashiden]
+//= 0.5 Added a BIG load of Lighthalzen NPCs. [musashiden]
+//= 0.6 Fixed some typos+Coordinates. [Musashiden]
+//= 0.7 Implemented some more crap NPCs and the second entrance to biolabs [MasterOfMuppets]
+//= 0.8 Removed Duplicates [Silent]
+//= 0.9 Removed Duplicates [Toms]
+//= 1.0 Added a missing feature to the donation NPC [MasterOfMuppets]
+//= 1.0a added constants to emotions, minor optimization [Lupus]
+//= 1.0b npcid fix [KarLaeda]
+//= 1.1 Added new NPC by $ephiroth and merged other NPCs
+//=     from npc\other\lighthalzen_???.txt [Lupus]
+//= 1.2 Moved some NPCs to Lighthalzen quests. [SinSloth]
+//= 1.3 Moved some other NPCs for quests purposes. [SinSloth]
+//= 1.4 Corrected NPC names to fall within proper resctrictions. [L0ne_W0lf]
+//= 1.5 Fixed bad NPC header data to comply with rev. 11603. [L0ne_W0lf]
+//= 1.6 Massive NPC clean up, includes corrected dialogs and [L0ne_W0lf]
+//=     added missing dialogs, fixed indentation, corrected some NPC
+//=     facing positions, NPC names are more unique now. Removed
+//=     whitespace (empty lines after header and before end curly)
+//=     reduced usage of the command "goto", grammatical corrections.
+//=     Added additional missing NPCs.
+//= 1.7 Removed Auciton Staff as the offical auction file has been added. [L0ne_W0lf]
+//=     Corrected Lucius so he checks the donation variable. (bugreport:1103) [L0ne_W0lf]
+//= 1.7a Another fix to Lucius. (bugreport:1118) [L0ne_W0lf]
+//= 1.7b Another fix to Lucius (trivial). (bugreport:1125)
+//= 1.8 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 1.9 Added Cool Corp. Event Staff, who oringialy resided in the DTS_warper script file. [L0ne_W0lf]
+//= 2.0 Added missing Lab Staff#amano08 NPC. (bugreport:4319) [Gepard]
+//= 2.1 Commented out Duplicate NPCs. (bugreport:4555)
+//= 2.2 Added missing NPC found in AEGIS files. [L0ne_W0lf]
+//= 2.3 Updated the second entrance to Biolabs. [Capuche]
+//=============================================================
+
+lighthalzen,193,280,5	script	Jiwon#zen5	862,{
+	mes "[Jiwon]";
+	mes "The city is in ruins...we have nothing left.";
+	mes "Please get away from here...";
+	close;
+}
+
+lighthalzen,237,270,3	script	Samnang#zen2	863,{
+	mes "[Samnang]";
+	mes "^333333*Sigh...*^000000";
+	mes "It gets harder for me";
+	mes "to move around as I get";
+	mes "older. That's understandable";
+	mes "for an elderly person, right?";
+	next;
+	mes "[Samnang]";
+	mes "Just the other day, these";
+	mes "hoodlums in black suits";
+	mes "were yelling at me to get out";
+	mes "of their way. But of course,";
+	mes "I didn't move quickly enough.";
+	mes "So what did they do to me?";
+	next;
+	mes "[Samnang]";
+	mes "They punched me.";
+	mes "Right in the womb!";
+	mes "I know that I'm not";
+	mes "pregnant, but that's";
+	mes "besides the point. Never hit";
+	mes "a lady, especially an old one!";
+	close;
+}
+
+lighthalzen,261,112,3	script	Ruth#zen4	862,{
+	mes "[Ruth]";
+	mes "I used to come here with my boyfriend.";
+	mes "He was arrested after the Rekember incident...";
+	close;
+}
+
+lighthalzen,167,129,3	script	Kariya#li_01	72,{
+	mes "[Kariya]";
+	mes "I think ''Lighthalzen'' is";
+	mes "supposed to mean ''crest of";
+	mes "light,'' though I hear that this";
+	mes "city was actually named after";
+	mes "somebody. Who knows for sure?";
+	next;
+	mes "[Kariya]";
+	mes "Whatever, it's just a dump now! We're broke!";
+	close;
+}
+
+
+lighthalzen,45,59,7	script	Janice#zen03	866,{
+	mes "[Elmer]";
+	mes "Oh no, I think I got";
+	mes "lost again. The roads";
+	mes "here are so confusing!";
+	mes "I've lived here for such";
+	mes "a long time and I still";
+	mes "can't find my way around...";
+	next;
+	mes "[Elmer]";
+	mes "Now that the city is dead...it's even worse.";
+	close;
+}
+
+
+lighthalzen,232,156,3	script	Sigmund#zen3	869,{
+	mes "[Sigmund Ting]";
+	mes "You know what I noticed?";
+	mes "The guards at the border";
+	mes "are no longer there...";
+	close;
+}
+
+
+lighthalzen,115,159,3	script	Collins#zen1	866,{
+	mes "[Collins]";
+	mes "I really wished that my";
+	mes "son could be able to join";
+	mes "the Rekenber Corporation.";
+	mes "They certainly provided the";
+	mes "best jobs in Lighthalzen.";
+	next;
+	mes "[Collins]";
+	mes "Now I'm so glad they never hired him...";
+	close;
+}
+
+lighthalzen,95,158,5	script	Kemp#zen13	97,{
+	mes "[Kemp]";
+	mes "I haven't been to Rekember";
+	mes "myself, but something";
+	mes "strange was happening with";
+	mes "all the people who work there.";
+	close;
+}
+
+
+lighthalzen,164,99,4	script	Greedy Looking Man#li_01	853,{
+	mes "[Khramptd]";
+	mes "I'm ruined! RUINED! We are lost now!";
+	close;
+}
+
+
+
+lighthalzen,159,133,4	script	Hotel Guard#zen3	868,{
+	mes "[Hotel Guard]";
+	mes "I'm sorry but the Hotel is permanently closed.";
+	next;
+	mes "[Hotel Guard]";
+	mes "... Everything is closed.";
+	close;
+}
+
+
+lighthalzen,311,194,3	script	Reuben#lhz_02	870,{
+	if (rand(1,2) == 1) {
+		mes "[Reuben]";
+		mes "Someday...";
+		mes "Someday I just gotta";
+		mes "become a train conductor";
+		mes "and just get outta here!";
+		mes "I really hate this place!";
+		emotion ET_ANGER;
+		next;
+		mes "[Reuben]";
+		mes "Wh-whoa...!";
+		mes "Did you just hear";
+		mes "me talk to myself?";
+		mes "Crud! Don't be so nosy!";
+		emotion ET_FRET;
+		close;
+	}
+	mes "[Reuben]";
+	mes "Hey. What are";
+	mes "you doing just";
+	mes "looking at me?";
+	mes "I don't know you";
+	mes "from Adam, so get lost~";
+	emotion ET_ROCK;
+	close;
+}
+
+lighthalzen,306,324,3	script	Shengwen#zen7	870,{
+	mes "[Shengwen]";
+	mes "Am I just getting";
+	mes "paranoid? I really";
+	mes "think that some of";
+	mes "the people I know";
+	mes "are disappearing";
+	mes "for no good reason!";
+	next;
+	mes "[Shengwen]";
+	mes "I mean, all of my close";
+	mes "friends are all alright,";
+	mes "but I'm starting not to see";
+	mes "certain acquaintances and";
+	mes "familiar faces. Maybe I'm";
+	mes "just thinking too much...";
+	close;
+}
+
+
+lighthalzen,330,276,3	script	Nun#light	79,{
+	mes "[Angela]";
+	mes "Greetings, adventurer.";
+	mes "I'm Angela, a social";
+	mes "worker for the Poor";
+	mes "Relief Organization.";
+	next;
+	mes "[Angela]";
+	mes "I've noticed that the";
+	mes "people living here have";
+	mes "extremely bad health and";
+	mes "it's not just because of";
+	mes "their circumstances.";
+	next;
+	mes "[Angela]";
+	mes "I've filed a report";
+	mes "to my superiors, but";
+	mes "they haven't sent me";
+	mes "a response yet for some";
+	mes "reason. I'm starting to get";
+	mes "a little worried about this...";
+	close;
+}
+
+lighthalzen,176,65,5	script	Kimmy#zen3	862,{
+	mes "[Kimmy]";
+	mes "Unlike most places,";
+	mes "Lighthalzen used to have many";
+	mes "beautiful clothing and";
+	mes "accessory shops.";
+	next;
+	mes "[Kimmy]";
+	mes "Now...it's just a boring, empty city...";
+	close;
+}
+
+lighthalzen,364,282,3	script	Bodger#zen5	870,{
+	mes "[Bodger]";
+	mes "Another hungry day...";
+	mes "I don't have any money";
+	mes "and even if I did, there's";
+	mes "no place that sells food";
+	mes "I'd actually eat. Oh, man.";
+	mes "I'm barely living as it is.";
+	next;
+	mes "[Bodger]";
+	mes "I hear that the people";
+	mes "who live Uptown are also in a similar situation.";
+	mes "Hehehe! Serves them right!";
+	close;
+}
+
+lighthalzen,137,87,3	script	Avetis#zen10	849,{
+	mes "[Avetis]";
+	mes "A-ack...";
+	mes "^333333*Cough cough*^000000";
+	mes "Would you give me";
+	mes "some m-medicine?!";
+	mes "^333333*Cough cough haack*^000000";
+	mes "Sweet Christmas, it hurts...";
+	next;
+	mes "[Avetis]";
+	mes "I sk-skipped work";
+	mes "because I've been too";
+	mes "sick t-to go. ^333333*Cough*^000000";
+	mes "But now I don't have";
+	mes "the money to ^333333*Haack*^000000";
+	mes "buy med-medicine... ";
+	close;
+}
+
+lighthalzen,192,63,4	script	Sergei#zen1	92,{
+	mes "[Sergei]";
+	mes "You know, there's an";
+	mes "interesting story about";
+	mes "the axe that's hanging";
+	mes "over there. Would you";
+	mes "like me to tell you?";
+	next;
+	if (select("Sure.:No, thanks.") == 1) {
+		mes "[Sergei]";
+		mes "This previous owner of";
+		mes "this Weapon Shop was";
+		mes "a convicted serial killer.";
+		mes "Each night, he'd take that";
+		mes "axe and cruelly murder";
+		mes "beautiful ladies like me.";
+		next;
+		mes "[Sergei]";
+		mes "When he was finally";
+		mes "caught, they beheaded";
+		mes "him with his own axe.";
+		mes "Since then, they say that";
+		mes "his ghost still lingers and";
+		mes "sharpens this axe at night.";
+		next;
+		mes "[Sergei]";
+		mes "Just thinking about";
+		mes "it gives me goosebumps!";
+		mes "And I'm supposed to work";
+		mes "here! It's so creepy!";
+		close;
+	}
+	mes "[Sergei]";
+	mes "Oh, how disappointing~";
+	mes "It's the perfect story for";
+	mes "the season. Well, now that";
+	mes "I think about it, that story is";
+	mes "actually pretty creepy...";
+	close;
+}
+
+lighthalzen,258,223,3	script	Srinivas#zen4	866,{
+	mes "[Srinivas]";
+	mes "Those rundown buildings";
+	mes "in the slums are an eyesore";
+	mes "that offend the entire city!";
+	mes "I just wish they would wreck";
+	mes "them down. What do I care";
+	mes "about the poor?";
+	next;
+	mes "[Srinivas]";
+	mes "Not me! I'm not... poor... not...";
+	close;
+}
+
+lighthalzen,337,296,3	script	Rekenber Employee#li_2	868,{
+		mes "[Rekenber Employee]";
+		mes "I managed to escape to this area of the city.";
+		mes "They will never find me here!";
+		emotion ET_PROFUSELY_SWEAT;
+		close;
+}
+
+lhz_in01,221,131,7	script	Scientist#li_01	865,{
+	if (isequipped(2241) && isequipped(2243)) {
+		if (hg_tre > 54) {
+			mes "[A Scientist]";
+			mes "What happened? All the machines are ruined and the research report are gone! The history of Regenschirm has been hacked!";
+			close;
+		}
+		else {
+			mes "[Scientist]";
+			mes "It takes so long for";
+			mes "this device to process";
+			mes "all the data and give me";
+			mes "the results. Still, the wait";
+			mes "heightens my anticipation...";
+			close;
+		}
+	}
+	else {
+		mes "[Scientist]";
+		mes "What?! Guards!";
+		mes "Hurry, there's an";
+		mes "intruder right here!";
+		emotion ET_SURPRISE;
+		close2;
+		warp "lhz_in01",33,224;
+		end;
+	}
+}

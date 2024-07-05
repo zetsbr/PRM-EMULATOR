@@ -1,0 +1,249 @@
+//===== rAthena Script =======================================
+//= Quest NPCs related to Ayothaya
+//===== By ===================================================
+//= Fredzilla, MasterOfMuppets
+//===== Version ==============================================
+//= 2.6
+//===== Compatible With ======================================
+//= rAthena Project
+//===== Description ==========================================
+//= [Official Conversion]
+//= Ayothaya Ring Quest
+//= Ayothaya Dungeon Quest
+//= Tom Yum Goong Quest
+//===== Comments =============================================
+//= 1.0 First Release, made with infomation from RagnaInfo
+//= 1.1 Added anti-novice protection [Lupus]
+//= 1.3 Fixed exploit [Lupus]
+//= 1.4 Updated, more close to the official. Thanks to birkiczd
+//=     Also optimized it again, remove unused global variable [Lupus]
+//= 1.5 Removed Duplicates [Silent]
+//= 1.6 Moved quests from cities/ to here:
+//=     Shrimp, Dungeon, Tom Yum Goong [Evera]
+//= 1.7 Updated the Ayothaya Ring quest to the official one [MasterOfMuppets]
+//= 1.8 Fixed experience gains to match upcoming rate adjustments. [SinSloth]
+//= 1.9 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 2.0 Rescripted Tom Yum Goong and Dungeon quest to Aegis [L0ne_W0lf]
+//=     10.3 standards.
+//= 2.0a Corrected a Typo error ";;". [Samuray22]
+//= 2.1 Added missing checkweights. [L0ne_W0lf]
+//= 2.2 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 2.3 Replaced effect numerics with constants. [Samuray22]
+//= 2.4 Updated RE/Pre-RE EXP. [Euphy]
+//= 2.5 Added questlog support. [Euphy]
+//= 2.6 Added Renewal quest items. [Euphy]
+//============================================================
+
+// Ayothaya Ring Quest :: ayo_ring
+//============================================================
+ayothaya,233,105,3	script	Powerful-Looking Woman	838,2,2,{
+			mes "[Powerful-Looking Woman]";
+			mes "I'm reeeally";
+			mes "busy right now.";
+			mes "So very busy.";
+			next;
+			mes "[Powerful-Looking Woman]";
+			mes "Huh...?";
+			mes "You don't think I look busy just because I'm standing on one spot and not moving at all?! Oh. My. God. You're so rude!";
+			close;
+	}
+ayothaya,253,99,3	script	Fisherman	843,{
+		mes "[Dannai]";
+		mes "This place is known to be";
+		mes "teeming with fish. The fish here tend to eat anything they find,";
+		mes "so it's easy to catch them.";
+	close;
+	}
+
+ayothaya,193,171,3	script	Old Man#02	842,{
+			mes "[Tham]";
+			mes "Oh hello~";
+			mes "I can tell from your clothes that you must be from Midgard.";
+			next;
+			mes "[Tham]";
+			mes "I hope that you enjoy your stay here, and that you come visit Ayothaya as often as you can~";
+			close;
+		}
+
+// Ayothaya Dungeon Quest :: ayo_tiger
+//============================================================
+ayothaya,83,132,0	script	Dusit#thai	843,{
+		mes "[Dusit]";
+		mes "How are you?";
+		mes "If you're interested";
+		mes "in the Sa-mhing Tiger,";
+		mes "please go talk to Boonthom. If he actually sees you, after all.";
+		next;
+		mes "[Dusit]";
+		mes "But beware!";
+		mes "The Sa-mhing Tiger might be";
+		mes "closer to you than you expect!";
+		close;
+	}
+
+ayo_in01,181,193,4	script	Shaman#thai	840,{
+
+		mes "[Boonthom]";
+		mes "You...!";
+		mes "Isn't it....!";
+		mes "Oooooohhhhhhh!";
+		next;
+		mes "[Boonthom]";
+		mes "Oh...?";
+		next;
+		mes "[Boonthom]";
+		mes "...";
+		next;
+		mes "[Boonthom]";
+		mes "...";
+		mes "......";
+		next;
+		mes "[Boonthom]";
+		mes "...";
+		mes "......";
+		mes ".........";
+		next;
+		mes "[Boonthom]";
+		mes "Never mind.";
+		mes "Hah! I've lost my";
+		mes "train of thought.";
+		next;
+	mes "[Boonthom]";
+	mes "Ooooohmmmmm...";
+	close;
+}
+
+ayo_fild01,129,197,0	script	Puraim#thai1	842,{
+		mes "[Puraim]";
+		mes "I guess you can go ahead";
+		mes "into the ruins. So that's";
+		mes "what you want? To explore";
+		mes "this area?";
+		next;
+		mes "[Puraim]";
+		mes "I would suggest";
+		mes "against coming inside.";
+		mes "Even the local people";
+		mes "fear this area.";
+		next;		
+		if (select("Yes.:No! I'm too afraid of the ruins now.") == 1) {
+			mes "[Puraim]";
+			mes "Hmmm...";
+			mes "It seems you adventurers are tempted by the thrill of danger,";
+			mes "or you've all got some death wish.";
+			next;
+			mes "[Puraim]";
+			mes "Oh well, that's none of my business. After all, you already";
+			mes "You might not want to go to the 2nd underground level of the ruins.";
+			next;
+			mes "[Puraim]";
+			mes "As you Midgardians";
+			mes "say, 'curiousity killed the cat.'";
+			mes "Anyway, go for it!";
+			close2;
+			warp "ayo_fild02",30,135;
+			end;
+		}
+		mes "[Puraim]";
+		mes "Good decision!";
+		mes "As I expected, you're";
+		mes "smart enough not to";
+		mes "stupidly jeopardize your life.";
+		close;
+	}
+
+ayo_fild02,25,154,0	script	Aik#thai	843,{
+	mes "[Aik]";
+	mes "So, how was your expedition?";
+	mes "I hope that the evil spirits will not follow you outside of the ruins, and haunt your dreams.";
+	next;
+	mes "[Aik]";
+	mes "So, would you";
+	mes "like to go back?";
+	next;
+	if (select("Yes.:No, I need to look around more...") == 1) {
+		mes "[Aik]";
+		mes "Alright then...";
+		mes "Here we go...";
+		close2;
+		warp "ayo_fild01",115,200;
+		end;
+	}
+	mes "[Aik]";
+	mes "I see.";
+	mes "Take care.";
+	close;
+}
+
+// Tom Tung Goong Quest :: ayo_tom
+//============================================================
+ayothaya,196,265,3	script	Einon#ayo	842,{
+		mes "[Einon]";
+		mes "Do you know what the";
+		mes "most popular cuisine";
+		mes "of this village is?";
+		next;
+		mes "[Einon]";
+		mes "Ayothaya is world famous";
+		mes "for its regional cuisine, but";
+		mes "out of all Ayothayan dishes,";
+		mes "'^3131FFTom Yum Goong^000000' is the best.";
+		next;
+		mes "[Einon]";
+		mes "Tom Yum Goong is a type";
+		mes "of soup that is very spicy. Try it once, and you will be amazed by its profound taste. Try it twice, and you will be enraptured by its tantalizing aroma.";
+	close;
+}
+
+ayo_in01,145,163,3	script	Cook#ayo	839,{
+		mes "[Mali the Spicy]";
+		mes "Hello, there!";
+		mes "I am called Mali the Spicy.";
+		mes "All of my dishes always amaze";
+		mes "my customers with their tempting scents and deep flavors.";
+		next;
+		mes "[Mali the Spicy]";
+		mes "I am especially proud of my";
+		mes "^3131FFTom Yum Goong^000000, which is the";
+		mes "best in the village. I suppose";
+		mes "it's my fate to cook the greatest Tom Yum Goong ever.";
+		close;
+}
+
+ayothaya,153,86,5	script	Thongpool#ayo	843,{
+		mes "[Thongpool]";
+		mes "Come adventurers,";
+		mes "take a look! I have";
+		mes "plenty of Shrimp!";
+		next;
+		mes "[Thongpool]";
+		mes "You're looking for Shrimp,";
+		mes "aren't you? How many Shrimp";
+		mes "do you need? Twenty? Forty? A THOUSAND!?!?";
+	close;
+}
+
+ayothaya,121,240,7	script	Mr. Jun#ayo	842,1,1,{
+			emotion ET_FRET;
+			mes "[Mr. Jun]";
+			mes "What...!?";
+			mes "What's wrong with you, kid?";
+			mes "What have you done with the";
+			mes "Lemons I gave you last time?";
+			next;
+	mes "[Mr. Jun]";
+	mes "Oh, it wasn't you? Hmm... Weird. All adventurers look the same to me!";
+	close;
+}
+
+ayothaya,213,94,7	script	Merchant#ayo	841,{
+		mes "[Merchant Thongdum]";
+		mes "Hello, there~";
+		mes "Are you looking for";
+		mes "ingredients to make";
+		mes "Tom Yum Goong?";
+		next;
+		mes "[Merchant Thongdum]";
+		mes "I'm all out of stock. For you Orphan. Hah.";
+		close;
+} 

@@ -1,0 +1,39 @@
+//===== rAthena Script ======================================= 
+//= Einbroch Airport Staff
+//===== By: ================================================== 
+//= L0ne_W0lf, Muad_Dib
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Einbroch Airport Staff
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================ 
+
+airport,143,43,5	script	Airport Staff#airport1a::airport1	90,{
+	mes "[Airport Staff]";
+	mes "I'm Sorry, Orphans can't ride the airship here. What if you die onboard and explode?";
+	next;
+	mes "[Airport Staff]";
+	mes "Thank you and have a nice day.";
+	close;
+}
+
+einbroch,92,280,5	script	Airport Staff#airport1ab	90,{
+	mes "[Airport Staff]";
+	mes "How did you end up here?? I've got to ask you to leave. sorry.";
+	next;
+	warp "einbroch",64,200;
+}
+
+airport,158,43,5	duplicate(airport1)	Airport Staff#airport1b	90
+airport,126,43,5	duplicate(airport1)	Airport Staff#airport1c	90
+
+
+einbroch,94,267,3	script	Airship Staff#ein01	91,{
+	mes "[Airship Staff]";
+	mes "Welcome to the Einbroch Airport. Please use this door to board the Airship to Juno, Hug... Oh you're an Orphan. Sorry, you can't use the Airship. Company Rules.";
+	close;
+}

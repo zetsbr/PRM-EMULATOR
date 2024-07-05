@@ -1,0 +1,505 @@
+//===== rAthena Script ======================================= 
+//= Assassin and Rogue Job Quest - By Ornstein
+//============================================================ 
+in_moc_16,1,1,0	script	asrgspawns	-1,{
+OnInstanceInit:
+	set .@map$, instance_mapname("in_moc_16");
+	areamonster .@map$,64,54,110,85,"Thief Tester",3669,10,instance_npcname("asrgspawns")+"::OnThiefDead";
+	end;
+OnThiefDead:
+	areamonster instance_mapname("in_moc_fild16"),64,54,111,92,"Thief Tester",3669,1,instance_npcname("asrgspawns")+"::OnMyRhynDead";
+	end;
+}
+
+moc_fild16,205,294,1	script	Guild Captain#Second	55,{
+	.@instance$ = "Orphan Tutorial";
+	set .@npc$, "[Guild Captain]";
+			if (finaljob ==1) {
+				mes "[Guild Captain]";
+				mes "The Desert Guild's entrance can be found near the water, to the west. I can't do anything for you as this place is for Thieves looking to become Assassins or Rogues.";
+				close;
+			}
+			if (SkillPoint) {
+				mes "[Guild Captain]";
+				mes "You can't change your job if you still have unused skill points. You better use up those skill points first.";
+				close;
+			}
+	mes .@npc$;
+	mes "Young Orphan, your kind is welcome here. Do you want to enter?";
+	next;
+	switch(select("Nevermind:How can I join the Guild?:Enter the Desert Guild(Instance)")) {
+	case 1:
+		mes .@npc$;
+		mes "Please don't waste my time.";
+		close;
+		break;
+	case 2:
+		mes .@npc$;
+		mes "You need to be a Thief with a Job Level of 50. No less. You can choose to either be an Assassin or Rogue";
+		close;
+		break;
+	case 3:
+	if (BaseJob == Job_Thief && JobLevel > 49) {
+	.@partyrest$ = getcharid(0);
+	.@partyrest2$ = getcharid(1);
+	party_delmember(.@partyrest$,.@partyrest2$);
+	.@instance$ = "Desert Guild";
+	mes .@npc$;
+	mes "I'll let you enter the Guild... Give me a second. I'm getting your details memorized.";
+	next;
+	.@name$ = "Desert" + rand(10000);
+	party_create (.@name$);
+	mes .@npc$;
+	mes "Try not to cause trouble. I'm keeping an eye on you. Orphan.";
+	next;
+	savepoint "moc_fild16",200,287,1,1;
+	.@create = instance_create(.@instance$);
+	if (.@create < 0) {
+	mes "[Desert Guild]";
+			switch (.@create) {
+			case -1: mes "ERROR: Invalid type."; break;
+			case -2: mes "ERROR: Party not found."; break;
+			case -3: mes "ERROR: Instance already exists."; break;
+			case -4: mes "ERROR: No free instances."; break;
+			}
+			mes " ";
+			mes "Instance creation ^FF0000failed^000000.";
+			close;
+			}
+			mes "[Guild Captain]";
+			mes "Instance created.";
+			mes " ";
+			mes "Now entering the guild...";
+			next;
+	.@enter = instance_enter(.@instance$);
+	if (.@enter != 0) {
+		mes "[Failed Instance]";
+		switch (.@enter) {
+			case 1: mes "ERROR: Party not found."; break;
+			case 2: mes "ERROR: Party does not have an instance."; break;
+			case 3: mes "ERROR: Unknown error."; break;
+		}
+		mes " ";
+		mes "Instance entry ^FF0000failed^000000.";
+		emotion ET_HUK;
+		close;
+	}
+	close;
+}
+	mes .@npc$;
+	mes "You can't apply for a job here. I can't help you. Good luck.";
+	close;
+	}
+}
+
+
+in_moc_16,19,33,1	script	Guildsman#asn	55,{
+	if (BaseJob == Job_Thief && JobLevel > 49) {
+			if (SkillPoint) {
+				mes "[Ferocious-looking guy]";
+				mes "You can't change your job if you still have unused skill points from First Job. You better use up those skill points first.";
+				close;
+			}
+			else {
+					if (fightroomskip ==1){
+		mes "[Ferocious-looking guy]";
+		mes "Hmmm? Go to the Master's room! It's your final test!";
+		close2;
+		warp instance_mapname("in_moc_16"), 167, 116;
+		end;
+					}
+				mes "[Ferocious-looking guy]";
+				mes "Hmm...";
+				mes "A Thief...?";
+				next;
+				mes "[Ferocious-looking guy]";
+				mes "And not only a Thief... an Orphan... And a very skilled one. I'm sure we can do something for you, and you can do much for us.";
+				next;
+				mes "[Ferocious-looking guy]";
+				mes "So how about taking the next step and joining our guild? You can either be an Assassin or a Rogue.";
+				next;
+				switch(select("Yes. I've picked my last pocket.:What are the requirements?:Maybe later, I need to steal some things first.")) {
+				case 1:
+					mes "[Ferocious-looking guy]";
+					mes "It's been a while since I've received a guest. I'm sending";
+					mes "you to the office.";
+					close2;
+					warp instance_mapname("in_moc_16"), 19, 76;
+					end;
+				case 2:
+					mes "[Ferocious-looking guy]";
+					mes "Requirements? Well, first you need to be a Thief. Second, you need to be at least Thief job level 50.";
+					next;
+					mes "[Ferocious-looking guy]";
+					mes "And third, you need to pass a test to choose your job. You got";
+					mes "all that? If you're sure of your ability as a Thief, you won't have to worry.";
+					close;
+				case 3:
+					mes "[Ferocious-looking guy]";
+					mes "Hmm...";
+					mes "Alright then.";
+					mes "But come back when";
+					mes "you think you're ready.";
+					close;
+				}
+			}
+		}
+		else {
+			mes "[Ferocious-looking guy]";
+			mes "Huh. You're not qualified to join us yet. There are requirements you need to meet first, you know.";
+			next;
+			mes "[Ferocious-looking guy]";
+			mes "Well, keep training. You need to be at least job level 50, got it? We accept people below that level, but they are not Orphans, and don't have the same potential as you.";
+			close;
+		}
+	}
+
+in_moc_16,25,90,1	script	Guildsman#ASN2	730,2,2,{
+		mes "[Assassin 'Khai']";
+		mes "Oh, you must be a new member. You are here to become";
+		mes "an Assassin, aren't you?";
+		next;
+		if (select("Yes, I am. :...No, a Rogue.") == 1) {
+			mes "[Assassin 'Khai']";
+			mes "You're making the right choice. Let's fill out the application form. Please sign your name and include your job level.";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Let's see.";
+			mes "Your name is";
+			mes "" + strcharinfo(0) + "...";
+			mes "Job level... " + JobLevel + "...";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Wait, an Orphan? That's perfect, you guys are very good. I'm glad you decided to join us.";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Did you finish the form? Alright, go ahead and give it to me. Give me a second and I'll transport you to the Test Hall.";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Alright then,";
+			mes "best of luck to you!";
+			close2;
+			warp instance_mapname("in_moc_16"), 19, 144;
+			end;
+			}
+			else {
+			mes "[Assassin 'Khai']";
+			mes "Really? Well, that's your choice. Let's fill out the application form. Please sign your name and include your job level.";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "You will need to confirm this with the master at the end.";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Let's see.";
+			mes "Your name is";
+			mes "" + strcharinfo(0) + "...";
+			mes "Job level... " + JobLevel + "...";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Wait, an Orphan? That's perfect, you guys are very good. I'm glad you decided to join us.";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Did you finish the form? Alright, go ahead and give it to me. Give me a second and I'll transport you to the Test Hall.";
+			next;
+			mes "[Assassin 'Khai']";
+			mes "Alright then,";
+			mes "best of luck to you!";
+			close2;
+			warp instance_mapname("in_moc_16"), 19, 144;
+			end;
+			}
+	}
+
+in_moc_16,17,157,4	script	Rogue Tester#jobquestasrg	747,{
+	if (quizpasstst ==1){
+		mes "[Rogue 'Eve']";
+		mes "You already passed the knowledge test. Good luck on the rest of the tests!";
+		close;
+	}	
+			mes "[Rogue 'Eve']";
+			mes "No matter what path you choose, It's only your choice in the end, and nothing else matters.";
+			next;
+			mes "[Rogue 'Eve']";
+			mes "I am here to test your knowledge, as well as your capacity for reaction. Those are both necessary to become a member.";
+			next;
+			mes "[Rogue 'Eve']";
+			mes "For your challenge, you must";
+			mes "answer my questions correctly. Very difficult questions that only a prepared person can answer.";
+			next;
+			mes "[Rogue 'Eve']";
+			mes "Although I am heartless,";
+			mes "I am not necessarily cruel. Are you ready now? I hope you are.";
+			next;
+			mes "[Rogue 'Eve']";
+			mes "If you want to pass this test, you must give me 9 correct answers out of 10 questions. I won't let you know which answer you got wrong...";
+			next;
+			mes "[Rogue 'Eve']";
+			mes "1. What skill is an improved version of Grimtooth.";
+			next;
+			if (select("Sonic Blow:Grimtooth II:Dragon Slash:Impact Tooth") == 4)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "2. What elemental property receives extra damage from poison?";
+			next;
+			if (select("Neutral:Earth:Fire:Undead") == 1)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "3. How does Level 5 Left Hand Mastery work?";
+			next;
+			if (select("Recover 80% of damage decrease:Recover 100% of damage decrease:Increase 90% of damage:Increase 108% of damage") == 2)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "4. What is required to use Flip Coin?";
+			next;
+			if (select("Shadow Orbs:Blue Gemstone:SP:Zeny") == 4)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "5. Which skill can you learn when you get Level 1 Enchant Poison?";
+			next;
+			if (select("Envenom:Double Attack:Venom Splasher:Detoxify") == 4)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "6. Among the following skills, which allows you to walk while invisible?";
+			next;
+			if (select("Hiding:Decoy:Chase Walk:Shadow Mastery") == 3)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "7. How many offensive Spells can a thief learn?";
+			next;
+			if (select("Five.:Three.:Four.") == 2)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "8. What's the shadow set found on Morroc's pyramid basement?";
+			next;
+			if (select("Deep Pyramid:Desert Wind:Lost Attire:Orphan First") == 3)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "9. Why should I carry more than 1 arrow when using a bow?";
+			next;
+			if (select("They might run out.:Some skills require more arrows.:They can be used quicker:To hit multiple enemies per attack") == 2)
+				set .@assassin_t,.@assassin_t+10;
+			mes "[Rogue 'Eve']";
+			mes "10. What job focuses on using all kinds of combat styles at once?";
+			next;
+			if (select("Satsujin:Night Raven:Judge:Revenant") == 1)
+				set .@assassin_t,.@assassin_t+10;
+			next;
+			mes "[Rogue 'Eve']";
+			mes "Hmpf.";
+			mes "Somehow, you";
+			mes "have shown me";
+			mes "great effort.";
+			next;
+			mes "[Rogue 'Eve']";
+			mes "Let's see...";
+			mes "You scored";
+			mes "" + .@assassin_t + " percent...";
+			if (.@assassin_t > 80) {
+				mes "Well done.";
+				mes "You pass.";
+				next;
+				set quizpasstst,1;
+				mes "[Rogue 'Eve']";
+				mes "However, another test awaits you...Talk to Barcardi behind me to proceed.";
+				close;
+			}
+			else {
+				mes "That means you fail!";
+				next;
+				mes "[Rogue 'Eve']";
+				mes "How could you expect to pass with this score? Let me know when you are ready to try again.";
+				close;
+			}
+		}
+
+in_moc_16,21,165,4	script	Test Guide#ASN	725,{
+	if (quizpasstst ==0){
+		mes "[Barcardi]";
+		mes "You need to pass the Knowlege test with Eve before you can proceed.";
+		close;
+	}
+		mes "[Barcardi]";
+		mes "" + strcharinfo(0) + "...";
+		mes "You passed the test..?";
+		next;
+		mes "[Barcardi]";
+		mes "To be honest, I want to grant you the job change without any other condition. Too many pathetic people don't even have the basic knowledge to fight...";
+		next;
+		mes "[Barcardi]";
+		mes "We must keep our dignity as Assassins and Rogues and be truly great! Regrettably, there are too many idiots that don't have any pride.";
+		next;
+		mes "[Barcardi]";
+		mes "You must respect the enemies you slay, the blood that they spill, and above all, maintain your sense of dignity!";
+		next;
+		mes "[Barcardi]";
+		mes "Alright. This next trial will test your ability to quickly move around and adapt.";
+		next;
+		mes "[Barcardi]";
+		mes "Sometimes being quiet is exactly what is needed. You can cross the room in any way you prefer. Just make sure to get to me!";
+		next;
+		mes "[Barcardi]";
+		mes "If you fail, you'll have to restart this test. Good Luck Orphan!";
+		warp instance_mapname("in_moc_16"), 89, 98;
+		close2;
+	}
+
+
+in_moc_16,87,48,2	script	Barcardi#ASN	725,2,2,{
+	end;
+OnTouch_:
+	mes "[Barcardi]";
+	mes "Oh! Congratulations!";
+	mes "You may now proceed to our Guildmaster's room. Good luck!!";
+	close2;
+	set fightroomskip,1;
+	warp instance_mapname("in_moc_16"), 167, 116;
+	end;
+}
+
+in_moc_16,167,110,0	script	Guildmaster#ASN1	-1,3,1,{
+OnTouch_:
+	savepoint "moc_fild16",200,287,1,1;
+	mes "[Guildmaster]";
+	mes "Welcome. ";
+	mes "This place is called the 'Guildmaster's room,' the deepest place in the guild.";
+	next;
+	mes "[Guildmaster]";
+	mes "I'm going to give you a simple test. Please find your way through this maze and come to me. It is this maze that protects our guild from intruders.";
+	next;
+	mes "[Guildmaster]";
+	mes "I look forward";
+	mes "to meeting you";
+	mes "at the end of maze.";
+	close;
+
+OnCast:
+	mapannounce "in_moc_16","...Next volunteer, please come in.",bc_map;
+	end;
+}
+
+in_moc_16,149,80,4	script	Guildmaster#ASN2	106,1,1,{
+	end;
+OnTouch_:
+		mes "[Guildmaster]";
+		mes "Welcome.";
+		mes "I apologize for making you take all those tests. We need to make sure you're ready and have the skills required to not bring us shame.";
+		next;
+		mes "[Guildmaster]";
+		mes "I saw your resume just now. You're well known as a Thief with guts. Rarely do we receive potential members of your stature.";
+		next;
+		mes "[Guildmaster]";
+		mes "Not only that. You're an Orphan. You're used to having a tougher time on all kinds of situations. I respect that. We, respect that.";
+		next;
+			mes "[Guildmaster]";
+			mes "An Assassin's pride...";
+			mes "A Rogue's talent...";
+			next;
+			mes "[Guildmaster]";
+			mes "Pride is certainly important, but pride is worth nothing if you do not have any ability.";
+			next;
+			mes "[Guildmaster]";
+			mes "The same can be said otherwise. No matter how skilled you are, you must ensure that skill is both respected and put to good use.";
+			next;
+			mes "[Guildmaster]";
+			mes "No matter what path you choose. You need to keep these things in mind. Are you ready to decide?";
+			next;
+			switch(select("I need to think for a moment...:I want to be an Assassin:I want to be a Rogue")) {
+			case 1:
+			mes "[Guildmaster]";
+			mes "Time waits for no man. Make your choice.";
+			close;
+			case 2:
+				mes "[Guildmaster]";
+				mes "The sound of silence is the sound of your blades. From now on...";
+				next;
+				atcommand "@job 12";
+				resetskill();
+				set secondjob,1;
+				set assassinjob,1;
+				mes "[Guildmaster]";
+				mes "You are now allowed access to our Main Areas. Now go, and fulfill your new destiny!";
+				close2;
+				warp "moc_fild16",200,287;
+				break;
+			case 3:
+				mes "[Guildmaster]";
+				mes "The resources to adapt to any situation and always evolve. From now on...";
+				next;
+				atcommand "@job 17";
+				resetskill();
+				set secondjob,1;
+				set roguejob,1;
+				mes "[Guildmaster]";
+				mes "You are now allowed access to our Main Areas. Now go, and fulfill your new destiny!";
+				close2;
+				warp "moc_fild16",200,287;
+				break;		
+			}
+}
+
+in_moc_16,186,81,1	script	Master Assist	55,1,1,{
+	mes "[Assistent Gayle Maroubitz]";
+	mes "Sorry, but I'm not in charge of job changes. Go to the Guildmaster, as he has told you.";
+	close;
+}
+
+in_moc_16,170,90,0	script	info 1	-1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "Huh.";
+	mes "Now, that place is blocked. You might want to check the other side.";
+	close;
+}
+
+in_moc_16,153,85,0	script	info 2	-1,1,1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "You're getting warmer. You're almost there. Just, turn around a little bit.";
+	close;
+}
+
+in_moc_16,160,85,0	script	info 3	-1,1,1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "Hmm.";
+	mes "Now, that place";
+	mes "is blocked.";
+	close;
+}
+
+in_moc_16,175,89,0	script	info 4	-1,1,1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "Umm...";
+	mes "Are you lost? Try to find your way...";
+	close;
+}
+
+in_moc_16,164,88,0	script	info 5	-1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "Well done...";
+	mes "I can feel your steps near me.";
+	close;
+}
+
+in_moc_16,149,95,0	script	info 6	-1,1,1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "Hm? Not bad. You're almost here.";
+	close;
+}
+
+in_moc_16,180,101,0	script	info 7	-1,1,1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "I don't think you're going the right way.";
+	close;
+}
+
+in_moc_16,186,107,0	script	info 8	-1,1,1,{
+OnTouch_:
+	mes "[Guildmaster]";
+	mes "No sense of direction, eh?";
+	close;
+}

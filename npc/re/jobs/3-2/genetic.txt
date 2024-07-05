@@ -1,0 +1,40 @@
+//===== rAthena Script ======================================= 
+//= Genetic Job Quest
+//===== By: ================================================== 
+//= Muad_Dib, Aeomin
+//===== Current Version: ===================================== 
+//= 1.4
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job change Quest from Alchemist / Creator -> Genetic.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Masao]
+//= 1.1 Fixed Scatter Stuff NPCs [JayPee].
+//= 1.2 Updated dialogue. Credits to Muad_Dib. [Joseph]
+//= 1.3 Updated script, optimized. [Euphy]
+//= 1.3a Moved warps to separate file. [Euphy]
+//= 1.4 Added VIP features. [Euphy]
+//============================================================
+
+alde_alche,35,186,5	script	Alchemist Union Member	805,{
+	mes "[Alchemist Union Member]";
+				mes "Our Alchemist Union brings up many junior alchemists with various promotions and investigations.";
+				next;
+				mes "[Alchemist Union Member]";
+				mes "They have spread to all corners of Midgard and were active in many fields like sciences or special item production methods.";
+				next;
+				mes "[Alchemist Union Member]";
+				mes "We call the members of our new union ^3131FF'Geneticists'^000000.";
+				next;
+				mes "[Alchemist Union Member]";
+				mes "Geneticists are the ones who have reached their peak potential in the world of Alchemy. They are the ones who currently spearhead alchemy throughout all of Midgard.";
+				next;
+				mes "[Alchemist Union Member]";
+				mes "Then there are those dreaded ^3131FFBlast Jugglers^000000. They are the opposite.";
+				next;
+				mes "[Alchemist Union Member]";
+				mes "They don't really bring anything new to our craft, they just enjoy trapping and exploding things. No wonder so many alchemists rebelled.";
+			close;
+}

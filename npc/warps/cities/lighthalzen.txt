@@ -1,0 +1,28 @@
+//===== rAthena Script =======================================
+//= Lighthalzen Warp Script
+//===== By: ==================================================
+//= Sara-chan (1.0)
+//===== Current Version: =====================================
+//= 1.9
+//===== Compatible With: =====================================
+//= rAthena Project; RO Episode 8+
+//===== Description: =========================================
+//= Warp Points for Lighthalzen
+//===== Additional Comments: =================================
+//= 1.9 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//============================================================
+
+
+
+//============================================================ 
+// Old changelog
+//============================================================ 
+//= 1.3 Removed fields and dungeons warps from here [DracoRPG]
+//= 1.3a A small fix for a warp [MasterOfMuppets]
+//= 1.4 Lighthalzen warp, taken from korean eA site [Vicious]
+//= 1.4a Corrected warp for 'lhz013a' [Zephiris]
+//= 1.5 Added a few missing warps, thanks to Kargha [MasterOfMuppets]
+//= 1.6 Added a few more missing warps. [MasterOfMuppets]
+//= 1.7 Yet more missing warps implemented :P [MasterOfMuppets]
+//= 1.8 Added missing warps and moved some related to quests. [SinSloth]
+//============================================================

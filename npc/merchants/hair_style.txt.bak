@@ -1,0 +1,66 @@
+//===== rAthena Script =======================================
+//= Hair Dresser
+//===== By: ==================================================
+//= Muad_Dib, Samuray22, Kisuka
+//===== Current Version: =====================================
+//= 1.4
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Allows you to change your hairstyle.
+//===== Additional Comments: =================================
+//= 1.2 Rescripted to the Aegis 10.3 Standards. [Samuray22]
+//= 1.3 Updated to match AEGIS script. [Kisuka]
+//= 1.4 Added Lighthalzen Hair Dresser. [L0ne_W0lf]
+//============================================================
+
+// Hair Dresser Veronica
+// ============================================================
+alberta_in,55,142,7	script	Hair Dresser	91,{
+	mes "[Veronica]";
+	mes "Welcome to Veronica's hair salon.";
+	mes "Unfortunately I can't provide services for Orphans, I'm sure someone at the Orphanage can!";
+		}
+// Roving Hair Dresser
+// ============================================================
+alberta,33,141,7	script	Roving Hair Dresser	87,{
+	mes "[Rui Vishop]";
+	mes "That Veronica...";
+	mes "Hah! Best hair dresser my ass.";
+	mes "She's not the best hair dresser...";
+	mes "...";
+	mes "I am!";
+	next;
+	mes "[Rui Vishop]";
+	mes "I, Rui Vishop, the man to whom";
+	mes "all scalps are canvases";
+	mes "waiting to be transformed into";
+	mes "works of magnificent art~!";
+	close;
+}
+// Lighthalzen
+lhz_in02,100,143,3	script	Hair Dresser#li	122,{
+	mes "[Prince Shammi]";
+	mes "Those bastards from Rekember... they ruined this city! Oh, what can I do...";
+	close;
+	}
+
+lhz_in02,91,155,5	script	Assistant Beautician#li	862,{
+	mes "[Assistant Beautician]";
+	mes "Wah?! Sweet Jiminy,";
+	mes "you freaked me out!";
+	mes "What are you doing?!";
+	emotion ET_HUK;
+	next;
+	mes "[Assistant Beautician]";
+	mes "Oh! Um, a customer!";
+	mes "H-h-h-h-h-hello! Unfortunately the shop is closed!";
+	close;
+}
+
+//===== Old Changelog: =================================
+//= 07/06/05 : Added 1st Version. [Muad_Dib]
+//= Converted to rAthena format by Dr.Evil Fixed typos [Nexon]
+//= 1.1 Removed Duplicates [Silent]
+//============================================================

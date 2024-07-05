@@ -1,0 +1,91 @@
+//===== rAthena Script =======================================
+//= Ninja Equipment Quests
+//===== By: ==================================================
+//= Playtester
+//===== Current Version: =====================================
+//= 1.2a
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Quests for Ninja weapons and armor.
+//===== Additional Comments: =================================
+//= 1.0 Ninja Arm Guards only yet [Playtester]
+//= 1.1 Added Kaibara [Playtester]
+//= 1.2 Added Tetsu [Playtester]
+//= 1.2a Kagerou/Oboro support (BaseJob -> BaseClass) [Euphy]
+//============================================================
+
+que_ng,28,50,3	script	Boshuu	709,{
+
+		mes "[Boshuu]";
+		mes "I'm the best craftsman out of what people call the Three Craftsmen of Ninja Tools.";
+		mes "They call me Murata Boshuu.";
+		next;
+		mes "[Boshuu]";
+		mes "I know how to create any armor and shield of the eastern world, and my shields are considered the best there is.";
+		next;
+		mes "[Boshuu]";
+		mes "But seeing how you are an outsider...";
+		mes "Looks like I have no business with you.";
+		mes "Ehem~";
+		close;
+}
+
+que_ng,28,45,3	script	Basshu	86,{
+
+		mes "[Basshu]";
+		mes "I am one of the brothers of the three brothers in charge of crafting shields in the east named Murata Basshu";
+		next;
+		mes "[Basshu]";
+		mes "People normally call us the Three Craftsmen, but the other two craftsmen are my brothers.";
+		next;
+		mes "[Basshu]";
+		mes "But It looks like you're not my usual customer type, so I cannot make you any shields.";
+		mes "Sorry.";
+		close;
+	}
+
+que_ng,27,18,3	script	Toshu	709,{
+	
+		mes "[Toshu]";
+		mes "How are you~";
+		mes "My young friend~";
+		mes "I am one of the three brothers of the eastern world who craft armor. The name is Murata Toshu.";
+		next;
+		mes "[Toshu]";
+		mes "I've learned how to slot things from a land overseas.";
+		mes "I'm thinking about earning some money using this ability.";
+		next;
+		mes "[Toshu]";
+		mes "But you don't seem like the kind of customer which I can do business with...";
+		close;
+	}
+
+que_ng,72,34,3	script	Craftsman Kaibara	847,{
+
+		mes "[Kaibara]";
+		mes "I am a Craftsman called Kaibara";
+		mes "I create weapons for Ninjas.";
+		mes "However, It doesn't look like you are a ninja.";
+		next;
+		mes "[Kaibara]";
+		mes "Even if I created a sword for you, I doubt you would be able to appreciate it. What a shame...";
+		close;
+	}
+
+que_ng,22,62,3	script	Tetsu	709,{
+
+	mes "[Tetsu]";
+		mes "I'm The Craftman of Fuuma Ninjas called Tetsu.";
+		next;
+		mes "[Tetsu]";
+		mes "My living is getting tough because of my gambling, so I've started to make weapons part time.";
+		next;
+		mes "[Tetsu]";
+		mes "However, it looks like you're not a ninja.";
+		mes "There's no point of me explaining any further then.";
+		next;
+		mes "[Tetsu]";
+		mes "Perhaps when I have some money to spare, we could play a game of Mah-jong together.";
+		close;
+}

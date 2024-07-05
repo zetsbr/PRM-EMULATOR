@@ -1,0 +1,20 @@
+//===== rAthena Script ======================================= 
+//= Renewal Thief Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Thief Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//============================================================ 
+moc_prydb1,39,129,2	script	Thief Guide#thief	69,{
+		mes "[Thief Guildsman]";
+		mes "Well, I'm not in charge of making you a Thief. I just provide information, get it?";
+		mes "If you want to become a Thief, ask Lydia, the girl inside.";
+		close;
+}

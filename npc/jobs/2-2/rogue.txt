@@ -1,0 +1,84 @@
+//===== rAthena Script ======================================= 
+//= Rogue Job Quest
+//===== By: ================================================== 
+//= kobra_k88
+//===== Current Version: ===================================== 
+//= 2.9
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job quest for Rogue classes
+//===== Additional Comments: ================================= 
+//= 2.4 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
+//=     No longer uses function "F_BlockHigh"
+//= 2.4a Deleted unused variables. [Samuray22]
+//= 2.4b Changed a Problem with JobLevel what made 
+//=     impossible get a Gladius [3]. (bugreport:481) [Samuray22]
+//= 2.4c Corrected a Typo error ";;" and a typo error with "rouge". (bugreport:909) [Samuray22]
+//= 2.5 Added dummy "OnMyMobDead" labels. (bugreport:1100) [L0ne_W0lf]
+//= 2.6 Fixed a few bugs in the Rogue Guildsman. [L0ne_W0lf]
+//= 2.7 Fixed a bug on Markie question 5, bugreport:1600 [Brainstorm]
+//= 2.8 Moved "Thug" to Morocc Ruins. [L0ne_W0lf]
+//= 2.9 Added Quest Log commands. [Kisuka]
+//============================================================ 
+
+moc_ruins,86,103,1	script	Thug#rg	118,{
+	mes "[Thug]";
+	mes "*Sigh...*";
+	mes "What is life?";
+	mes "And what use";
+	mes "is money? ...Damn.";
+	mes "Damn this worthless life!";
+	next;
+	mes "[Thug]";
+	mes "Hey, kid.";
+	mes "What the hell";
+	mes "are you lookin' at?";
+	next;
+	if (select("Me? N-nothing!':........") == 1) {
+		mes "[Thug]";
+		mes "Then get the";
+		mes "hell out of my face!";
+		mes "Didn't you hear me?";
+		mes "Get lost!";
+		close;
+	}
+	mes "[Thug]";
+	mes "I needz my money,";
+	mes "and they best have it...";
+	close;
+}
+
+in_rogue,363,122,4	script	Rogue Guildsman#rg	747,{
+		mes "[Markie]";
+		mes "Eh? You...you...?!";
+		mes "Hey, haven't we met before?";
+		next;
+		mes "[Markie]";
+		mes "..............";
+		mes "Awww, ^FF0000I am sorry^000000! I think I misunderstood you from someone I know.";
+		next;
+		mes "[Markie]";
+		mes ".......";
+		mes "........It is strange though. Umm.";
+		next;
+		mes "[Markie]";
+		mes "I never misunderstand people...oh well, be safe anyway!";
+		close;
+	}
+
+in_rogue,376,23,1	script	Mr. Smith#rg	57,{
+		mes "[Mr. Smith]";
+		mes "The Rogue guild has united with the Assassin's guild. I just stay here to inform people...zzzz...";
+		close;
+}
+
+in_rogue,272,135,1	script	Hermanthorn Jr#rg	85,{
+		mes "[HermanthornJr.]";
+		mes "Huh...?";
+		mes "What the hell";
+		mes "are you doing here.";
+		mes "Scram, why don't you?";
+		close;
+	}

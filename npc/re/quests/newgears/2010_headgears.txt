@@ -1,0 +1,82 @@
+//===== rAthena Script =======================================
+//= 2010 Headgear Quests
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Fairy Flower, Necktie, Hair Brush, Statue Of Baby Angel,
+//= Frog Hat, Soloplay Boxes (Indifferent/Angry Solo Hat)
+//=
+//= Although the variables include '2009', this quest is
+//= actually for 2010 headgears, and is Renewal-only.
+//===== Additional Comments: =================================
+//= 1.0 First version. [Euphy]
+//=     Original variable names: 2009_hat, 2009_1_hat
+//============================================================
+
+
+lhz_in02,276,281,1	script	Drunken Man#Necktie	748,{
+	mes "[Drunken Man]";
+	mes "Hey... you wanna fight?!";
+	next;
+		mes "[Drunken Man]";
+		mes "Why are you ignoring me?";
+		mes "Are you afraid of me?";
+		close;
+}
+
+comodo,236,164,0	script	Hat Girl#Hair_Brush	69,{
+	mes "[Hat Girl]";
+	mes "Isn't the unique hat much better";
+	mes "than the common hairbands?";
+	next;
+	if(select("I still prefer hairbands!:Hat is the best!") == 1) {
+		mes "[Hat Girl]";
+		mes "Wear your boring hairband for the whole lifetime!";
+		emotion ET_HNG;
+		close;
+	}
+	mes "[Hat Girl]";
+	mes "You have great taste!";
+	close;
+}
+
+alberta,151,78,0	script	Bebete#Baby_Angel	96,{
+			mes "[Bebete]";
+			mes "A fake angel? Go away!";
+			next;
+			mes "[Bebete]";
+			mes "The real angel";
+			mes "is not as cursed as you.";
+			close;
+}
+
+gef_fild07,108,161,4	script	Roda Frog#Frog_Cap	1012,1,1,{
+			mes "[???]";
+			mes "I am the great King Froggie VII!";
+			next;
+				mes "[" + strcharinfo(0) + "]";
+				mes "Talking frog...";
+				next;
+				mes "[" + strcharinfo(0) + "]";
+				mes "Now I've seen everything.";
+				next;
+				mes "[King Froggie VII]";
+				mes "Croaking...Croaking...";
+				close;
+	}
+	
+alberta,120,206,3	script	Alonie#Solo_Play_Box	787,{
+		mes "[Alonie]";
+		mes "I am an expert at playing alone.";
+		mes "I'm trying my best to play alone!";
+		next;
+		mes "[Alonie]";
+		mes "HuHu, Yapyap!";
+		mes "I can feel your admiration for me.";
+		close;
+	}

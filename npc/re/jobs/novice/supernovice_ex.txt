@@ -1,0 +1,24 @@
+//===== rAthena Script ======================================= 
+//= Expanded Super Novice Job Quest
+//===== By: ================================================== 
+//= Euphy
+//===== Current Version: ===================================== 
+//= 1.1a
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change quest for Expanded Super Novice class.
+//===== Additional Comments: ================================= 
+//= 1.0 All dialogue is custom, contains some incorrect behaviors.
+//= 1.1 Switched to a translated copy of the official script
+//=     by Gennosuke Kouga, but vastly edited its content. [Euphy]
+//= 1.1a Replaced effect numerics with constants. [Euphy]
+//============================================================ 
+
+beach_dun2,119,92,4	script	Fishing Novice#sp2	567,{
+		mes "[Fishing Novice]";
+		mes "Sh --------- !!";
+		mes "Be quiet please.";
+		mes "You'll scare the fish.";
+		close;
+}

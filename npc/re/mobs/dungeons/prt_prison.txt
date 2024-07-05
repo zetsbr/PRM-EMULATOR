@@ -1,0 +1,13 @@
+//===== rAthena Script =======================================
+//= Episode 16.1 Monsters Spawn Script
+//===== Description: =========================================
+//= Spawns monsters in prt_prison.
+//===== Additional Comments: =================================
+//= 1.0 First version. [Capuche]
+//============================================================
+
+// Prontera Underground Prison
+prt_prison,0,0	monster	Mysteltainn	1203,15,5000
+prt_prison,0,0	monster	Executioner	1205,15,5000
+prt_prison,0,0	monster	Ogretooth	1204,15,5000
+prt_prison,0,0,0,0	boss_monster	Knight Sakray	1245,1,5000,5000,0

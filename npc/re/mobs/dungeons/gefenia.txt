@@ -1,0 +1,62 @@
+//===== rAthena Script =======================================
+//= Geffenia Dungeon Monster Spawn Script
+//===== By: ==================================================
+//= Muad_Dib, rAthena Dev Team
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= Added 1st Version. [Muad_Dib]
+//= Conversion to eA [MasterOfMuppets]
+//= Updated spawns, information from emperium.org [MasterOfMuppets]
+//= Kept the old spawns incase someone would want them.
+//= Aegis ep 10.1 spawns [MasterOfMuppets]
+//= 1.2 Correct Spawn by Navigation's mob data. [attackjom]
+//============================================================
+
+//==================================================
+// gefenia01 - Geffenia
+//==================================================
+gefenia01,0,0	monster	False Angel	1371,20,5000
+gefenia01,0,0	monster	Violy	1390,10,5000
+gefenia01,0,0	monster	Incubus	1374,10,5000
+gefenia01,0,0	monster	Succubus	1370,10,5000
+gefenia01,0,0	monster	Dry Goblin	1880,5,5000
+gefenia01,0,0	monster	Ancient Tree	2019,3,5000
+gefenia01,0,0	monster	Phantom Shaman	2156,3,5000
+
+
+//==================================================
+// gefenia02 - Geffenia
+//==================================================
+gefenia02,0,0	monster	False Angel	1371,10,5000
+gefenia02,0,0	monster	Violy	1390,10,5000
+gefenia02,0,0	monster	Incubus	1374,15,5000
+gefenia02,0,0	monster	Succubus	1370,15,5000
+gefenia02,0,0	monster	Dry Goblin	1880,10,5000
+gefenia02,0,0	monster	Ancient Tree	2019,1,5000
+gefenia02,0,0	monster	Phantom Shaman	2156,1,5000
+
+//==================================================
+// gefenia03 - Geffenia
+//==================================================
+gefenia03,0,0	monster	False Angel	1371,10,5000
+gefenia03,0,0	monster	Violy	1390,15,5000
+gefenia03,0,0	monster	Incubus	1374,10,5000
+gefenia03,0,0	monster	Succubus	1370,10,5000
+gefenia03,0,0	monster	Dry Goblin	1880,15,5000
+gefenia03,0,0	monster	Ancient Tree	2019,2,5000
+gefenia03,0,0	monster	Phantom Shaman	2156,2,5000
+
+//==================================================
+// gefenia04 - Geffenia
+//==================================================
+gefenia04,0,0	monster	False Angel	1371,5,5000
+gefenia04,0,0	monster	Violy	1390,5,5000
+gefenia04,0,0	monster	Incubus	1374,5,5000
+gefenia04,0,0	monster	Succubus	1370,5,5000
+gefenia04,0,0	monster	Dry Goblin	1880,20,5000
+gefenia04,0,0	monster	Ancient Tree	2019,5,5000
+gefenia04,0,0	monster	Phantom Shaman	2156,5,5000
+gefenia04,0,0,0,0	boss_monster	Bestia	3449,1,5000,5000,0

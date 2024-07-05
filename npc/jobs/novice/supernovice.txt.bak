@@ -1,0 +1,42 @@
+//===== rAthena Script ======================================= 
+//= Super Novice Job Quest
+//===== By: ================================================== 
+//= Darkchild
+//===== Current Version: ===================================== 
+//= 2.4
+//===== Compatible With: ===================================== 
+//= rAthena Project; SVN r15340+
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Super Novice Job Change Npc
+//= Super Novice Cart Rental Npc
+//= Some Other Useless Super Novice Npc
+//===== Additional Comments: ================================= 
+//= 1.9 Rescripted to the Aegis 10.3 Standars. [Samuray22]
+//= 2.0 Rescripted again, this time using an iRO base. [L0ne_W0lf]
+//= 2.1 Swapped use of baseclass for basejob. [L0ne_W0lf]
+//= 2.2 Added Quest Log commands. [Kisuka]
+//= 2.3 NPC "Esseray" calls Ex. Super Novice script when enabled. [Euphy]
+//= 2.4 Added an Ex. Super Novice dialog check. [Euphy]
+//============================================================ 
+
+aldeba_in,223,167,3	script	Tzerero#sn	709,{
+		mes "[Tzerero]";
+		mes "You're not a Novice. I can't help you.";
+		close;
+
+aldeba_in,216,169,5	script	Esseray#sn	86,{
+		mes "[Esseray]";
+		mes "I work to help novices become super novices. I can't help Orphans. Go away!";
+		close;
+	}
+	
+aldebaran,54,238,5	script	Kafra Employee#sn	117,{
+		mes "[Kafra Employee]";
+		mes "^3355FF*whispers*^000000";
+		mes "We have finally found the entrance to a lost Warehouse of ours...Don't even ask how it was lost.";
+		next;
+		mes "[Kafra Employee]";
+		mes "I've no idea how old kafras could lose an ENTIRE WAREHOUSE! Poor Jenni, she was there for so long...";
+	close;
+}

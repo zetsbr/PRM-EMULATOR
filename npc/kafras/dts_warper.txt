@@ -1,0 +1,21 @@
+//===== rAthena Script ======================================= 
+//= Dungeon Teleport Service
+//===== By: ================================================== 
+//= Evera
+//===== Current Version: ===================================== 
+//= 2.9a
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: =========================================
+//Disabled by Ornstein
+prontera,164,125,4	script	Kafra Voting Staff#prt	116,{
+	mes "[Kafra Voting Staff]";
+	mes "Greetings, adventurer.";
+	mes "There's currently no voting going on. Since Cool Corp isn't active anymore and we expanded the reach of the Kafra Services.";
+	close;
+}
+prontera,147,125,6	script	Cool Event Staff#prt	874{
+	mes "[Not-Cool Event Corp. Voting Staff]";
+	mes "Hello! I'm a Kafra dressed as Cool Corp Staff to explain that Cool Corp doesn't exist anymore. Thanks!";
+	close;
+}

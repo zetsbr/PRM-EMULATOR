@@ -1,0 +1,649 @@
+//===== rAthena Script =======================================
+//= Phantasmagorika Quests (episodes 15.1).
+//===== Description: =========================================
+//= [Official Conversion]
+//--- Quests list:
+//- Phantasmagorika Main Quest
+//- Wandering Bard Quest
+//- Study Quests
+//- 'New Power Source'
+//- 'To Phantasmagorika!'
+//- 'Looking for the Traces' (part 2 of 'To Phantasmagorika!')
+//===== Changelogs: ==========================================
+//= 1.0 Initial release [Capuche]
+//= 1.1 Fixed NPC names [zackdreaver]
+//= 2.0 Updated using Aegis files [Capuche]
+//============================================================
+
+prontera,121,77,3	script	Phantasmagorika Spokesperson#prt::spokesperson	4_F_ZONDAGIRL,{
+	mes "[Spokesperson]";
+	mes "Good day.";
+	mes "The ruins of Verus were found on the underground of Juperos.";
+	next;
+	mes "[Spokesperson]";
+	mes "If you're interested, You're free to explore it and help us understand that place. Just keep in mind we are not responsible for your safety.";
+	next;
+	mes "[Spokesperson]";
+	mes "You can either go down Juperos or take the shrine elevator in the yuno peninsula.";
+	close;
+	}
+
+ver_eju,114,40,4	script	Manager Michelle#atnd05	4_M_LGTGUARD,{
+	mes "[Manager Michelle]";
+		mes "Wait. Which excavation team are you from?";
+		mes "...You're independent.";
+		mes "Did you register independently? Do you have a referral?";
+		next;
+		mes "[Manager Michelle]";
+		mes "I didn't think so.";
+		mes "All sorts of people came looking for a job at the excavation site.";
+		close;
+	}
+
+verus04,182,168,5	script	Receptionist Nara#atnd06	4_F_HUWOMAN,{
+	mes "[Nara]";
+		mes "We'll inform you in case of special events.";
+		mes "Feel free to explore the ruins and be careful!";
+		close;
+	}
+	
+verus04,179,165,5	script	Commander Louis#atnd07	4_M_LGTGUARD,{
+		mes "[Louis]";
+		mes "Thank you for assisting us.";
+		mes "The Plaza is where most of the excavation work is being done.";
+		mes "It'll be great if you can find something from machines you destroy.";
+		close;
+		}
+			
+verus04,176,161,5	script	Healer Miyo#atnd08	4_F_ACOLYTE,{
+	mes "[Miyo]";
+	mes "Please come in.";
+	mes "Where do you hurt?";
+	next;	
+	percentheal 100, 100;
+	mes "[Miyo]";
+	mes "Take care now ok?";
+	close;
+}
+
+verus04,141,193,5	script	Archaeologist Aures#atnd09	4_M_OLDSCHOLAR,{
+		mes "[Aures]";
+		mes "Ah, welcome.";
+		mes "...Rookie.";
+		mes "I don't have time for Rookies. Try not to die!";
+		close;
+}
+		
+
+//- Wandering Bard Quest
+verus03,129,21,5	script	Wandering Bard#ep15	1_M_BARD,{
+		mes "[Wandering Bard]";
+		mes "This is very dangerous,";
+		mes "It is best to go back to the camp if things get hard!";
+		close;
+}
+
+//- Study Quests
+verus04,133,212,4	script	Study Chief Kesler#EP15_1	2_M_SWORDMASTER,{
+		mes "[Study Chief Kesler]";
+		mes "Nice to meet you. I'm Kesler, chief of the Phantasmagorika Study.";
+		emotion ET_DELIGHT;
+		next;
+		mes "[Study Chief Kesler]";
+		mes "Thank you for your continue support in the study of Verus and Phanatasmagorika.";
+		close;
+}
+
+verus03,36,113,4	script	Study Officer Salgran#EP15	2_M_THIEFMASTER,{
+	
+			specialeffect EF_SLEEPATTACK;
+			mes "[Study Officer Salgran]";
+			mes "Zzz... Zzz...";
+			next;
+			emotion ET_PROFUSELY_SWEAT;
+			mes "[Study Officer Salgran]";
+			mes "Ch-Chief, I'm sorry!";
+			next;
+			mes "He's talking in his sleep.";
+			close;
+}
+
+verus03,116,36,6	script	Study Officer Gerev#EP15_1D	4_M_ALCHE_A,{
+	
+			mes "[Study Officer Gerev]";
+			mes "Ugh, I can feel the stress building up inside... Argh, this place is giving me an ulcer!";
+			next;
+			mes "He's pulling his hair in agony.";
+			close;
+}
+
+verus03,81,241,6	script	Study Officer Seiden#EP15_1	4_M_ORIENT02,{
+			mes "[Study Officer Seiden]";
+			mes "*Chuckle* I know who you are, but I don't want to talk to you.";
+			close;
+}
+
+verus04,202,258,4	script	Study Officer Piffs#EP15_1	4_M_ORIENT02,{
+	mes "[Study Officer Piffs]";
+			emotion ET_HUNGRY;
+			mes "*Yum Yum*";
+			mes "Um, this meat is delicious!";
+			next;
+			mes "He's chewing on meat.";
+			close;
+}
+
+//- New Power Source
+verus03,107,177,3	script	Luke Lapez#atnd09	4_M_EDEN_GUARDER,{
+		mes "[Luke]";
+		mes "I'm analyzing the collected energy.";
+		mes "...";
+		next;
+		mes "[Luke]";
+		mes "Are you dense?";
+		mes "That means I want to be left alone!";
+		close;
+}
+
+yuno_fild07,211,179,5	script	Excavator Guide#atd07	4_M_LGTGUARD,{
+	mes "[Excavator Guide]";
+	mes "Are you a participant of the Phantasmagorika project?";
+	mes "As you know, you're at the entrance to Juperos.";
+	next;
+	mes "[Excavator Guide]";
+	mes "If you're afraid you can take the elevator on the peninsula.";
+	close;
+}
+
+verus04,217,222,5	script	Assistant#atd07	4_M_LGTGUARD,{
+	mes "[Assistant]";
+	mes "Yes, Orphan!";
+	next;
+	emotion ET_SURPISE;
+	mes "[Assistant]";
+	mes "Oh, sorry! i'm used to that!";
+	close;
+}
+
+
+verus04,218,217,5	script	Geologist#ver04	4_M_HUGRANFA,{
+	mes "[Geologist]";
+	mes "Hm, the building was crushed by the stone wall.";
+	mes "The rest is almost pulverized to dust.";
+	next;
+	mes "[Assistant]";
+	mes "Yes, Professor.";
+	next;
+	mes "[Geologist]";
+	mes "The terrain on which the village stands was formed in a different period, compared to this stone wall. At least that's my initial assessment.";
+	next;
+	mes "[Assistant]";
+	mes "Yes, Professor.";
+	next;
+	mes "[Geologist]";
+	mes "The underground village doesn't seem to be artificial, though I can't imagine how it can be formed naturally. What do you think?";
+	next;
+	mes "[Assistant]";
+	mes "Yes, Professor.";
+	next;
+	mes "[Geologist]";
+	mes "...Are you even listening to me?";
+	next;
+	mes "[Assistant]";
+	mes "Yes, Professor.";
+	next;
+	mes "[Geologist]";
+	mes "Sigh.";
+	mes "Let's go have lunch.";
+	next;
+	mes "[Assistant]";
+	mes "Yes, Professor!";
+	close;
+}
+
+verus04,50,193,3	script	Scholar#ver06	4_M_HUMERCHANT,{
+	mes "[Scholar]";
+	mes "Schwarzwald may be the most scientifically advanced among the three states of Midgard, but it still doesn't hold a candle to this place.";
+	next;
+	mes "[Scholar]";
+	mes "The same goes for Juperos. If the scientific knowledge of this place passed down to Schwarzwald, it could have been much more powerful.";
+	next;
+	mes "[Scholar]";
+	mes "Of course, that's based on my theory that the residents of this place were also Schwarzwaldians.";
+	close;
+}
+
+verus04,127,243,3	script	Jester#ver07	4_M_PIERROT,{
+	if (jesterjob ==1){
+	emotion ET_DELIGHT;
+	mes "[Pierrot]";
+	mes "I love acting as if I was some kind of psychic.";
+	mes "People actually believe me! Haha!";
+	mes "Don't you also do it fellow Jester? You should try sometime.";
+	close;
+	}
+	mes "[Pierrot]";
+	mes "I feel like I'm going insane, stuck in this confined space.";
+	mes "Hey, how about I read your fortune for the day with my juggling balls?";
+	next;
+	if (select( "Sure.", "No, thanks." ) == 2)
+		close;
+	mes "[Pierrot]";
+	mes "Good, choose a color you like.";
+	mes "The color you choose will tell me your fortune.";
+	next;
+	.@s = select( "Red", "Blue", "Yellow", "Green" );
+	mes "[Pierrot]";
+	mes "Dum, dum, dum! Your fortune for the day!";
+	mes "Let's me get the fortune paper inside the ball...";
+	next;
+	mes "[Pierrot]";
+	mes "Today is...";
+	next;
+	mes "[Pierrot]";
+	switch(.@s) {
+	case 1:
+		mes "The same boring day, like yesterday and the day before.";
+		mes "Only positive thinking will get you out of this funk. Smile and be nice to others, and maybe Lady Luck will brighten your day.";
+		break;
+	case 2:
+		mes "Ack, you shouldn't have gotten out of bed. Wherever you go, trouble follows.";
+		mes "I strongly recommend you stay at the Shelter for the day. Sleep off bad luck.";
+		break;
+	case 3:
+		mes "Not a bad day, but you'll have to work to enjoy some good luck.";
+		mes "Go to the Excavation Site and dig up some dirt. You may find some treasure.";
+		break;
+	case 4:
+		mes "The luckiest day of your life! Wherever you go, you'll find wealth and friends.";
+		mes "Maybe you'll find some historic artifacts buried in this place. That'll be awesome, huh?";
+		break;
+	}
+	next;
+	mes "[Pierrot]";
+	mes "Do you like my reading? Or do you hate it?";
+	mes "Your future is pliable--you can shape it however you want.";
+	mes "Don't get too excited or depressed. Just stay focused on your goal.";
+	next;
+	mes "[Pierrot]";
+	mes "All right, come back if you want another reading.";
+	close;
+}
+
+verus04,180,209,3	script	Excavator#tre01	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "The owner of this house must have been an important figure in Verus City.";
+	mes "Piles of official documents are discovered in this room.";
+	next;
+	mes "[Excavator]";
+	mes "Most of the documents contain petty civil complaints, like water problems and neighbor disputes.";
+	mes "All the documents, however, contain the initials, OX. I don't know if they're of a name or an abbreviation of some sort.";
+	close;
+}
+verus04,202,181,3	script	#tre02	CLEAR_NPC,{
+	mes "- The building entrance shows distinctive wear and tear, indicating abuse by a steady stream of traffic. YHT and DO NOT YELL are written on the door. -";
+	close;
+}
+// tre03 ?
+verus04,121,188,3	script	Excavator#tre04	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "This building is fully furnished, yet there is no sign of habitation.";
+	mes "Maybe the owner lived somewhere else, like in a summer house or something.";
+	close;
+}
+verus04,119,177,3	script	#tre05	CLEAR_NPC,{
+	mes "- ZERT... is written on the door. The rest of the writing looks like it was scratched off with a stone.-";
+	close;
+}
+verus04,85,145,3	script	#tre06	CLEAR_NPC,{
+	mes "- +1 is written on the door. What could it mean? -";
+	close;
+}
+verus04,83,131,3	script	Excavator#tre07	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "The owner of this house must have been a dancer. Her wardrobe is full of glittery stage clothes.";
+	mes "Judging by their size, she must have been very tall for a woman. I wonder how she looked like.";
+	close;
+}
+verus04,71,118,3	script	#tre08	CLEAR_NPC,{
+	mes "- KDY is written on the door. Sooty streaks that spread outward from the inside to the entrance indicate frequent explosions. -";
+	close;
+}
+verus04,71,131,3	script	#tre09	CLEAR_NPC,{
+	mes "- KJH is written on the door. The entrance wall is dotted with tiny squares of paper containing time and numbers. -";
+	close;
+}
+verus04,71,145,3	script	#tre10	CLEAR_NPC,{
+	mes "- PKY is written on the door. Empty liquor bottles are littered around the house. -";
+	close;
+}
+verus04,39,123,3	script	#tre11	CLEAR_NPC,{
+	mes "- DGDG'S BOARD is written on the door. What does that mean? -";
+	close;
+}
+verus04,17,145,3	script	#tre12	CLEAR_NPC,{
+	mes "- THE SUNS is written on the door. -";
+	close;
+}
+verus04,16,166,5	script	Excavator#tre13	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "*Cough Cough* The owner of this house was a hoarder.";
+	mes "Lots of books. Lots of cat furballs. Lots of Assassin pictures. *Cough Cough*";
+	close;
+}
+verus04,118,159,5	script	Excavator#tre14	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "This house is full of red mushrooms. Are they edible? Why are they only found inside this house? Was the owner farming them?";
+	close;
+}
+verus04,123,143,3	script	#tre15	CLEAR_NPC,{
+	mes "- MARES is written on the door, along with various drawings that seem to symbolize pirates. -";
+	close;
+}
+verus04,72,168,3	script	#tre16	CLEAR_NPC,{
+	mes "- LMH is written on the door, along with a flurry of hearts drawn on an edge. -";
+	close;
+}
+verus04,91,168,3	script	#tre17	CLEAR_NPC,{
+	mes "- MISA is written on the door. Various toy weapons are littered around the building. -";
+	close;
+}
+verus04,50,197,3	script	Excavator#tre18	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "...";
+	next;
+	mes "[Excavator]";
+	mes "Various pictures are found in this house, all of them featuring the owner with different men.";
+	mes "I find that curious.";
+	close;
+}
+verus04,34,197,3	script	#tre19	CLEAR_NPC,{
+	mes "- ELTOHC is written on the door. In the center of the door is a W drawn in a circle. It could have been the owner's favorite letter. -";
+	close;
+}
+verus04,17,245,3	script	#tre20	CLEAR_NPC,{
+	mes "- LEONA'S BIRD HEAVEN is written on the door. Unsurprisingly, bird feathers are littered around the house. -";
+	close;
+}
+verus04,13,262,3	script	#tre21	CLEAR_NPC,{
+	mes "- KURAT is written on the door. The building wall is littered with hand-drawn skulls. -";
+	close;
+}
+verus04,28,262,3	script	#tre22	CLEAR_NPC,{
+	mes "- KSY is written on the door. A poster with The Performance of the Century! boldly printed across it is hung on the entrance wall. -";
+	close;
+}
+verus04,54,256,3	script	#tre23	CLEAR_NPC,{
+	mes "- BIBIC & MORZIP'S LOVE HOUSE is written on the door. A couple must have lived in this house. -";
+	close;
+}
+verus04,31,236,3	script	Excavator#tre24	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "The owner of this house must have been a collector of some sort. There are many pictures of women in strange-looking dresses.";
+	next;
+	mes "[Excavator]";
+	mes "Did you see the SKM drawn on the door? That reminds me of the other house with hearts drawn on its door.";
+	mes "I hope it's not one of those childish customs. You know, to mark someone as theirs.";
+	close;
+}
+verus04,62,230,3	script	#tre25	CLEAR_NPC,{
+	mes "- HDY is written on the door. -";
+	close;
+}
+verus04,80,230,3	script	#tre26	CLEAR_NPC,{
+	mes "- BRAN is written on the door. Rows of empty bottles are standing on a side of the house. -";
+	close;
+}
+verus04,79,265,3	script	#tre27	CLEAR_NPC,{
+	mes "- KYH is written on the door. This building is in better condition than the rest in the neighborhood.-";
+	close;
+}
+verus04,96,267,3	script	#tre28	CLEAR_NPC,{
+	mes "- YAOB is written on the door, along with drawings of round, furry animals. -";
+	close;
+}
+verus04,133,267,3	script	Excavator#tre29	4_M_HUMAN_01,{
+	mes "[Excavator]";
+	mes "This house is suspected to belong to a couple named SSUL and SINYC.";
+	mes "The house is filled with incredible things. Everything in it is just gorgeous.";
+	close;
+}
+verus04,152,267,3	script	#tre30	CLEAR_NPC,{
+	mes "- LMS is written on the door, along with Composition Specialist on an edge. -";
+	close;
+}
+verus04,168,267,3	script	#tre30_	CLEAR_NPC,{
+	mes "- KJK is written on the door. -";
+	close;
+}
+verus04,190,265,3	script	#tre31	CLEAR_NPC,{
+	mes "- LJH is written on the door. The building wall is covered with numerous grocery store stickers. -";
+	close;
+}
+verus04,172,234,3	script	#tre32	CLEAR_NPC,{
+	mes "- YG is written on the door. A large picture of a smiling baby is visible through a window. -";
+	close;
+}
+verus04,204,235,3	script	#tre33	CLEAR_NPC,{
+	mes "- CHJ is written on the door. -";
+	close;
+}
+
+verus04,91,252,5	script	Archaeologist#tevt01	4_M_6THPRIN1,{
+	mes "[Archaeologist]";
+	mes "Sometimes, we gather around to talk.";
+	mes "Sharing information is a part of the job.";
+	close;
+}
+
+verus04,89,251,5	script	Historian#tevt02	4_TOWER_07,{
+	mes "[Historian]";
+	mes "What's the hardest thing about my job?";
+	mes "When I'm forced to eat a terrible lunch provided by my sponsor.";
+	next;
+	mes "[Historian]";
+	mes "In fact, it's been that way since I arrived in Verus City.";
+	mes "Today was not an exception.";
+	close;
+}
+
+verus04,91,248,7	script	New Excavator#tevt03	4_TOWER_04,{
+	mes "[New Excavator]";
+	mes "I have a lot to learn, and I'm a fast learner.";
+	mes "For now, I'm doing mostly physical tasks.";
+	next;
+	mes "[New Excavator]";
+	mes "I'm given free food, a place to sleep, and money. What else can I ask for?";
+	close;
+}
+
+verus04,94,251,3	script	Civilization Researcher#tevt04	4_TOWER_16,{
+	mes "[Civilization Researcher]";
+	mes "I thought this was a part of Juperos.";
+	mes "I'm now reconsidering that theory.";
+	next;
+	mes "[Civilization Researcher]";
+	mes "Verus is similar to Juperos, yet different.";
+	mes "Everything about it is more refined and sophisticated somehow.";
+	close;
+}
+
+verus04,94,248,1	script	Scientist#tevt05	4_M_SAGE_C,{
+	mes "[Scientist]";
+	mes "This city's level of mechanical engineering is astonishing.";
+	mes "There's no trace of magic.";
+	next;
+	mes "[Scientist]";
+	mes "But I'm concerned:";
+	mes "rapid development and sudden introduction of advanced technology could do more harm than good.";
+	close;
+}
+
+
+verus04,153,193,8	script	Merchant#ep15_1el10	4_F_CAPEGIRL,{
+	mes "[Merchant]";
+	mes "Ho ho ho!";
+	mes "I came first, so I took the best spot!";
+	close;
+}
+
+verus04,155,197,5	script	Adventurer ?#ep15_1el11	4_M_LGTPOOR,{
+	mes "[Adventurer ?]";
+	mes "*Stomach rumbles*";
+	mes "Aww, I'm hungry...";
+	next;
+	mes "[Adventurer]";
+	mes "But I have no money to buy food...";
+	close;
+}
+
+verus04,150,193,3	script	Adventurer#ep15_1el12	4_M_DIEMAN,{
+	mes "[Jean Baljean]";
+	mes "Ugh, I was struck 19 times for a piece of bread.";
+	close;
+}
+
+verus04,102,246,3	script	Adventurer#ep15_1el13	4_M_RACHMAN2,{
+	mes "[Adventurer]";
+	mes "Mushrooms growing out of rocks.";
+	mes "How resilient!";
+	close;
+}
+
+verus04,16,157,3	script	Adventurer#ep15_1el14	4_M_MIDDLE1,{
+	mes "[Adventurer]";
+	mes "Argh!";
+	mes "So many paths are blocked!";
+	close;
+}
+
+
+verus04,111,215,5	script	Adventurer#ep15_1el20	4_F_SHABBY,{
+	mes "[Adventurer]";
+	mes "Heh. *Drool*";
+	mes "This place is incredible!";
+	close;
+}
+
+verus04,111,211,3	script	Adventurer#ep15_1el21	4_F_KHGIRL,{
+	mes "[Adventurer]";
+	mes "This site is amazing.";
+	mes "No wonder why Rekenber called dibs on it.";
+	close;
+}
+
+verus04,113,235,5	script	Adventurer#ep15_1el22	4_M_PECOKNIGHT,{
+	mes "[Adventurer]";
+	mes "I want to find something awesome!";
+	close;
+}
+
+verus04,124,220,8	script	Adventurer#ep15_1el23	4_M_HUMERCHANT,{
+	mes "[Adventurer]";
+	mes "The coming era will be yours.";
+	close;
+}
+
+yuno_fild07,218,154,3	script	Adventurer#ep15_1el01	4_M_ARUNA_NFM1,{
+	mes "[Adventurer]";
+	mes "Ah!";
+	mes "I want to see!";
+	mes "Why can't I go in?!";
+	close;
+}
+yuno_fild07,218,159,5	script	Adventurer#ep15_1el02	4_M_KHBOY,{
+	mes "[Adventurer]";
+	mes "All right!";
+	mes "This time, I'm going to write a report on a field trip to Phantasmagorika.";
+	next;
+	mes "[Adventurer]";
+	mes "Professor Jones will be so impressed he'll give me A+. *Chuckle*";
+	close;
+}
+yuno_fild07,221,157,3	script	Adventurer#ep15_1el03	4_M_CHN8GUEK,{
+	mes "[Adventurer]";
+	mes "Toh!";
+	mes "Sound mind, sound body!";
+	close;
+}
+yuno_fild07,221,155,8	script	Adventurer#ep15_1el04	4_M_ALCHE_B,{
+	mes "[Adventurer]";
+	mes "I'd better pack enough potions for the trip to Phantasmagorika.";
+	close;
+}
+yuno_fild07,217,155,5	script	Adventurer#ep15_1el05	4_F_ROGUE,{
+	mes "[Adventurer]";
+	mes "I'm impressed by Rekenber's support.";
+	mes "Um...";
+	close;
+}
+yuno_fild07,225,144,1	script	Adventurer#ep15_1el07	1_M_ORIENT01,{
+	mes "[Adventurer]";
+	mes "Elevator? The scientific advancement of Schwarzwald is astonishing!";
+	mes "Go to the peninsula and take a look yourself! It works perfectly!";
+	close;
+}
+yuno_fild07,217,149,3	script	Adventurer#ep15_1el08	4_F_JOB_BLACKSMITH,{
+	mes "[Adventurer]";
+	mes "An ancient civilization. Doesn't that sound incredible?";
+	mes "I feel like I can hear ancient machines moving with loud clanking noises.";
+	next;
+	mes "[Adventurer]";
+	mes "*Dreamy eyes*";
+	mes "*Gaping mouth*";
+	close;
+}
+yuno_fild07,224,152,3	script	Adventurer#ep15_1el09	4_M_SITDOWN,{
+	mes "[Adventurer]";
+	mes "Geez, this place is already crammed!";
+	mes "Just looking at these people makes me tired.";
+	next;
+	mes "[Adventurer]";
+	mes "I should have taken the elevator! Would be much easier!";
+	close;
+}
+
+verus04,115,221,5	script	Fallen Man#ep15_1_elyo	4_M_DIEMAN,{
+	mes "[Fallen Man]";
+	mes "......";
+	next;
+	mes "[Fallen Man]";
+	mes "...Leave me alone...I'm resting!";
+	close;
+}
+
+yuno_fild10,98,121,5	script	Operator#yunofild10	4_M_SAGE_C,{
+	mes "[Operator]";
+	mes "This ancient elevator can take you straight to Verus. Do you want to go there?";
+	next;
+	switch(select("Yes, please:No, thanks")) {
+	case 1:
+	mes "[Operator]";
+	mes "Enjoy the ride. It's pretty quick actually!";
+	next;
+	warp "verus04",209,256;
+	break;
+	case 2:
+	mes "[Operator]";
+	mes "Take care.";
+	close;
+}
+}
+
+verus04,209,262,5	script	Operator#verus04	4_M_SAGE_C,{
+	mes "[Operator]";
+	mes "I can take you to the elevator across the rubble. Dou you want to return to the surface?";
+	next;
+	switch(select("Yes, please:No, thanks")) {
+	case 1:
+	mes "[Operator]";
+	mes "Follow me please, Orphan.";
+	next;
+	warp "yuno_fild10",102,117;
+	break;
+	case 2:
+	mes "[Operator]";
+	mes "Take care.";
+	close;
+}
+}

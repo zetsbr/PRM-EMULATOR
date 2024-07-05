@@ -1,0 +1,26 @@
+//===== rAthena Script ======================================= 
+//= Gemstone Trader
+//===== By: ================================================== 
+//= L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.3
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Trade various colors of gemstones for other color gemstones.
+//===== Additional Comments: ================================= 
+//= 1.0 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//=     Any notes pertaining to the prior trader may be found
+//=     in the cities/payon.txt
+//= 1.1 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 1.2 Updated input with min/max values. [L0ne_W0lf]
+//=     Added a checkweight. 
+//= 1.3 Fixed checks. [Euphy]
+//============================================================ 
+
+payon,173,238,5	script	Jade#pay	754,{
+	mes "[Jade]";
+	mes "I used to convert Different colored gems in the past. Now I just stand here and watch people pass by.";
+	close;
+}

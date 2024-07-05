@@ -1,0 +1,273 @@
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Alberta
+//===== By: ================================================== 
+//= kobra_k88
+//===== Current Version: ===================================== 
+//= 2.6
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Dolls Quest
+//= Boy's Cap Quest
+//= Antlers Quest
+//= Bao Bao, Cresent Hairpin, Fashionbale Glasses, Heart Hairpin Quests
+//= Hat of Sun God, Sunday Hat, Mage Hat, Magician Hat Quests
+//= Turtle Island Quests
+//= Alberta Boy
+//===== Additional Comments: ================================= 
+//= 1.1 Fixed Spore Doll exploit, Gramp's Tiger skin label bug
+//= 1.3 Fixed item ID 7031 -> 7013
+//= 1.4 Fixed a bug, Fixed Exploits, Optimized [Lupus]
+//= 1.6 TEMPESTRA quest uses common quests variable MISC_QUEST 
+//=     Condition if done: (MISC_QUEST & 2) [Lupus]
+//= 1.7 Moved quest from cities/albera.txt [Evera]
+//= 1.8 Re-made the Doll Quest, now with official dialogs. [DZeroX]
+//= 1.8a Removed .GATs [Lupus]
+//= 1.9 Updated Turtle Quest to official. [L0ne_W0lf]
+//= 2.0 Turtle Island quest now clears TURTLE var and set 
+//=     MISC_QUEST bit (MISC_QUEST & 65536) [Lupus]
+//= 2.1 Added missing close. [L0ne_W0lf]
+//= 2.2 Updated Gotan to be compliant with misc_quiest var. [L0ne_W0lf]
+//= 2.3 Updated heardgear Quest NPCs. [L0ne_W0lf]
+//= 2.4 Updated 'Doll Quest' to match AEGIS script. [Kisuka]
+//= 2.5 Moved Alberta NPC to pre-re/re paths. [Euphy]
+//= 2.6 Updated RE/Pre-RE EXP. [Euphy]
+//============================================================ 
+
+// Doll Quest
+//============================================================
+alberta,117,135,0	script	Elin	96,{
+	mes "[Elin]";
+	if (Sex == SEX_MALE) {
+		mes "Hello~!";
+		mes "Heh heh, you're a boy, so you probably don't like dolls, right? Well, I like dolls very very much!";
+	} else {
+		mes "Hi hi~! Oh, oh, do you like dolls? I really really like dolls... Hee Hee~!";
+	}
+	next;
+	mes "[Elin]";
+	mes "You know, I really really want a new doll! I hope my daddy will give me one on my birthday...!";
+			close;
+		}
+
+// 'Boy's Cap' Quest
+//============================================================
+alberta_in,28,145,4	script	Grampa	120,{
+	mes "[Grampa]";
+	mes "*Gasp*...";
+	mes "....*Gasp!*";
+	mes "Oh...";
+	mes "Some may say I've lived a full life on wine, women and song...";
+	next;
+	mes "[Grampa]";
+	mes "But my soul still burns with youthful vigor! It's just... This old body can't keep up anymore... *Hack! Wheeeeze~*";
+	close;
+}
+
+// 'Antlers' Quest
+//============================================================
+alberta_in,122,53,4	script	Cherokee	47,{
+	mes "[Cherokee]";
+	mes "Hey there~!";
+	next;
+	mes "[Cherokee]";
+	mes "What do you think about animal horns? Oh man, I think they're great! Don't you? I love animal horns so much I became a ^3355FFHorn Collector^000000.";
+	next;
+	mes "[Cherokee]";
+	mes "I mean, there's so many things you can do with horns. You can wear them on your head, you can wear them on, um... your house? All sorts of things!";
+	close;
+}
+
+// 'Bao Bao', 'Crescent Hairpin', 'Fashionable Glasses', 'Heart Hairpin' Quest
+//============================================================
+alberta,120,53,1	script	Stylish Merchant#new30	51,{
+		mes "[Zic]";
+		mes "Yay, this cool";
+		mes "breeze is great!";
+		mes "I love the sea!";
+		next;
+		mes "[Zic]";
+		mes "...Hm?";
+		mes "Awww man. Can't you tell I'm on vacation? All I wanted was some peaceful rest.";
+		close;
+}
+
+// 'Hat of the Sun God', 'Sunday Hat', 'Mage Hat', 'Magician Hat' Quest
+//============================================================
+alberta,136,79,1	script	Hat store girl#new30	71,{
+	mes "[Tempestra]";
+	mes "Ah, such a cool breeze. It's good to visit the seashore. I think it was the right choice to come here to take a break from my business.";
+	next;
+	mes "[Tempestra]";
+	mes "Ooh, the sun is too strong today. I'm glad that I brought my hat. I'm going to get a sunburn if my skin is exposed to the sun like this everyday.";
+	next;
+	mes "[Tempestra]";
+	mes "Oh, I'm sooo thirsty! A nice, chilled Yellow Potion would be perfect right about now~";
+	close;
+}
+
+// Turtle Quest
+//============================================================
+alberta,91,70,4	script	Kinsey#tur	89,{
+	mes "[Kinsey]";
+	mes "What does a man have to do to get a stiff drink around here? I mean, there are absolutely no good bars in Alberta!";
+	next;
+	mes "[Kinsey]";
+	mes "Well, the alcohol in the pub here is second rate, but I gotta admit, it's got a great atmosphere.";
+	next;
+	mes "[Kinsey]";
+	mes "In fact, this old man is always there, telling stories about Turtle Island! But we're not sure if he's been there, or if he's just that drunk.";
+	close;
+}
+
+alberta_in,23,104,4	script	Grandpa Turtle#tur	120,{
+	mes "[Grandpa Turtle]";
+	mes "Ooog...";
+	mes "So dizzy...";
+	next;
+	mes "[Grandpa Turtle]";
+	mes "There isn't one decent drinking establishment in all of Alberta! But then again, why did I drink so much? Hmm...";
+	close;
+}
+
+tur_dun01,165,29,4	script	Captain Gotanblue#tur2	709,{
+	mes "[Gotanblue]";
+	mes "Do you want";
+	mes "to return";
+	mes "to Alberta?";
+	next;
+	if (select("Go to Alberta:Stop talking") == 1) {
+		mes "[Gotanblue]";
+		mes "Heh heh...";
+		mes "I certainly hope you've found what you were looking for. Alright, I guess there's always a time for an adventurer to return home...";
+		next;
+		mes "^3355FF* Choo Choo *^000000";
+		if (checkre(0))
+			warp "alberta",238,112;
+		else
+			warp "alberta",241,115;
+	}
+	close;
+}
+
+-	script	::Turtle_Scholar_alberta	-1,{
+	mes "[Jornadan Niliria]";
+	mes "Every single place";
+	mes "has its own unique";
+	mes "smells, sights and sounds.";
+	next;
+	mes "[Jornadan Niliria]";
+	mes "Even the great, ever expanding sky that's shared by all the peoples of the earth looks strange when you're in a new and foreign land.";
+	next;
+	mes "[Jornandan Niliria]";
+	mes "Heh heh...";
+	mes "Just like my";
+	mes "time on Turtle Island.";
+	mes "Hah Hah Hah~";
+	close;
+}
+
+alberta_in,18,102,4	script	Letter#tur	111,{
+	mes "[Explorer's Letter]";
+	mes "- O / X / XOVX -";
+	mes "If you find this letter, please don't disregard what you have read.";
+	next;
+	mes "[Explorer's Letter]";
+	mes "Although we have found Turtle Island, it seems our expedition will fail.";
+	next;
+	mes "[Explorer's Letter]";
+	mes "Only half of our crew is left, and we only have enough food for ten more days. Our condition is truly grave.";
+	next;
+	mes "[Explorer's Letter]";
+	mes "This damn island must be cursed. There's nothing to eat and we're so close to starving!";
+	next;
+	mes "[Explorer's Letter]";
+	mes "If we don't get help or find Alberta soon...";
+	mes "We'll...";
+	close;
+}
+
+alberta,246,117,4	script	Voyage log#tur	111,{
+		mes "[Voyage log]";
+		mes "03:20 am";
+		mes "There's no light from the stars tonight, and we can't even see a hundred meters ahead of us. The men seem to feel something bad in the air.";
+		next;
+		mes "[Voyage Log]";
+		mes "The faces of my comrades betrayed their fears. They couldn't manage to sleep last night. I hope we will see sunrise soon...";
+		next;
+		mes "[Voyage Log]";
+		mes "04:10 ";
+		mes "5 minutes ago, our comrade, Cooker, was killed when the mast suddenly cracked and fell on his head.";
+		next;
+		mes "[Voyage Log]";
+		mes "The estimated time of death is 04:07. The mast broke due to the shock of the ship hitting a reef. The left side of the deck also suffered from serious damage.";
+		next;
+		mes "[Voyage Log]";
+		mes "04:45";
+		mes "While two of our workers were fixing the bottom of the deck, they were attacked by monsters that had snuck through cracks in the deck.";
+		next;
+		mes "[Voyage Log]";
+		mes "These two were lost in the attack. The estimated time of death was 04:32. Fortunately, we are able to stay afloat, but we must hurry and find land.";
+		next;
+		mes "[Voyage Log]";
+		mes "From the damage to the deck, we've lost 30% of our supplies. At this rate, we'll run out of food soon.";
+		next;
+		mes "[Voyage Log]";
+		mes "05:23";
+		mes "There seem to be more and more reefs to steer around, and they are growing larger as we travel. I wonder if we'll find land soon...";
+		next;
+		mes "[Voyage Log]";
+		mes "Written by";
+		mes "Captain Jornadan Niliria";
+		close;
+	}
+// Alberta Boy
+//============================================================ 
+alberta_in,131,95,5	script	Iromo#ep3_2	706,{
+		mes "[Iromo]";
+		mes "But... this world is...";
+		mes "What a big world... Not just humans...";
+		mes "Other lifeforms just like us...";
+		mes "Where could they be?...";
+		next;
+		mes "[Iromo]";
+		mes "...Their lives.. and...";
+		mes "Their kingdom... and land...";
+		mes "Where could they be...";
+		next;
+		mes "[Iromo]";
+		mes "If they exist, that'd be great...";
+		mes "No... they must exist...";
+		mes "I wish one day... one day I can go there...";
+		close;
+}
+
+alberta_in,120,93,3	script	Iromo's Mother#ep3_2	53,{
+		mes "[Mother]";
+		mes "Iromo was really active and";
+		mes "curious about the world.";
+		mes "He wanted to see all the";
+		mes "sights of the world.";
+		next;
+		mes "[Mother]";
+		mes "But look at him now.";
+		mes "He doesn't go out anymore.";
+		mes "He is just stuck inside of his room.";
+		next;
+		mes "[Mother]";
+		mes "He became a timid person.";
+		mes "If he has an argument with me,";
+		mes "he doesn't talk to me for a week.";
+close;
+}
+
+alberta,45,106,5	script	Little Boy#ep3_2	706,{
+		mes "[Little Boy]";
+		mes "......";
+		next;
+		mes "[Little Boy]";
+		mes "Yummy! Banana is always delicious!";
+		mes "Bananas are the best fruits ever!";
+		close;
+	}

@@ -1,0 +1,84 @@
+//===== rAthena Script ======================================= 
+//= 2005 Headgear Quests
+//===== By: ================================================== 
+//= MasterOfMuppets
+//===== Current Version: ===================================== 
+//= 1.3a
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= 2005 Headgears Official Quest.
+//===== Additional Comments: =================================
+//= 1.0 First version, converted from the official aegis script. [MasterOfMuppets]
+//= 1.1 Updated item ids in the zealotus mask npc, now requires a whip [ultramage]
+//= 1.2 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 1.3 Fixed item check bugs, added missing airport NPC,
+//      and took out unneeded breaks [Xantara] [Muad_Dib]
+//= 1.3a Added 'disable_items' command. [Euphy]
+//============================================================ 
+
+yuno,222,116,3	script	Kasis#LhzHat	851,{
+		mes "[Kasis]";
+		mes "Milk, Cheese,";
+		mes "Old Frying Pans,";
+		mes "Pieces of Cake...";
+		mes "Th-that's everything";
+		mes "I need to make lunch for";
+		mes "my friends in the Factory!";
+		close;
+	}
+
+lighthalzen,360,313,3	script	Kid#LhzHat	706,{
+	mes "[Kid]";
+	if(Sex == SEX_MALE)
+		mes "Hello, mister!";
+	else
+		mes "Hello, ma'am!";
+	mes "Don't worry about me around here. I know what I'm doing.";
+	mes "Don't be deceived by looks. I'm an Orphan... I'm dangerous!!";
+	next;
+	mes "[Kid]";
+	mes "Oh wait... YOU ARE AN ORPHAN! Sorry!!! Forget I said anything!";
+	close;
+}
+
+einbech,70,222,5	script	Metelle#LhzHat	91,{
+	mes "[Metelle]";
+	mes "Look at that blue";
+	mes "sky. Don't you wish";
+	mes "you could just soar";
+	mes "through the heavens";
+	mes "with your own wings?";
+	close;
+}
+
+lhz_in02,91,38,5	script	Margaret Mary#LhzHat	90,{
+	mes "[Margaret Mary]";
+	mes "The white rose, in its";
+	mes "purity and simplicity, is";
+	mes "like a woman who doesn't";
+	mes "need jewels or fancy dresses";
+	mes "to look noble and beautiful. It's the perfect gift for a lady.";
+	close;
+	}
+
+lighthalzen,182,89,0	script	Relaxed-Looking Lady	91,{
+		mes "[Achiha]";
+		mes "Oh, hello.";
+		mes "Isn't it such a nice,";
+		mes "quiet, pleasant day?";
+		next;
+		switch( select( "Indeed.", "Would you please make a hat for me?" ) )
+		{
+			case 1:
+				mes "[Achiha]";
+				mes "You too love the silence here uh? People may hate this place now, But I love the silence.";
+				close;
+			case 2:
+				mes "[Achiha]";
+				mes "What are you talking";
+				mes "about? I haven't made hats in years!";
+				close;
+		}
+}

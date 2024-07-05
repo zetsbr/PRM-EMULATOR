@@ -1,0 +1,33 @@
+//===== rAthena Script =======================================
+//= Clock Tower Monster Spawn Script
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= 1.0 Split from combined Alde and CT spawn file. [L0ne_W0lf]
+//= 1.1 Added nightmare clock tower. [Ridley8819]
+//= 1.2 Correct Spawn by Navigation's mob data. [attackjom]
+//============================================================
+
+
+c_tower1,0,0	monster	Clock	1269,70,5000
+c_tower1,0,0	monster	Bathory	1102,30,5000
+c_tower1,0,0	monster	Alarm	1193,10,5000
+c_tower1,0,0	monster	Clock Tower Manager	1270,3,5000
+//
+c_tower2,0,0	monster	Clock	1269,20,5000
+c_tower2,0,0	monster	Bathory	1102,30,5000
+c_tower2,0,0	monster	Alarm	1193,5,5000
+//
+c_tower3,0,0	monster	Bathory	1102,20,5000
+c_tower3,0,0	monster	Alarm	1193,25,5000
+c_tower3,0,0	monster	Elder	1377,10,5000
+c_tower3,0,0	monster	Clock Tower Manager	1270,3,5000
+//
+c_tower4,0,0	monster	Alarm	1193,15,5000
+c_tower4,0,0	monster	Elder	1377,25,5000
+c_tower4,0,0	monster	Clock Tower Manager	1270,5,5000
+c_tower4,0,0,1,1	boss_monster	Time Holder	3074,1,5000,5000,0

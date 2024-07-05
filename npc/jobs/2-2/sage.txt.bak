@@ -1,0 +1,112 @@
+//===== rAthena Script ======================================= 
+//= Sage Job Quest
+//===== By: ==================================================
+//= jAthena (0.9) - I guess
+//= Unknown Translator (1.0)
+//= Darkchild (1.2)
+//===== Current Version: ===================================== 
+//= 2.8
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job quest for Sage classes
+//===== Additional Comments: ================================= 
+//= 2.1 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
+//=     No longer uses function "F_BlockHigh"
+//= 2.2 Small bug fix (== -> !=) thanks to Saithis. [L0ne_W0lf]
+//= 2.2b ANotehr smaLL bugfix, pointed out by Cara. [L0ne_W0lf]
+//= 2.3 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 2.4 Fixes bug with first room monsters not being reset. [L0ne_W0lf]
+//= 2.4a Deleted unused variables. [Samuray22]
+//= 2.5 Updated waiting room. (Removes global var) [L0ne_W0lf]
+//= 2.5a Corrected some "mes"s without the getitemname. (bugreport:1564) [Samuray22]
+//=     -Changed an incorrect "!=" to "==". (bugreport:1572) 
+//=     -And Small Typo Error
+//= 2.6 Fixed Kayron Grik cutin not being removed as reported by jc1991, bugreport:1825 [Brainstorm]
+//= 2.6a Fixed a Little Bug with Whispers Summoned in the Last Test. (bugreport:2253) [Samuray22]
+//= 2.7 Added Quest Log commands. [Kisuka]
+//= 2.8 Removed the need for use of 'goto.' [L0ne_W0lf]
+//============================================================ 
+
+yuno_in02,38,61,5	script	Dean of the Academy#sa	743,{
+	cutin "job_sage_kayron",2;
+	mes "[Kayron Grik]";
+		mes "Haha, I have seen many people";
+		mes "but it seems you possess special power and abilities.";
+		next;
+		mes "[Kayron Grik]";
+		mes "You'd better leave and make your own path.";
+		mes "Never forget that people may hate you. But they also may love you.";
+		close2;
+		cutin "",255;
+		end;
+	}
+yuno_in03,154,35,4	script	Staff of the Academy#a	742,{
+	mes "[Metheus Sylphe]";
+		mes "Welcome to the";
+		mes "Schweicherbil Magic";
+		mes "Academy. W-wait a second...";
+		mes "An Orphan?";
+		next;
+		mes "[Metheus Sylphe]";
+		mes "Have a good day, adventurer~";
+		close;
+}
+yuno_in03,105,177,5	script	Written Test Professor#s	754,{
+	mes "[Claytos Verdo]";
+			mes "What are you doing here, kid?";
+			mes "This is a Magic Academy, not a day care center.";
+		close;
+}
+//Practical Examination Professer
+yuno_in03,169,180,3	script	Practical Examination P	755,{
+	mes "[Hermes Tris]";
+			mes "Welcome. How have you been?";
+			mes "I guess you've been through a lot of hard times...I can tell by your appearance.";
+			next;
+			mes "[Hermes Tris]";
+			mes "I know how hard it is to explore all those perilous areas, but it will help you to gain more knowledge.";
+			mes "Book smarts never can beat street smarts.";
+			next;
+			mes "[Hermes Tris]";
+			mes "However, it's a very dangerous idea to go deep inside a dungeon alone. ";
+			mes "You'd better look for trustworthy comrades.";
+		close;
+	}
+yuno_in03,62,176,2	script	History Professor#sa	109,{
+	mes "[Saphien Layless]";
+			mes "Do I know you? Were you one of my students?";
+			mes "Oh, it doesn't matter anyway. You wouldn't be a Sage without graduating from this academy...";
+			close;
+}
+yuno_in03,32,102,1	script	Biology Professor#sa	755,{
+	mes "[Lucius Celsus]";
+			mes "What is your business with me?";
+			mes "You must make a reservation a week in advance if you have any questions.";
+			next;
+			mes "[Lucius Celsus]";
+			mes "You don't know how busy person I am...don't you? Dumb Orphan.";
+		close;
+}
+yuno_in03,244,31,3	script	Physics Professor#sa	120,{
+	mes "[Aebecee George]";
+			mes "Tee hee, hello there! What brings you here, sweetie?";
+			mes "Oh, I see... you're just excited to see me uh? Tee hee~";
+		close;
+}
+//============================================================ 
+// Old changelog
+//============================================================ 
+//= Script mostly based on translated jA script
+//= Written test questions/answers weren't translated 100% corectly
+//= So a lot of those are based upon mRO site and my own info
+//= IF you by excident have (or can get) screenshots of these questions
+//= Then PLEASE send them to Darkchild
+//= 1.3 Baby class Support added [Lupus] 1.5 Fixed possible EXP abuse [Lupus]
+//= 1.6 Added a func which prevent advanced classes passing
+//= 2nd Job Quests again. It also guides adv classes where to go. [Lupus]
+//= 1.7 Fixed tuition fee. Fixed some answers, names & typos, added missing labels [Lupus]
+//= 1.7a Moved JFunc back in the main file, fixed typos [Lupus]
+//= 2.0 Changed numbers to constants. [Vicious]
+//= 2.0a Fixed double warp [KarLaeda] 2.0b Mantis Scythe Item name fix

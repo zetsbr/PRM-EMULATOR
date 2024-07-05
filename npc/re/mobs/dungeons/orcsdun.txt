@@ -1,0 +1,29 @@
+//===== rAthena Script =======================================
+//= Orc Dungeon Monster Spawn Script
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= 1.2 Official kRO 10.1 spawns [Playtester]
+//============================================================
+
+//==================================================
+// orcsdun01 - Orc Dungeon
+//==================================================
+orcsdun01,0,0	monster	Zenorc	1177,25,5000
+orcsdun01,0,0	monster	Orc Zombie	1153,25,5000
+orcsdun01,0,0	monster	Orc Skeleton	1152,15,5000
+orcsdun01,0,0	monster	Grafted Zenorc	1971,5,5000
+
+//==================================================
+// orcsdun02 - Orc Dungeon
+//==================================================
+orcsdun02,0,0	monster	Zenorc	1177,10,5000
+orcsdun02,0,0	monster	Orc Zombie	1153,10,5000
+orcsdun02,0,0	monster	Orc Skeleton	1152,15,5000
+orcsdun02,0,0	monster	Grafted Zenorc	1971,10,5000
+orcsdun02,0,0,0,0	boss_monster	Orc Lord Zombie	1190,1,5000,5000,0
+

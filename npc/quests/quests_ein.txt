@@ -1,0 +1,442 @@
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Einbroch and Einbech
+//===== By: ================================================== 
+//= Evera and The rAthena Dev Team
+//===== Current Version: ===================================== 
+//= 2.7
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Oridecon/Mineral Quest
+//= - Variable in use: ein_gear1 (max 2)
+//= - Variable in use: $ein_amano (max 60)
+//= Uwe Kliene Quest
+//= - Variable in use: ein_cook (max ???)
+//= Factory Quest
+//= - Variable in use: EinFactory (max 16)
+//= - Variable in use: $EinPolution (max 10)
+//= Murder Quest
+//= - Variable in use: Shinokas_Quest (max 11)
+//= Lovers Quest
+//= - Variable in use: EIN_LOVERQ (max 17)
+//===== Additional Comments: ================================= 
+//= 1.0 Initial Release [Evera]
+//= 1.1 Added more quests [Evera]
+//= 1.2 Added quest bits from Einbech and renamed file to
+//=     quests_ein.txt [Evera]
+//= 1.3 Implemented the polution quest. [MasterOfMuppets]
+//= 1.4.1 Massive bugfix. Fixed Pollution exploit [Lupus]
+//= 1.4.2 Fixed Khowropher bug [Lupus]
+//= 1.5 Fixed double levelup bug [Lupus]
+//= 1.5.1 Fixed exploit [KarLaeda]
+//= 1.5.2 Updated Shino Quest to leave no grabage vars [Lupus]
+//= 1.5.3 Fixed some typos regarding Schwarzwald Trilogy [SinSloth]
+//= 1.6 Updated Laboratory Entrance regarding Heart Fragment quest. [SinSloth]
+//= 1.7 Changed the laboratory entrance checking to prevent players
+//= from being stuck in the quest. [SinSloth]
+//= 1.8 Fixed experience gains to match upcoming rate adjustments. [SinSloth]
+//= 1.9 Fixed a bug with Einbroch Pollution quest. [SinSloth]
+//= 2.0 Fixed bad NPC header data to comply with rev. 11603. [L0ne_W0lf]
+//= 2.1 Fixed typo in disable/enable npc's (bugreport:2027) [Yommy]
+//= 2.2 Overall update to the structure of the scripts. [L0ne_W0lf]
+//=     Swapped the use of enable/disablenpc with hideon/offnpc.
+//=     Added missing quest, "Oridecon/Mineral Quest"
+//=     Full overhual of the Uwe Kleine quest.
+//= 2.2a Fixed typos in var names from EIN_LOVERQRQ to EIN_LOVERQ. (bugreport:2464) [Paradox924X]
+//= 2.3 Removed occurance of PcName. [L0ne_W0lf]
+//= 2.4 Added missing remove cutin. [Kisuka]
+//= 2.5 Added quest log entries for:
+//=     - Factory Quest
+//=     - Murder Quest
+//= 2.6 Updated RE/Pre-RE EXP. [Euphy]
+//= 2.7 Added GM management function. [Euphy]
+//============================================================ 
+
+// Oridecon Stone OR Mineral Stone Quest :: ein_amano
+//============================================================ 
+einbech,97,167,5	script	Cavitar	847,{
+					mes "[Cavitar]";
+					mes "Recently, we've had some";
+					mes "tunnel cave-ins which resulted";
+					mes "in miner casualties. We're having";
+					mes "a harder time working in the";
+					mes "mines now that we're even";
+					mes "lower on manpower.";
+					next;
+					mes "[Cavitar]";
+					mes "What's really suspicious";
+					mes "is that it seems something";
+					mes "has been making the tunnels";
+					mes "collapse on purpose. Some of";
+					mes "us believe it's because we've";
+					mes "angered the master of the cave.";
+					next;
+					mes "[Cavitar]";
+					mes "The tunnel accident";
+					mes "is still fresh in my mind.";
+					mes "It seems that there are";
+					mes "more ^FF0000Cave Master^000000 sightings";
+					mes "when the tunnels started";
+					mes "to inexplicably collapse.";
+					next;
+					mes "[Cavitar]";
+					mes "I was off duty when";
+					mes "the accident happened.";
+					mes "Still, I hear the only survivor";
+					mes "went crazy and disappeared";
+					mes "somewhere. The poor bastard...";
+					close;
+}
+
+// Uwe Kleine :: ein_anoz
+//============================================================
+einbroch,215,180,6	script	Uwe Kleine#ein	85,{
+					mes "[Uwe]";
+					mes "Take care,";
+					mes "cutie adventurer!";
+					mes "Hohoho!";
+					close;
+}
+
+einbroch,132,84,3	script	Liotzburg#ein	853,2,2,{
+		mes "[Liotzburg]";
+		mes "What...?";
+		mes "Factory Repair";
+		mes "budget? No way!";
+		next;
+		mes "[Liotzburg]";
+		mes "Why waste money?";
+		mes "We haven't had any";
+		mes "problems so far! Look,";
+		mes "everything's fine! Why";
+		mes "are you exaggerating";
+		mes "such small details?";
+		next;
+		mes "[Liotzburg]";
+		mes "The field overseer,";
+		mes "Zelmeto, just came by to";
+		mes "ask for a budget increase.";
+		mes "Well, I think he's lying!";
+		mes "Everything's perfect!";
+		close;
+}
+
+ein_in01,67,242,3	script	Zelmeto	851,{
+			mes "[Zelmeto]";
+			mes "Well, it's a living.";
+			mes "^333333*Sigh*^000000 I can put up with";
+			mes "this, but I hope the higher";
+			mes "ups will consider improving";
+			mes "the work environment here...";
+			close;
+}
+// Murder Quest :: ein_main_tre
+//============================================================ 
+einbech,165,105,7	script	Buender Hikeman#ein	847,{
+		mes "[Buender Hikeman]";
+		mes "...!";
+		mes "^333333*Cough! Cough!*^000000";
+		mes "Noooo! N-not now...";
+		mes "^333333*Cough! Cough!*^000000";	
+		close;
+	}
+	
+ein_in01,231,163,7	script	Sick Old Man#ein	849,{
+		mes "[Shinokas]";
+		mes "...";
+		mes "......is he dead?";
+		close;
+	}
+
+ein_in01,32,133,7	script	Maid#ein	850,{
+		mes "[Maid]";
+		mes "There's no end";
+		mes "to all these plates";
+		mes "I have to clean...!";
+		close;
+	}
+
+ein_in01,254,35,1	script	Scientist#ein	749,{
+	mes "[Scientist]";
+	mes "^333333*Grumble grumble*^000000";
+	next;
+	mes "[Scientist]";
+	mes "Huh...?";
+	mes "How did you";
+	mes "get in here?";
+	close;
+}
+
+einbroch,51,46,5	script	Laboratory Soldier#ein-1	852,{
+	mes "[Laboratory Soldier]";
+	mes "This area";
+	mes "is off limits.";
+	mes "Please leave";
+	mes "immediately.";
+	close;
+}
+	
+einbroch,51,56,5	script	Laboratory Soldier#ein-2	852,{
+	mes "[Laboratory Soldier]";
+	mes "Yuck...!";
+	mes "There's this";
+	mes "nasty dusty taste";
+	mes "right inside my mouth";
+	mes "that I can't get rid of!";
+	next;
+	mes "[Laboratory Soldier]";
+	mes "^333333*Sigh*^000000";
+	mes "I want to go home.";
+	mes "Get some mouthwash.";
+	mes "You know. Something.";
+	close;
+}
+
+
+einbech,57,210,3	script	Young Man#Shinokas_Quest	855,{
+	mes "[Young Man]";
+	mes "Behind the pub,";
+	mes "you'll see this old man";
+	mes "who's always mumbling";
+	mes "something to himself.";
+	next;
+	mes "[Young Man]";
+	mes "Sometimes he seems really";
+	mes "angry, but other times he looks";
+	mes "awfully depressed. He must have";
+	mes "lived through some really horrible experience. I can't help but feel really sorry for the old guy.";
+	next;
+	mes "[Young Man]";
+	mes "He says and does";
+	mes "a lot of strange things.";
+	mes "It's sad to see someone";
+	mes "that old act that way, but";
+	mes "it makes me wonder what";
+	mes "could have happened to him.";
+	close;
+}
+
+// Lovers Quest :: ein_ryu
+//============================================================ 
+ein_in01,31,138,3	script	Calla#ein	90,{
+		mes "[Calla]";
+		mes "Hello adventurer.";
+		mes "Our city must just be";
+		mes "another place where";
+		mes "you'll stay no longer";
+		mes "than a few days.";
+		next;
+		mes "[Calla]";
+		mes "You must have so much";
+		mes "freedom. I envy you. I can't";
+		mes "do what I want to do. I don't";
+		mes "even have the courage to tell";
+		mes "my family what I really want,";
+		mes "much less change things here...";
+		next;
+		mes "[Calla]";
+		mes "How is it like?";
+		mes "Going wherever you";
+		mes "please, following your";
+		mes "heart's true desire?";
+		mes "What I would give to";
+		mes "be able to do that...";
+		close;
+}
+
+ein_in01,200,101,5	script	Klitzer#ein	854,{
+		mes "[Klitzer]";
+		mes "Look out, world!";
+		mes "I'm gonna become";
+		mes "worthy of Calla's love!";
+		mes "Someday, maybe even her";
+		mes "parents will approve me!";
+		close;
+}
+
+ein_in01,31,151,3	script	Satra#ein	850,{
+		mes "[Satra]";
+		mes "Ho ho ho ho~";
+		mes "Welcome adventurer,";
+		mes "I know you well enough";
+		mes "to know that you wouldn't";
+		mes "be so rude as to stop by";
+		mes "and chat since you're an Orphan right? So leave please.";
+		close;
+}
+
+ein_in01,191,102,5	script	Kaijeta#ein	846,{
+	mes "[Kaijeta]";
+	mes "Welcome to my humble";
+	mes "abode, adventurer. I'm";
+	mes "sorry if I'm a poor host.";
+	next;
+	mes "[Kaijeta]";
+	mes "As you can see, we have";
+	mes "to share this house with";
+	mes "other families so we don't";
+	mes "have much open space or";
+	mes "privacy. I'm afraid we can't";
+	mes "afford even basic comfort.";
+	next;
+	mes "[Kaijeta]";
+	mes "For now, this is the best";
+	mes "we can do. We don't have";
+	mes "the zeny to buy a house or";
+	mes "land, so we have no choice";
+	mes "but to endure through this...";
+	close;
+}
+
+einbroch,188,72,3	script	Keneshiotz#ein	855,{
+	mes "[Keneshiotz]";
+	mes "This city is full of sky";
+	mes "high smokestacks and";
+	mes "the droning hum of machines.";
+	next;
+	mes "[Keneshiotz]";
+	mes "Sure, the air is polluted,";
+	mes "but I think it's a fair price";
+	mes "to pay for wealth and a";
+	mes "modern life of comfort.";
+	mes "Screw the environment!";
+	next;
+	mes "[Keneshiotz]";
+	mes "I'd much rather live like";
+	mes "this than end up like those";
+	mes "backwards vagrants in that";
+	mes "filthy Einbech. Don't they";
+	mes "know that money makes";
+	mes "the world go 'round?";
+	close;
+}
+
+einbech,216,118,3	script	Catzllanpu#ein	854,{
+	mes "[Catzllanpu]";
+	mes "^333333*Sigh...*^000000";
+	mes "Simple pleasures.";
+	mes "They're what make";
+	mes "life worth living,";
+	mes "you know?";
+	next;
+	mes "[Catzllanpu]";
+	mes "It's enough for me just to";
+	mes "live a normal and happy life,";
+	mes "but everyone around me wants";
+	mes "to work harder and harder. If";
+	mes "you never take a rest, you're";
+	mes "killing yourself pretty slowly.";
+	next;
+	mes "[Catzllanpu]";
+	mes "I guess you can tell that";
+	mes "I don't have the worries";
+	mes "other people have about";
+	mes "money. It's great, but it's";
+	mes "not worth sacrificing the";
+	mes "quality of your life, right?";
+	close;
+}
+
+einbroch,208,208,3	script	Kesunboss#ein	850,{
+	mes "[Kesunboss]";
+	mes "Lady Calla is the";
+	mes "epitome of elegance,";
+	mes "a veritable goddess";
+	mes "of Einbroch.";
+	next;
+	mes "[Kesunboss]";
+	mes "Her gentle voice,";
+	mes "that angelic smile, her";
+	mes "kindness and warmth";
+	mes "towards other people";
+	mes "and above all...";
+	next;
+	mes "[Kesunboss]";
+	mes "Calla's family";
+	mes "is wealthy beyond";
+	mes "imagination! She's";
+	mes "perfect! I don't know who";
+	mes "she'll marry, but he'd be";
+	mes "a lucky gentleman, I'm sure.";
+	next;
+	mes "[Kesunboss]";
+	mes "Lady Calla lives in a magnificent mansion that makes other houses";
+	mes "look like shacks in comparison.";
+	mes "Head north and then west from";
+	mes "here if you wish to marvel in its";
+	mes "beauty and elegance.";
+	close;
+}
+
+einbech,176,125,3	script	Ellhenje#ein	850,{
+	mes "[Ellhenje]";
+	mes "Things might be";
+	mes "bad in this town";
+	mes "with the pollution";
+	mes "and the bullying";
+	mes "from Einbroch...";
+	next;
+	mes "[Ellhenje]";
+	mes "But somehow, people";
+	mes "are able to get by. That's";
+	mes "because there's a guy";
+	mes "that everyone here likes...";
+	next;
+	mes "[Ellhenje]";
+	mes "I'm talking about Klitzer!";
+	mes "He's almost too honest and";
+	mes "almost too diligent. But most";
+	mes "of all, he's the nicest guy~";
+	next;
+	mes "[Ellhenje]";
+	mes "Klitzer was born in one of";
+	mes "Einbech's poorest families,";
+	mes "but he's usually happy and always thinks about others. I guess that's why people like to think of him";
+	mes "as representing all of Einbech.";
+	next;
+	mes "[Ellhenje]";
+	mes "Recently, something's";
+	mes "been bothering him. I'm";
+	mes "not sure, but I think only";
+	mes "woman troubles could make";
+	mes "a guy feel so glum. I hope he";
+	mes "feels better soon...";
+	close;
+}
+
+ein_in01,208,86,3	script	Decii#ein	855,{
+	mes "[Decii]";
+	mes "This is so";
+	mes "frustrating!";
+	mes "I'm surrounded";
+	mes "by all these ^FF0000people^000000!";
+	next;
+	mes "[Decii]";
+	mes "There's absolutely";
+	mes "no privacy in a city";
+	mes "this crowded! I guess";
+	mes "I should try to move";
+	mes "out as soon as I can.";
+	close;
+}
+
+ein_in01,192,90,3	script	Supineque#ein	849,{
+	mes "[Supineque]";
+	mes "Ugh...";
+	mes "I'm starving!";
+	next;
+	mes "[Supineque]";
+	mes "I haven't had food for so";
+	mes "long that my stomach is";
+	mes "beginning to digest itself!";
+	mes "This is horrible...";
+	next;
+	mes "[Supineque]";
+	mes "I mean, I have";
+	mes "food that I can";
+	mes "eat today. But if";
+	mes "I finish it, what am";
+	mes "I gonna eat tomorrow?";
+	close;
+}

@@ -1,0 +1,285 @@
+//===== rAthena Script =======================================
+//= Veins Town script
+//===== By: ==================================================
+//= Muad_Dib
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Veins Town Npcs
+//===== Additional Comments: =================================
+//= 1.0 First version [L0ne_W0lf]
+//= 1.1 Updated to match AEGIS script. [Kisuka]
+//============================================================
+
+// Veins
+//============================================================
+veins,162,34,5	script	Towner#ve1	943,{
+	mes "[Towner]";
+	mes "I love cacti. They're";
+	mes "the most beautiful plants";
+	mes "in the desert. Sometimes,";
+	mes "they're the only signs of";
+	mes "life in a barren land.";
+	next;
+	mes "[Towner]";
+	mes "If you feel a stirring";
+	mes "in your heart when you";
+	mes "look at a cactus, you";
+	mes "must appreciate the";
+	mes "desert's true beauty.";
+	next;
+	mes "[Towner]";
+	mes "Well, I don't know if";
+	mes "I can find anyone that";
+	mes "finds the desert as";
+	mes "wonderful and enchanting";
+	mes "as I do. It's a pity, really.";
+	close;
+}
+
+veins,148,41,3	script	Towner#ve2	940,{
+	mes "[Towner]";
+	mes "Welcome to Veins, the";
+	mes "town near the Temple of";
+	mes "Cheshrumnir. You may think";
+	mes "this is a dreary desert town,";
+	mes "but you'll find that it's as";
+	mes "lively as any other place.";
+	next;
+	mes "[Towner]";
+	mes "Sure, there are a few";
+	mes "characters in town, like";
+	mes "that cactus loving loony";
+	mes "over there, but not everyone's";
+	mes "like him. There's lots of nice,";
+	mes "kind people that you can meet.";
+	next;
+	mes "[Towner]";
+	mes "Well then, I hope that";
+	mes "you enjoy your stay~";
+	close;
+}
+
+veins,137,179,5	script	Towner#ve3	943,{
+	mes "[Towner]";
+	mes "Geez, why is our weapon";
+	mes "shop so boring? Nothing";
+	mes "there but the same ol'";
+	mes "regular junk. Sad to say,";
+	mes "there's nothing special.";
+	next;
+	mes "[Towner]";
+	mes "Wouldn't it be great";
+	mes "if there was a shop that";
+	mes "sold the legendary godly";
+	mes "weapons? Of course, that's";
+	mes "asking a bit too much.";
+	close;
+}
+
+ve_in,249,134,5	script	Towner#ve4	946,{
+	mes "[Towner]";
+	mes "Though we're in the";
+	mes "middle of the desert,";
+	mes "our enemies continue";
+	mes "to threaten us. Fools!";
+	mes "Goddess Freya will";
+	mes "always protect us!";
+	next;
+	mes "[Towner]";
+	mes "So long as we continue to";
+	mes "train, Freya will watch over";
+	mes "us and bless us with victory";
+	mes "over our foes. That, friend,";
+	mes "is the power of faith.";
+	close;
+}
+
+ve_in,252,118,5	script	Kid#ve1	941,{
+	mes "[Kid]";
+	mes "Whoa, get out of here!";
+	mes "Can't you see that I'm";
+	mes "playing hide and go seek?!";
+	mes "Move before they find me!";
+	close;
+}
+
+ve_in,364,345,3	script	Kid#ve2	944,{
+	mes "[Kid]";
+	mes "Gosh, where could she";
+	mes "be hiding? I hate being";
+	mes "it... There's so many places";
+	mes "to hide around here. There";
+	mes "must be someplace I haven't";
+	mes "checked yet... Let's see...";
+	close;
+}
+
+ve_in,236,113,7	script	Old Man#ve1	945,{
+	mes "[Old Man]";
+	mes "Praise be to Freya";
+	mes "for blessing me with";
+	mes "long life, but I wonder";
+	mes "if I've fully lived life.";
+	next;
+	mes "[Old Man]";
+	mes "I don't have any regrets";
+	mes "or doubts, but maybe there";
+	mes "are a few things I missed";
+	mes "out on. I guess an old man";
+	mes "can't help but think about";
+	mes "these sorts of things...";
+	close;
+}
+
+
+veins,189,260,3	script	Towner#ve9	943,{
+	mes "[Towner]";
+	mes "Don't get me wrong:";
+	mes "I'd give my life in Freya's";
+	mes "name, but that so-called";
+	mes "temple just looks so strange";
+	mes "and suspicious. How can it";
+	mes "be a place of worship?";
+	close;
+}
+
+
+veins,133,267,3	script	Old Man#ve4	945,{
+	mes "[Old Man]";
+	mes "Fr... Fr...";
+	next;
+	mes "[Old Man]";
+	mes "Fr...";
+	next;
+	mes "[Old Man]";
+	mes "Praise Freya! ^333333*Keck*^000000";
+	mes "^333333*Cough cough*^000000 Fre...";
+	mes "^333333*Cough*^000000 Praise Freya!";
+	mes "Freya! Conquer those";
+	mes "that blaspheme you! Let";
+	mes "me see it before I die!";
+	next;
+	mes "[Old Man]";
+	mes "I have never regretted";
+	mes "^333333*Cough*^000000 my faith in you,";
+	mes "my goddess! ^333333*Keck*^000000 May";
+	mes "the suffering of all our";
+	mes "enemies drive them to";
+	mes "madness before death!";
+	close;
+}
+
+ve_in,363,330,3	script	Old Lady#ve3	942,{
+	mes "[Old Lady]";
+	mes "I wonder what my";
+	mes "standing with Freya";
+	mes "is like. Hopefully, she";
+	mes "will take mercy upon me";
+	mes "when I leave this world.";
+	mes "My days here are numbered...";
+	close;
+}
+
+
+ve_in,242,124,3	script	Towner#ve19	849,{
+	mes "[Towner]";
+	mes "The drinks in this";
+	mes "town are so... They're...";
+	mes "They're so damn strong!";
+	next;
+	mes "[Towner]";
+	mes "Why...";
+	mes "Why does the ground";
+	mes "keep wobbling?! It's...";
+	mes "It's like it's trying to";
+	mes "betray me! Every time!";
+	next;
+	mes "[Towner]";
+	mes "^333333*Hiccup*^000000";
+	close;
+}
+
+ve_in,180,232,5	script	Towner#ve20	946,{
+	mes "[Towner]";
+	mes "It's nice when a town";
+	mes "is peaceful and quiet...";
+	next;
+	mes "[Towner]";
+	mes "Well, there's good";
+	mes "and bad points to";
+	mes "everything. Hopefully";
+	mes "things will pick up";
+	mes "around here as more of";
+	mes "you adventurers come visit.";
+	close;
+}
+
+ve_in,342,343,1	script	Towner#ve21	940,{
+	mes "[Towner]";
+	mes "There's nothing but";
+	mes "old people and children";
+	mes "in this town. Where's a";
+	mes "decent man worth marrying?";
+	mes "There's a few bachelors that";
+	mes "are my age, but... Well...";
+	next;
+	mes "[Towner]";
+	mes "They're all too hairy or";
+	mes "too muscular. I don't think";
+	mes "I'll be able to get married";
+	mes "anytime soon! Oh, please Freya! Help me!";
+	close;
+}
+
+
+ve_in,318,121,3	script	Towner#ve23	943,{
+	mes "[Towner]";
+	mes "This storage solely";
+	mes "exists for serious drinkers.";
+	mes "If it's ever shut down,";
+	mes "I think everyone in town";
+	mes "will riot. Crazy, huh?";
+	next;
+	mes "[Towner]";
+	mes "Veins is famous for its";
+	mes "wide variety of delicious,";
+	mes "irresistible liquor. Just one";
+	mes "sip's enough to hook you.";
+	next;
+	mes "[Towner]";
+	mes "Praise Freya for";
+	mes "blessing us with the";
+	mes "gift of awesome liquor.";
+	mes "Her graciousness, her";
+	mes "compassion, her liquor";
+	mes "is limitless. Let us pray.";
+	close;
+}
+
+ve_in,337,332,1	script	Towner#ve24	943,{
+	mes "[Towner]";
+	mes "I really want to";
+	mes "ask out the woman";
+	mes "right in front of me.";
+	mes "Do you think she'll...?";
+	next;
+	mes "[Towner]";
+	mes "Crap! Did I say that";
+	mes "out loud? I-I-I really";
+	mes "didn't want her to hear!";
+	close;
+}
+
+ve_in,84,224,5	script	Inn Keeper#ve24	943,{
+	mes "[Inn Keeper]";
+	mes "I'm sorry but we can't take guests now.";
+	next;
+	mes "[Inn Keeper]";
+	mes "Due to what's happening outside right now, the bedrooms are all taken by the people.";
+	close;
+}
+

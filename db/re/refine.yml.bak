@@ -1,0 +1,950 @@
+# This file is a part of rAthena++.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Refine Database
+###########################################################################
+#
+# Refine Settings
+#
+###########################################################################
+# - Group                               Refine item type.
+#   Levels:                             Refinement settings per item level. (Default: null)
+#     - Level                           Item level.
+#       RefineLevels:                   Refinement settings per refine level. (Default: null)
+#         - Level                       Refine level.
+#           Bonus                       Refinement bonus. (Default: 0)
+#           RandomBonus                 Extra refinement bonus of 0~RandomBonus stacked on Bonus. (Default: 0)
+#           BlacksmithBlessingAmount    Amount of Blacksmith Blessing required. (Default: 0)
+#           Chances:                    Success chance based on cost type. (Default: null)
+#             - Type                    Refinement cost type based on ore used.
+#               Rate                    Chance of success out of 0~10000. (Default: 0)
+#               Price                   Amount of zeny required to refine. (Default: 0)
+#               Material                Ore item required to refine. (Default: 0)
+#               BreakingRate            Chance of item breaking out of 0~10000. (Default: 0)
+#               DowngradeAmount         Number of refine levels reduced on failure. (Default: 0)
+###########################################################################
+
+Header:
+  Type: REFINE_DB
+  Version: 1
+
+Body:
+  - Group: Armor
+    Levels:
+      - Level: 1
+        RefineLevels:
+          - Level: 1
+            Bonus: 50
+            Chances:
+              - Type: Normal
+                Rate: 9000
+                Price: 100
+                Material: Elunium
+              - Type: HD
+                Rate: 10000
+                Price: 200
+                Material: HD_Elunium
+          - Level: 2
+            Bonus: 100
+            Chances:
+              - Type: Normal
+                Rate: 8000
+                Price: 200
+                Material: Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 8000
+                Price: 400
+                Material: HD_Elunium
+          - Level: 3
+            Bonus: 150
+            Chances:
+              - Type: Normal
+                Rate: 7000
+                Price: 300
+                Material: Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7000
+                Price: 600
+                Material: HD_Elunium
+          - Level: 4
+            Bonus: 200
+            Chances:
+              - Type: Normal
+                Rate: 6000
+                Price: 500
+                Material: HD_Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 6000
+                Price: 1000
+                Material: Enriched_Elunium
+          - Level: 5
+            Bonus: 250
+            Chances:
+              - Type: Normal
+                Rate: 5000
+                Price: 750
+                Material: HD_Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5000
+                Price: 1500
+                Material: Enriched_Elunium
+          - Level: 6
+            Bonus: 300
+            Chances:
+              - Type: Normal
+                Rate: 4000
+                Price: 1000
+                Material: HD_Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 4000
+                Price: 2000
+                Material: Enriched_Elunium
+          - Level: 7
+            Bonus: 350
+            Chances:
+              - Type: Normal
+                Rate: 3000
+                Price: 2000
+                Material: Enriched_Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 3000
+                Price: 4000
+                Material: Jewel_Elunium
+          - Level: 8
+            Bonus: 400
+            Chances:
+              - Type: Normal
+                Rate: 2000
+                Price: 3000
+                Material: Enriched_Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2000
+                Price: 6000
+                Material: Jewel_Elunium
+          - Level: 9
+            Bonus: 450
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 4000
+                Material: Enriched_Elunium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1000
+                Price: 8000
+                Material: Jewel_Elunium
+          - Level: 10
+            Bonus: 500
+            Chances:
+              - Type: Normal
+                Rate: 500
+                Price: 10000
+                Material: Jewel_Elunium
+                DowngradeAmount: 1
+  - Group: Weapon
+    Levels:
+      - Level: 1
+        RefineLevels:
+          - Level: 1
+            Bonus: 50
+            Chances:
+              - Type: Normal
+                Rate: 9000
+                Price: 25
+                Material: Oridecon
+              - Type: HD
+                Rate: 10000
+                Price: 50
+                Material: HD_Oridecon
+          - Level: 2
+            Bonus: 100
+            Chances:
+              - Type: Normal
+                Rate: 8500
+                Price: 50
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 8500
+                Price: 100
+                Material: HD_Oridecon
+          - Level: 3
+            Bonus: 150
+            Chances:
+              - Type: Normal
+                Rate: 8000
+                Price: 150
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 8000
+                Price: 300
+                Material: HD_Oridecon
+          - Level: 4
+            Bonus: 200
+            Chances:
+              - Type: Normal
+                Rate: 7500
+                Price: 300
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7500
+                Price: 600
+                Material: Enriched_Oridecon
+          - Level: 5
+            Bonus: 250
+            Chances:
+              - Type: Normal
+                Rate: 7000
+                Price: 450
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7000
+                Price: 900
+                Material: Enriched_Oridecon
+          - Level: 6
+            Bonus: 300
+            Chances:
+              - Type: Normal
+                Rate: 6500
+                Price: 600
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 6500
+                Price: 1200
+                Material: Enriched_Oridecon
+          - Level: 7
+            Bonus: 350
+            Chances:
+              - Type: Normal
+                Rate: 6000
+                Price: 1000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 6000
+                Price: 2000
+                Material: Jewel_Oridecon
+          - Level: 8
+            Bonus: 400
+            Chances:
+              - Type: Normal
+                Rate: 5500
+                Price: 1750
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5500
+                Price: 2500
+                Material: Jewel_Oridecon
+          - Level: 9
+            Bonus: 450
+            Chances:
+              - Type: Normal
+                Rate: 5000
+                Price: 2500
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5000
+                Price: 5000
+                Material: Jewel_Oridecon
+          - Level: 10
+            Bonus: 500
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 10000
+                Material: Jewel_Oridecon
+                DowngradeAmount: 1
+      - Level: 2
+        RefineLevels:
+          - Level: 1
+            Bonus: 100
+            Chances:
+              - Type: Normal
+                Rate: 8500
+                Price: 100
+                Material: Oridecon
+              - Type: HD
+                Rate: 10000
+                Price: 200
+                Material: HD_Oridecon
+          - Level: 2
+            Bonus: 200
+            Chances:
+              - Type: Normal
+                Rate: 7800
+                Price: 200
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7800
+                Price: 400
+                Material: HD_Oridecon
+          - Level: 3
+            Bonus: 300
+            Chances:
+              - Type: Normal
+                Rate: 7100
+                Price: 300
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7100
+                Price: 600
+                Material: HD_Oridecon
+          - Level: 4
+            Bonus: 400
+            Chances:
+              - Type: Normal
+                Rate: 6400
+                Price: 500
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 6400
+                Price: 1000
+                Material: Enriched_Oridecon
+          - Level: 5
+            Bonus: 500
+            Chances:
+              - Type: Normal
+                Rate: 5700
+                Price: 750
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5700
+                Price: 1500
+                Material: Enriched_Oridecon
+          - Level: 6
+            Bonus: 600
+            Chances:
+              - Type: Normal
+                Rate: 5000
+                Price: 1000
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5000
+                Price: 2000
+                Material: Enriched_Oridecon
+          - Level: 7
+            Bonus: 700
+            Chances:
+              - Type: Normal
+                Rate: 4300
+                Price: 2000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 4300
+                Price: 4000
+                Material: Jewel_Oridecon
+          - Level: 8
+            Bonus: 800
+            Chances:
+              - Type: Normal
+                Rate: 3600
+                Price: 3000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 3600
+                Price: 6000
+                Material: Jewel_Oridecon
+          - Level: 9
+            Bonus: 900
+            Chances:
+              - Type: Normal
+                Rate: 2900
+                Price: 4000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2900
+                Price: 8000
+                Material: Jewel_Oridecon
+          - Level: 10
+            Bonus: 1000
+            Chances:
+              - Type: Normal
+                Rate: 2200
+                Price: 16000
+                Material: Jewel_Oridecon
+                DowngradeAmount: 1
+      - Level: 3
+        RefineLevels:
+          - Level: 1
+            Bonus: 150
+            Chances:
+              - Type: Normal
+                Rate: 8000
+                Price: 200
+                Material: Oridecon
+              - Type: HD
+                Rate: 10000
+                Price: 400
+                Material: HD_Oridecon
+          - Level: 2
+            Bonus: 300
+            Chances:
+              - Type: Normal
+                Rate: 7000
+                Price: 400
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7000
+                Price: 800
+                Material: HD_Oridecon
+          - Level: 3
+            Bonus: 450
+            Chances:
+              - Type: Normal
+                Rate: 6000
+                Price: 600
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 6000
+                Price: 1200
+                Material: HD_Oridecon
+          - Level: 4
+            Bonus: 600
+            Chances:
+              - Type: Normal
+                Rate: 5000
+                Price: 1000
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5000
+                Price: 2000
+                Material: Enriched_Oridecon
+          - Level: 5
+            Bonus: 750
+            Chances:
+              - Type: Normal
+                Rate: 4000
+                Price: 1400
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 4000
+                Price: 2800
+                Material: Enriched_Oridecon
+          - Level: 6
+            Bonus: 900
+            Chances:
+              - Type: Normal
+                Rate: 3000
+                Price: 1800
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 3000
+                Price: 3600
+                Material: Enriched_Oridecon
+          - Level: 7
+            Bonus: 1050
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 2500
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2500
+                Price: 5000
+                Material: Jewel_Oridecon
+          - Level: 8
+            Bonus: 1200
+            Chances:
+              - Type: Normal
+                Rate: 2000
+                Price: 4000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2000
+                Price: 8000
+                Material: Jewel_Oridecon
+          - Level: 9
+            Bonus: 1350
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 5500
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1500
+                Price: 11000
+                Material: Jewel_Oridecon
+          - Level: 10
+            Bonus: 1500
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 22000
+                Material: Jewel_Oridecon
+                DowngradeAmount: 1
+      - Level: 4
+        RefineLevels:
+          - Level: 1
+            Bonus: 200
+            Chances:
+              - Type: Normal
+                Rate: 7500
+                Price: 500
+                Material: Oridecon
+              - Type: HD
+                Rate: 10000
+                Price: 1000
+                Material: HD_Oridecon
+          - Level: 2
+            Bonus: 400
+            Chances:
+              - Type: Normal
+                Rate: 6500
+                Price: 1000
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 6500
+                Price: 1000
+                Material: HD_Oridecon
+          - Level: 3
+            Bonus: 600
+            Chances:
+              - Type: Normal
+                Rate: 5500
+                Price: 1500
+                Material: Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5500
+                Price: 3000
+                Material: HD_Oridecon
+          - Level: 4
+            Bonus: 800
+            Chances:
+              - Type: Normal
+                Rate: 4500
+                Price: 3000
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 4500
+                Price: 6000
+                Material: Enriched_Oridecon
+          - Level: 5
+            Bonus: 1000
+            Chances:
+              - Type: Normal
+                Rate: 3500
+                Price: 4500
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 3500
+                Price: 9000
+                Material: Enriched_Oridecon
+          - Level: 6
+            Bonus: 1200
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 6000
+                Material: HD_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2500
+                Price: 12000
+                Material: Enriched_Oridecon
+          - Level: 7
+            Bonus: 1400
+            Chances:
+              - Type: Normal
+                Rate: 2000
+                Price: 10000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2000
+                Price: 20000
+                Material: Jewel_Oridecon
+          - Level: 8
+            Bonus: 1600
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 15000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1500
+                Price: 30000
+                Material: Jewel_Oridecon
+          - Level: 9
+            Bonus: 1800
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 20000
+                Material: Enriched_Oridecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1000
+                Price: 40000
+                Material: Jewel_Oridecon
+          - Level: 10
+            Bonus: 2000
+            Chances:
+              - Type: Normal
+                Rate: 500
+                Price: 100000
+                Material: Jewel_Oridecon
+                DowngradeAmount: 1
+  - Group: Shadow_Armor
+    Levels:
+      - Level: 1
+        RefineLevels:
+          - Level: 1
+            Chances:
+              - Type: Normal
+                Rate: 10000
+                Price: 1000
+                Material: Shadowdecon
+          - Level: 2
+            Chances:
+              - Type: Normal
+                Rate: 8000
+                Price: 2000
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 8000
+                Price: 4000
+                Material: Jewel_Shadowdecon
+          - Level: 3
+            Chances:
+              - Type: Normal
+                Rate: 7000
+                Price: 3000
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7000
+                Price: 6000
+                Material: Jewel_Shadowdecon
+          - Level: 4
+            Chances:
+              - Type: Normal
+                Rate: 6000
+                Price: 4000
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 6000
+                Price: 8000
+                Material: Jewel_Shadowdecon
+          - Level: 5
+            Chances:
+              - Type: Normal
+                Rate: 5000
+                Price: 5000
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5000
+                Price: 10000
+                Material: Jewel_Shadowdecon
+          - Level: 6
+            Chances:
+              - Type: Normal
+                Rate: 4000
+                Price: 7500
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 4000
+                Price: 15000
+                Material: Jewel_Shadowdecon
+          - Level: 7
+            Chances:
+              - Type: Normal
+                Rate: 3000
+                Price: 10000
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 3000
+                Price: 20000
+                Material: Jewel_Shadowdecon
+          - Level: 8
+            Chances:
+              - Type: Normal
+                Rate: 2000
+                Price: 15000
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2000
+                Price: 30000
+                Material: Jewel_Shadowdecon
+          - Level: 9
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 20000
+                Material: Shadowdecon
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1000
+                Price: 40000
+                Material: Jewel_Shadowdecon
+          - Level: 10
+            Chances:
+              - Type: Normal
+                Rate: 500
+                Price: 50000
+                Material: Jewel_Shadowdecon
+                DowngradeAmount: 1
+  - Group: Shadow_Weapon
+    Levels:
+      - Level: 1
+        RefineLevels:
+          - Level: 1
+            Chances:
+              - Type: Normal
+                Rate: 10000
+                Price: 1000
+                Material: Bradium
+          - Level: 2
+            Chances:
+              - Type: Normal
+                Rate: 8500
+                Price: 2000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 8500
+                Price: 4000
+                Material: HD_Bradium
+          - Level: 3
+            Chances:
+              - Type: Normal
+                Rate: 7000
+                Price: 3000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7000
+                Price: 6000
+                Material: HD_Bradium
+          - Level: 4
+            Chances:
+              - Type: Normal
+                Rate: 5500
+                Price: 4000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5500
+                Price: 8000
+                Material: HD_Bradium
+          - Level: 5
+            Chances:
+              - Type: Normal
+                Rate: 4000
+                Price: 5000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 4000
+                Price: 10000
+                Material: HD_Bradium
+          - Level: 6
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 7500
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2500
+                Price: 15000
+                Material: HD_Bradium
+          - Level: 7
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 10000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1500
+                Price: 20000
+                Material: HD_Bradium
+          - Level: 8
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 15000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1000
+                Price: 30000
+                Material: HD_Bradium
+          - Level: 9
+            Chances:
+              - Type: Normal
+                Rate: 500
+                Price: 20000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 500
+                Price: 40000
+                Material: HD_Bradium
+          - Level: 10
+            Chances:
+              - Type: Normal
+                Rate: 100
+                Price: 50000
+                Material: HD_Bradium
+                DowngradeAmount: 1
+  - Group: Shadow_Right_Accessory
+    Levels:
+      - Level: 1
+        RefineLevels:
+          - Level: 1
+            Chances:
+              - Type: Normal
+                Rate: 10000
+                Price: 1000
+                Material: Bradium
+          - Level: 2
+            Chances:
+              - Type: Normal
+                Rate: 8500
+                Price: 2000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 8500
+                Price: 4000
+                Material: HD_Bradium
+          - Level: 3
+            Chances:
+              - Type: Normal
+                Rate: 7000
+                Price: 3000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 7000
+                Price: 6000
+                Material: HD_Bradium
+          - Level: 4
+            Chances:
+              - Type: Normal
+                Rate: 5500
+                Price: 4000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 5500
+                Price: 8000
+                Material: HD_Bradium
+          - Level: 5
+            Chances:
+              - Type: Normal
+                Rate: 4000
+                Price: 5000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 4000
+                Price: 10000
+                Material: HD_Bradium
+          - Level: 6
+            Chances:
+              - Type: Normal
+                Rate: 2500
+                Price: 7500
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 2500
+                Price: 15000
+                Material: HD_Bradium
+          - Level: 7
+            Chances:
+              - Type: Normal
+                Rate: 1500
+                Price: 10000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1500
+                Price: 20000
+                Material: HD_Bradium
+          - Level: 8
+            Chances:
+              - Type: Normal
+                Rate: 1000
+                Price: 15000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 1000
+                Price: 30000
+                Material: HD_Bradium
+          - Level: 9
+            Chances:
+              - Type: Normal
+                Rate: 500
+                Price: 20000
+                Material: Bradium
+                DowngradeAmount: 1
+              - Type: HD
+                Rate: 500
+                Price: 40000
+                Material: HD_Bradium
+          - Level: 10
+            Chances:
+              - Type: Normal
+                Rate: 100
+                Price: 50000
+                Material: HD_Bradium
+                DowngradeAmount: 1

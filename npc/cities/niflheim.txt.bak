@@ -1,0 +1,125 @@
+//===== rAthena Script =======================================
+//= Niflheim Script
+//===== By: ==================================================
+//= Fyrien, Dizzy, PKGINGO
+//= Official NPCs translated and re-edited by Celest
+//===== Current Version: =====================================
+//= 1.5
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Official NPC's for Niflheim
+//= 1.01 Splitted file(guides, shops). Fixed rand() bugs,
+//=      missing labels bugs, optimization [Lupus]
+//= 1.03 fixed end; -> close;
+//= 1.04-1.05 fixed several bugs with missing CLOSE button, wrong var name
+//=     in Piano Keys quest
+//=     fixed zeny/item, exploit in Sairin, some optimizations [Lupus]
+//= 1.06 some typos in some variables fixed (thx 2 Dr.Evil) [Lupus]
+//= 1.07 Fixed typos [Nexon]
+//= 1.08 Commented "Traveler" out as it is not official & we have correct Bungee quest in.
+//=     Also removed TODO, as they are already done. [Vicious_Pucca]
+//= 1.1 Replaced nif_q_done with MISC_QUEST & 32. nif_t -> @nif_t [Lupus]
+//= 1.2 Removed Duplicates [Silent]
+//= 1.3 Moved Book of Devil and Piano quest to quests/quests_niflheim.txt [Evera]
+//= 1.4 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//=     Removed Cursed Spirits as they were custom.
+//= 1.5 Added dummy "OnMyMobDead" event to Cursed Spirit. [L0ne_W0lf]
+//============================================================
+
+niflheim,52,147,3	script	Keedz#nif	796,{
+	mes "[Keedz]";
+	mes "I don't allow any living person";
+	mes "to come in this place!";
+	close;
+}
+
+niflheim,195,211,6	script	Gigantia#nif	796,3,3,{
+	mes "[Gigantia]";
+	mes "The Lord of Death knows";
+	mes "and sees all. It's useless";
+	mes "to hide, and escape from";
+	mes "Death's sweet embrace.";
+	close;
+}
+
+nif_in,16,27,1	script	Undead Chicken#nif	800,{
+	percentheal -5,0;
+	mes "[Undead Chicken]";
+	mes "I lived a peaceful life as a normal chicken. But then came the day I was tragically killed and eaten by humans. Well... Heh heh~! Now it's my turn! *Cackles*";
+	next;
+	mes "["+ strcharinfo(0) +"]";
+	mes "Ouch...!";
+	mes "A chicken...";
+	mes "It bit me!";
+	next;
+	mes "[Undead Chicken]";
+	mes "Ho ho~!";
+	mes "I can talk AND feast";
+	mes "on living humans!";
+	mes "Being a zombie is great!";
+	mes "*Cackles*";
+	close;
+}
+
+nif_in,16,30,4	script	Undead Familiar#nif	799,{
+	percentheal -5,0;
+	mes "[Vatoman]";
+	mes "Oooh, how handy, a living";
+	mes "human~! Fresh blood is";
+	mes "always tasty...! I think I'll just";
+	mes "take a liiittle sip.";
+	next;
+	mes "[" + strcharinfo(0) + "]";
+	mes "Ow! My vein!";
+	mes "Did you just";
+	mes "suck my blood?!";
+	next;
+	mes "[Vatoman]";
+	mes "Mwahahaha~";
+	mes "Foolish mortal!";
+	mes "Beware my powers!";
+	close;
+}
+
+nif_in,156,93,5	script	Child#niflheim	793,{
+	mes "[Alakina Ann]";
+	mes "Where...where am I...?";
+	mes "I remember I was sleeping";
+	mes "and when I woke up, I was here...";
+	mes "Mommy, have you seen my mommy?";
+	mes "I wanna go home...*Sob*";
+	next;
+	mes "[Alakina Ann]";
+	mes "It's so cold in here...";
+	mes "I'm freezing...";
+	mes "And I wanna go home and";
+	mes "get away from this scary place...";
+	next;
+	mes "[Alakina Ann]";
+	mes "Please... help me.";
+	close;
+	}
+
+niflheim,350,258,1	script	Cursed Spirit#nif	802,{
+	mes "[Ashe Bruce]";
+	mes "I sense you're cursed";
+	mes "by a powerful spell...";
+	mes "Hmm... It's clear what";
+	mes "you must be up to....";
+	next;
+	mes "[Ashe Bruce]";
+	mes "You wish to get";
+	mes "rid of your curse....";
+	mes "By giving it to me!!";
+	next;
+	mes "[Ashe Bruce]";
+	mes "Just because I'm a cursed spirit, you adventurers think you can just dump your curses on me?!";
+	emotion ET_FRET;
+	next;
+	mes "[Ashe Bruce]";
+	mes "I refuse to let";
+	mes "you remain here.....";
+	mes "Leave now!";
+	}

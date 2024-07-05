@@ -1,0 +1,274 @@
+//===== rAthena Script ======================================= 
+//= 2004 Headgear Quests
+//===== By: ================================================== 
+//= Dj-Yhn
+//===== Current Version: ===================================== 
+//= 1.6b
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= 2004 New Headgears. Official Quests
+//= 1) Black Cat Ears (payon 115 131)
+//= 2) X Hairpin, Band Aid, Flower Hairpin (geffen 129 148)
+//= 3) Hot-blooded Headband (yuno 300 188)
+//= 4) Red Ribbon (prontera 165 232)
+//= 5) Indian Headband (comodo 237 217)
+//= 6) Mushroom Band (geffen 67 87)
+//= 7) Angel Wing Ears, Devil Wing Ears (yuno 241 52)
+//= 8) Sea-Otter Hat (xmas 183 267)
+//= 9) Teddybear Hat (xmas 175 156)
+//= 10) Model Training Hat (payon_in03 8 193)
+//= 11) Tulip Haipin (geffen 83 189)
+//= 12) Party Hat, Straw Hat, Cowboy Hat, (xmas_in 35 30)
+//=     Sombrero, Beanie 
+//= 13) Decorative Golden Bell, (yuno_in03 20 18)
+//=     Crown of Ancient Queen, Crown of Mistress
+//= 14) Alarm Mask (alde_alche 88 180)
+//= 15) Drooping Cat, Smokie Leaf, Lazy Smokie, (morocc 273 79)
+//=     Blue Fish
+//= 16) Kitsune Mask (pay_dun03 48 84)
+//= 17) Orc Hero Helm (in_orcs01 31 93 & 162 33)
+//===== Additional Comments: =================================
+//= 1.4 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//= 1.5 Vito'd function call for checkweight. [L0ne_W0lf]
+//= 1.6 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 1.6a Added 'disable_items' command. [Euphy]
+//= 1.6b Added more 'disable_items' commands. [Euphy]
+//============================================================
+
+// Black Cat Ears
+//============================================================
+payon,115,131,3	script	Neko Neko#1	725,{
+	mes "[Neko Neko]";
+	mes "Umm...?";
+	mes "Excuse me?";
+	mes "Do I know you?...";
+	mes "Oh, I know why you";
+	mes "want to talk to me.";
+	mes "Heh heh~!";
+	next;
+	mes "[Neko Neko]";
+	mes "You want to know where I got these tiny little cute black cat ears on my head, don't you? I knew it! Hahaha~!";
+	next;
+	mes "[Neko Neko]";
+	mes "Well, I made these myself.";
+	mes "I don't like to share my craft with Orphans however, so you'll need to find your own. Heh heh~!";
+	close;
+}
+
+// X Hairpin, Band Aid, Flower Hairpin
+//============================================================
+geffen,129,148,3	script	Argen#1	779,{
+	mes "[Argen]";
+	mes "Man, oh man~";
+	mes "Am I bored~!";
+	mes "If I only knew more tricks with this yo-yo. Then I could really impress the ladies.";
+	close;
+}
+
+// Hot-blooded Headband
+//============================================================
+yuno,300,188,5	script	Zhenbolt#1	753,{
+	mes "[Zhenbolt]";
+	mes "Yes.";
+	mes "It is I, Zhenbolt.";
+	mes "Warrior of Might!";
+	mes "Whirling Tempest";
+	mes "of Raging Passion!";
+	close;
+}
+
+// Red Ribbon
+//============================================================
+prontera,165,232,3	script	Nephia#1	744,{
+	mes "[Nephia]";
+	mes "Wow~";
+	mes "Such beautiful hair! I'm sorry, it's just that I love pretty hairstyles, and accessories!";
+	next;
+	mes "[Nephia]";
+	mes "Ooh~! You know what would make your hair so much cuter? I think if you tied it back with a big, red ribbon, you would look sooo ^FF66CCadorable^000000!";
+	close;
+}
+
+// Indian Headband
+//============================================================
+comodo,237,217,5	script	Meruntei#1	732,{
+	mes "[Meruntei]";
+	mes "iiiyiyiyiyiyiyiiiiii~~!";
+	next;
+	mes "[Meruntei]";
+	mes "Indian spirit, forever~!";
+	mes "On behalf of the Comodo Indians, I give reverence to all Indian Tribes!";
+	next;
+	mes "[Meruntei]";
+	mes "iiiyiyiyiyiyiyiiiiii~~!";
+	close;
+}
+
+// Mushroom Band
+//============================================================
+geffen,67,87,3	script	Ipore#1	700,{
+	mes "[Ipore]";
+	mes "Finally...";
+	mes "I've created a magic spell that can make mushrooms grow anywhere! Anyplace you can imagine, I can make a mushroom grow there.";
+	next;
+	mes "[Ipore]";
+	mes "Even...";
+	mes "On top of the human head...";
+	next;
+	mes "[Ipore]";
+	mes "Don't worry! I won't make it happen to you... yet... Hahaha!";
+	close;
+}
+
+// Angel Wing Ears, Devil Wing Ears
+//============================================================
+yuno,241,52,3	script	Old Blacksmith#hgear	813,{
+	mes "[Skillful Looking Artisan]";
+	mes "Aha~";
+	mes "You must really like to travel! You're certainly not from around here.";
+	next;
+	mes "[Skillful Looking Artisan]";
+	mes "Allow me to introduce myself. My name is Hatbyr Mhore, a travelling Blacksmith.";
+	next;
+	mes "[Skillful Looking Artisan]";
+	mes "I Retired from my work after working on how to craft amazing headgear. Everybody has a day to retire from their prime. ";
+	close;
+}
+
+// Sea-Otter Hat
+//============================================================
+xmas,183,267,3	script	Pretty Lindsay#1	793,{
+	emotion ET_SURPRISE;
+	mes "[Pretty Lindsay]";
+	mes "Hello, hello~!";
+	mes "I love the weather around here! It's so cold!";
+	close;
+}
+
+// Teddybear Hat
+//============================================================
+xmas,175,156,3	script	Fuzzy Fuzz#1	712,{
+	emotion ET_SMILE;
+	mes "[Fuzzy Fuzz]";
+	mes "Hello there, young man.";
+	mes "What brings you to Lutie, town of goodwill and year round Christmas cheer?";
+	close;
+}
+
+// Model Training Hat
+//============================================================
+payon_in03,8,193,4	script	Nanhyang#1	77,{
+	mes "[Nanhyang]";
+	emotion ET_SURPRISE;
+	mes "Hello~";
+	mes "Welcome to the Handsome Charm Modeling School. Feel free to take your time.";
+	close;
+}
+
+// Tulip Hairpin
+//============================================================
+geffen,83,189,5	script	Seth#1	716,{
+	mes " [Seth]";
+	mes "Hello, my name is Seth!";
+	mes "I like folding paper and making origami. I made my mommy a big paper boat, and she gave me a big smile and patted my head!";
+	emotion ET_SMILE;
+	next;
+	mes "[Seth]";
+	mes "Today at school, I learned how to make a paper flower! The flower was sort of hard, but now I can do it! Then I made a tiny tiny flower and put in on my head~";
+	emotion ET_THROB;
+	close;
+}
+	
+// Party Hat, Straw Hat, Cowboy Hat, Sombrero, Beanie
+//============================================================
+xmas_in,35,30,3	script	Hat Merchant#zero	797,{
+	mes "[Mad Hatter]";
+	mes "Hey there. Um...";
+	mes "I'm the 'Mad Hatter.' Well, at least that's what I call myself.";
+	next;
+	mes "[Mad Hatter]";
+	mes "I have a big collection of hats. They are pretty easy to get due to that HATred Dude working everywhere!";
+	close;
+}
+
+// Alarm Mask
+//============================================================
+alde_alche,88,180,0	script	Muscle Man#Alarm Mask	748,{
+	mes "[Muscle Man]";
+	mes "Oooh yeah!";
+	mes "Sometimes, even I can't believe how much this body of mine ripples with sexy love muscles~! I can barely hold them all in...";
+	next;
+	mes "[Muscle Man]";
+	mes "It's...";
+	mes "It's sexy time!";
+	next;
+	specialeffect EF_FLASHER;
+	mes "[Muscle Man]";
+	mes "But...";
+	mes "Not everyone is fortunate to have a magnificent, flawless physique. There are people in this world that have tragically lost appendages in accidents.";
+	next;
+	mes "[Muscle Man]";
+	mes "When I realized this, I decided to help these people and began to research technology for artificial limbs. My studies have lead me to Alarms and their own mechanical limbs known as 'Ruimento.'";
+	next;
+	mes "[Muscle Man]";
+	mes "The Alarms, and their 'Ruimento,' are made from an ancient mysterious technology. You can only find these in the Clock Tower.";
+	next;
+	mes "[Muscle Man]";
+	mes "So I am trying to research a method to reproduce Ruimetto, except in a smaller form for the human body. If I'm successful, it would be a medical miracle!";
+	close;
+}
+
+// Drooping Cat, Smokie Leaf, Lazy Smokie, Blue Fish
+//============================================================
+morocc,273,79,4	script	Educated Traveller	99,{
+		mes "[Lee Hester]";
+		mes "Isn't it such";
+		mes "a beautiful day";
+		mes "today?";
+		next;
+		mes "[Lee Hester]";
+		mes "Beautiful...";
+		mes "But insanely hot.";
+		mes "I live here, I should know. Still, nothing can beat the Morocc sunset.";
+		next;
+		mes "[Lee Hester]";
+		mes "It's amazing how so many different animals can live in the desert. I've been spending some time researching the ways of animals, reading books in the Juno Library...";
+		next;
+		mes "[Lee Hester]";
+		mes "Trying to figure out the Animal Kingdom's secrets of dealing with the heat.";
+		next;
+		mes "[Lee Hester]";
+		mes "I hope you're having a good time here in Morocc. If you ever question the special abilities of animals, just think of the majestic Desert Wolf that's able to thrive in the harsh Morocc deserts.";
+		emotion ET_WRAP;
+		close;
+}
+
+// Orc Hero Helmet
+//============================================================
+in_orcs01,31,93,1	script	Orc Warrior#1	1023,2,2,{
+		mes "[Orc Warrior]";
+		mes ".......";
+		mes ".........";
+		mes "Human, what are you doing in my home?!";
+		next;
+		mes "[Orc Warrior]";
+		mes "Hurrumph.";
+		mes "The village is at its worst. Raiding your city was a bad idea...";
+		close;
+}
+
+in_orcs01,162,33,1	script	Orc Hero#1	1087,2,2,{
+		mes "[Orc Hero]";
+		mes "Stop bugging me";
+		mes "and get outta here!";
+		next;
+		mes "[Orc Hero]";
+		mes "If you wish to challenge me, wait inside the forest at the west. I'm not in the mood to deal with humans right now.";
+		next;
+		mes "[Orc Hero]";
+		mes "Now, hurry";
+		mes "up and scram!!";
+		close;
+}

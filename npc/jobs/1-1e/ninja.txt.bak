@@ -1,0 +1,107 @@
+//===== rAthena Script ======================================= 
+//= Ninja Job Quest
+//===== By: ================================================== 
+//= Legionaire, Kisuka
+//===== Current Version: ===================================== 
+//= 1.7
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Ninja Job Change Quest
+//===== Additional Comments: ================================= 
+//= 1.1 Optimized, updated, checked [Lupus]
+//= 1.2 Added Akagi [Playtester]
+//= 1.3 Updated dialogs to official ones and optimized [SinSloth]
+//= 1.4 Fixed a minor bug [SinSloth]
+//= 1.5 Updated to match AEGIS script and Added Quest Log commands. [Kisuka]
+//= 1.6 Fixed AEGIS amatsu warp typo. [Kisuka]
+//= 1.7 Kagerou/Oboro support (Class -> BaseClass) [Euphy]
+//============================================================ 
+
+alberta,30,65,3	script	Akagi	730,{
+		if (satsujinjob ==1){
+		mes "[Akagi]";
+		mes "Weird. I was sure Satsujins were not the talkative type...Yet here you are.";
+		close;	
+		}
+			mes "[Akagi]";
+			mes "Hmmm...";
+			mes "You're an Orphan.";
+			mes "Ever heard of Satsujins?";
+			next;
+			mes "[Akagi]";
+			mes "They are the best ninjas I've ever worked with. Might be risky but they sure know how to control the elements.";
+			close;
+}
+
+que_ng,30,65,3	script	Kuuga Gai#nq	730,{
+			if (satsujinjob ==1){
+		mes "[Kuuga Gai]";
+		mes "Hello there. You're always welcome here.";
+		close;	
+		}
+			mes "Kuuga Gai]";
+			mes "You migh wish to consider becoming a Satsujin. Would make your life easier.";
+			close;
+}
+
+einbroch,184,194,3	script	Red Leopard Joe#nq	881,{
+	if (NINJ_Q == 1) {
+		mes "[Red Leopard Joe]";
+		mes "Leave me Alone.I have nothing for you.";
+		close;
+	}
+	else if (NINJ_Q == 3) {
+		mes "[Red Leopard Joe]";
+		mes "Eh? I'm not sure what";
+		mes "happened, but it seems";
+		mes "that you haven't delivered";
+		mes "my response to Kuuga Gai yet.";
+		mes "Shall I directly send you";
+		mes "to Amatsu right now?";
+		next;
+		if(select("No, thanks.:Yes, please.") == 1) {
+			mes "[Red Leopard Joe]";
+			mes "Alright. Well, I was";
+			mes "just trying to save";
+			mes "you some time.";
+			close;
+		}
+		mes "[Red Leopard Joe]";
+		mes "Okay, then.";
+		mes "Goodbye for now.";
+		close2;
+		warp "amatsu",113,127;
+		end;
+	}
+	else if (NINJ_Q == 4) {
+		mes "[Red Leopard Joe]";
+		mes "Kuuga Gai asked you to";
+		mes "gather some materials";
+		mes "too? Oh well, I suppose";
+		mes "that I can't blame him.";
+		mes "Besides, I should be able";
+		mes "to beat him in a fair fight~";
+		close;
+	}
+	else if (NINJ_Q == 5 && BaseClass == Job_Ninja) {
+		mes "[Red Leopard Joe]";
+		mes "Oh, you're a Ninja~";
+		mes "I hope you continue to";
+		mes "train yourself and master";
+		mes "all the Ninja skills that";
+		mes "you can. Always remember";
+		mes "to blend into the shadows.";
+		close;
+	}
+	else {
+		mes "[Tourist]";
+		mes "I've traveled to many";
+		mes "countries, but I've never";
+		mes "been on a building as high";
+		mes "as Einbroch Tower. All the";
+		mes "buildings in my hometown";
+		mes "are tiny in comparison...";
+		close;
+	}
+}

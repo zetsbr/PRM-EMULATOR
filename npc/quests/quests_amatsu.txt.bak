@@ -1,0 +1,404 @@
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Amatsu
+//===== By: ================================================== 
+//= rAthena Dev Team & MasterOfMuppets
+//===== Current Version: ===================================== 
+//= 1.5
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Momotaro Event
+//= Sushi Quest
+//= Dungeon Quest
+//===== Additional Comments: ================================= 
+//= 1.3 Rescripted to Aegis 10.3 Standards. [L0ne_W0lf]
+//= 1.4 Added missing checkweight. [L0ne_W0lf]
+//= 1.4a Fixed typo in condition check [Gepard]
+//= 1.5 Added questlog support. [Euphy]
+//============================================================ 
+
+// Momotaro Event :: japan_momo_q
+//============================================================ 
+amatsu,223,236,3	script	Publisher#ama	763,{
+		mes "[Publisher]";
+		mes "Hello~!!";
+		mes "Our ^009CFFScroll Publishing Company^000000";
+		mes "is professionally publishing";
+		mes "tales.";
+		mes " ";
+		next;
+		mes "[Publisher]";
+		mes "We established";
+		mes "^3163FFMomotaro Field Trip^000000";
+		mes "to celebrate ^009CFF<Momotaro Story>^000000 selling over a million copies.";
+		next;
+		mes "[Publisher]";
+		mes "Become Momotaro and eliminate";
+		mes "Dokebis, just like in the story!";
+		mes "Unfortunately We can't accept Orphans, That's a bold risk!";
+		close;
+	}
+
+// Sushi Quest :: japan_sushi
+//============================================================ 
+ama_in01,162,17,1	script	Sushi Master#ama	765,{
+		mes "[Magumagu]";
+		mes "Training to slice raw fish";
+		mes "daily will make you a master sushi chef.";
+		mes "So don't waste your time in here, and learn what you are good at.";
+		close;
+}
+
+ama_fild01,177,326,4	script	Field Master#ama	765,{
+		mes "[Asaka]";
+		mes "if you consider entering the dungeon be careful.";
+		next;
+		mes "[Asaka]";
+		mes "The dark gold room can be very unpredictable, with those hidden doors on the north area.";
+		close;
+}
+
+// Dungeon Quest :: japan_mono
+//============================================================ 
+amatsu,112,164,4	script	Gate Soldier#ama1	767,{
+	mes "[Gate Soldier]";
+	mes "This is the great palace,";
+	mes "Toukoujyo.";
+	mes "Locals are prohibited";
+	mes "from entering...";
+	next;
+	mes "[Gate Soldier]";
+	mes "Your attire looks unfamiliar.";
+	mes "Are you from another continent?";
+	mes "The lord has granted entrance to";
+	mes "tourists, so you can go in.";
+	mes " ";
+	close;
+}
+	
+amatsu,119,164,4	script	Gate Soldier#ama2	767,{
+	mes "[Gate Soldier]";
+	mes "Are you from Midgard?";
+	mes "Welcome to Amatsu.";
+	mes "Visit our lord in Chun-Su-Gak";
+	mes "when you go in.";
+	mes " ";
+	next;
+	mes "[Gate Soldier]";
+	mes "He is really kind.";
+	mes "He invested in various fields for";
+	mes "Amatsu, and intercontinental trade was his idea.";
+	close;
+}
+	
+ama_in02,207,40,6	script	Gate Soldier#ama3	767,{
+	mes "[Gate Soldier]";
+	mes "Welcome. The lord of the palace";
+	mes "has specially allowed guests";
+	mes "from other continents.";
+	next;
+	mes "[Gate Soldier]";
+	mes "Look around and take your time.";
+	mes "Please enjoy your stay.";
+	close;
+}
+	
+ama_in02,207,49,6	script	Gate Soldier#ama4	767,{
+	mes "[Gate Soldier]";
+	mes "The lord is really nice guy.";
+	mes "Who would know that our town was";
+	mes "once a small village?";
+	next;
+	mes "[Gate Soldier]";
+	mes "I thank him for hiring me.";
+	mes "These days, he seems to have";
+	mes "troubles on his mind.";
+	mes "Lately, he's been looking pretty gloomy.";
+	mes " ";
+	close;
+}
+	
+amatsu,164,174,4	script	Gate Soldier#ama5	767,{
+	mes "[Gate Soldier]";
+		mes "You can't enter here.";
+		mes "The mother of our lord is resting in here. She needs her rest.";
+		next;
+		mes "[Gate Soldier]";
+		mes "She has been sick for months.";
+		mes "That is why she is staying in here.";
+		mes "It's a pretty fearsome sickness...";
+	close;
+}
+	
+amatsu,171,174,4	script	Gate Soldier#ama6	767,{
+	mes "[Gate Soldier]";
+		mes "You can't enter here.";
+		mes "The mother of our lord is resting in here. She needs her rest.";
+		next;
+		mes "[Gate Soldier]";
+		mes "She has been sick for months.";
+		mes "That is why she is staying in here.";
+		mes "It's a pretty fearsome sickness...";
+	close;
+}
+	
+ama_in02,187,57,2	script	Soldier#ama1	767,{
+	mes "[Ichiro]";
+	mes "Welcome.";
+	mes "Our lord prepared guest rooms";
+	mes "for travelers like you.";
+	next;
+	mes "[Ichiro]";
+	mes "If you are having any problems,";
+	mes "tell me. I would appreciate it if you talk to our lord of the";
+	mes "palace. This is all provided by him.";
+	close;
+}
+	
+ama_in02,170,62,4	script	Soldier#ama2	767,{
+	mes "[Jiro]";
+	mes "I'm Jiro, the administrator";
+	mes "of this Palace. Enjoy your visit.";
+	close;
+	}
+	
+ama_in02,37,157,4	script	Soldier#ama3	767,{
+	mes "[Saburo]";
+	mes "This is the training ground for improving our battle skills.";
+	mes "Please look around...";
+	next;
+	mes "[Saburo]";
+	mes "By the way, recently I've felt";
+	mes "like the soldiers have changed";
+	mes "lately. How do I say it...";
+	mes "Their faces are gloomy and";
+	mes "some of them are no longer around.";
+	mes "Have they gone to Midgard??";
+	next;
+	mes "[Saburo]";
+	mes "In this job, I encounter";
+	mes "many strangers. But downstairs,";
+	mes "there's a guest from a distant land who seems suspicious...";
+	mes "I told my guards to watch him...";
+	next;
+	mes "[Saburo]";
+	mes "Of course, my lord precisely knows everything that's going on.";
+	mes "Haha, don't take what I said seriously~";
+	mes "See ya...";
+	close;
+}
+	
+ama_in02,32,51,6	script	Soldier#ama4	767,{
+	mes "[Shiro]";
+	mes "*Cough, Cough* What...";
+	mes "Don't talk to me...";
+	mes "*Cough, Cough*... Oh, my freakin' neck.";
+	next;
+	mes "[Shiro]";
+	mes "That quack's cold medicine";
+	mes "is useless! I should never have trusted people from Midgard!";
+	mes "*Cough, Cough*...";
+	next;
+	mes "[Shiro]";
+	mes "I don't know why but...";
+	mes "I'm getting worse and worse...";
+	mes "What kind of cold is this?";
+	mes "*Cough*... *Cough*...";
+	close;
+}
+	
+ama_in02,40,167,3	script	Soldier#ama5	767,{
+	mes "[Goro]";
+	mes "*Psst*... Please, be quiet.";
+	mes "I will tell you a story, okay?";
+	mes " ";
+	next;
+	mes "[Goro]";
+	mes "There is a rumor in Amatsu.";
+	mes "The lord of this palace isn't";
+	mes "real... *Psst*, Quiet!";
+	mes "Don't panic and listen to me.";
+	next;
+	mes "[Goro]";
+	mes "There is a real lord behind";
+	mes "the kind lord and he is scheming";
+	mes "something. He is controlling";
+	mes "our town in some hidden place.";
+	mes "...Our kind lord is just a figurehead~!";
+	next;
+	mes "[Goro]";
+	mes "It's for real! Trust me~";
+	mes "I saw him. The lord who was";
+	mes "laughing at the town on the";
+	mes "TenguGak!!";
+	mes "Just don't tell anyone that I've told you this, okay?";
+	close;
+}
+	
+ama_in02,32,167,5	script	Soldier#ama6	767,{
+	mes "[Rokuro]";
+	mes "He always talks nonsense.";
+	mes "He says that our lord";
+	mes "is not real, but a fake.";
+	mes "It's not even funny.";
+	next;
+	mes "[Rokuro]";
+	mes "However, it is true that";
+	mes "recently, weird things are";
+	mes "happening. There were no";
+	mes "prohibited places before...";
+	next;
+	mes "[Rokuro]";
+	mes "I hear strange sounds sometimes.";
+	mes "The mother of the lord has been";
+	mes "visited by doctors several times.";
+	mes "I guess her health hasn't";
+	mes "improve after their visits...";
+	close;
+}
+	
+ama_in02,42,34,2	script	Soldier#ama7	767,{
+	mes "[Shichiro]";
+	mes "Have a good time.";
+	mes "My lord prepared some";
+	mes "guest rooms.";
+	next;
+	mes "[Shichiro]";
+	mes "If you have any problems,";
+	mes "please call me. Also, try not to disturb the other guests.";
+	mes " ";
+	next;
+	mes "[Shichiro]";
+	mes "Have a good day.";
+	close;
+}
+	
+ama_in02,203,156,4	script	Soldier#ama8	767,{
+	mes "[Hachiro]";
+	mes "My lord is inside.";
+	mes "If you'd like to greet him, feel free to enter.";
+	next;
+	mes "[Hachiro]";
+	mes "Don't be rude in front of him.";
+	mes "He is somehow not feeling well.";
+	mes "Usually, he greets people from";
+	mes "other continents gladly, but...";
+	mes "What could have happened to him...?";
+	close;
+}
+	
+ama_in02,195,156,4	script	Soldier#ama9	767,{
+	mes "[Kyuro]";
+	mes "This is not good.";
+	mes "My lord is really kind, but";
+	mes "recently he is not doing well...";
+	next;
+	mes "[Kyuro]";
+	mes "I've heard about the rumors";
+	mes "but I trust him. He made";
+	mes "Amatsu into a great town.";
+	mes "That is why I'm following";
+	mes "him as a soldier.";
+	close;
+}
+	
+ama_in02,200,176,4	script	Lord of Palace#ama	768,{
+	mes "[Ishida Yoshinaga]";
+	mes "What! A foreigner? What brings";
+	mes "you here? Your people are welcome around this land.";
+	next;
+	mes "[Ishida Yoshinaga]";
+	mes "Because you carry with you";
+	mes "knowledge from Midgard,";
+	mes "I have faith in your ability.";
+	close;
+}
+	
+ama_in01,22,111,0	script	Grandma#ama2	761,{
+		mes "[Ishida Saoko]";
+		mes "Long ago, this town wasn't as big";
+		mes "as it is today. There was no big";
+		mes "palace like Toukoujyo. Then, one";
+		mes "day, my son brought great riches";
+		mes "to the village. He never told me what he did to earn that fortune...";
+		next;
+		mes "[Ishida Saoko]";
+		mes "He built the palace and helped";
+		mes "the towners and make the town bigger.";
+		mes "He was perfect until...";
+		mes "he started doing strange things.";
+		next;
+		mes "[Ishida Saoko]";
+		mes "Things...which angered God.";
+		mes "He learned forbidden magic,";
+		mes "performed experiments";
+		mes "in the palace, caged monsters,";
+		mes "did all sorts of horrible things...";
+		next;
+		mes "[Ishida Saoko]";
+		mes "That is the reason why there are";
+		mes "monsters in Toukoujyo... Finally,";
+		mes "God's wrath was unleashed. Even the Priest in the shrine couldn't help...";
+		next;
+		mes "[Ishida Saoko]";
+		mes "At last, the anger came toward";
+		mes "me...It seems God tried to warn my son with the fox.";
+		mes "However, my son won't stop. It's his fate to face now.";
+		close;
+}
+	
+amatsu,189,166,5	script	Kouji#ama	764,{
+	mes "[Kouji]";
+	mes "Ralralrah Ralralrah Ralralrahralralrah~";
+	mes "Ralralrah Ralralrah Ralralrahralralrah~";
+	next;
+	mes "[Kouji]";
+	mes "Ralralrah Ralralrah Ralralrahralralrah~";
+	mes "Ralralrah Ralralrah Ralralrahralralrah~";
+	close;
+}
+	
+ama_in01,169,173,1	script	Shaman#ama	769,{
+	mes "[Tokako]";
+	mes "Er, I'm not really a shaman...";
+	mes "My friend, Takehue-kun brought";
+	mes "me here and invited me to try on these clothes.";
+	next;
+	mes "[Tokako]";
+	mes "He asks me to do a lot of";
+	mes "weird stuff, but he is funny.";
+	mes "Sometimes, I don't know what";
+	mes "he is thinking. Still, he is a good friend.";
+	next;
+	mes "[Tokako]";
+	mes "If you are curious about,";
+	mes "something, ask Takehue-kun.";
+	mes "He knows stuff about";
+	mes "mysticism and the occult that other people don't know about.";
+	close;
+}
+	
+ama_in01,180,173,3	script	Kitsune Mask#ama	762,{
+		mes "[Takehue]";
+		mes "Eh? A foreigner. This shrine";
+		mes "has been without priests for a";
+		mes "long time. My friend, Tokako and I come here to play around.";
+		next;
+		mes "[Takehue]";
+		mes "If you have been chased by";
+		mes "monsters, please relax.";
+		mes "Monsters cannot come here, so";
+		mes "take a rest in here.";
+		close;
+	}
+
+//============================================================ 
+// Old changelog
+//============================================================ 
+//= 1.0 Rewrote parts of other/momotaro.txt to make it work.
+//=     I'm sorry for the mess, I couldn't do much better with
+//=     the current code I had.
+//= 1.1 Added Sushi Quest and Amatsu Event from cities/ [Evera]
+//= 1.2 Fixed Momotaro Quest, thanks to .~Abism0~. [Lupus]
+//============================================================ 

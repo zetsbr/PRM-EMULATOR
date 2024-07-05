@@ -1,0 +1,165 @@
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Juno
+//===== By: ================================================== 
+//= rAthena Dev Team; L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 2.0a
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Metto Quest:
+//= - Not really sure exaclty what it's for. :P
+//= - Variable in use: metto_q (max 9)
+//= Alchemist Brothers:
+//= - Used in part of the Alchemist job quest.
+//= - Variable in use: bros_q (max 1)
+//= Doomed Swords Part 2:
+//= - Continuation of the Comodo Quest
+//= - Part 1: Found in Quests_Comodo.txt
+//= - Part 3: Found in Doomed_Swords.txt
+//= - Variable in use dmdswrd_Q (Max 45)
+//===== Additional Comments: ================================= 
+//= 1.1 Re-did the text and re-organized the script.  Corrected some items. [kobra_k88]
+//= 1.2 Added part to Bro's for alchemist quest [Darkchild]
+//= 1.3 fixed that part of Alch Job Quest. [Lupus]
+//= 1.4 Fixed exploit [Lupus]
+//= 1.5 Rescripted to Aegis 10.3 standards. [L0ne_W0lf]
+//=     Merged metto_quest.txt into Juno quest file.
+//=     Added the Juno portion of the Doomed Swords quest.
+//= 1.6 Fixed various errors in the Bajin NPC. [L0ne_W0lf]
+//= 1.7 Changed ALCH_Q check and set to corrispond to new alchemist job quest. [L0ne_W0lf]
+//= 1.8 Fixed metto_q never reaching 2. Made some names more unique. [L0ne_W0lf]
+//= 1.9 Fixed Missing Variables in Metto quest. (bugreport:473) [Samuray22]
+//= 2.0 Added missing checkweights. [L0ne_W0lf]
+//= 2.0a Fixed several typos (bugreport:1786) [akrus]
+//============================================================ 
+
+// Metto Quest :: yuno_ryusei
+//============================================================
+yuno_in03,26,39,3	script	Metto#juno	709,{
+	mes "[Metto]";
+		mes "In the Lab today, in the Lab tomorrow! Everyday is filled with research! Even if it takes my entire life, I will not give up until I have made a new Juno...";
+		close;
+	}
+
+yuno_in01,17,30,5	script	Wagan#juno	85,{
+	mes "[Wagan]";
+		mes "I'm sure that you know our city has been living off our research for many years.";
+		next;
+		mes "[Wagan]";
+		mes "We owe this quality of life to those who have dedicated their lives to research and study.";
+		next;
+		mes "[Wagan]";
+		mes "So we help each other and study together. It is nice to have such solid support around when we are conducting research.";
+		close;
+}
+
+yuno_in01,17,95,5	script	Stangckle#juno	99,{
+	mes "[Stangckle]";
+		mes "What can I do for you? My colleague Metto is coming here soon, so I don't have much time. So what did you say you needed?";
+		close;
+}
+
+yuno_in01,19,183,5	script	Kato#juno	55,{
+	mes "[Kato]";
+		mes "I am a scientist researching all sorts of things.";
+		next;
+		mes "[Kato]";
+		mes "Of course, my research is private and confidential. Specially to Orphans.";
+		close;
+	}
+
+yuno_in03,178,43,0	script	CiCi#juno	121,{
+		mes "[CiCi]";
+		mes "My name is CiCi. I am one of the three great scientists in this city.";
+		next;
+		mes "[CiCi]";
+		mes "There are many great scientists in this city, but being in the top three is a true honor. Don't you agree?";
+		close;
+	}
+
+// Alchemist Brothers Quest :: yuno_ryusei
+//============================================================
+yuno_in01,103,157,3	script	Bain#juno	98,{
+		mes "[Bain]";
+		mes "We are going to invent a doll that can can talk and communicate! Well, at least, I'm trying to.";
+		next;
+		mes "[Bain]";
+		mes "I got the idea from a historical legend. I figure that if it's been done before, this project is definitely possible.";
+		close;
+	}
+
+yuno_in01,100,153,7	script	Bajin	47,0,0,{
+		mes "[Bajin]";
+		mes "We are going to invent a doll that can can talk and communicate! Well, at least, I'm trying to.";
+		next;
+		mes "[Bajin]";
+		mes "I got the idea from a historical legend. I figure that if it's been done before, this project is definitely possible.";
+		close;
+	}
+	
+// Doomed Swords - Juno Portion :: matnani_yuno
+//============================================================ 
+yuno,157,87,4	script	A Citizen of Juno#juno	102,{
+	mes "[Shalima]";
+	mes "When you go north from Al De Baran, you will arrive at 'Elmeth Plateau,' a place covered with molten rock.";
+	next;
+	mes "[Shalima]";
+	mes "On the top of a mountain connected to the plateau, you can find a bridge which leads you to this place!, ^3355FFJuno,^000000 the city of Sages.";
+	close;	
+}
+
+yuno,261,99,4	script	Sage Yklah#juno	735,{
+		mes "[Yklah]";
+		mes "^3355FFJuperos^000000...";
+		mes "That was the name of the city that once existed in ancient times.";
+		next;
+		mes "[Yklah]";
+		mes "The most intelligent and talented people of that time lived there, harnessing the pieces of Ymir's heart to power their civilization.";
+		next;
+		mes "[Yklah]";
+		mes "Unfortunately, they happened to abuse that great power and somehow destroyed themselves.";
+		next;
+		mes "[Yklah]";
+		mes "If you long to acquire God's knowledge, you must first be humble. Otherwise...";
+		close;
+	}
+	
+yuno,305,207,4	script	Sage Syklah#juno	735,{
+		mes "[Syklah]";
+		mes "The people here keep talking of some suspicious man living in Juno.";
+		next;
+		mes "[Syklah]";
+		mes "Supposedly, he's pretty dangerous, and is always immersing himself in some kind of research.";
+		next;
+		mes "[Syklah]";
+		mes "People already consider him a 'Mad Scientist,' wasting his time studying impractical things beyond the understanding of normal people.";
+		next;
+		mes "[Syklah]";
+		mes "It's rumored that this scientist is responsible for creating 'Blazer,' a monster made of magic flame.";
+		next;
+		mes "[Syklah]";
+		mes "It's a dangerous and fearsome monster that casts spells like Fire Bolt and Fire Ball that lives outside of Juno.";
+		close;
+	}
+	
+yuno,213,298,4	script	Sage Esklah#juno	735,{
+		mes "[Esklah]";
+		mes "I remember watching a harmless";
+		mes "piece of paper floating";
+		mes "through the air...";
+		next;
+		mes "[Esklah]";
+		mes "As I was thinking of how wonderfully poetic that image was, that paper suddenly attacked me! Me, one of Juno's greatest Sages!";
+		next;
+		mes "[Esklah]";
+		mes "I tried defending myself with my trusty sword, but being paper-thin, that monster managed to dodge all of my blows. I had to cast magic in order to destroy it.";
+		next;
+		mes "[Esklah]";
+		mes "Later, I learned that monster is known as ^3355FFThe Paper^000000.";
+		next;
+		mes "[Esklah]";
+		mes "It used to be a part of an old book that contained a lot of ancient knowledge, but somehow, became a monster. Isn't that peculiar?";
+		close;
+}

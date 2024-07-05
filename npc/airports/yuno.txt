@@ -1,0 +1,48 @@
+//===== rAthena Script ======================================= 
+//= Juno Airport Staff
+//===== By: ================================================== 
+//= L0ne_W0lf, Muad_Dib
+//===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Juno Airport Staff
+//===== Additional Comments: ================================= 
+//= 1.0 First version.
+//============================================================ 
+
+y_airport,143,43,5	script	Airport Staff#y_air1a::y_airport1	90,{
+	mes "[Airport Staff]";
+	mes "I'm Sorry, Orphans can't ride the airship. It's a big risk the company doesn't want to take.";
+	next;
+	mes "[Airport Staff]";
+	mes "Thank you for understanding. and have a nice day.";
+	close;
+}
+
+y_airport,158,43,5	duplicate(y_airport1)	Airport Staff#y_air1b	90
+y_airport,126,43,5	duplicate(y_airport1)	Airport Staff#y_air1c	90
+
+
+yuno,14,262,5	script	Airship Staff#yuno01	91,{
+	mes "[Airship Staff]";
+	mes "Welcome to the Yuno Airport. We allow traveling to... Oh you're an Orphan. I'm so sorry. Nevermind. Please Leave.";
+	next;
+	warp "yuno",53,209;
+}
+
+
+yuno,88,263,3	script	Airship Staff#yuno02	91,{
+	mes "[Airship Staff]";
+	mes "Welcome to the Yuno Airport. We allow traveling to... Oh you're an Orphan. I'm so sorry. Nevermind. Please Leave.";
+	next;
+	warp "yuno",53,209;
+}
+
+y_airport,157,67,5	script	Fly Wing Girl#flywing	91,{
+	mes "[Fly Wing Girl]";
+	mes "It seems [ADM]Ornstein knew you might do this. Let me take you outside.";
+	next;
+	warp "yuno",53,209;
+}

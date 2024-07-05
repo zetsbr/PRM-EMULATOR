@@ -1,0 +1,27 @@
+//===== rAthena Script =======================================
+//= Coal Mine(Dead pit) Dungeon Monster Spawn Script
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Additional Comments: =================================
+//= 1.1 Official kRO 10.1 spawns [Playtester]
+//= 1.2 Correct Spawn by Navigation's mob data. [attackjom]
+//============================================================
+
+//==================================================
+mjo_dun01,0,0	monster	Martin	1145,35,5000
+mjo_dun01,0,0	monster	Giearth	1121,25,5000
+mjo_dun01,0,0	monster	Skeleton Worker	1169,10,5000
+mjo_dun01,0,0	monster	Knocker	1838,1,5000
+//
+mjo_dun01,0,0	monster	Giearth	1121,10,5000
+mjo_dun03,0,0	monster	Skeleton Worker	1169,35,5000
+mjo_dun03,0,0	monster	Knocker	1838,10,5000
+mjo_dun03,0,0	monster	Myst	1151,5,5000
+//
+mjo_dun04,0,0	monster	Knocker	1838,55,5000
+mjo_dun04,0,0	monster	Myst	1151,20,5000
+mjo_dun04,0,0,0,0	boss_monster	Noble Devourer	2583,1,5000,5000,0

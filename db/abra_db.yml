@@ -1,0 +1,911 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Abracadabra Database
+###########################################################################
+#
+# Abracadabra Settings
+#
+###########################################################################
+# - Skill             Skill to be casted by Abracadabra.
+#   Probability:      Probability of skill compared to others in database (1 = 0.01%, 100 = 10%). (Default: 500)
+#     - Level         Skill level.
+#       Probability   Probability at specific skill level (1 = 0.01%, 100 = 10%). (Default: 1)
+###########################################################################
+
+Header:
+  Type: ABRA_DB
+  Version: 1
+
+Body:
+  - Skill: SM_BASH
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AC_DOUBLE
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LK_SPIRALPIERCE
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LK_JOINTBEAT
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KO_JYUMONJIKIRI
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: GC_DARKCROW
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SJ_PROMINENCEKICK
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SP_SHA
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SP_SPA
+    Probability:
+      - Level: 1
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MC_MAMMONITE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: TF_POISON
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KN_PIERCE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KN_SPEARSTAB
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KN_SPEARBOOMERANG
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AS_SONICBLOW
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RG_BACKSTAP
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RG_INTIMIDATE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SN_SHARPSHOOTING
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: CR_HOLYCROSS
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MO_INVESTIGATE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: BA_MUSICALSTRIKE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: DC_THROWARROW
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LK_HEADCRUSH
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: ASC_BREAKER
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_KUNAI
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_KIRIKAGE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RK_SONICWAVE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: GC_CROSSIMPACT
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RA_AIMEDBOLT
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RA_WUGSTRIKE
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NC_PILEBUNKER
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NC_AXEBOOMERANG
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NC_POWERSWING
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SC_TRIANGLESHOT
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LG_BANISHINGPOINT
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LG_SHIELDPRESS
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SR_KNUCKLEARROW
+    Probability:
+      - Level: 2
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MG_SOULSTRIKE
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MG_NAPALMBEAT
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WZ_WATERBALL
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SL_SMA
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_KOUENKA
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_HYOUSENSOU
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_HUUJIN
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WL_DRAINLIFE
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KO_KAIHOU
+    Probability:
+      - Level: 3
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AC_SHOWER
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KN_BRANDISHSPEAR
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KN_BOWLINGBASH
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AS_GRIMTOOTH
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AS_SPLASHER
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SJ_SOLARBURST
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: ASC_METEORASSAULT
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_HUUMA
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RK_HUNDREDSPEAR
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RK_WINDCUTTER
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RK_IGNITIONBREAK
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RK_DRAGONBREATH
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: GC_ROLLINGCUTTER
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WL_EARTHSTRAIN
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RA_ARROWSTORM
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NC_COLDSLOWER
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NC_AXETORNADO
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SC_FATALMENACE
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LG_CANNONSPEAR
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LG_OVERBRAND
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LG_MOONSLASHER
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SR_SKYNETBLOW
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SR_RAMPAGEBLASTER
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SO_EARTHGRAVE
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: GN_SPORE_EXPLOSION
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KO_HAPPOKUNAI
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RL_FIREDANCE
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SJ_NEWMOONKICK
+    Probability:
+      - Level: 4
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MG_FIREBALL
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WZ_VERMILION
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WZ_HEAVENDRIVE
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PA_PRESSURE
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_BAKUENRYU
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_HYOUSYOURAKU
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_RAIGEKISAI
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_KAMAITACHI
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AB_JUDEX
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WL_COMET
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NC_FLAMELAUNCHER
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LG_RAYOFGENESIS
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SO_DIAMONDDUST
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SO_POISON_BUSTER
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SO_PSYCHIC_WAVE
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SO_CLOUD_KILL
+    Probability:
+      - Level: 5
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KN_AUTOCOUNTER
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: BS_OVERTHRUST
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AS_ENCHANTPOISON
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LK_CONCENTRATION
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SC_FEINTBOMB
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SR_GENTLETOUCH_QUIET
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: KO_MAKIBISHI
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MG_FROSTDIVER
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MG_SIGHT
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PR_LEXDIVINA
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PR_LEXAETERNA
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WZ_QUAGMIRE
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PF_DOUBLECASTING
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PF_MEMORIZE
+    Probability:
+      - Level: 6
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RL_FALLEN_ANGEL
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MG_SAFETYWALL
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AL_PNEUMA
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AL_HEAL
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PR_SANCTUARY
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PR_KYRIE
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: PR_GLORIA
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MO_BODYRELOCATION
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SA_LANDPROTECTOR
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SN_WINDWALK
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: TK_HIGHJUMP
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SL_KAAHI
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SR_GENTLETOUCH_CURE
+    Probability:
+      - Level: 7
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MG_FIREWALL
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WZ_STORMGUST
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: BS_HAMMERFALL
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SA_DISPELL
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: ST_FULLSTRIP
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AB_CHEAL
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AB_CONVENIO
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: TF_THROWSTONE
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: AB_HIGHNESSHEAL
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WL_CRIMSONROCK
+    Probability:
+      - Level: 8
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MC_IDENTIFY
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: ALL_FULL_THROTTLE
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: CR_GRANDCROSS
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SA_REVERSEORCISH
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SA_QUESTION
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SA_COMA
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SA_FULLRECOVERY
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: RL_FIRE_RAIN
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LK_BERSERK
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: MO_EXTREMITYFIST
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: NJ_ISSEN
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WL_TETRAVORTEX
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: LG_EXEEDBREAK
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SR_RAISINGDRAGON
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WM_SEVERE_RAINSTORM
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SO_VARETYR_SPEAR
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: SR_RAISINGDRAGON
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+  - Skill: WM_SEVERE_RAINSTORM
+    Probability:
+      - Level: 9
+        Probability: 1000
+      - Level: 10
+        Probability: 10
+    
+Footer:
+  Imports:
+  - Path: db/pre-re/abra_db.yml
+    Mode: Prerenewal
+  - Path: db/import/abra_db.yml

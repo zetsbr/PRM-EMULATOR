@@ -1,0 +1,103 @@
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Morocc
+//===== By: ================================================== 
+//= kobra_k88
+//===== Current Version: ===================================== 
+//= 3.2
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= - Stop Post
+//= - Binoculars Quest
+//= - Assassin Pub NPCs/supporting quest NPCS. [Disabled]
+//= - Resurrection of Satan Morocc
+//= - The Crow of the Fate
+//= - Succession of the Prince
+//===== Additional Comments: ================================= 
+//= 1.1 Fixed exploits [Lupus]
+//= 1.2 Added Dandelion's Request / Morocc Invasion quest. [SinSloth]
+//= 1.3 Updated dialogs from Binoculars Quest. [Samuray22]
+//= 1.3a added GM lvl check as in other invansion quests [Lupus]
+//= 1.4 Fixed a small bug in Dandelion's Request. [SinSloth]
+//= 1.5 Fixed a little bug with "Job_Alchemist" changed to "Job_Alchem". [Samuray22]
+//= 1.6 Fixed a nasty bug in last part of the quest. [SinSloth]
+//= 1.6a replaced item "names" with item id. [Lupus]
+//= 1.7 Fixed a bug with XP rewards. [SinSloth]
+//= 1.8 Fixed a bug which prevented reset of events. [SinSloth]
+//= 1.9 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//= 2.0 Fixed bad NPC header data to comply with rev. 11603. [L0ne_W0lf]
+//= 2.0a Corrected a Typo error ";;". [Samuray22]
+//= 2.1 Assassins will now get their request item. (bugreport:1220) [L0ne_W0lf]
+//= 2.2 Updated Binocular and Stop Post quests. [L0ne_W0lf]
+//= 2.3 Replaced effect numerics with constants. [Samuray22]
+//= 2.4 Implemented Ep. 12.1 Continental Guard Quest. [L0ne_W0lf]
+//=     Moved Dandelion's Request to a it's own file.
+//=     Added support NPCs required to finish Gaebolg quest.
+//= 2.5 Fixed Group of Evil never re-enabling. [L0ne_W0lf]
+//= 2.6 Added quest log commands for Resurrection of Satan Morocc. [L0ne_W0lf]
+//=     Added the two remaining episode 12.1 quests. 
+//=     Updated Satan Morocc Quest to allow peopel who have
+//=     finished it to return to the previous map.
+//= 2.7 Corrected weight checks, they only check for inventory slots. [L0ne_W0lf]
+//= 2.8 Disabled Assassin bar pub NPCs, as they are included in the 13.1 quests file. [L0ne_W0lf]
+//= 2.9 Fixed player dying/logging out during conversation could prevent
+//=     summoning of Satan Morocc until server reboot. [Gepard]
+//= 3.0 Updated RE/Pre-RE EXP. [Euphy]
+//= 3.1 Updated to match the latest official scripts. [Euphy]
+//= 3.2 Added GM management NPC and variable $@re_moc_time$. [Euphy]
+//= 3.3 Renewal script update for ep16.1 [Capuche]
+//============================================================ 
+
+// Stop Post Quest
+// ============================================================
+-	script	William	89,{
+	mes "[William]";
+	mes "Welcome to MacMillan's ^3355FFPost^000000 Workshop.";
+	mes "Now, Goodbye, from MacMillan's ^3355FFPost^000000 Workshop, Orphan.";
+	close;
+}
+
+morocc,159,113,3	script	Chief Balrog	752,{
+		mes "[Chief Balrog]";
+		mes "The reconstruction efforts of Morroc have been successful. I hope you can rest easy and safe, Orphan.";
+		close;
+	}
+	
+moc_ruins,137,70,3	script	Book-Touching Man#garas	48,{
+				mes "[Benjamin]";
+				mes "Oh... Mammi... My Mammi...";
+				close;
+			}
+
+prt_in,179,92,3	script	Library Curator#garas	57,{
+		mes "[Curator Guys]";
+		mes "Our library's Monster Encyclopedia has every monster in the Rune-Midgarts Kingdom categorized by dungeon, to help our readers find them easily.";
+		mes "We also have many essential books for adventurers. Why don't you take a look?";
+		next;
+		mes "[Curator Guys]";
+		mes "The other library across the street also has Monster Encyclopedias.";
+		mes "If you're interested, feel free to drop by that library as well.";
+		close;
+	}
+	
+yuno,335,208,5	script	Dog#garas	81,{
+	mes "[Dog]";
+	mes "Bowwow!";
+	close;
+}
+
+yuno_in04,111,57,3	script	Library Part-Timer#garas	862,{
+		mes "[Library Part-Timer]";
+		mes "People should learn to put away books after pulling them out.";
+		mes "All these books piled up in the cart make me feel so frustrated, you know? Sigh...";
+		close;
+	}
+
+yuno_in04,169,123,3	script	Suspicious Man#oliver_h	407,{
+		mes "[Oliver Hilpert]";
+		mes ".................";
+		mes ".................";
+		mes "...........Huh? What do you need Orphan?";
+		close;
+}

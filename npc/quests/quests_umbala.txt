@@ -1,0 +1,86 @@
+//===== rAthena Script ======================================= 
+//= Quest NPCs related to Umbala
+//===== By: ================================================== 
+//= sabernet09 & rAthena Team
+//===== Current Version: ===================================== 
+//= 2.2a
+//===== Compatible With: ===================================== 
+//= rAthena Project; 7.15 +
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Umbalian Language Quest, Umbala Skeletal Gate Quest,
+//= Umbala Event, Create Essence/Dismantle Stone
+//	Phase 1. Learning the Language
+//	  (Elder) First discussion
+//	  (Elder) Asking about learning the language
+//	  (Elder) Final step (understanding NPC speech)
+//	------------------------------------------
+//	Phase 2. Create Essence/Dismantle Stone
+//	 (Shaman) Get permission to speak with her from the chief
+//	  (Elder) Ask about conditions needed to be fulfilled to get permission
+//	  (Elder) Get permission
+//	 (Shaman) Use the shaman to create essences and dismantle elemental stones.
+//= Umbala Domestic Dispute?
+//= - This quest is only avaliable if you have not done language quest.
+//= - Variables in use: um_wind, MISC_QUEST (Bit 32768)
+//===== Additional Comments: ================================= 
+//= fixed by x[tsk], Lupus, PoW
+//= Quest completion is now registered
+//= 1.1 fixed Poporing Egg ID -> Poring Egg, fixed condition
+//= 1.2-1.6 fixed some Umbalian Language quests [Lupus]
+//= 1.7 Moved Umbala Event, Create Essence/Dismantle Stone, and Skeletal Gate from npc/cities/umbala.txt [Evera]
+//= 1.7a Removed all custom quests to custom folder [Lupus]
+//= 1.8 Added official chance of failure to Create Essence/Dismantle Stone [Lupus]
+//= 1.9 Added functionality to allow players to dismantle more
+//=     than a stone at once, up to 10. [SinSloth]
+//= 2.0 Updated hack check and added a weight check to dismantling. [SinSloth]
+//= 2.1 Rescripted to Aegis 10.3 standards. Added strange quest. [L0ne_W0lf]
+//= 2.2 Readded the ability to dismantle multiple stones at once. [L0ne_W0lf]
+//= 2.2a Fixed weight check from previous update. [L0ne_w0lf]
+//============================================================ 
+
+// Umbalian Language Quest :: um_trans
+//============================================================
+um_in,39,122,5	script	Utan Chief	784,{
+		mes "[Karkatan]";
+		mes "Huh huh, a Rune-Midgartsian.";
+		mes "Everyone from Rune-Midgarts";
+		mes "that I've met had the same";
+		mes "same expression on their";
+		mes "face as you do right now";
+		mes "when they first came here.";
+		next;
+		mes "[Karkatan]";
+		mes "Maybe it's because they couldn't";
+		mes "communicate with us due to";
+		mes "the language barrier, so";
+		mes "they had no idea what's going";
+		mes "on. Now, we know your language pretty well.";
+		next;
+		mes "[Karkatan]";
+		mes "My name is Karkatan, and I";
+		mes "am the chief of the Utan tribe.";
+		mes "You must be wondering how";
+		mes "I can speak your language.";
+		next;
+		mes "[Karkatan]";
+		mes "It was taught to me long ago";
+		mes "by an adventurer from your";
+		mes "land. All my people also know your language now.";
+		close;
+		
+	}
+	
+um_in,101,73,3	script	Wainatan	783,{
+		mes "[Wainatan]";
+		mes "I am sick and tired of this guy";
+		mes "who always appears at night and bugs the hell out of me...";
+		next;
+		mes "[Wainatan]";
+		mes "'Smooth operator that gets the";
+		mes "job done?' Oh my god...!";
+		mes "I hate him with a passion!";
+		mes "I wish Umpokoriohtan would";
+		mes "just drop dead.";
+		close;
+	}

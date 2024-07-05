@@ -1,0 +1,45 @@
+//===== rAthena Script ======================================= 
+//= Ranger Job Quest
+//===== By: ================================================== 
+//= Muad_Dib
+//===== Current Version: ===================================== 
+//= 1.7
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job change Quest from Hunter / Sniper -> Ranger.
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Masao]
+//= 1.1 Updated SC_STONE duration from 2 Seconds to 2 Minutes
+//=     and fixed Mercenary check.
+//= 1.2 Fixed first quest so that when a false poring got killed
+//=     it decreases the total points by 1, commented the SC_STONE
+//=     part until M_DESERT_WOLF_B Mercenary is fully working.
+//= 1.3 Fixed waves not being announced and counted [Elias]
+//= 1.3a Little beauty fix, changed break; to next; . [Masao]
+//= 1.4 Some optimization. [Euphy]
+//= 1.5 Updated script, optimized. [Euphy]
+//= 1.6 Added GM management function. [Euphy]
+//= 1.7 Added VIP features. [Euphy]
+//============================================================
+
+tur_dun01,156,36,5	script	Survival Instructor#jr01	59,{
+			mes "[Survival Instructor, Rescue]";
+			mes "What's up?";
+			mes "The monsters here are a";
+			mes "little tough so be careful.";
+			next;
+			mes "[Survival Instructor, Rescue]";
+			mes "The monsters on the surface have fled the island due to how aggressive the turtles became recently. So feel free to take a rest for a second.";
+			close;
+}
+
+tur_dun01,91,169,3	script	Test Instructor#jr02	732,{
+			mes "[Test Instructor, Teardrop]";
+			mes "Um? What happened?";
+			mes "Why are you here in the Island? Need to hunt turtles or whatever?";
+			mes "You are such a fool.";
+			emotion ET_KIK;
+			close;
+}

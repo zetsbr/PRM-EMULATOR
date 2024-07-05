@@ -1,0 +1,63 @@
+//===== rAthena Script =======================================
+//= Thanatos Tower Quest
+//===== By: ==================================================
+//= Muad_Dib
+//===== Current Version: =====================================
+//= 1.1
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Episode 13.1 Thanatos Tower quest.
+//===== Additional Comments: =================================
+//= 1.0 Adapted from official release. [Euphy]
+//= 1.0a Added 'npcskill' command. [Euphy]
+//= 1.1 Kagerou/Oboro support (Class -> BaseClass) [Euphy]
+//============================================================
+
+hu_fild01,140,163,5	script	Tower Keeper	852,3,3,{
+	mes "[Gatei]";
+	mes "Greetings, adventurer.";
+	mes "I am Gatei Knumm, keeper";
+	mes "of this Thanatos Tower.";
+	mes "How may I help you?";
+	next;
+	switch(select("Thanatos Tower?:Enter the tower")) {
+	case 1:
+		mes "[Gatei]";
+		mes "This tower is the resting place of the hero Thanatos. It's dangerous.";
+		close;
+	case 2:
+		mes "[Gatei]";
+		mes "Would you like to";
+		mes "enter Thanatos Tower?";
+		mes "Only the strong will survive there.";
+		next;
+		switch(select("Enter:Maybe next time.")) {
+		case 1:
+			mes "[Gatei]";
+			mes "Be careful in there.";
+			close2;
+			warp "tha_scene01",131,220;
+			end;
+		case 2:
+			mes "[Gatei]";
+			mes "Take care.";
+			close;
+		}
+	}
+}
+
+tha_t01,149,78,4	script	Guide	90,{
+		mes "[Ditze]";
+		mes "Welcome to Thanatos Tower.";
+		next;
+		mes "[Ditze]";
+		mes "The Tower is a dangerous place. Please be careful.We recommend people to go in with parties.";
+		close;
+
+}
+
+tha_t02,226,162,0	warp	that02up	1,1,tha_t03,218,159
+tha_t06,119,121,0	warp	that06up	1,1,thana_boss,141,214
+thana_boss,141,217,0	warp	that06down	1,1,tha_t06,119,115

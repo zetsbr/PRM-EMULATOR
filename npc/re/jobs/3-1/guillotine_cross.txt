@@ -1,0 +1,95 @@
+//===== rAthena Script ======================================= 
+//= Guillotine Cross Job Quest
+//===== By: ================================================== 
+//= Muad_Dib
+//===== Current Version: ===================================== 
+//= 1.6
+//===== Compatible With: ===================================== 
+//= rAthena Project; SVN r16945+
+//===== Description: ========================================= 
+//= [Official Conversion]
+//= Job change Quest from Assassin / Assassin Cross -> Guillotine Cross.
+//===== Additional Comments: ================================= 
+//= 1.0 Adapted from original script. [Euphy]
+//= 1.0a Added 'npcskill' command. [Euphy]
+//= 1.0b Moved warps to separate file. [Euphy]
+//= 1.1 Fixed some minor bugs. [Euphy]
+//= 1.2 Moved "Girl" NPC off ve_fild05. [Euphy]
+//= 1.3 Added missing OnMyMobDead labels. [Euphy]
+//= 1.4 Added missing labels. [Joseph]
+//= 1.5 Added GM management function. [Euphy]
+//= 1.6 Added VIP features. [Euphy]
+//= 1.7 Fixed PLAYTIME issue. [Capuche]
+//============================================================
+
+que_job01,75,96,3	script	Guild Member#3rdgc01	997,{
+			mes "[Ahcart]";
+			mes "I'm Ahcart. I'm from Veins.";
+			mes "Veins was destroyed. By Orphans. Like You. Go away.";
+			close;
+}
+
+job3_guil01,82,95,3	script	Daora#3rdgc02	940,{
+	mes "[Daora]";
+	mes "Oh~ you're good-looking!";
+	close;
+}
+job3_guil01,16,20,4	script	Mayshell#3rdgc03	894,{
+	mes "[Mayshell]";
+	mes "You are not allowed in here.";
+	close;
+}
+
+ve_in,228,108,3	script	Waitress#3rdgc04	80,{
+	mes "[Waitress]";
+		mes "Welcome~";
+		mes "Visit and take a rest~ The city is dangerous so this place is a good hiding spot.";
+		close;
+}
+
+ve_in,246,303,3	script	Young Merchant#3rdgc05	930,{
+		mes "[Young Merchant]";
+		mes "This place smells of rotten! What the hell happened here??";
+}
+
+veins,291,215,3	script	Vigilante#3rdgc06	939,{
+		mes "[Vigilante]";
+		mes "Do you have any inconveniences while you are traveling?";
+		mes "All around this city there are monsters. Be careful.";
+		close;
+	}
+veins,187,143,5	script	Peddler#3rdgc07	892,{
+	mes "[Peddler]";
+	mes "What a mess this place is now...";
+	mes "Are you ok?";
+	close;
+}
+
+veins,235,126,3	script	Old Man#3rdgc07	945,{
+	mes "[Old Man]";
+	mes "Haha... I can remember my past when I see a young adventurer like you... Then I remember what happened to my dear town...";
+	close;
+}
+
+veins,223,180,3	script	Girl#3rdgc09	941,{
+	mes "[Melissa]";
+		mes "Hi?";
+		mes "What?";
+		mes "Have you lost a friend?";
+		mes "We lost everything here. I don't care!";
+		close;
+}
+
+ra_in01,175,196,3	script	Oresa Rava#3rdgc13	866,{
+	mes "[Oresa Rava]";
+		mes "I don't know why you are visiting me, but I'm not crafting anymore.";
+		mes "I'm too old to craft.";
+		close;
+}
+ve_fild02,330,384,3	script	Girl#3rdgc14	466,{
+		mes "[Renzak]";
+			mes "You are here.";
+			mes "You may not remember me. But I remember you.";
+			mes "I was a friend of your mother. Please. Take Care.";
+			close;
+}

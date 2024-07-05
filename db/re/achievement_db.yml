@@ -1,0 +1,674 @@
+# This file is a part of rAthena.
+#   Copyright(C) 2021 rAthena Development Team
+#   https://rathena.org - https://github.com/rathena
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###########################################################################
+# Achievement Database
+###########################################################################
+#
+# Achievement Settings
+#
+###########################################################################
+# - Id                  Achievement ID.
+#   Group               Achievement group type. (Defaut: None)
+#   Name                Achievement name.
+#   Targets:            List of targets the achievement requires. (Default: null)
+#     - Id              Index value used for import methods.
+#       Mob             Target mob. (Default: 0)
+#       Count           Target count. (Default: 1)
+#   Condition           Conditional statement that must be met for the achievement to be considered complete. (Default: null)
+#   Map                 Map name that is used for the AG_CHATTING type. (Default: -1)
+#   Dependents:         List of achievements that need to be completed before this achievement is considered complete. (Default: null)
+#     - Id: <bool>      Achievement ID pre-requisite.
+#   Rewards:            List of rewards that are given on completion. (Default: null)
+#     Item              Item name.
+#     Amount            Amount of item. (Default: 1)
+#     Script            Bonus Script. (Default: null)
+#     TitleId           Title ID. (Default: 0)
+#   Score               Achievement points that are given on completion. (Default: 0)
+###########################################################################
+
+Header:
+  Type: ACHIEVEMENT_DB
+  Version: 2
+
+Body:
+  - Id: 200000
+    Group: Goal_Level
+    Name: Awakened Orphan
+    Condition: " BaseLevel >= 10 "
+    Rewards:
+      Item: First_Rune_Coffer
+    Score: 10
+  - Id: 200001
+    Group: Goal_Level
+    Name: Wandering Orphan
+    Condition: " BaseLevel >= 50 "
+    Dependents:
+      200000: true
+    Rewards:
+      Item: Old_Card_Album
+    Score: 10
+  - Id: 200002
+    Group: Goal_Level
+    Name: Expert Orphan
+    Condition: " BaseLevel >= 99 "
+    Dependents:
+      200001: true
+    Rewards:
+      Item: Yggdrasilberry
+    Score: 10
+  - Id: 200003
+    Group: Goal_Level
+    Name: Master Orphan
+    Condition: " BaseLevel >= 130 "
+    Dependents:
+      200002: true
+    Rewards:
+      Item: 1st_Shadow_Coffer
+    Score: 10
+  - Id: 200004
+    Group: Goal_Level
+    Name: One More Step...
+    Condition: " BaseLevel >= 149 "
+    Dependents:
+      200003: true
+    Rewards:
+      Item: 4th_Shadow_Coffer
+    Score: 10
+  - Id: 200005
+    Group: Goal_Level
+    Name: A Path Ahead...
+    Condition: " JobLevel >= 10 "
+    Rewards:
+      Item: Weapon_Voucher
+    Score: 10
+  - Id: 200006
+    Group: Goal_Level
+    Name: Conqueror of the Mark
+    Condition: " BaseLevel >= 150 "
+    Dependents:
+      200004: true
+    Rewards:
+      Item: C_Rudra_Wing
+    Score: 10
+  - Id: 200007
+    Group: Goal_Status
+    Name: Thor's Strenght
+    Condition: " readparam(bStr) >= 99 "
+    Score: 10
+  - Id: 200008
+    Group: Goal_Status
+    Name: Mimir's Inteligence
+    Condition: " readparam(bInt) >= 99 "
+    Score: 10
+  - Id: 200009
+    Group: Goal_Status
+    Name: Idun's Vitality
+    Condition: " readparam(bVit) >= 99 "
+    Score: 10
+  - Id: 200010
+    Group: Goal_Status
+    Name: Loki's Agility
+    Condition: " readparam(bAgi) >= 99 "
+    Score: 10
+  - Id: 200011
+    Group: Goal_Status
+    Name: Bragi's Dexterity
+    Condition: " readparam(bDex) >= 99 "
+    Score: 10
+  - Id: 200012
+    Group: Goal_Status
+    Name: Balder's Luck
+    Condition: " readparam(bLuk) >= 99 "
+    Score: 10
+  - Id: 200013
+    Group: None
+    Name: The Hoarder
+    Score: 10
+  - Id: 200014
+    Group: None
+    Name: The Hippie
+    Score: 10
+  - Id: 200015
+    Group: None
+    Name: The Elusive
+    Score: 10
+  - Id: 200016
+    Group: None
+    Name: Impossible
+    Score: 10
+  - Id: 200017
+    Group: None
+    Name: The Glass
+    Score: 10
+  - Id: 200018
+    Group: None
+    Name: The Brute
+    Score: 10
+  - Id: 200019
+    Group: None
+    Name: Welcome to Morroc
+    Rewards:
+      Item: Novice_Potion
+    Score: 10
+  - Id: 200020
+    Group: None
+    Name: No Hiding Allowed
+    Rewards:
+      Item: Yggdrasilberry
+    Score: 10
+  - Id: 200021
+    Group: None
+    Name: Member of the Orphanage
+    Score: 10
+  - Id: 200022
+    Group: None
+    Name: Supporter of the Orphanage
+    Score: 10
+  - Id: 200023
+    Group: None
+    Name: Patron of the Orphanage
+    Score: 10
+  - Id: 200024
+    Group: None
+    Name: Bonfire Lit
+    Score: 10
+  - Id: 200025
+    Group: None
+    Name: Remember Me?
+    Score: 10
+  - Id: 200026
+    Group: None
+    Name: Gate to Paradiso
+    Score: 10
+  - Id: 200027
+    Group: None
+    Name: Gate to Purgatorio
+    Score: 10
+  - Id: 200028
+    Group: None
+    Name: Gate to Inferno
+    Score: 10
+  - Id: 200029
+    Group: None
+    Name: Divine Trinity
+    Rewards:
+      Item: C_Archangel_Wing
+    Score: 10
+  - Id: 200030
+    Group: None
+    Name: Blooming Roses
+    Score: 10
+  - Id: 220031
+    Group: Enchant_Fail
+    Name: Get used to it
+    Condition: " ARG0 == 1 "
+    Score: 10
+  - Id: 200032
+    Group: Enchant_Success
+    Name: Master Weaponsmith Lv1
+    Condition: " ARG0 == 1 && ARG1 >= 10 "
+    Score: 10
+  - Id: 200033
+    Group: Enchant_Success
+    Name: Master Weaponsmith Lv2
+    Condition: " ARG0 == 2 && ARG1 >= 10 "
+    Score: 10
+  - Id: 200034
+    Group: Enchant_Success
+    Name: Master Weaponsmith Lv3
+    Condition: " ARG0 == 3 && ARG1 >= 10 "
+    Score: 10
+  - Id: 200035
+    Group: Enchant_Success
+    Name: Master Weaponsmith Lv4
+    Condition: " ARG0 == 4 && ARG1 >= 10 "
+    Rewards:
+      Item: Brilliant_Golden_Wings
+    Score: 10
+  - Id: 200036
+    Group: Get_Zeny
+    Name: Mr Kim a Rich Man Lv1
+    Condition: " ARG0 >= 100000 "
+    Score: 10
+  - Id: 200037
+    Group: Get_Zeny
+    Name: Mr Kim a Rich Man Lv2
+    Condition: " ARG0 >= 1000000 "
+    Score: 10
+  - Id: 200038
+    Group: Get_Zeny
+    Name: Mr Kim a Rich Man Lv3
+    Condition: " ARG0 >= 10000000 "
+    Score: 10
+  - Id: 200039
+    Group: Spend_Zeny
+    Name: I think I need it!
+    Targets:
+      - Id: 0
+        Count: 10000
+    Condition: " ARG0 >= 10000 "
+    Score: 10
+  - Id: 200040
+    Group: Spend_Zeny
+    Name: I really need it!!
+    Targets:
+      - Id: 0
+        Count: 100000
+    Condition: " ARG0 >= 100000 "
+    Score: 10
+  - Id: 200041
+    Group: Spend_Zeny
+    Name: I MUST have it!!!
+    Targets:
+      - Id: 0
+        Count: 1000000
+    Condition: " ARG0 >= 1000000 "
+    Score: 10
+  - Id: 200042
+    Group: Party
+    Name: Better with Friends~~
+    Condition: " ARG0 == 1 "
+    Score: 10
+  - Id: 200043
+    Group: Chatting_Create
+    Name: AFK
+    Condition: " ARG0 == 1 "
+    Score: 10
+  - Id: 200044
+    Group: Chatting_Dying
+    Name: Ress PLS
+    Condition: " ARG0 == 1 "
+    Score: 10
+  - Id: 200045
+    Group: Chatting_Count
+    Name: Reasonable Expectations
+    Condition: " ARG0 == 20 "
+    Score: 10
+  - Id: 200046
+    Group: None
+    Name: Welcome to Prontera
+    Score: 10
+  - Id: 200047
+    Group: None
+    Name: Welcome to Yuno
+    Score: 10
+  - Id: 200048
+    Group: None
+    Name: Welcome to Rachel
+    Score: 10
+  - Id: 200049
+    Group: None
+    Name: Welcome to Niflheim
+    Score: 10
+  - Id: 200050
+    Group: None
+    Name: Welcome to Dicastes Diel
+    Score: 10
+  - Id: 200051
+    Group: None
+    Name: Welcome to the Nomad Village
+    Score: 10
+  - Id: 200052
+    Group: None
+    Name: Welcome to Mora
+    Score: 10
+  - Id: 200053
+    Group: Battle
+    Name: Jellocide
+    Targets:
+      - Id: 0
+        Mob: PORING
+        Count: 250
+      - Id: 1
+        Mob: DROPS
+        Count: 250
+      - Id: 2
+        Mob: POPORING
+        Count: 250
+      - Id: 3
+        Mob: MARIN
+        Count: 250
+      - Id: 4
+        Mob: MASTERING
+        Count: 50
+    Rewards:
+      Item: Costume_Popping_Poring_Aura
+    Score: 10
+  - Id: 200054
+    Group: Battle
+    Name: Rain Season
+    Targets:
+      - Id: 0
+        Mob: KARAKASA
+        Count: 1000
+    Rewards:
+      Item: C_Umbrella_Hat
+    Score: 10
+  - Id: 200055
+    Group: Battle
+    Name: Plant Farming
+    Targets:
+      - Id: 0
+        Mob: RED_PLANT
+        Count: 200
+      - Id: 1
+        Mob: BLUE_PLANT
+        Count: 200
+      - Id: 2
+        Mob: GREEN_PLANT
+        Count: 200
+      - Id: 3
+        Mob: YELLOW_PLANT
+        Count: 200
+      - Id: 4
+        Mob: WHITE_PLANT
+        Count: 200
+    Rewards:
+      Item: C_Blossom_Fluttering
+    Score: 10
+  - Id: 200056
+    Group: Battle
+    Name: Plant Farming
+    Targets:
+      - Id: 0
+        Mob: TEDDY_BEAR
+        Count: 1000
+    Rewards:
+      Item: C_Teddy_Bear_Hood
+    Score: 10
+  - Id: 200057
+    Group: Battle
+    Name: Kill on Sight
+    Targets:
+      - Id: 0
+        Mob: EVENT_MOBSTER
+        Count: 100
+    Rewards:
+      Item: Invisible_Manteau
+    Score: 10
+  - Id: 200058
+    Group: Battle
+    Name: Rank E Hunter
+    Targets:
+      - Id: 0
+        Mob: GOLDEN_BUG
+        Count: 1
+      - Id: 1
+        Mob: G_MARTIN
+        Count: 1
+      - Id: 2
+        Mob: KNIGHT_OF_WINDSTORM
+        Count: 1
+      - Id: 3
+        Mob: APOCALIPS_H
+        Count: 1
+    Score: 10
+  - Id: 200059
+    Group: Battle
+    Name: Rank D Hunter
+    Targets:
+      - Id: 0
+        Mob: OSIRIS
+        Count: 1
+      - Id: 1
+        Mob: DRACULA
+        Count: 1
+      - Id: 2
+        Mob: COELACANTH_N_E
+        Count: 1
+      - Id: 3
+        Mob: RSX_0806
+        Count: 1
+    Score: 10
+  - Id: 200060
+    Group: Battle
+    Name: Rank C Hunter
+    Targets:
+      - Id: 0
+        Mob: ORC_LORD
+        Count: 1
+      - Id: 1
+        Mob: S_NYDHOG
+        Count: 1
+      - Id: 2
+        Mob: MM_BRINARANEA
+        Count: 1
+      - Id: 3
+        Mob: GLOOMUNDERNIGHT
+        Count: 1
+    Score: 10
+  - Id: 200061
+    Group: Battle
+    Name: Rank B Hunter
+    Targets:
+      - Id: 0
+        Mob: PHARAOH
+        Count: 1
+      - Id: 1
+        Mob: INCANTATION_SAMURAI
+        Count: 1
+      - Id: 2
+        Mob: DR_BASILISK2
+        Count: 1
+      - Id: 3
+        Mob: FATAL_DAYS
+        Count: 1
+    Score: 10
+  - Id: 200062
+    Group: Battle
+    Name: Rank A Hunter
+    Targets:
+      - Id: 0
+        Mob: PYURIEL
+        Count: 1
+      - Id: 1
+        Mob: FACEWORM_QUEEN
+        Count: 1
+      - Id: 2
+        Mob: IFRIT
+        Count: 1
+      - Id: 3
+        Mob: VALKYRIE_A
+        Count: 1
+    Score: 10
+  - Id: 200063
+    Group: Battle
+    Name: Rank S Hunter
+    Targets:
+      - Id: 0
+        Mob: T_WILOW
+        Count: 1
+      - Id: 1
+        Mob: AS_EVIL_SHADOW3
+        Count: 1
+      - Id: 2
+        Mob: M_LOKI
+        Count: 1
+      - Id: 3
+        Mob: V_B_SEYREN
+        Count: 1
+    Score: 10
+  - Id: 200064
+    Group: Battle
+    Name: Legendary Godslayer
+    Targets:
+      - Id: 0
+        Mob: EP16_2_H_HUNTER_V
+        Count: 1
+      - Id: 1
+        Mob: C4_HODE
+        Count: 1
+      - Id: 2
+        Mob: MM_MOROCC_ADT
+        Count: 1
+      - Id: 3
+        Mob: POTON_CANON_1
+        Count: 1
+    Rewards:
+      Item: C_Fallen_Angel_Wing
+    Score: 10
+  - Id: 200065
+    Group: None
+    Name: 1st Chapter
+    Score: 10
+  - Id: 200066
+    Group: None
+    Name: 2nd Chapter
+    Score: 10
+  - Id: 200067
+    Group: None
+    Name: 3rd Chapter
+    Score: 10
+  - Id: 200068
+    Group: None
+    Name: 4th Chapter
+    Score: 10
+  - Id: 200069
+    Group: None
+    Name: 5th Chapter
+    Score: 10
+  - Id: 200070
+    Group: None
+    Name: 6th Chapter
+    Score: 10
+  - Id: 200071
+    Group: None
+    Name: 7th Chapter
+    Score: 10
+  - Id: 200072
+    Group: None
+    Name: 8th Chapter
+    Score: 10
+  - Id: 200073
+    Group: None
+    Name: 9th Chapter
+    Score: 10
+  - Id: 200074
+    Group: None
+    Name: 10th Chapter
+    Score: 10
+  - Id: 200075
+    Group: None
+    Name: 11th Chapter
+    Score: 10
+  - Id: 200076
+    Group: None
+    Name: 12th Chapter
+    Score: 10
+  - Id: 200077
+    Group: None
+    Name: Lost Ring
+    Score: 10
+  - Id: 200078
+    Group: None
+    Name: 3 Sages
+    Score: 10
+  - Id: 200079
+    Group: None
+    Name: Scrolls?
+    Score: 10
+  - Id: 200080
+    Group: None
+    Name: Pay Respects
+    Score: 10
+  - Id: 200081
+    Group: None
+    Name: Chaos
+    Score: 10
+  - Id: 200082
+    Group: None
+    Name: Sarah's Costume Shop
+    Score: 10
+  - Id: 200083
+    Group: None
+    Name: Hello Dude
+    Score: 10
+  - Id: 200084
+    Group: None
+    Name: 10 HATred Quests
+    Score: 10
+  - Id: 200085
+    Group: None
+    Name: 45 HATred Quests
+    Score: 10
+  - Id: 200086
+    Group: None
+    Name: All HATred Quests
+    Score: 10
+  - Id: 200087
+    Group: None
+    Name: Mirror Shard
+    Score: 10
+  - Id: 200088
+    Group: None
+    Name: Eye of Vidar
+    Score: 10
+  - Id: 200089
+    Group: None
+    Name: Eye of Vali
+    Score: 10
+  - Id: 200090
+    Group: None
+    Name: Eye of Thor
+    Score: 10
+  - Id: 200091
+    Group: None
+    Name: Eye of Balder
+    Score: 10
+  - Id: 200092
+    Group: None
+    Name: Complete Mirror
+    Rewards:
+      Item: C_BlueAngel_Wing
+    Score: 10
+  - Id: 200093
+    Group: None
+    Name: Meet the Nanny
+    Score: 10
+  - Id: 200094
+    Group: None
+    Name: Meet the Caravan
+    Score: 10
+  - Id: 200095
+    Group: None
+    Name: Meet the Cartographer
+    Score: 10
+  - Id: 200096
+    Group: None
+    Name: Try Again
+    Score: 10
+  - Id: 200097
+    Group: None
+    Name: Return the Mirror
+    Score: 10
+  - Id: 200098
+    Group: Battle
+    Name: First Boss
+    Targets:
+      - Id: 0
+        Mob: ORPHAN_PIAMETTE
+        Count: 1
+    Rewards:
+      Item: Lost_Orphan_Coffer
+    Score: 20
+  - Id: 200099
+    Group: None
+    Name: The Einherjar
+    Rewards:
+      Item: C_Bloody_Wing
+    Score: 30

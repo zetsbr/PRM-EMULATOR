@@ -1,0 +1,486 @@
+//===== rAthena Script ======================================= 
+//= Wandering Minstrel Quest
+//===== By: ================================================== 
+//= Riotblade and L0ne_W0lf
+//===== Current Version: ===================================== 
+//= 1.5
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Help the bard remember how his song goes.
+//===== Comments: ============================================
+//= [Official Conversion]
+//= Needs optimizing.
+//= Reconverted with iRO Dialogs.
+//= Possible NPC conflict with "Representative"
+//===== Additional Comments: ================================= 
+//= 1.0 First version, needs testing. [L0ne_W0lf]
+//= 1.1 Fixed bug, optimized. Not yet final version [Lupus]
+//=
+//= Variables:
+//=		.@random : temp var 
+//=		.@inputstr$ : temp var 
+//=
+//= This Quest has relation with brisingamen_seal.txt (Seals)
+//= 1.2 Changed variable to "gef_bards_q" to avoid job quest conflict. [L0ne_W0lf]
+//=     Progress prior to the 5th+ step will be lost. Job quest takes priority.
+//= 1.3 Fixed experience gains to match upcoming rate adjustments. [SinSloth]
+//= 1.4 Replaced effect numerics with constants. [L0ne_W0lf]
+//= 1.5 Updated RE/Pre-RE EXP. [Euphy]
+//============================================================ 
+
+geffen,132,38,3	script	Bard#2	51,{
+		cutin "bard_eland02",2;
+		mes "[Eland]";
+		mes "Why, hello there~";
+		mes "Isn't the weather";
+		mes "especially pleasant today?";
+		next;
+		mes "[Errende]";
+		mes "Ah~ There are only two things that can make this picturesque moment even more beautiful: story and song. Two things I really love!";
+	end;
+}
+
+morocc,134,111,3	script	Bard#3	741,{
+				mes "[Kino Kitty]";
+				mes "Many legends have been passed down as songs. Stories of Gods and tales of brave warriors have all been written as songs.";
+				next;
+				mes "[Kino Kitty]";
+				mes "Many people love to listen to those songs because they dream of the romantic past. To sing these kinds of songs is the reason people like me exist.";
+				next;
+				mes "^3355FFKino Kitty adjusted the strings on his guitar, and began to sing in a low voice.^000000";
+				next;
+				mes "^D43D1ARheingold...";
+				mes "Hidden in the Rhein river.";
+				mes "If made into a ring,";
+				mes "Could rule the world~^000000";
+				next;
+				mes "^D43D1AProtected by a spell";
+				mes "Cursing its thief";
+				mes "To never find love.";
+				mes "Alberich had known";
+				mes "Nonetheless stole it.";
+				mes "Love was forsaken for power.^000000";
+				next;
+				mes "^D43D1AGiants built beautiful Valhalla";
+				mes "Matrimony with Freya";
+				mes "Goddess of beauty";
+				mes "Their supposed payment.";
+				mes "In not receiving it";
+				mes "They forcefully took her.^000000";
+				next;
+				mes "^D43D1AThe gods would";
+				mes "give Alberich's treasure";
+				mes "To the Giants for Freya's return.";
+				mes "Loki tricked Alberich,";
+				mes "Stealing his ring or power.^000000";
+				next;
+				mes "^D43D1ABut Alberich cursed his ring";
+				mes "Before it was returned to him,";
+				mes "Envy and death would";
+				mes "befall its wearers.^000000";
+				next;
+				mes "^D43D1AThe ring was given to the giants";
+				mes "Freya was returned to the gods";
+				mes "The giants killed themselves";
+				mes "Fighting over the rheingold,";
+				mes "Victims of";
+				mes "Alberich's curse~^000000";
+				next;
+				mes "[Kino Kitty]";
+				mes "Hmm...";
+				mes "^333333*Cough Cough*^000000";
+				mes "This old song";
+				mes "is about the ring";
+				mes "of the Nibelungs.";
+				next;
+				mes "[Kino Kitty]";
+				mes "^333333*Cough Cough*^000000";
+				mes "Hah... I can't sing more than one song nowadays. Guess i'm getting old! ^333333*Cough Cough*^000000";
+				close;
+}
+
+yuno_in01,172,100,3	script	Old Man#bq1	712,{
+		mes "[Sketzi Bundin]";
+		mes "Welcome.";
+		mes "You must be looking for something special and rare. But we only carry one kind of book around here.";
+		next;
+		mes "[Sketzi Bundin]";
+		mes "If you're looking for monster information, why don't you check the Prontera Library or the Monster Museum here in Juno?";
+		close;
+	}
+
+yuno_in01,163,101,0	script	Old Book#bq	111,{
+			mes "^3355FFYou opened the book. There's a crisp brittleness to the pages, and the letters are faded and barely readable. You can't even identify the author's name.^000000";
+			next;
+			mes "[Collection of Eddas]";
+			mes "This is a love song. Everyone suffers from unrequited love at least once in their lifetime.";
+			next;
+			mes "[Collection of Eddas]";
+			mes "At One, I fall in love.";
+			mes "At Two, you give me your smile.";
+			mes "At Three, I adore your touch.";
+			mes "At Four, a tender kiss...";
+			next;
+			mes "[Collection of Eddas]";
+			mes "At Five, we change our minds.";
+			mes "A petal scatters through the air.";
+			mes "At Six, I fall in love~";
+			mes "At Seven, you fall in love...";
+			next;
+			mes "[Collection of Eddas]";
+			mes "At Eight, we're both in love.";
+			mes "At Nine, you know my heart.";
+			mes "At Ten, I know you've";
+			mes "been waiting for me.";
+			next;
+			mes "[Collection of Eddas]";
+			mes "At Eleven, a precious";
+			mes "Whisper: 'Will you marry me?'";
+			mes "At Twelve, our two hearts";
+			mes "Are one. 12 petals, our";
+			mes "Love finally blossoms.";
+			close;
+	}
+
+yuno_in01,173,94,0	script	Battle Songs	111,{
+		mes "[Drumming in the battlefield]";
+		mes "This song was written to give courage to soldiers on the battlefield.";
+		next;
+		mes "[Drumming in the battlefield]";
+		mes "The sounds of galloping";
+		mes "Echo in the distance.";
+		mes "A cloud of hazy dust";
+		next;
+		mes "[Drumming in the battlefield]";
+		mes "Fills the setting sun.";
+		mes "Thousands of eyes open";
+		mes "Torches on the castle";
+		mes "Flare like thousands of Ifrits.";
+		next;
+		mes "[Drumming in the battlefield]";
+		mes "Hear the throbbing of my heart,";
+		mes "The blood flowing in my veins.";
+		mes "Feeling the heaviness of my armor.";
+		mes "The enemy has appeared before us.";
+		next;
+		mes "[Drumming in the battlefield]";
+		mes "Beat the drums hard, harder!";
+		mes "Courage, soldiers, march forward!";
+		mes "Shout loud, soldiers, louder!";
+		mes "Today will never come back!";
+		next;
+		mes "[Drumming in the battlefield]";
+		mes "Stun the sky";
+		mes "Provoke the earth,";
+		mes "I feel my heartbeat again.";
+		mes "Blow the bugle to";
+		mes "Sway the fortress.";
+		mes "Today will never come back!";
+		close;
+}
+
+
+yuno_in01,173,92,0	script	Apple of Idun	111,{
+		mes "[Apple of Idun]";
+		mes "This song praises the golden apples of the goddess Idun. These were the source of the God's power, as it prevented them from growing old.";
+		next;
+		mes "[Apple of Idun]";
+		mes "Every god never grows old";
+		mes "Because of beautiful";
+		mes "Goddess, Idun.";
+		mes "Keeper of the apples of youth";
+		mes "Goddess of immortality.";
+		next;
+		mes "[Apple of Idun]";
+		mes "Every god never grows old.";
+		mes "Idun, the wife of Bragi,";
+		mes "Idun, Odin's daughter in law~";
+		mes "The apples she keeps";
+		mes "In her basket.";
+		next;
+		mes "[Apple of Idun]";
+		mes "Without Idun,";
+		mes "Every god would";
+		mes "have succumbed to age.";
+		next;
+		mes "[Apple of Idun]";
+		mes "Even Thor, the strongest of gods,";
+		mes "would grow frail, Megingjard would";
+		mes "slip from his waist, and Mjolnir";
+		mes "would never fly again.";
+		next;
+		mes "[Apple of Idun]";
+		mes "Without Idun,";
+		mes "Every god would";
+		mes "have succumbed to age.";
+		mes "Loki was careless once,";
+		mes "and made her lost to the gods.";
+		mes "Loki was forced to get her back.";
+		next;
+		mes "[Apple of Idun]";
+		mes "My goddess stands";
+		mes "In the field of Asgard";
+		mes "She hands me fruit from heaven.";
+		mes "You will be loved by every god...";
+		mes "You will be blessed";
+		mes "By every god...";
+		next;
+		mes "[Apple of Idun]";
+		mes "If you share the";
+		mes "Apple of youth with me";
+		mes "Even a bite of it with";
+		mes "This poor poet.";
+		next;
+		mes "[Apple of Idun]";
+		mes "You will be loved by every god...";
+		mes "You will be blessed";
+		mes "By every god...";
+		close;
+}
+
+payon,181,172,3	script	Bard#4	51,{
+		mes "[Gunther Doubleharmony]";
+		mes "Hahaha~!";
+		mes "Listen, listen!";
+		next;
+		mes "[Gunther Doubleharmony]";
+		mes "I was told this song from one of my friends about this Merchant who lives in Payon and everyone loves this song, especially because I'm singing it and you know that...";
+		next;
+		mes "[Gunther Doubleharmony]";
+		mes "Oh, right...!";
+		mes "Do you wanna listen";
+		mes "to my song or a story?";
+		mes "I know you want to!";
+		mes "Right, right?";
+		next;
+
+		if(select("Show some interest.:Ignore him.")==1) {
+			mes "[Gunther Doubleharmony]";
+			mes "Yay~! I knew it!";
+			mes "So you wanna hear";
+			mes "a song or a story?";
+			next;
+			switch(select("A song:A story:Maybe some other time")) {
+			case 1:
+				switch(rand(1,3)) {
+				case 1:
+					mes "[Gunther Doubleharmony]";
+					mes "Gunther sings!";
+					mes "Gunther dances!";
+					mes "The tile of this song is~";
+					mes "'The Rich Mr. Kim~!'";
+					next;
+					mes "^228B22Merchant of Payon";
+					mes "So poooooooor~";
+					mes "No money for armor";
+					mes "No money to make.";
+					next;
+					mes "^228B22Sold the";
+					mes "Cotton Shirt";
+					mes "Off his back";
+					mes "No pity he'll take.^000000";
+					next;
+					mes "^228B22First he only sold Red Pots";
+					mes "At first, he only sold red pots.";
+					mes "Then he moved up to Carrots, whoohoo~";
+					mes "He could afford new armor";
+					mes "and even wear it,";
+					mes "whoohoo~^000000";
+					next;
+					mes "^228B22But one day, he was scammed";
+					mes "Scammed by a wicked guild.";
+					mes "Made poor once again.";
+					mes "He decided to go to Ant Hell";
+					mes "Right there";
+					mes "And right then.";
+					next;
+					mes "^228B22Bats, Dwarves, Eggs, Ants!";
+					mes "He battled them all~";
+					mes "Worm Peelings, Jellopy!";
+					mes "He gathered loot great and small.";
+					next;
+					mes "^228B22Then the glorious day came";
+					mes "When he found a valuable card";
+					mes "That'd bring great wealth to his naaaame~^000000";
+					next;
+					mes "^228B22But he kept it dear to him";
+					mes "To remember his times of";
+					mes "working so hard.";
+					mes "He never sold it, never sold";
+					mes "his precious card~^000000";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "That's a very old story about rich Mr. Kim, and his rise from rags to riches to rags to riches. Is it true or is it fiction? Oh, please don't ask me! I've no clue!";
+					close;
+
+				case 2:
+					mes "[Gunther Doubleharmony]";
+					mes "*Ahem*";
+					mes "Gunther sings ";
+					mes "of Yggdrasil~";
+					next;
+					mes "^228B22Evergreen Yggdrasil~";
+					mes "Giant ashen tree";
+					mes "reaching for the sky.";
+					mes "Crystal, morning dew";
+					mes "From its leaves";
+					mes "Formed Urd's Pond.^000000";
+					next;
+					mes "^228B22Three wise girls.";
+					mes "Seated beneath its boughs.";
+					mes "Urd of the past,";
+					mes "Belldandy of the present";
+					mes "Skuld the future.^000000";
+					next;
+					mes "^228B22Spinning, weaving";
+					mes "Threads of destiny.";
+					mes "Evergreen Yggdrasil~";
+					mes "Giant ashen tree";
+					mes "reaching for the sky.";
+					mes "Its roots soaked with tears.^000000";
+					next;
+					mes "^228B22Death in Hvergelmir.";
+					mes "An evil dragon";
+					mes "Burning its roots";
+					mes "With eternal flame.";
+					mes "The evil dragon Nidhogg";
+					mes "Living between Yggdrasil";
+					mes "and Niffheim.^000000";
+					next;
+					mes "^228B22Evergreen Yggdrasil~";
+					mes "Giant ashen tree";
+					mes "reaching for the sky.";
+					mes "Wisdom in its roots";
+					mes "Roots reaching";
+					mes "Mimir's pond.^000000";
+					next;
+					mes "^228B22Guarded by a wise giant.";
+					mes "Odin sacrificed one";
+					mes "of his eyes for the wisdom.";
+					mes "Heimdall's horn hidden";
+					mes "In Yggdrasil's roots";
+					mes "Will sound one last time";
+					mes "Signaling Ragnarok.^000000";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "This is a very old story...";
+					mes "Is it truth or fiction? But please don't ask me, I have no idea~!";
+					close;
+
+				case 3:
+					mes "[Gunther Doubleharmony]";
+					mes "I will sing one of Luke's songs, you know, Luke, one of the greatest Bards of his time? But I changed the words a little bit.";
+					next;
+					mes "^228B22I found it in a drawer.";
+					mes "Old, worn letters";
+					mes "Forming elaborate words.";
+					mes "Sincere reflection";
+					mes "Of a sincere mind.^000000";
+					next;
+					mes "^228B22I found it in a drawer.";
+					mes "Was I really like that once?";
+					mes "Was I really that childish?";
+					mes "My memories are tarnished.";
+					next;
+					mes "^228B22I found it in a drawer.";
+					mes "Love I had forgotten.";
+					mes "She never got this letter.";
+					mes "But both of us were too shy.";
+					next;
+					mes "^228B22I found it in a drawer.";
+					mes "Love I had forgotten.";
+					mes "I never gave her this letter.";
+					mes "But both of us were too proud.";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "Do you have anyone in mind? Do you? If you ever write a love letter, you must send it and express yourself.";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "If you've written love letters that you'll never send, throw them away. Throw your goddamn pride away.";
+					close;
+				}
+
+			case 2:
+				switch(rand(1,3)) {
+				case 1:
+					mes "[Gunther Doubleharmony]";
+					mes "Um, have you ever";
+					mes "tasted Comodo cheese?";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "You can only taste it in Comodo, but you need to have a good strong stomach to digest it. Oh! And the cheese has a secret!";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "You ^228B22might^000000 be invulnerable to the power of the doomed swords, which come from the other world, if you eat it!";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "Why don't you go taste it if you haven't yet? I tried to taste it once. It was kind of yummy, but then I fainted. Hahahaha~!";
+					close;
+
+				case 2:
+					mes "[Gunther Doubleharmony]";
+					mes "I was passing Prontera the other day at the place where it used to be the Swordman training ground.";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "I saw some kid training really really hard and he didn't notice me watching him, so I guess he was really really serious!";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "He looked like he wanted to be a professional Swordman, but he was also giving his gear away to other Novices.";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "I got bored watching him do the same thing over and over and over again, but I think the Monster Research Organization would like him if I introduced him.";
+					close;
+
+				case 3:
+					mes "[Gunther Doubleharmony]";
+					mes "Have you ever been in Lutie,";
+					mes "land of year round snow?";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "There is a snowman named";
+					mes "SnowySnow and if you met him, you'd know all sorts of things about him like he can talk! It's so strange and mysterious~!";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "He has a mysterious bag where endless gifts come out, and he's got a mysterious past involving some colder town and something about a nasty witch.";
+					next;
+					mes "[Gunther Doubleharmony]";
+					mes "But it's okay because he was rescued by some Alchemist and came back to life, but you should go to Lutie if you wanna know more about him, okay?";
+					close;
+				}
+			
+			case 3:
+				mes "[Gunther Doubleharmony]";
+				mes "You're gonna leave right now and not even listen to me a little bit? Okay, I'm cool, but promise you'll come back and listen to just one of my songs, okay?";
+				close;
+			}
+}
+}
+
+yuno_in04,20,123,7	script	Representative#bq	95,{
+	mes "Welcome to the";
+	mes "Monster Research";
+	mes "Organization.";
+	next;
+	mes "[Marlin Putiur]";
+	mes "We are researching monsters based on information from adventurers in order to efficiently cope with monsters out in the wild.";
+	close;
+	}
+
+yuno_in04,33,119,3	script	Adventurer#1	828,{
+	mes "...";
+	next;
+	mes "...";
+	mes ".......";
+	next;
+	mes "^3355FF*Scribble Scribble*^000000";
+	next;
+	mes "[Energetic Young Man]";
+	mes "Err...?";
+	next;
+		mes "[Energetic Young Man]";
+		mes "What,...!";
+		mes "Leave me alone.";
+		mes "Can't you see I'm busy?";
+		close;
+	}

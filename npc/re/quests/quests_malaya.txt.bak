@@ -1,0 +1,537 @@
+//===== rAthena Script =======================================
+//= Port Malaya Quest NPCs
+//===== By: ==================================================
+//= Euphy
+//===== Current Version: =====================================
+//= 1.3
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Quest NPCs related to Port Malaya:
+//== Cautious Village, Port Malaya Daily Quests,
+//== Secret in the Woods, Bakonawa Extermination
+//== Nurse in Port Malaya, Pintados Festival
+//= Merchants:
+//== Traders, Upgrade Boss Equipment
+//===== Additional Comments: =================================
+//= 0.1 Traders only. Adapted from Masao's conversion. [Euphy]
+//= 0.2 Added Tribe Blacksmith [DeadlySilence]
+//= 0.3 Added "Secret in the Woods" quest [DeadlySilence]
+//= 0.4 Added "Cautious Village" and subsequent quests [DeadlySilence]
+//= 0.5 Added "Bakonawa Extermination" quest. [Euphy]
+//= 1.0 Added "Nurse in Port Malaya" and "Pintados Festival" quests. [Euphy]
+//= 1.1 Added GM management function and NPC. [Euphy]
+//= 1.2 Added VIP features. [Euphy]
+//= 1.3 Fixed Pintados Festival never ends. [Capuche]
+//============================================================
+
+// Cautious Village & Daily Quests :: hi_malaya
+//============================================================
+malaya,266,76,3	script	Rodel the Guard#malaya	570,4,4,{
+		mes "[Rodel the Guard]";
+		mes "How is the life here?";
+		mes "People aren't so bad are they? Quite a nice island.";
+		close;	
+}
+
+malaya,185,358,3	script	Leader Phong in Mumbaki	580,{
+		mes "[Phong in Mumbaki]";
+		mes "Looks like this soul came across a big body of water.";
+		mes "Young friend.";
+		next;
+		mes "[Phong in Mumbaki]";
+		mes "We are always surrounded by spirits.";
+		mes "We live with them, praying for peace.";
+		next;
+		mes "[Phong in Mumbaki]";
+		mes "My people fear the Morroc's Mark. Please, don't startle them. You are welcome to rest if you need.";
+		close;
+}
+
+malaya,169,350,5	script	Imelda#malaya	475,{
+		mes "[Imelda]";
+		mes "..........";
+		mes "Not bad.";
+		mes "I have my eyes on you. Let's see how you do in this town.. *chuckle*";
+		next;
+		mes "- She is a rather annoying little girl. -";
+		close;
+}
+
+malaya,181,353,5	script	Old Man Nardo#malaya	574,{
+		mes "[Old Man Nardo]";
+		mes ".......";
+		mes "Not from around here, I see. I have nothing to say. Enjoy the village.";
+		close;
+}
+
+malaya,224,267,3	script	Romel#malaya	573,{
+		mes "[Romel]";
+		mes ".........";
+		mes " ";
+		mes "(He evades your gaze and ignores you.)";
+		close;
+		}
+
+malaya,223,267,5	script	Talah#malaya	941,{
+		mes "[Talah]";
+		mes "..........gasp!";
+		mes " ";
+		mes "(When your eyes met with hers, she ran and hid behind her father.)";
+		close;
+}
+
+malaya,295,171,3	script	Collection Dealer Woeon	582,{
+		mes "[Woeon]";
+		mes "Urghh... Urgh... I got a headache...";
+		mes "My headache must have been brought to me by you from out of town!";
+		mes "Go away. Shoo, leave!";
+		close;
+}
+
+malaya,119,217,3	script	Blacksmith Pandoi	538,{
+		mes "[Pandoi]";
+		mes "Phew... Life is so tough these days.";
+		mes "Why did ghosts come along to bother me so.";
+		mes "I wish I had a lucky charm or something...";
+		close;
+}
+
+malaya,326,68,2	script	Pedro the Sailor	100,{
+		mes "[Pedro the Sailor]";
+		mes "Oh... This ship's not in service.";
+		mes "Or rather, it can't set sail. *Snigger*";
+		mes "I'm seeing ghosts. This place is weird!";
+		close;
+}
+
+ma_in01,125,107,3	script	Ghost Diwata	1761,4,4,{
+		cutin "malaya_diwata01", 2;
+		mes "- A creepy Little Girl is standing.";
+		mes "As our eyes meet, a chill runs down my spine with goose bumps all over. -";
+		next;
+		mes "[Diwata]";
+		mes "Are you here to bully Diwata too?";
+		mes "I won't have it!";
+		next;
+		close2;
+		cutin "", 255;
+end;
+}
+
+ma_fild02,241,39,5	script	Good Capre Budidai	572,{
+	mes "[Budidai]";
+	mes "Hey hey hey~";
+	mes "I am such a nice Capre~ Hey!";
+	mes "I am going to a fine cafe~YO!";
+	mes "I am better than yesterday~Hey!";
+	mes "I'm a fine rhyming Capre~Oh?";
+	close;
+}
+	
+malaya,276,288,5	script	Port Malaya Villager::buwaya_A	582,{
+		mes "[Port Malaya Villager]";
+		mes "No, I heard they got lost in the woods.";
+		mes "Who would hide such a treasure from a small village like ours?";
+		next;
+		emotion ET_PROFUSELY_SWEAT, getnpcid(0, "buwaya_B");
+		mes "[Port Malaya Villager]";
+		mes "Could it been a monster? My grandma said there is a dragon with a huge head living deep inside the woods.";
+		next;
+		emotion ET_STARE_ABOUT, getnpcid(0, "buwaya_C");
+		mes "[Port Malaya Villager]";
+		mes "No. Listen to me.";
+		next;
+		mes "[Port Malaya Villager]";
+		mes "You all know ^3131FFTotoy^000000? The kid living at the ^3131FFInn^000000.";
+		mes "Well, did you know Totoy came back from the woods recently?";
+		next;
+		emotion ET_HUK, getnpcid(0, "buwaya_A");
+		emotion ET_HUK, getnpcid(0, "buwaya_B");
+		mes "[Port Malaya Villager]";
+		mes "Really??? He came back alive?";
+		next;
+		emotion ET_SURPRISE, getnpcid(0, "buwaya_C");
+		mes "[Port Malaya Villager]";
+		mes "Yeah. But the strange part is that the troublemaker ^3131FFTotoy^000000 now quietly stays home and never comes out.";
+		next;
+		emotion ET_QUESTION, getnpcid(0, "buwaya_B");
+		mes "[Port Malaya Villager]";
+		mes "Why?";
+		next;
+		emotion ET_SURPRISE, getnpcid(0, "buwaya_C");
+		mes "[Port Malaya Villager]";
+		mes "Don't you get it? Totoy must have found the treasure.";
+		next;
+		emotion ET_HUK, getnpcid(0, "buwaya_A");
+		emotion ET_HUK, getnpcid(0, "buwaya_B");
+		mes "[Port Malaya Villager]";
+		mes "What!!!! Then ^3131FFTotoy^000000 is rich now?";
+		next;
+		emotion ET_STARE_ABOUT, getnpcid(0, "buwaya_C");
+		mes "[Port Malaya Villager]";
+		mes "I don't think so.";
+		mes "I saw ^3131FFTotoy^000000 come back home, but Totoy wasn't carrying anything.";
+		mes "But then, I must have missed it because I ran back home right away.";
+		next;
+		emotion ET_QUESTION, getnpcid(0, "buwaya_B");
+		mes "[Port Malaya Villager]";
+		mes "Then what is ^3131FFTotoy^000000 doing at home?";
+		next;
+		emotion ET_THINK, getnpcid(0, "buwaya_C");
+		mes "[Port Malaya Villager]";
+		mes "I think Totoy is making a plan to bring the treasure back without us knowing it.";
+		mes "To have the whole treasure for himself, that greedy kid.";
+		next;
+		emotion ET_QUESTION, getnpcid(0, "buwaya_A");
+		mes "[Port Malaya Villager]";
+		mes "Is that true?";
+		next;
+		emotion ET_BIGTHROB, getnpcid(0, "buwaya_B");
+		mes "[Port Malaya Villager]";
+		mes "The treasure would be in better hands with me ~";
+		mes "I would clean it every day so it shined and would use it as a beautiful ornament. Ah~~~";
+		next;
+		emotion ET_THINK, getnpcid(0, "buwaya_C");
+		mes "[Port Malaya Villager]";
+		mes "Then how about we talk to ^3131FFTotoy^000000 to spill the beans on where the treasure is?";
+		next;
+		emotion ET_QUESTION, getnpcid(0, "buwaya_A");
+		mes "[Port Malaya Villager]";
+		mes "Wow. That is an awesome idea. No wonder you're the leader!";
+		close;
+	}
+	
+malaya,278,288,3	duplicate(buwaya_A)	Port Malaya Villager::buwaya_B	583
+malaya,276,286,7	duplicate(buwaya_A)	Port Malaya Villager::buwaya_C	582
+
+
+malaya,290,152,5	script	Master of Hunting#buwaya	578,{
+		mes "[Master of Hunting]";
+		mes "Oh! Ho! Ho!";
+		mes "I am the Master of Hunting! I'm not afraid of anything with just one exception! I'm afraid of outsiders...";
+		close;
+	}
+	
+malaya,290,340,3	script	Guard Leader#buwaya	571,{
+		mes "[Guard Leader]";
+		mes "We are busy as hell because of Bangungots servants attacking the hospital.";
+		next;
+		mes "[Guard Leader]";
+		mes "We are doing our best in securing the safety of our village so please enjoy your stay in Port Malaya.";
+		close;
+	}
+
+
+malaya,280,331,4	script	Singing Man#bako1	578,{
+		mes "[Singing Man]";
+		mes "Story of dragon that lives at a lake~";
+		mes "Story of an old lady";
+		mes "that became a dragon long ago~";
+		next;
+		mes "[Singing Man]";
+		mes "Waiting for the son that left for a foreign land,";
+		mes "my son will return";
+		mes "when that moon sets for the 90th time";
+		next;
+		mes "[Singing Man]";
+		mes "The moon sets for the 89th,";
+		mes "The moon sets for the 90th,";
+		mes "The moon sets for the 191st...";
+		next;
+		mes "[Singing Man]";
+		mes "That moon has taken my son away~";
+		mes "That horrible thing";
+		mes "has swallowed my son,";
+		mes "and I will punish that moon~";
+		next;
+		mes "[Singing Man]";
+		mes "The day the furious moon hides itself from sight,";
+		mes "the whole world will be flooded with rain";
+		mes "with all the villages and people facing death under water~";
+		next;
+		mes "[Singing Man]";
+		mes "The old lady's curse made the moon furious~";
+		mes "Get rid of the old lady to calm the moon~";
+		mes "If only the old lady wasn't here, If only the old lady wasn't here...";
+		next;
+		mes "[Singing Man]";
+		mes "I hear rumors~";
+		mes "The old lady threw herself into the lake~";
+		mes "the old lady, now turned into a dragon, will swallow the moon";
+		mes "and soon swallow the village too~";
+		close;
+	}
+
+malaya,275,333,5	script	Singing Woman#bako1	579,{
+		mes "[Singing Woman]";
+		mes "Bakonawa that live at a lake,";
+		mes "story of an old lady that became a dragon.";
+		next;
+		mes "[Singing Woman]";
+		mes "The son that was suppose to return after the moon sets for the 90th time";
+		mes "never did come back even after the moon had set for a few hundred times~";
+		mes "The moon has swallowed the old lady's son~";
+		next;
+		mes "[Singing Woman]";
+		mes "The moon, the moon, you shall receive the old lady's curse~";
+		mes "The whole village was immersed in death";
+		mes "with rain and floods sent by the furious moon~";
+		next;
+		mes "[Singing Woman]";
+		mes "The moon, the moon, be still and be calm,";
+		mes "for the old lady is gone and she is no more~";
+		mes "The old lady has drowned in the lake~";
+		mes "She will transform into Bakonawa and come back...";
+		next;
+		mes "[Singing Woman]";
+		mes "...to swallow you and";
+		mes "punish the village soon~";
+		mes "The day the moon dies";
+		mes "is the day the village dies too~";
+		close;
+	}
+
+malaya,290,329,4	script	Frightened Boy#bako1	577,{
+		mes "[Frightened Boy]";
+		mes "The legend of Bakonawa is all a lie?";
+		mes "So that means Bakonawa doesn't exist?";
+		mes "I'm going to play with my friends at the lake later.";
+		close;
+	}
+
+malaya,264,338,4	script	Frightened Maiden#bako1	576,{
+			mes "[Frightened Maiden]";
+			mes "You already heard that the old lady";
+			mes "died and became Bakonawa, right?";
+			next;
+			mes "[Frightened Maiden]";
+			mes "The legend has it that";
+			mes "the old lady had very keen hearing";
+			mes "because she was always focusing on";
+			mes "the returning of her traveling son.";
+			next;
+			mes "[Frightened Maiden]";
+			mes "So naturally, Bakonawa also";
+			mes "has very keen hearing.";
+			mes "The reason why everyone is banging";
+			mes "pots and pans is because of this.";
+			close;
+		}
+
+malaya,272,339,5	script	Old Fortune Teller#bako1	575,{
+		mes "[Old Fortune Teller]";
+		mes "You must not hate Bakonawa.";
+		mes "The hate against it is only feeding its rage";
+		mes "to grow bigger.";
+		next;
+		mes "[Old Fortune Teller]";
+		mes "To calm the dead lady's anger,";
+		mes "we annually hold a ceremony and prepare food.";
+		mes "But there seems to be no way to calm the";
+		mes "ever growing anger of the old lady.";
+		next;
+		mes "[Old Fortune Teller]";
+		mes "The day is nearing. I can sense it.";
+		mes "Bakonawa will soon swallow the moon";
+		mes "and come to punish the village.";
+		close;
+	}
+
+malaya,285,332,4	script	Old Legend Teller#bako1	574,{
+		mes "[Old Legend Teller]";
+		mes "The old lady has come back";
+		mes "to life as Bakonawa.";
+		mes "Soon she will come to take vengeance on the village.";
+		mes "We must calm her";
+		mes "if to prevent further destruction...";
+		close;
+	}
+	
+ma_fild02,40,240,4	script	Malaya Immigrant#bako1	578,{
+		mes "[Malaya Immigrant]";
+		mes "You must have a brave heart";
+		mes "to come to such a remote place.";
+		mes "How is Port Malaya these days?";
+		mes "I heard the monster that lives at the lake, Baknoawa";
+		mes "is threatening the villagers.";
+		mes "I am in the dark about what is going on because I'm here all the time.";
+		close;
+	}
+	
+malaya,286,269,4	script	Angry Man#bako2	578,{
+	mes "[Angry Man]";
+	mes "Calm Bakonawa?";
+	mes "Do you know how many people have been";
+	mes "sacrificed by Bakonawa?";
+	mes "I will fight on my own if I have to!";
+	close;
+}
+
+malaya,276,269,5	script	Calm Woman#bako2	579,{
+	mes "[Calm Girl]";
+	mes "It is too dangerous to fight against";
+	mes "Bakonawa. There is a chance";
+	mes "it will get more angry and put children and";
+	mes "elders in danger.";
+	close;
+}
+
+malaya,276,262,4	script	Angry Boy#bako2	577,{
+	mes "[Angry Boy]";
+	mes "I lost my father and my friend";
+	mes "to that Bakonawa.";
+	mes "I will surely revenge them!";
+	close;
+}
+
+malaya,283,265,4	script	Village Chief#bako2	580,{
+		mes "- He seems cautious of you. -";
+		close;
+	}
+	
+
+malaya,270,278,4	script	Missing Person's Son	578,{
+		mes "[Missing Person's Son]";
+		mes "Bakonawa has hurt my father?";
+		mes "I can't believe this.";
+		mes "Please find my father!";
+		close;
+	}
+
+malaya,265,284,4	script	Missing Person's Mother	579,{
+		mes "[Missing Person's Mother]";
+		mes "Please find my child.";
+		mes "I sent her out to do a chore";
+		mes "and she still isn't back.";
+		close;
+	}
+
+malaya,289,364,4	script	Young Fortune Teller	583,{
+		mes "[Young Fortune Teller]";
+		mes "The energy of the moon grew weak.";
+		mes "The reason there are more monsters,";
+		mes "and the reason there are more victims,";
+		mes "is all because of this.";
+		close;
+	}
+
+malaya,55,72,4	script	Nurse#ma_n1	569,{
+		mes "People of this town are too cautious of Orphans.";
+		emotion ET_ANGER;
+		cutin "malaya_nurseA01",2;
+		next;
+		mes "[Nurse]";
+		mes "I'm sure they have their reasons, but they could help us so much...";
+		close2;
+		cutin "",255;
+		end;
+}
+
+malaya,64,78,4	script	Village Woman#mab	583,{
+		mes "[Village Woman]";
+		mes "Oh~Are you an adventurer?";
+		mes "It seems like we have a lot of them in town lately.";
+		next;
+		mes "[Village Woman]";
+		mes "I was born here and never went far away from here, so I always feel like going on my adventures when I hear the stories they bring.";
+		close;
+}
+		
+malaya,62,37,4	script	Village Man#mab	582,{
+		mes "[Village Man]";
+		mes "Hmmm! Haven't seen you around?";
+		mes "What brings you to our town?";
+		next;
+		mes "Seems very cautious about you.";
+		close;
+	}
+malaya,210,200,5	script	Dr. Boon#ma	865,{
+		mes "[Dr. Boon]";
+		mes "So~ You're the new nurse?";
+		next;
+		switch(select("Yes.:No.")) {
+		case 1:
+			mes "[Dr. Boon]";
+			mes "Nothing's more important for a nurse than their white uniform.";
+			mes "Go get changed!";
+			close;
+		case 2:
+			mes "[Dr. Boon]";
+			mes "Oh! I'm sorry.";
+			mes "We're waiting for a new nurse.";
+			mes "My bad.";
+			close;
+		}
+}
+malaya,114,183,3	script	Bent Old Lady#ma	575,{
+		mes "[Bent Old Lady]";
+		mes "Ho ho ho ho~~";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Ma'am, excuse me, but can I ask you a question?";
+		next;
+		mes "[Bent Old Lady]";
+		mes "Ho ho ho ho~~";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Ma'am?";
+		next;
+		mes "[Bent Old Lady]";
+		mes "Ho ho ho ho~~";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Ma'am?";
+		next;
+		mes "[Bent Old Lady]";
+		mes "Ho ho ho ho~~";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Ma'am!!!!!!!!!";
+		next;
+		mes "[Bent Old Lady]";
+		mes "Who? What?";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Excuse me, but can I ask you something?";
+		next;
+		mes "[Bent Old Lady]";
+		mes "What? I can't hear you.";
+		mes "Speak up!";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "I! Have! Something! To! Ask! You!";
+		next;
+		mes "[Bent Old Lady]";
+		mes "Oh~Yes dear~";
+		mes "I'll tell you everything I know, dear~";
+		next;
+		mes "["+strcharinfo(0)+"]";
+		mes "Do you know anything about the hospital?";
+		next;
+		mes "[Bent Old Lady]";
+		mes "Hospital?";
+		mes "........";
+		next;
+		mes "[Bent Old Lady]";
+		mes "Hospital?!?!?!?";
+		next;
+		mes "[Bent Old Lady]";
+		mes "That hospital is cursed!";
+		mes "Something wicked is living there!";
+		next;
+		mes "[Bent Old Lady]";
+		mes "That thing took away my poor little girl...";
+		close;
+}
+
+malaya,276,367,4	script	Bent Shaman#ma	782,{
+	mes "[Bent Shaman]";
+	mes "Hmmmm...";
+	mes "I feel, feel....";
+	next;
+	mes "[Bent Shaman]";
+	mes "I feel something bad from you...";
+	close;
+}

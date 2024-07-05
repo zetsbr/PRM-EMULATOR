@@ -1,0 +1,62 @@
+//===== rAthena Script =======================================
+//= Abyss Cave Warper
+//===== By: ==================================================
+//= erKURITA
+//===== Current Version: =====================================
+//= 1.4
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= Warper to Abyss Cave. and warper out
+//===== Additional Comments: =================================
+//= 1.0 Added by Nexon [Nexon]
+//= 1.1 Removed Duplicates [Silent]
+//= 1.2 Fixed tab - missing pillar's appeared [Lupus]
+//= 1.3 Updated Abyss Lake entrance based on official [SinSloth]
+//= 1.3a Removed .GATs [Lupus]
+//= 1.4 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
+//============================================================
+
+hu_fild05,168,304,0	script	Column#abyss1	111,{
+
+				mes "The ground beneath";
+				mes "your feet begins to";
+				mes "violently shake.^000000";
+				specialeffect EF_BOWLINGBASH;
+				specialeffect2 EF_PORTAL;
+				close2;
+				warp "hu_fild05",184,204;
+				end;
+
+}
+
+hu_fild05,171,211,0	script	Column#abyss2	111,1,1,{
+
+	mes "This column looks";
+	mes "very similar to the";
+	mes "one you've seen in";
+	mes "the lake. There is";
+	mes "a conspicious blue";
+	mes "groove on its surface.^000000";
+	next;
+			mes "The light shining from";
+			mes "the column's groove grows";
+			mes "brighter as you feel the";
+			mes "ground beneath your feet";
+			mes "begin to slowly sink away...^000000";
+			next;
+			specialeffect EF_BOWLINGBASH;
+			specialeffect2 EF_PORTAL;
+			close2;
+			warp "hu_fild05",169,305;
+			end;
+
+}
+
+hu_fild05,196,210,1	script	AbyssWarp	45,2,2,{
+
+
+OnTouch_:
+	warp "abyss_01",260,268;
+	end;
+}

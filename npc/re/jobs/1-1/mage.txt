@@ -1,0 +1,19 @@
+//===== rAthena Script ======================================= 
+//= Renewal Mage Job Quest
+//===== By: ================================================== 
+//= Kisuka
+//===== Current Version: ===================================== 
+//= 1.1
+//===== Compatible With: ===================================== 
+//= rAthena Project
+//===== Description: ========================================= 
+//= Job Change to Mage Class
+//===== Additional Comments: ================================= 
+//= 1.0 First Version. [Kisuka]
+//= 1.1 Added support for Baby classes. [Euphy]
+//============================================================ 
+geffen_in,164,124,4	script	Mage Guildsman#mage	123,{
+			mes "[Mage Guildsman]";
+			mes "I am not sure why you're still standing in front of me, but I can tell that you're not meant to be a Mage.";
+			close;
+		}

@@ -1,0 +1,244 @@
+//===== rAthena Script =======================================
+//= Lutie Town
+//===== Description: =========================================
+//= Lutie - City NPCs
+//===== Additional Comments: =================================
+//= 1.1 Edited some text and updated/enabled some triggers
+//=     for the quest.[kobra_k88]
+//= 1.2 Fixed exploit. Checked for Bard Job Quest compatibility [Lupus]
+//= 1.3 Fixed typos [Nexon]
+//= 1.4 Fixed exploit [Lupus]
+//= 1.5 Fixed a bug that could reset Lutie quest state [Lupus]
+//= 1.6 Heavy optimization to all the NPCs [DZeroX]
+//= 1.7 Updated to match AEGIS script. [Kisuka]
+//= 1.8 Split Mr. Claus to pre-re and re [Lemongrass]
+//============================================================
+
+// Teleport to Lutie
+//============================================================
+-	script	Mr. Claus	718,{
+	mes "[Mr. Claus]";
+	mes "Ho Ho Ho~";
+	mes "Merry Christmas!!";
+	mes "I wish all of you joy";
+	mes "and Christmas cheer!";
+	next;
+	switch(select("Info about Lutie:Move to 'Lutie':Cancel")) {
+	case 1:
+		mes "[Mr. Claus]";
+		mes "^3355FFLutie^000000, the fantastic Christmas Town! Always filled with the spirit of giving, Lutie is filled with appetizing cakes, tiny toy soldiers, and all sorts of wonderful things~!";
+		next;
+		mes "[Mr. Claus]";
+		mes "Ho Ho Ho~";
+		mes "It's an amazing land blessed with the beauty of winter, and a year round atmosphere of festivity!";
+		close;
+	case 2:
+		mes "[Mr. Claus]";
+		mes "Ho Ho Ho~";
+		mes "You can go to lutie by taking the ship in Alberta!";
+		close;
+	case 3:
+		mes "[Mr. Claus]";
+		mes "Ho Ho Ho~";
+		mes "Whenever you want to visit Lutie, just get a ship in Alberta!";
+		next;
+		mes "[Mr. Claus]";
+		mes "Ho ho hooooo!!";
+		mes "Haaaaappy Holidays!";
+		close;
+	}
+}
+
+// Inside Lutie
+//============================================================
+xmas_in,100,96,4	script	Santa Claus	718,{
+	mes "[Santa Claus]";
+	mes "Ho Ho Ho~";
+	mes "Meeeerry Christmas !!";
+	next;
+	mes "^3355FFIt's...^000000";
+	mes "^3355FFIt's the original Santa Claus!^000000";
+	next;
+	mes "[Santa Claus]";
+	mes "Ho Ho Ho~";
+	mes "I'm Santa Claus, and I bring gifts to every good boy and girl on Christmas!";
+	next;
+	mes "[Santa Claus]";
+	mes "If you want to leave Lutie, make sure to find your path on the snow fields and get to the ship on the coast!";
+	next;
+	mes "[Santa Claus]";
+	mes "Ho ho ho~";
+	mes "Meeeeeeerry Christmas!";
+	close;
+}
+
+xmas_in,167,173,4	script	Duffle	711,{
+		mes "[Duffle]";
+		mes "Merry Christmas!";
+		mes "Welcome to Lutie!";
+		next;
+		mes "[Duffle]";
+		mes "You got a present";
+		mes "from Santa Claus?!";
+		mes "Ha ha, you must";
+		mes "be really excited!";
+		next;
+		mes "[Duffle]";
+		mes "Hey, have you heard that here in Lutie, we have an attraction that's equally as famous as Santa himself?";
+		next;
+		mes "[Duffle]";
+		mes "It's ^3355FFSnowysnow^000000,";
+		mes "the magical";
+		mes "talking snowman!";
+		next;
+		mes "[Duffle]";
+		mes "Before you leave, you really should meet and talk to Snowysnow, even if it's only once. He's really a nice guy and fun to talk to.";
+		next;
+		mes "[Duffle]";
+		mes "Well then...";
+		mes "Merry Christmas!!";
+		close;
+}
+
+xmas_in,27,103,4	script	Lenient Aunt	701,{
+		mes "[Thachentze]";
+		mes "Merry Christmas~";
+		mes "Ho! Ho! Ho!";
+		next;
+		mes "[Thachentze]";
+		mes "I can feel the Christmas spirit all around me! It's even in the eyes of the young travelers who've come out here all the way to Lutie. Hoho, I wish you a Merry Christmas!";
+		next;
+		mes "[Thachentze]";
+		mes "We have a dungeon named";
+		mes "'Christmas dungeon' around here. Well, I guess I don't need to tell you much if you've heard about it already.";
+		mes "Oh well...";
+		next;
+		mes "[Thachentze]";
+		mes "I figured something out a few days ago. In the Christmas dungeon, you'll run into creatures that are similar to those outside of town.";
+		next;
+		mes "[Thachentze]";
+		mes "I'm guessing that monsters wandered here from outside of town, and were changed by the cold weather here. So monsters adapted to live in this environment.";
+		next;
+		mes "[Thachentze]";
+		mes "...";
+		mes "Okay, now I think I better be ready to pickle some cabbages. If you didn't know already, I make the best pickles around! Why don't you visit me later and try some?";
+		close;
+	}
+
+
+// Lutie
+//============================================================
+xmas,117,304,4	script	Poze	713,{
+		mes "[Poze]";
+		mes "Welcome to Lutie,";
+		mes "the town which blesses";
+		mes "all of its visitors with";
+		mes "the spirit of Christmas!";
+		mes "Merry Christmas !";
+		next;
+		mes "[Poze]";
+		mes "Here in this magical land of fun and fancy, you can enjoy the spirit of Christmas all year round~! Isn't that wonderful?";
+		next;
+		mes "[Poze]";
+		mes "Lutie isn't merely just a simple attraction. We have convenient facilities like the other towns, but in a festive environment.";
+		next;
+		mes "[Poze]";
+		mes "So if you decide to stay here for a while, you should have all the comforts that you need. Merry Christmas~";
+		close;
+}
+
+xmas,176,236,4	script	Uncle Hairy	712,{
+			mes "[Cantata]";
+			mes "A long time ago,";
+			mes "there was a great";
+			mes "Alchemist living";
+			mes "in the far north.";
+			mes "His name was";
+			mes "^3355FFPhilip Varsez^000000!";
+			next;
+			mes "[Cantata]";
+			mes "He was always foremost in the research of alchemy and needed rare materials to conduct his studies. Because of that, he had to travel the world in search of materials containing magical energies...";
+			next;
+			mes "[Cantata]";
+			mes "One day, his travels brought him to a northern village known for its freezing weather. But when he arrived, he was welcomed by a smouldering town that had recently been destroyed.";
+			next;
+			mes "[Cantata]";
+			mes "It was a grim sight: People were lying at the roadside, groaning in agony. As Varsez walked by, each villager would beg, 'K-Kill me...' and plead for him to put them out of their misery.";
+			next;
+			mes "[Cantata]";
+			mes "Amidst the woeful cries of despair, the wails of two infants reached the ears of Philip Varsez. He rushed to investigate and found two babies cushioned in the bosom of a melting snowman.";
+			next;
+			mes "[Cantata]";
+			mes "That snowman...";
+			mes "was ^3355FFSnowysnow^000000.";
+			next;
+			mes "[Cantata]";
+			mes "Being the wise Alchemist that he is, Varsez deduced that Snowysnow sacrificed himself to protect those two babies from the great disaster that had destroyed the village.";
+			next;
+			mes "[Cantata]";
+			mes "Varsez was touched, and was determined to save the life of this snowman with his alchemy. He would then transport him here to Lutie, the safest place in the world.";
+			next;
+			mes "[Cantata]";
+			mes "Of course, there was another rumor that, in addition to the mercy from that Alchemist, Snowysnow was able to survive due to the special properties of his snow.";
+			next;
+			mes "[Cantata]";
+			mes "It's believed that Snowysnow's snow used to cover a mysterious field that would be filled with the bloom of magical flowers.";
+			next;
+			mes "[Cantata]";
+			mes "Muhahaha~";
+			mes "Well, that's pretty much all I know. I hope you were able to learn what you wanted from my story! Haw haw haw!";
+			close;
+}
+
+xmas,134,112,4	script	Snowman	710,{
+		cutin "rutie_snownow02.bmp",2;
+		mes "[Snowysnow]";
+		mes "Don't you love the weather here? I love thi place!";
+		mes "Everybody here loves to talk to me and is my friend!";
+		if (illusionistjob ==1 && puppetclaw ==0){
+		mes "[Snowysnow]";
+		mes "I see that you found a good memory here!";
+		mes "I'm sure your sister is happy, wherever she is!";
+		next;
+		mes "[Snowysnow]";
+		mes "Be strong!";
+		mes "I remember when you visited us in the past...That was a good day.";
+		next;
+		mes "[Snowysnow]";
+		mes "Your sister was so happy!";
+		mes "She loved coming to lutie...you have to be strong now and make her proud.";
+		next;
+		set puppetclaw,1;
+		getitem 1808,1;
+		mes "[Snowysnow]";
+		mes "Take this and take good care of her memories that you carry around.";
+		mes "Protect that doll as much as she loved it ok?";
+		}
+		close2;
+		cutin "",255;
+		end;
+}
+
+xmas,146,136,4	script	Hashokii	715,{
+	mes "[Hashokii]";
+	mes "Meeee~RrrrrYYYY Christmas~!";
+	mes "La La La~!";
+	mes "Dum di Dum di Dum!";
+	close;
+}
+
+xmas,206,168,4	script	Little Boy	706,{
+		mes "[Charu Charu]";
+		mes "Merry Christmas!";
+		mes "Enjoy your Holiday in Lutie~!";
+		close;
+}
+
+xmas,208,168,4	script	Little Girl	703,{
+		mes "[Marcell]";
+		mes "Merry Christmas~!";
+		next;
+		mes "[Marcell]";
+		mes "It's freezing out here...! And Charu Charu makes me colder with his unbearable jokes. And the wind's blowing so hard!";
+		close;
+}

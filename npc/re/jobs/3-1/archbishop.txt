@@ -1,0 +1,103 @@
+//===== rAthena Script =======================================
+//= Arch Bishop Job Quest
+//===== By: ==================================================
+//= L0ne_W0lf
+//= Credits: Gepard
+//===== Current Version: =====================================
+//= 2.0
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= [Official Conversion]
+//= Job change Quest from Priest / High Priest -> Arch Bishop.
+//===== Additional Comments: =================================
+//= 1.0 First version.
+//= 1.1 Fixed class checks for arch bishops.
+//= 1.2 Fixed Job tags typos.
+//= 1.3 Made some NPC's into duplicates and fixed some && / || checks. [Masao]
+//= 1.4 Fixed Job_Archbishop/Job_Archbishop_T typos. [Euphy]
+//= 1.5 Redone the whole Script. [Masao]
+//= 1.5a Fixed little typo in Baby Priest & Baby Arch Bishop checks. [Masao]
+//= 1.5b More small fixes. [Euphy]
+//= 1.6 Fixed bugs where players unable to continue the quest. [Joseph]
+//= 1.7 Updated script, many bugs fixed. [Euphy]
+//= 1.7a Moved warps to separate file. [Euphy]
+//= 1.8 Bug fixes and corrections. [Euphy]
+//= 1.9 Added GM management function. [Euphy]
+//= 2.0 Added VIP features. [Euphy]
+//============================================================
+
+prt_church,103,88,3	script	Praying Minister#arch	60,{
+			mes "[Praying Minister]";
+			mes "In front of the Almighty God Odin,";
+			mes "there shall be no person smarter than him,";
+			mes "and there will be no person more merciful than him.";
+			next;
+			mes "[Praying Minister]";
+			mes "All ministers of Odin should be diligent. They should never be too lazy to serve Odin.";
+			next;
+			mes "[Praying Minister]";
+			mes (Sex == SEX_MALE?"Brother":"Sister")+", how has your life been? Have you lived it to its fullest?";
+			mes "Have you served your life in the light of Odin?";
+			next;
+			mes "[Praying Minister]";
+			mes "We are ministers and our behavior is seen as acts of the Gods.";
+			mes "We should always be mindful of this.";
+			next;
+			mes "[Praying Minister]";
+			mes "We should always tell the truth.";
+			mes "We should not fall prey to lies and deceit.";
+			next;
+			mes "[Praying Minister]";
+			mes (Sex == SEX_MALE?"Boy":"Girl")+"...";
+			mes "Even though we serve Odin, we are normal people.";
+			mes "We can be degraded in spite of ourselves and we must realize that.";
+			next;
+			mes "[Praying Minister]";
+			mes "We always try to keep our original intention in mind and spread Odin's rule.";
+		close;
+	}
+umbala,137,227,5	script	Utan Boy#arch	787,{
+	mes "[Utan Boy]";
+	mes "........";
+	close;
+}
+
+umbala,139,227,3	script	Priest#arch	60,{
+		mes "[Priest]";
+		mes "Un...ba... Umba?";
+		next;
+		mes "[Utan Boy]";
+		mes "...............";
+		next;
+		mes "[Priest]";
+		mes "Is that... right?";
+		mes "Hmm... so...";
+		mes "Um...ma? Umau...ma?";
+		emotion ET_SWEAT;
+		next;
+		mes "[Utan Boy]";
+		mes "...............";
+		next;
+		mes "[Priest]";
+		mes "Huuuuuu......";
+		mes "Oh, dear . I feel heavy.";
+		mes "hohohoho.";
+		next;
+		mes "- mumbling~ -";
+		next;
+		mes "[Priest]";
+		mes "hahahahaha.";
+		mes "huhuhuhu. humhum.";
+		next;
+		mes "[Priest Dayan]";
+		mes "Oh Sorry! I didn't see you there!";
+		mes "This place is the holiest place in the world, Yggdrasil. I'm trying to understand the people here but I'm still learning.";
+	close;
+}
+
+hu_in01,205,204,7	script	Praying Nun#benew	79,{
+		mes "[Vinue]";
+		mes "There is a ferry on the right side of the church. You can go to Odin's temple with it.";
+		close;
+}
