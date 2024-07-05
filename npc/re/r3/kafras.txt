@@ -2480,7 +2480,7 @@ umbala,99,154,4	script	Kafra#umb	117,{
 	mes "It's good to see you here.";
 	mes "Do you need any Kafra services?";
 	next;
-	switch(select("Refill ElixirSave:Use Storage:Teleport - 3000z::Nothing")) {
+	switch(select("Refill Elixir:Save:Use Storage:Teleport - 3000z:Nothing")) {
 	case 1:
 		specialeffect2 305;
 		mes .@npc$;
