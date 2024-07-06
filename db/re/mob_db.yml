@@ -36087,6 +36087,9 @@ Body:
       - Item: Diabolus_Robes
         Rate: 100
         RandomOptionGroup: armor
+      - Item: Demon_God_Armguard
+        Rate: 50
+        RandomOptionGroup: manual
       - Item: Perfect_TuxedoMVP
         Rate: 10
   - Id: 1921
@@ -75789,6 +75792,9 @@ Body:
       - Item: Dandelion_Chains
         Rate: 100
         RandomOptionGroup: accessory
+      - Item: Demon_God_Armguard
+        Rate: 50
+        RandomOptionGroup: manual
       - Item: Perfect_TuxedoMVP
         Rate: 10
   - Id: 3097
