@@ -6802,7 +6802,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: PetiteSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
   - Id: 1156
     AegisName: PETIT_
@@ -6849,7 +6849,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: ThrustCOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
   - Id: 1157
     AegisName: PHARAOH
@@ -11458,7 +11458,7 @@ Body:
       - Item: Enriched_Oridecon
         Rate: 150
       - Item: SkyspearCOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
   - Id: 1263
     AegisName: WIND_GHOST
@@ -28322,10 +28322,10 @@ Body:
       - Item: Dark_Red_ScaleMVP
         Rate: 10
       - Item: AcidusSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
       - Item: DetaleSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
   - Id: 1714
     AegisName: FERUS
@@ -28374,7 +28374,7 @@ Body:
       - Item: Dark_Red_ScaleMVP
         Rate: 10
       - Item: FerusSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
   - Id: 1715
     AegisName: NOVUS
@@ -28418,7 +28418,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: NovusSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
   - Id: 1716
     AegisName: ACIDUS_
@@ -28470,7 +28470,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: DetaleSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
   - Id: 1717
     AegisName: FERUS_
@@ -28524,7 +28524,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: DetaleSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
   - Id: 1718
     AegisName: NOVUS_
@@ -28613,7 +28613,7 @@ Body:
       - Item: Enriched_Oridecon
         Rate: 2500
       - Item: DetaleSOrb
-        Rate: 10
+        Rate: 300
         RandomOptionGroup: dracomvp
   - Id: 1720
     AegisName: HYDRO
@@ -28671,10 +28671,10 @@ Body:
       - Item: Dark_Red_ScaleMVP
         Rate: 10
       - Item: HydroSOrb
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: dracoorb
       - Item: DetaleSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
   - Id: 1721
     AegisName: DRAGON_EGG
@@ -29996,7 +29996,7 @@ Body:
       - Item: HD_Elunium
         Rate: 100
       - Item: AcidusSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
   - Id: 1758
     AegisName: G_FERUS
@@ -30041,10 +30041,10 @@ Body:
       - Item: Oridecon
         Rate: 150
       - Item: FerusSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
       - Item: DetaleSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
   - Id: 1759
     AegisName: G_ACIDUS_
@@ -30099,10 +30099,10 @@ Body:
         Rate: 25
         RandomOptionGroup: spear
       - Item: BoneDetaleSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
       - Item: HydroSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
       - Item: Dragonic_SkullMVP
         Rate: 10
@@ -34964,7 +34964,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: EnchantedSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
       - Item: Strange_FruitMVP
         Rate: 10
@@ -39359,7 +39359,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: NydhoggSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
   - Id: 2014
     AegisName: DRACO_EGG
@@ -39748,7 +39748,7 @@ Body:
       - Item: HD_Oridecon
         Rate: 2500
       - Item: NydhoggSOrb
-        Rate: 10
+        Rate: 300
         RandomOptionGroup: dracomvp
   - Id: 2023
     AegisName: DARK_SHADOW
@@ -50392,10 +50392,10 @@ Body:
       - Item: Enriched_Elunium
         Rate: 1000
       - Item: PhantomWOrb
-        Rate: 10
+        Rate: 200
         RandomOptionGroup: dracomvp
       - Item: PhantomWOrb
-        Rate: 100
+        Rate: 200
         RandomOptionGroup: dracoorb
   - Id: 2320
     AegisName: BAKONAWA_1
@@ -50443,11 +50443,11 @@ Body:
       - Item: Dragon_HeadMVP
         Rate: 10
       - Item: ExplosiveCOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
       - Item: ExplosiveCOrb
         Rate: 100
-        RandomOptionGroup: dracoorb
+        RandomOptionGroup: dracomvp
       - Item: Ancient_Bronze_Br
         Rate: 100
         RandomOptionGroup: accessory
@@ -50503,7 +50503,7 @@ Body:
       - Item: Dragon_HeadMVP
         Rate: 10
       - Item: NydhoggSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
       - Item: WyrmWOrb
         Rate: 100
@@ -60291,7 +60291,7 @@ Body:
         Rate: 100
         RandomOptionGroup: dracoorb
       - Item: SkyspearCOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
   - Id: 2654
     AegisName: C4_SMOKIE
@@ -67781,10 +67781,10 @@ Body:
         Rate: 100
         RandomOptionGroup: katar
       - Item: HydroSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracomvp
       - Item: BoneDetaleSOrb
-        Rate: 10
+        Rate: 100
         RandomOptionGroup: dracoorb
       - Item: Circlet_Of_Bones
         Rate: 100
@@ -70293,7 +70293,7 @@ Body:
       - Item: MVP_Reward_Box
         Rate: 5750
       - Item: BoneDetaleSOrb
-        Rate: 10
+        Rate: 300
         RandomOptionGroup: dracomvp
   - Id: 2896
     AegisName: C5_ANTLER_SCARABA
@@ -75792,11 +75792,11 @@ Body:
       - Item: Dandelion_Chains
         Rate: 100
         RandomOptionGroup: accessory
-      - Item: Perfect_TuxedoMVP
-        Rate: 10
       - Item: Demon_God_Armguard
         Rate: 50
         RandomOptionGroup: manual
+      - Item: Perfect_TuxedoMVP
+        Rate: 10
   - Id: 3097
     AegisName: MM_MOROCC_ADT
     Name: Emperor Morroc
