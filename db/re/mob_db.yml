@@ -36087,6 +36087,9 @@ Body:
       - Item: Diabolus_Robes
         Rate: 100
         RandomOptionGroup: armor
+      - Item: Demon_God_Armguard
+        Rate: 50
+        RandomOptionGroup: manual
       - Item: Perfect_TuxedoMVP
         Rate: 10
   - Id: 1921
@@ -75791,6 +75794,9 @@ Body:
         RandomOptionGroup: accessory
       - Item: Perfect_TuxedoMVP
         Rate: 10
+      - Item: Demon_God_Armguard
+        Rate: 50
+        RandomOptionGroup: manual
   - Id: 3097
     AegisName: MM_MOROCC_ADT
     Name: Emperor Morroc
