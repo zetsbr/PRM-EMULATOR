@@ -2635,6 +2635,19 @@ static void pc_bonus_autospell_onskill(std::vector<s_autospell> &spell, uint16 s
 	spell.push_back(entry);
 }
 
+
+/**
+ * Add auto spell bonus for player while using baseline without needing any item bonus
+ * @param sd: Map session data
+ * @param src_skill: Trigger skill id
+ * @param src_skill_lv: Trigger skill level
+ * @param id: Skill id that will be triggered
+ * @param lv: Skill level of the triggered skill
+ * @param rate: Success chance (1000 for 100%)
+ * @param card_id: Used to prevent card stacking
+ * @param bl: status block list
+ * @param tick: Timer
+ */
 void pc_bonus_autospell_onskill_baseline(struct map_session_data* sd, uint16 src_skill, uint16 src_skill_lv, uint16 id, uint16 lv, short rate, t_itemid card_id, struct block_list* bl, t_tick tick) {
 	int target = skill_get_inf(id); //Support or Self (non-auto-target) skills should pick self.
 	target = target & INF_SUPPORT_SKILL || (target & INF_SELF_SKILL && !skill_get_inf2(id, INF2_NOTARGETSELF));
