@@ -12,7 +12,7 @@ Thumbs.db
 
 # /
 /*_fifo
-/*.exe
+#/*.exe
 /*.exe.*
 /*.ilk
 /*.iobj
@@ -21,7 +21,7 @@ Thumbs.db
 /*.ncb
 /*.opensdf
 /*.opt
-/*.pdb
+#/*.pdb
 /*.pid
 /*.sdf
 /*.stackdump

@@ -610,6 +610,9 @@ int skill_calc_heal(struct block_list *src, struct block_list *target, uint16 sk
 bool skill_check_cloaking(struct block_list *bl, struct status_change_entry *sce);
 int8 skill_isCopyable(struct map_session_data* sd, uint16 skill_id);
 
+//skill trigger for autocast on baseline kit without item buffs
+int skill_onskillusage_baseline(struct map_session_data* sd, struct block_list* bl, uint16 skill_id, uint16 skill_lvl, t_tick tick);
+
 // Abnormal status
 void skill_enchant_elemental_end(struct block_list *bl, int type);
 bool skill_isNotOk(uint16 skill_id, struct map_session_data *sd);

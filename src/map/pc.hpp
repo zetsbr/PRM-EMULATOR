@@ -539,7 +539,7 @@ struct map_session_data {
 	} indexed_bonus;
 	// zeroed arrays end here.
 
-	std::vector<s_autospell> autospell, autospell2, autospell3;
+	std::vector<s_autospell> autospell, autospell2, autospell3, autospellbaseline;
 	std::vector<s_addeffect> addeff, addeff_atked;
 	std::vector<s_addeffectonskill> addeff_onskill;
 	std::vector<s_item_bonus> skillatk, skillusesprate, skillusesp, skillheal, skillheal2, skillblown, skillcastrate, skillfixcastrate, subskill, skillcooldown, skillfixcast,
@@ -1323,6 +1323,9 @@ void pc_bonus2(struct map_session_data *sd, int type, int type2, int val);
 void pc_bonus3(struct map_session_data *sd, int type, int type2, int type3, int val);
 void pc_bonus4(struct map_session_data *sd, int type, int type2, int type3, int type4, int val);
 void pc_bonus5(struct map_session_data *sd, int type, int type2, int type3, int type4, int type5, int val);
+
+//autocast without item bonus to be used when you want a skill to trigger another
+void pc_bonus_autospell_onskill_baseline(struct map_session_data* sd, uint16 src_skill, uint16 src_skill_lv, uint16 id, uint16 lv, short rate, t_itemid card_id, struct block_list* bl, t_tick tick);
 
 enum e_addskill_type {
 	ADDSKILL_PERMANENT			= 0,	///< Permanent skill. Remove the skill if level is 0

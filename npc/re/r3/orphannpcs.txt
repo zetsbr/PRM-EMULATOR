@@ -993,6 +993,7 @@ va_orpha,31,261,3	script	Heimdall Alt-Eisen#orphanage	813,{
 				close;
 				break;
 		}
+		break;
 		case 4:
 		mes "[Heimdall Alt-Eisen]";
 		mes "Me and my brothers, Helmut and Horacio, setup shop here to assist the Thief Guild on taking care of the orphanage";
