@@ -2558,6 +2558,73 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	return 0;
 }
 
+int skill_onskillusage_baseline(struct map_session_data* sd, struct block_list* bl, uint16 skill_id, uint16 skill_lvl, t_tick tick) {
+	if (sd == nullptr || !skill_id)
+		return 0;
+
+	for (auto& it : sd->autospellbaseline) {
+		if (it.trigger_skill != skill_id)
+			continue;
+
+		if (it.lock)
+			continue;  // autospell already being executed
+
+		uint16 skill = it.id;
+
+		sd->state.autocast = 1; //set this to bypass sd->canskill_tick check
+
+		if (skill_isNotOk(skill, sd)) {
+			sd->state.autocast = 0;
+			continue;
+		}
+
+		sd->state.autocast = 0;
+
+		// DANGER DANGER: here force target actually means use yourself as target!
+		block_list* tbl = (it.flag & AUTOSPELL_FORCE_TARGET) ? &sd->bl : bl;
+
+		if (tbl == nullptr) {
+			continue; // No target
+		}
+
+		if (rnd() % 1000 >= it.rate)
+			continue;
+
+		uint16 skill_lv = it.lv ? it.lv : 1;
+
+		if (it.flag & AUTOSPELL_FORCE_RANDOM_LEVEL)
+			skill_lv = rnd_value(1, skill_lv); //random skill_lv
+
+		e_cast_type type = skill_get_casttype(skill);
+
+		if (type == CAST_GROUND && !skill_pos_maxcount_check(&sd->bl, tbl->x, tbl->y, skill_id, skill_lv, BL_PC, false))
+			continue;
+
+		if (battle_config.autospell_check_range &&
+			!battle_check_range(bl, tbl, skill_get_range2(&sd->bl, skill, skill_lv, true)))
+			continue;
+
+		sd->state.autocast = 1;
+		if (it.flag & 4) sd->state.autocast = 0;
+		it.lock = true;
+		skill_consume_requirement(sd, skill, skill_lv, 1);
+		switch (type) {
+		case CAST_GROUND:
+			skill_castend_pos2(&sd->bl, tbl->x, tbl->y, skill, skill_lv, tick, 0);
+			break;
+		case CAST_NODAMAGE:
+			skill_castend_nodamage_id(&sd->bl, tbl, skill, skill_lv, tick, 0);
+			break;
+		case CAST_DAMAGE:
+			skill_castend_damage_id(&sd->bl, tbl, skill, skill_lv, tick, 0);
+			break;
+		}
+		it.lock = false;
+		sd->state.autocast = 0;
+	}
+	return 1;
+}
+
 int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint16 skill_id, uint16 skill_lvl, t_tick tick) {
 	if (sd == nullptr || !skill_id)
 		return 0;
@@ -6151,9 +6218,14 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 	case NJ_KASUMIKIRI:
-		if (skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag) > 0)
-			if (sd && !(sc && sc->data[SC_GT_CHANGE]))
-			sc_start(src, src, SC_HIDING, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+		if (skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag) > 0){
+			if (sd) {
+				if (!(sc && sc->data[SC_GT_CHANGE])){
+					sc_start(src, src, SC_HIDING, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+				}
+				pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, TF_BACKSLIDING, 1, 1000, current_equip_card_id, bl,tick);
+			}
+		}
 		break;
 	case NJ_KIRIKAGE:
 		if (!map_flag_gvg2(src->m) && !map_getmapflag(src->m, MF_BATTLEGROUND))

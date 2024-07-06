@@ -2635,6 +2635,36 @@ static void pc_bonus_autospell_onskill(std::vector<s_autospell> &spell, uint16 s
 	spell.push_back(entry);
 }
 
+void pc_bonus_autospell_onskill_baseline(struct map_session_data* sd, uint16 src_skill, uint16 src_skill_lv, uint16 id, uint16 lv, short rate, t_itemid card_id, struct block_list* bl, t_tick tick) {
+	int target = skill_get_inf(id); //Support or Self (non-auto-target) skills should pick self.
+	target = target & INF_SUPPORT_SKILL || (target & INF_SELF_SKILL && !skill_get_inf2(id, INF2_NOTARGETSELF));
+	int flag = target ? AUTOSPELL_FORCE_TARGET : AUTOSPELL_FORCE_SELF;
+
+	if (sd->autospellbaseline.size() == MAX_PC_BONUS) {
+		ShowWarning("pc_bonus_autospell_onskill: Reached max (%d) number of autospells per character!\n", MAX_PC_BONUS);
+		return;
+	}
+
+	if (!rate)
+		return;
+
+	struct s_autospell entry = {};
+
+	if (rate < -10000 || rate > 10000)
+		ShowWarning("pc_bonus_onskill: Item bonus rate %d exceeds -10000~10000 range, capping.\n", rate);
+
+	entry.trigger_skill = src_skill;
+	entry.id = id;
+	entry.lv = lv;
+	entry.rate = cap_value(rate, -10000, 10000);
+	entry.card_id = card_id;
+	entry.flag = flag;
+
+	sd->autospellbaseline.push_back(entry);
+	skill_onskillusage_baseline(sd, bl, src_skill, src_skill_lv, tick);
+	sd->autospellbaseline.pop_back();
+}
+
 /**
  * Add inflict effect bonus for player while attacking/attacked
  * @param effect: Effect array
