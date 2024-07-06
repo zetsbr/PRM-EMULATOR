@@ -28673,9 +28673,6 @@ Body:
       - Item: HydroSOrb
         Rate: 200
         RandomOptionGroup: dracoorb
-      - Item: HydroSOrb
-        Rate: 200
-        RandomOptionGroup: dracomvp
       - Item: DetaleSOrb
         Rate: 100
         RandomOptionGroup: dracomvp

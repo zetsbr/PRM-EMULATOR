@@ -29,6 +29,9 @@ va_orpha,24,326,5	script	Training Tutor#orph	642,{
 	close2;
 	switch(select("Open Storage:Nevermind")) {
 	case 1:
+	mes .@npc$;
+	mes "Here have your items!";
+	next;
 	switch(select("Storage 1:Storage 2:Storage 3:Storage 4:Cancel")) {
 			case 1:
 				close2;
@@ -54,7 +57,7 @@ va_orpha,24,326,5	script	Training Tutor#orph	642,{
 				cutin "",255;
 				close;
 				break;
-		}
+	}
 	end;
 	case 2:
 	end;
