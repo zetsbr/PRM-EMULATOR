@@ -3475,10 +3475,12 @@ void skill_combo(struct block_list* src, struct block_list* dsrc, struct block_l
 		case SR_DRAGONCOMBO:
 			if (pc_checkskill(sd, SR_FALLENEMPIRE) > 0)
 				duration = 2;
+			nodelay = 2;
 			break;
 		case SR_FALLENEMPIRE:
 			if (pc_checkskill(sd, SR_TIGERCANNON) > 0 || pc_checkskill(sd, SR_GATEOFHELL) > 0)
 				duration = 2;
+			nodelay = 2;
 			break;
 		case LG_HESPERUSLIT:
 			if (pc_checkskill(sd, SU_SCRATCH) > 0)
