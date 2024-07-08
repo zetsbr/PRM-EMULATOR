@@ -8139,17 +8139,17 @@ Body:
       Id: Landprotector
       Layout:
         - Level: 1
-          Size: 2
+          Size: 1
         - Level: 2
-          Size: 2
+          Size: 1
         - Level: 3
-          Size: 2
+          Size: 1
         - Level: 4
           Size: 2
         - Level: 5
           Size: 2
         - Level: 6
-          Size: 3
+          Size: 2
         - Level: 7
           Size: 3
         - Level: 8
