@@ -8167,12 +8167,13 @@ ACMD_FUNC(iteminfo)
 		clif_displaymessage(fd, atcmd_output);
 	}
 	for (i = 0; i < count; i++) {
-		struct item_data * item_data = item_array[i];
-		sprintf(atcmd_output, msg_txt(sd,1277), // Item: '%s'/'%s'[%d] (%u) Type: %s | Extra Effect: %s
-			item_data->name.c_str(),item_data->ename.c_str(),item_data->slots,item_data->nameid,
-			(item_data->type != IT_AMMO) ? itemdb_typename((enum item_types)item_data->type) : itemdb_typename_ammo((e_ammo_type)item_data->subtype),
-			(item_data->script==NULL)? msg_txt(sd,1278) : msg_txt(sd,1279) // None / With script
+		struct item_data* item_data = item_array[i];
+		struct item item_tmp;
+		item_tmp.nameid = item_data->nameid;
+		sprintf(atcmd_output, "Item: '%s'/'%s' (%hu)", // msg_txt(sd, 1277)
+			item_data->name.c_str(), itemdb_getItemLink(&item_tmp).c_str(), item_data->nameid
 		);
+
 		clif_displaymessage(fd, atcmd_output);
 
 		sprintf(atcmd_output, msg_txt(sd,1280), item_data->value_buy, item_data->value_sell, item_data->weight/10. ); // NPC Buy:%dz, Sell:%dz | Weight: %.1f
