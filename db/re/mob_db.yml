@@ -29809,8 +29809,6 @@ Body:
         Rate: 300
       - Item: Valhalla_FlowerMVP
         Rate: 10
-      - Item: Astro_Coffer
-        Rate: 300
   - Id: 1753
     AegisName: FRUS
     Name: Frus
@@ -29855,8 +29853,6 @@ Body:
         Rate: 300
       - Item: Valhalla_FlowerMVP
         Rate: 10
-      - Item: Astro_Coffer
-        Rate: 300
   - Id: 1754
     AegisName: SKEGGIOLD
     Name: Skeggiold
@@ -29911,8 +29907,6 @@ Body:
       - Item: Sealed_Codex
         Rate: 50
         RandomOptionGroup: codex
-      - Item: Astro_Coffer
-        Rate: 300
   - Id: 1755
     AegisName: SKEGGIOLD_
     Name: Skeggiold
@@ -30381,8 +30375,6 @@ Body:
       - Item: Sealed_Codex
         Rate: 200
         RandomOptionGroup: codex
-      - Item: Astro_Coffer
-        Rate: 300
   - Id: 1766
     AegisName: EM_ANGELING
     Name: Angeling
@@ -36629,8 +36621,6 @@ Body:
         Rate: 300
       - Item: Valhalla_FlowerMVP
         Rate: 10
-      - Item: Astro_Coffer
-        Rate: 300
   - Id: 1934
     AegisName: BLUE_FLOWER
     Name: Blue Flower
@@ -39682,8 +39672,6 @@ Body:
         Rate: 200
       - Item: Valhalla_FlowerMVP
         Rate: 10
-      - Item: Astro_Coffer
-        Rate: 300
   - Id: 2021
     AegisName: PHYLLA
     Name: Phylla
