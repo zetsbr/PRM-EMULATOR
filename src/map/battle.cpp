@@ -2817,6 +2817,7 @@ static bool is_attack_critical(struct Damage* wd, struct block_list *src, struct
 			case ASC_BREAKER:
 #endif
 			case LG_CANNONSPEAR:
+				break;
 			case GC_CROSSIMPACT:
 				cri /= 2;
 				break;
