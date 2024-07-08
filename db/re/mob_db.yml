@@ -60732,6 +60732,8 @@ Body:
       - Item: ForgottenScarf
         Rate: 300
         RandomOptionGroup: manual
+      - Item: Baroness_of_blood_Card
+        Rate: 300
   - Id: 2662
     AegisName: C2_SIDE_WINDER
     Name: Magetin
