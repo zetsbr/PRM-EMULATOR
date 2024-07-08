@@ -1588,6 +1588,8 @@ Body:
         Rate: 75
       - Item: Massive_CleaverMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1038
     AegisName: OSIRIS
     Name: Osiris
@@ -1829,6 +1831,8 @@ Body:
         RandomOptionGroup: manual
       - Item: Massive_CleaverMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
 #  - Id: 1043
 #    AegisName: SEAHORES
 #    Name: Seahorse
@@ -16702,6 +16706,8 @@ Body:
       - Item: Ghost_Whisper_
         Rate: 300
         RandomOptionGroup: sword
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1395
     AegisName: Crystal_1
     Name: Miguel
@@ -17887,6 +17893,8 @@ Body:
         RandomOptionGroup: axe
       - Item: HD_Elunium
         Rate: 100
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1425
     AegisName: G_OBEAUNE
     Name: Obeaune
@@ -20366,6 +20374,8 @@ Body:
         Rate: 25
       - Item: Halloween_Coin
         Rate: 500
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1504
     AegisName: DULLAHAN
     Name: Dullahan
@@ -20418,6 +20428,8 @@ Body:
         RandomOptionGroup: armor
       - Item: Halloween_Coin
         Rate: 500
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1505
     AegisName: LOLI_RURI
     Name: Loli Ruri
@@ -20473,6 +20485,8 @@ Body:
         RandomOptionGroup: shoes
       - Item: Halloween_Coin
         Rate: 500
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1506
     AegisName: DISGUISE
     Name: Disguise
@@ -20520,6 +20534,8 @@ Body:
         Rate: 25
       - Item: Halloween_Coin
         Rate: 500
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1507
     AegisName: BLOODY_MURDERER
     Name: Bloody Murderer
@@ -20575,8 +20591,8 @@ Body:
         RandomOptionGroup: bow
       - Item: C_Hockey_Mask
         Rate: 35
-      - Item: Halloween_Coin
-        Rate: 500
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1508
     AegisName: QUVE
     Name: Quve
@@ -20709,6 +20725,8 @@ Body:
         RandomOptionGroup: garment
       - Item: Halloween_Coin
         Rate: 500
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1511
     AegisName: AMON_RA
     Name: Amon Ra
@@ -29791,6 +29809,8 @@ Body:
         Rate: 300
       - Item: Valhalla_FlowerMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1753
     AegisName: FRUS
     Name: Frus
@@ -29835,6 +29855,8 @@ Body:
         Rate: 300
       - Item: Valhalla_FlowerMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1754
     AegisName: SKEGGIOLD
     Name: Skeggiold
@@ -29889,6 +29911,8 @@ Body:
       - Item: Sealed_Codex
         Rate: 50
         RandomOptionGroup: codex
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1755
     AegisName: SKEGGIOLD_
     Name: Skeggiold
@@ -30357,6 +30381,8 @@ Body:
       - Item: Sealed_Codex
         Rate: 200
         RandomOptionGroup: codex
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1766
     AegisName: EM_ANGELING
     Name: Angeling
@@ -31229,6 +31255,8 @@ Body:
         RandomOptionGroup: katar
       - Item: Massive_CleaverMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1785
     AegisName: ATROCE
     Name: Atroce
@@ -31282,6 +31310,8 @@ Body:
       - Item: Seed_Of_Yggdrasil
         Rate: 600
       - Item: Growth_Shadow_Coffer
+        Rate: 10000
+      - Item: Astro_Coffer
         Rate: 10000
   - Id: 1786
     AegisName: G_AGAV
@@ -33025,6 +33055,8 @@ Body:
         RandomOptionGroup: sword
       - Item: Elunium
         Rate: 200
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1837
     AegisName: IMP
     Name: Imp
@@ -36597,6 +36629,8 @@ Body:
         Rate: 300
       - Item: Valhalla_FlowerMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 1934
     AegisName: BLUE_FLOWER
     Name: Blue Flower
@@ -39648,6 +39682,8 @@ Body:
         Rate: 200
       - Item: Valhalla_FlowerMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 2021
     AegisName: PHYLLA
     Name: Phylla
@@ -41510,6 +41546,8 @@ Body:
         Rate: 150
       - Item: Crystal_RoseMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 2072
     AegisName: JAGUAR
     Name: Jaguar
@@ -61129,7 +61167,7 @@ Body:
       - Item: Twinkling_StarMVP
         Rate: 10
       - Item: Astro_Coffer
-        Rate: 200
+        Rate: 300
   - Id: 2670
     AegisName: C5_SCORPION
     Name: Meteor Golem
@@ -61178,7 +61216,7 @@ Body:
       - Item: Twinkling_StarMVP
         Rate: 10
       - Item: Astro_Coffer
-        Rate: 200
+        Rate: 300
   - Id: 2671
     AegisName: C1_SAVAGE_BABE
     Name: Doomfist
@@ -61233,7 +61271,7 @@ Body:
       - Item: Twinkling_StarMVP
         Rate: 10
       - Item: Astro_Coffer
-        Rate: 200
+        Rate: 300
   - Id: 2672
     AegisName: C2_SAVAGE
     Name: Star Scourge
@@ -75457,6 +75495,8 @@ Body:
         Rate: 10000
       - Item: HD_Bradium
         Rate: 20
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 3088
     AegisName: MM_BRINARANEA_BABY
     Name: Frost Spider
@@ -83606,6 +83646,8 @@ Body:
         RandomOptionGroup: katar
       - Item: Crystal_RoseMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
 #  - Id: 3637
 #    AegisName: MD_SKELETON_60
 #  - Id: 3638
@@ -83713,6 +83755,8 @@ Body:
         RandomOptionGroup: scythe
       - Item: Crystal_RoseMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 3670
     AegisName: DELETER_2
     Name: Pitaya
@@ -83758,6 +83802,8 @@ Body:
         RandomOptionGroup: bow
       - Item: Crystal_RoseMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
 #  - Id: 3671
 #    AegisName: JP_MAZEMOB_01
 #  - Id: 3672
@@ -84064,6 +84110,8 @@ Body:
         RandomOptionGroup: accessory
       - Item: Crystal_RoseMVP
         Rate: 10
+      - Item: Astro_Coffer
+        Rate: 300
   - Id: 3740
     AegisName: GASTER
     Name: Dark Rose Dragon
@@ -84113,6 +84161,8 @@ Body:
         Rate: 1000
         RandomOptionGroup: shield
       - Item: Jewel_Oridecon
+        Rate: 10000
+      - Item: Astro_Coffer
         Rate: 10000
   - Id: 3741
     AegisName: MECHASPIDER
