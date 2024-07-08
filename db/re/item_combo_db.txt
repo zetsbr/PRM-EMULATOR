@@ -2544,3 +2544,13 @@
 480064:1756,{ bonus2 bSubEle,Ele_Earth,75; }
 480064:18123,{ if (getskilllv("WM_GLOOMYDAY") == 5) bonus2 bSkillCooldown,"WM_SEVERE_RAINSTORM",2000; }
 480064:450092,{ if (getskilllv("WM_GLOOMYDAY") == 5) bonus2 bSkillCooldown,"WM_SEVERE_RAINSTORM",2000; }
+14738:31882, { bonus2 bRegenPercentSP,1,1000; }
+14738:31878, { bonus bNoMagicDamage,8; bonus bNoWeaponDamage,8; bonus bNoMiscDamage,8;}
+14738:31880, { bonus bCritAtkRate, 20; bonus bCritical, 20; }
+14738:31877, { bonus bBaseAtk,20; }
+14738:31881, { bonus bMatkRate,20; }
+14738:31879, { skill "SM_MOVINGRECOVERY",1; }
+14738:31875, { bonus bASPDCap,2; bonus bSpeedAddRate,10; }
+14738:31876, { bonus2 bExpAddClass,Class_All,10 }
+14738:31855, { bonus bMaxHPrate,15; bonus bMaxSPrate,15;}
+14738:31874:27259:27260:27261:27262:27263:27264, { bonus bAllStats,5 }

@@ -37177,6 +37177,19 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+  - Id: 14738
+    AegisName: Baroness_of_blood_Card
+    Name: Baroness of Blood Card
+    Type: Card
+    Buy: 20
+    Weight: 10
+    Locations:
+      Head_Mid: true
+    Flags:
+      BuyingStore: true
+      DropEffect: YELLOW_PILLAR
+    Script: |
+      bonus2 bExpAddClass,Class_All,10;
   - Id: 16570
     AegisName: Muscles_Story_J_Box
     Name: Muscle Knights Summertime Guide Box
