@@ -3913,7 +3913,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case SM_BASH:
 		case MS_BASH:
 			skillratio += 100 +25 * skill_lv + sstatus->str;
-			if (sc && sc->data[SC_NEN])
+			if (sc && sc->data[SC_CONCENTRATE])
 			skillratio += 10 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
 			break;
 		case SM_MAGNUM:
@@ -6919,7 +6919,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						break;
 					case WL_HELLINFERNO:
 						skillratio += skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
-						if (sc && sc->data[SC_NEN])
+						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						break;
 					case WL_COMET:
@@ -6941,7 +6941,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio += 5 * (sstatus->int_);
 						if (sc && sc->data[SC_MANU_DEF])
 							skillratio += 150 + 20 * skill_lv; + 15 * (sstatus->int_);
-						if (sc && sc->data[SC_NEN])
+						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 #else
 						skillratio += 25 + 25 * skill_lv;
@@ -6949,7 +6949,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						break;
 					case NC_COLDSLOWER:
 						skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
-						if (sc && sc->data[SC_NEN])
+						if (sc && sc->data[SC_CONCENTRATION])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						if (sc && sc->data[SC_KAGEMUSYA])
 							skillratio += 2 * (sstatus->dex);
@@ -7422,7 +7422,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 				if(!sd || !(skill = pc_checkskill(sd,HT_STEELCROW)))
 					skill = 0;
 #ifdef RENEWAL
-				md.damage += skill_lv * 50 + (sstatus->luk) * pc_checkskill(sd,HT_STEELCROW);
+				md.damage += (skill_lv * 50 + (sstatus->luk) * pc_checkskill(sd, HT_STEELCROW)) / 3;
 
 #else
 				md.damage = (sstatus->dex / 10 + sstatus->int_ / 2 + skill * 3 + 40) * 2;
@@ -7433,6 +7433,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 					//Div fix of Blitzbeat
 					DAMAGE_DIV_FIX2(md.damage, skill_get_num(HT_BLITZBEAT, 5));
 					//Falcon Assault Modifier
+					md.damage *= 3;
 					md.damage += (100 *skill_lv)+ (((sstatus->dex + sstatus->luk) * 2) * (2* pc_checkskill(sd, HT_STEELCROW)));
 				}
 			}

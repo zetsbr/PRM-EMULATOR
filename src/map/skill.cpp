@@ -7703,7 +7703,14 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 #endif
 	case NJ_KASUMIKIRI:
 	case NJ_UTSUSEMI:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
 	case NJ_NEN:
+		status_change_end(bl, SC_CONCENTRATION, INVALID_TIMER);
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
 	case NPC_DEFENDER:
 	case NPC_MAGICMIRROR:
 	case ST_PRESERVE:

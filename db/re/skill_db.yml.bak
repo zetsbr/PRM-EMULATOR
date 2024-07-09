@@ -15701,7 +15701,7 @@ Body:
   - Id: 543
     Name: NJ_NEN
     Description: Harvest
-    MaxLevel: 5
+    MaxLevel: 10
     TargetType: Self
     DamageFlags:
       NoDamage: true
@@ -22141,7 +22141,7 @@ Body:
   - Id: 2260
     Name: NC_COLDSLOWER
     Description: Chilling Frost
-    MaxLevel: 5
+    MaxLevel: 10
     Type: Weapon
     TargetType: Ground
     Flags:

@@ -691,7 +691,7 @@ void initChangeTables(void)
 #else
 		);
 #endif
-	set_sc( AC_CONCENTRATION	, SC_CONCENTRATE	, EFST_CONCENTRATION, SCB_AGI|SCB_DEX );
+	set_sc( AC_CONCENTRATION	, SC_CONCENTRATE	, EFST_CONCENTRATION, SCB_INT );
 	set_sc( TF_HIDING		, SC_HIDING		, EFST_HIDING		, SCB_SPEED );
 	add_sc( TF_POISON		, SC_POISON		);
 	set_sc( KN_TWOHANDQUICKEN	, SC_TWOHANDQUICKEN	, EFST_TWOHANDQUICKEN	, SCB_ASPD
@@ -1006,7 +1006,7 @@ void initChangeTables(void)
 	add_sc( NJ_TATAMIGAESHI		, SC_TATAMIGAESHI	);
 	set_sc( NJ_SUITON		, SC_SUITON		, EFST_BLANK		, SCB_AGI|SCB_SPEED );
 	add_sc( NJ_HYOUSYOURAKU		, SC_FREEZE		);
-	set_sc( NJ_NEN			, SC_NEN		, EFST_NJ_NEN, SCB_STR|SCB_INT );
+	set_sc( NJ_NEN			, SC_NEN		, EFST_NJ_NEN, SCB_STR );
 	set_sc( NJ_UTSUSEMI		, SC_UTSUSEMI		, EFST_NJ_UTSUSEMI, SCB_NONE );
 	set_sc( NJ_BUNSINJYUTSU		, SC_BUNSINJYUTSU	, EFST_NJ_BUNSINJYUTSU, SCB_DYE );
 
@@ -2393,8 +2393,6 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			sc_start4(src,target,SC_PROVOKE,100,10,1,0,0,0);
 		if (sc->data[SC_BERSERK] && status->hp <= 100)
 			status_change_end(target, SC_BERSERK, INVALID_TIMER);
-		if (sc->data[SC_NEN] && status->hp <= 100)
-			status_change_end(target, SC_NEN, INVALID_TIMER);
 		if( sc->data[SC_RAISINGDRAGON] && status->hp <= 1000 )
 			status_change_end(target, SC_RAISINGDRAGON, INVALID_TIMER);
 		if (sc->data[SC_SATURDAYNIGHTFEVER] && status->hp <= 100)
@@ -6703,8 +6701,8 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 		else
 			int_ >>= 1;
 	}
-	if(sc->data[SC_NEN])
-		int_ += sc->data[SC_NEN]->val1;
+	if(sc->data[SC_CONCENTRATE])
+		int_ += sc->data[SC_CONCENTRATE]->val1;
 	if(sc->data[SC_MARIONETTE])
 		int_ -= ((sc->data[SC_MARIONETTE]->val4)>>16)&0xFF;
 	if(sc->data[SC_2011RWC_SCROLL])
