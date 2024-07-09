@@ -9315,7 +9315,7 @@ Body:
       NoAuction: true
     Script: |
       specialeffect2 EF_POTION_BERSERK;
-      bonus_script "{ bonus2 bHPDrainRate,1000,10; }",BaseLevel,0,0,EFST_GM_BATTLE;
+      bonus_script "{ bonus2 bHPDrainRate,1000,10; bonus2 bHSDrainRate,1000,10; }",BaseLevel,0,0,EFST_GM_BATTLE;
       ;
   - Id: 12334
     AegisName: Cherish_Box

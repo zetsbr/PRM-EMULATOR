@@ -8689,7 +8689,7 @@ Body:
       - Level: 5
         Area: 2
     Requires:
-      SPRateCost: 5
+      SpRateCost: 50
       SpCost: 50
   - Id: 317
     Name: BA_DISSONANCE
@@ -19199,6 +19199,7 @@ Body:
     Cooldown: 3000
     FixedCastTime: 250
     Requires:
+      SpRateCost: 30
       SpCost: 25
   - Id: 2213
     Name: WL_COMET
@@ -22063,7 +22064,7 @@ Body:
       Skill:
         Plagiarism: true
     Hit: Multi_Hit
-    HitCount: 3
+    HitCount: 2
     Element: Weapon
     SplashArea:
       - Level: 1
@@ -22082,7 +22083,8 @@ Body:
     Duration2: 4000
     Cooldown: 3000
     Requires:
-      SpCost: 100
+      SpRateCost: 30
+      SpCost: 25
   - Id: 2261
     Name: NC_ARMSCANNON
     Description: Arm Cannon
