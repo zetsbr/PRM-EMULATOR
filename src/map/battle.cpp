@@ -7421,7 +7421,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 				if(!sd || !(skill = pc_checkskill(sd,HT_STEELCROW)))
 					skill = 0;
 #ifdef RENEWAL
-				md.damage += skill_lv * 50 + (sstatus->luk) * pc_checkskill(sd,HT_STEELCROW);
+				md.damage += (skill_lv * 50 + (sstatus->luk) * pc_checkskill(sd,HT_STEELCROW))/3;
 
 #else
 				md.damage = (sstatus->dex / 10 + sstatus->int_ / 2 + skill * 3 + 40) * 2;
@@ -7432,6 +7432,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 					//Div fix of Blitzbeat
 					DAMAGE_DIV_FIX2(md.damage, skill_get_num(HT_BLITZBEAT, 5));
 					//Falcon Assault Modifier
+					md.damage *= 3;
 					md.damage += (100 *skill_lv)+ (((sstatus->dex + sstatus->luk) * 2) * (2* pc_checkskill(sd, HT_STEELCROW)));
 				}
 			}
