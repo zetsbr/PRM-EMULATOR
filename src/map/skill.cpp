@@ -1873,8 +1873,11 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case NC_COLDSLOWER:
 		// Status chances are applied officially through a check
 		// The skill first trys to give the frozen status to targets that are hit
-		sc_start(src, bl, SC_FREEZING, 100 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
-		sc_start(src, bl, SC_FREEZE, 100 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
+		sc_start(src, bl, SC_FREEZING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
+		sc_start(src, bl, SC_FREEZE, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
+		break;
+	case WL_HELLINFERNO:
+		sc_start(src, bl, SC_BURNING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case NC_POWERSWING:
 		sc_start(src, bl, SC_STUN, 10, skill_lv, skill_get_time(skill_id, skill_lv));
@@ -5371,7 +5374,14 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 	case BA_MUSICALSTRIKE:
-		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		if (sc&& sc->data[SC_OVERBRANDREADY]){
+			map_foreachinshootrange(skill_attack_area, bl,
+				skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
+				BF_WEAPON, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		}
+		else {
+			skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		}
 		status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
 		if (tsc && tsc->data[SC_FREEZE])
 			status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
