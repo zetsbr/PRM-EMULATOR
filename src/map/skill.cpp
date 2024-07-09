@@ -5377,19 +5377,11 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
 				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			status_percent_change(src, src, 0, sd->right_weapon.sp_drain_rate.per, 0);
 		}
 		else {
 			skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
 		}
-		status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
-		if (tsc && tsc->data[SC_FREEZE])
-			status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
-		if (tsc && tsc->data[SC_FREEZING])
-			status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
-		if (sc && sc->data[SC_GLORIA])
-			status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
-		if (sc && sc->data[SC_NEN])
-			status_heal(src, (3 * skill_lv) * (sd->status.base_level), 0, 0);
 		break;
 	case LK_JOINTBEAT:
 		sc_start(src, src, SC_OVERBRANDREADY, 150, skill_lv, skill_get_time(skill_id, skill_lv));
@@ -6503,14 +6495,11 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
 		if (sc && sc->data[SC_MANU_DEF])
 			status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-		if (flag & 1) {
-			skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
-			skill_addtimerskill(src, tick + 300, bl->id, 0, 0, skill_id, skill_lv, BF_MAGIC, flag | 2);
-		}
-		else {
-			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-			map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
-		}
+
+		map_foreachinshootrange(skill_attack_area, bl,
+			skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
+			skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+
 		break;
 	case RA_WUGSTRIKE:
 		if (!pc_isriding(sd)) {
