@@ -8669,7 +8669,7 @@ Body:
     MaxLevel: 10
     Type: Magic
     TargetType: Attack
-    Range: 9
+    Range: 6
     Hit: Single
     HitCount: 2
     Element: Weapon
@@ -19173,9 +19173,9 @@ Body:
     TargetType: Attack
     DamageFlags:
       Splash: true
-    Range: 11
-    Hit: Single
-    HitCount: 1
+    Range: 6
+    Hit: Multi_Hit
+    HitCount: -3
     Element: Weapon
     CopyFlags:
       Skill:
@@ -22058,12 +22058,12 @@ Body:
     Flags:
       TargetTrap: true
       AllowOnMado: true
-    Range: 5
+    Range: 6
     CopyFlags:
       Skill:
         Plagiarism: true
-    Hit: Single
-    HitCount: 1
+    Hit: Multi_Hit
+    HitCount: -3
     Element: Weapon
     SplashArea:
       - Level: 1
