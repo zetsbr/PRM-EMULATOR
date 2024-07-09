@@ -6949,7 +6949,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						break;
 					case NC_COLDSLOWER:
 						skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
-						if (sc && sc->data[SC_CONCENTRATION])
+						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						if (sc && sc->data[SC_KAGEMUSYA])
 							skillratio += 2 * (sstatus->dex);

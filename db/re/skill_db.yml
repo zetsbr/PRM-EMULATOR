@@ -1713,27 +1713,7 @@ Body:
     Hit: Single
     HitCount: 1
     SplashArea: 2
-    Cooldown:
-      - Level: 1
-        Time: 60000
-      - Level: 2
-        Time: 55000
-      - Level: 3
-        Time: 50000
-      - Level: 4
-        Time: 45000
-      - Level: 5
-        Time: 40000
-      - Level: 6
-        Time: 35000
-      - Level: 7
-        Time: 30000
-      - Level: 8
-        Time: 25000
-      - Level: 9
-        Time: 20000
-      - Level: 10
-        Time: 15000
+    Cooldown: 15000
     Duration1:
       - Level: 1
         Time: 15000
@@ -1756,28 +1736,8 @@ Body:
       - Level: 10
         Time: 150000
     Requires:
-      HpRateCost: -1
-      SpCost:
-        - Level: 1
-          Amount: 25
-        - Level: 2
-          Amount: 30
-        - Level: 3
-          Amount: 35
-        - Level: 4
-          Amount: 40
-        - Level: 5
-          Amount: 45
-        - Level: 6
-          Amount: 50
-        - Level: 7
-          Amount: 55
-        - Level: 8
-          Amount: 60
-        - Level: 9
-          Amount: 65
-        - Level: 10
-          Amount: 70
+      SpRateCost: -1
+      SpCost: 50
   - Id: 46
     Name: AC_DOUBLE
     Description: Double Strafe
@@ -8673,10 +8633,10 @@ Body:
     Hit: Multi_Hit
     HitCount: 2
     Element: Weapon
-    CastTime: 500
-    AfterCastActDelay: 500
+    CastTime: 3000
+    AfterCastActDelay: 1000
     Cooldown: 3000
-    FixedCastTime: 250
+    FixedCastTime: 700
     SplashArea:
       - Level: 1
         Area: 1
@@ -15678,17 +15638,28 @@ Body:
       NoDamage: true
     Hit: Single
     HitCount: 1
+    Cooldown: 15000
     Duration1:
       - Level: 1
-        Time: 10000
+        Time: 15000
       - Level: 2
-        Time: 20000
-      - Level: 3
         Time: 30000
+      - Level: 3
+        Time: 45000
       - Level: 4
-        Time: 40000
+        Time: 60000
       - Level: 5
-        Time: 50000
+        Time: 75000
+      - Level: 6
+        Time: 90000
+      - Level: 7
+        Time: 105000
+      - Level: 8
+        Time: 120000
+      - Level: 9
+        Time: 135000
+      - Level: 10
+        Time: 150000
     Requires:
       SpCost:
         - Level: 1
@@ -19190,14 +19161,24 @@ Body:
       - Level: 4
         Area: 1
       - Level: 5
+        Area: 1
+      - Level: 6
+        Area: 2
+      - Level: 7
+        Area: 2
+      - Level: 8
+        Area: 2
+      - Level: 9
+        Area: 2
+      - Level: 10
         Area: 2
     CastCancel: true
-    CastTime: 250
-    AfterCastActDelay: 500
+    CastTime: 3000
+    AfterCastActDelay: 1000
     Duration1: 10000
     Duration2: 4000
     Cooldown: 3000
-    FixedCastTime: 250
+    FixedCastTime: 700
     Requires:
       SpRateCost: 30
       SpCost: 25
@@ -22068,17 +22049,28 @@ Body:
     Element: Weapon
     SplashArea:
       - Level: 1
-        Area: 2
+        Area: 1
       - Level: 2
-        Area: 2
+        Area: 1
       - Level: 3
-        Area: 2
+        Area: 1
       - Level: 4
-        Area: 2
+        Area: 1
       - Level: 5
-        Area: 3
+        Area: 1
+      - Level: 6
+        Area: 2
+      - Level: 7
+        Area: 2
+      - Level: 8
+        Area: 2
+      - Level: 9
+        Area: 2
+      - Level: 10
+        Area: 2
     CastTime: 3000
-    AfterCastActDelay: 500
+    AfterCastActDelay: 1000
+    FixedCastTime: 700
     Duration1: 10000
     Duration2: 4000
     Cooldown: 3000

@@ -7447,8 +7447,6 @@ static signed short status_calc_flee(struct block_list *bl, struct status_change
 		flee += flee * sc->data[SC_GOLDENE_FERSE]->val2 / 100;
 	if (sc->data[SC_SMOKEPOWDER])
 		flee += flee * 15 / 100;
-	if (sc->data[SC_NEN])
-		flee += flee * 10 / 100;
 	if (sc->data[SC_TEARGAS])
 		flee -= flee * 25 / 100;
 	//if( sc->data[SC_C_MARKER] )
@@ -7908,8 +7906,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_CLOAKING]->val1 >= 10 ? 25 : 3 * sc->data[SC_CLOAKING]->val1 - 3 );
 		if( sc->data[SC_BERSERK] )
 			val = max( val, 30 );
-		if (sc->data[SC_NEN])
-			val = max(val, 10);
 		if( sc->data[SC_RUN] )
 			val = max( val, 75 );
 		if( sc->data[SC_AVOID] )
