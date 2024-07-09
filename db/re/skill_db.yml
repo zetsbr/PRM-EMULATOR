@@ -19194,28 +19194,8 @@ Body:
     CastCancel: true
     CastTime: 250
     AfterCastActDelay: 500
-    Duration1: 5000
-    Duration2:
-      - Level: 1
-        Time: 1750
-      - Level: 2
-        Time: 2000
-      - Level: 3
-        Time: 2250
-      - Level: 4
-        Time: 2500
-      - Level: 5
-        Time: 2750
-      - Level: 6
-        Time: 3000
-      - Level: 7
-        Time: 3250
-      - Level: 8
-        Time: 3500
-      - Level: 9
-        Time: 3750
-      - Level: 10
-        Time: 4000
+    Duration1: 10000
+    Duration2: 4000
     Cooldown: 3000
     FixedCastTime: 250
     Requires:
@@ -22073,7 +22053,7 @@ Body:
     Name: NC_COLDSLOWER
     Description: Chilling Frost
     MaxLevel: 5
-    Type: Weapon
+    Type: Magic
     TargetType: Ground
     Flags:
       TargetTrap: true
@@ -22098,17 +22078,7 @@ Body:
         Area: 3
     CastTime: 3000
     AfterCastActDelay: 500
-    Duration1:
-      - Level: 1
-        Time: 5000
-      - Level: 2
-        Time: 6000
-      - Level: 3
-        Time: 7000
-      - Level: 2
-        Time: 8000
-      - Level: 3
-        Time: 9000
+    Duration1: 10000
     Duration2: 10000
     Cooldown: 3000
     Requires:
