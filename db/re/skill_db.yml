@@ -4576,15 +4576,15 @@ Body:
     Hit: Multi_Hit
     HitCount:
       - Level: 1
-        Count: -3
+        Count: 3
       - Level: 2
-        Count: -3
+        Count: 3
       - Level: 3
-        Count: -3
+        Count: 3
       - Level: 4
-        Count: -3
+        Count: 3
       - Level: 5
-        Count: -3
+        Count: 3
     SplashArea: 1
     CastCancel: true
     CastTime: 750
