@@ -8670,7 +8670,7 @@ Body:
     Type: Magic
     TargetType: Attack
     Range: 6
-    Hit: Single
+    Hit: Multi_Hit
     HitCount: 2
     Element: Weapon
     CastTime: 500
@@ -22052,7 +22052,7 @@ Body:
   - Id: 2260
     Name: NC_COLDSLOWER
     Description: Chilling Frost
-    MaxLevel: 5
+    MaxLevel: 10
     Type: Magic
     TargetType: Ground
     Flags:
@@ -22063,7 +22063,7 @@ Body:
       Skill:
         Plagiarism: true
     Hit: Multi_Hit
-    HitCount: -3
+    HitCount: 3
     Element: Weapon
     SplashArea:
       - Level: 1
@@ -22079,7 +22079,7 @@ Body:
     CastTime: 3000
     AfterCastActDelay: 500
     Duration1: 10000
-    Duration2: 10000
+    Duration2: 4000
     Cooldown: 3000
     Requires:
       SpCost: 100

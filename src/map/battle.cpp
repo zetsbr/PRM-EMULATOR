@@ -4206,21 +4206,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (sc->data[SC_GT_ENERGYGAIN])
 				skillratio += skillratio * 50 / 100;
 			break;
-		case BA_MUSICALSTRIKE:
-#ifdef RENEWAL
-			skillratio += 150 + 25 * skill_lv + 3 * (sstatus->int_);
-			if (tsc && tsc->data[SC_FREEZE])
-				skillratio += 3 * (sstatus->int_);
-			if (tsc && tsc->data[SC_FREEZING])
-				skillratio += 3 * (sstatus->int_);
-			if (tsc && tsc->data[SC_BURNING])
-				skillratio += 3 * (sstatus->int_);
-		if (sc && sc->data[SC_NEN])
-			skillratio += 5* ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src); 
-#else
-			skillratio += 25 + 25 * skill_lv;
-#endif
-			break;
 		case DC_THROWARROW:
 #ifdef RENEWAL
 			skillratio += 30 + 1 * skill_lv;
@@ -4655,16 +4640,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 70 + 2 * (sstatus->luk);
 			break;
-		
-		case NC_COLDSLOWER:
-		skillratio += 150 + 25 * skill_lv + 3 * (sstatus->int_);
-		if (sc && sc->data[SC_NEN])
-			skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
-		if (sc && sc->data[SC_KAGEMUSYA])
-			skillratio += 2 * (sstatus->dex);
-		if (sc->data[SC_FIREWEAPON])
-			skillratio += pc_checkskill(tsd, SA_FLAMELAUNCHER);
-		break;
 		case NC_ARMSCANNON:
 			skillratio += 30 + 10 * skill_lv + 2 * (sstatus->luk);
 			if (sc && sc->data[SC_OVERBRANDREADY])
@@ -6943,7 +6918,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += -100 + 10 * skill_lv + 2 * (sstatus->int_);
 						break;
 					case WL_HELLINFERNO:
-						skillratio += skillratio += 150 + 25 * skill_lv + 3 * (sstatus->int_);
+						skillratio += skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
 						if (sc && sc->data[SC_NEN])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						break;
@@ -6956,6 +6931,30 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case WL_EARTHSTRAIN:
 						skillratio += -100 + 1000 + 600 * skill_lv;
 						RE_LVL_DMOD(100);
+						break;
+					case BA_MUSICALSTRIKE:
+#ifdef RENEWAL
+						skillratio += 150 + 25 * skill_lv; +5 * (sstatus->int_);
+						if (tsc && tsc->data[SC_FREEZE])
+							skillratio += +5 * (sstatus->int_);
+						if (tsc && tsc->data[SC_FREEZING])
+							skillratio += 5 * (sstatus->int_);
+						if (tsc && tsc->data[SC_BURNING])
+							skillratio += 5 * (sstatus->int_);
+						if (sc && sc->data[SC_NEN])
+							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+#else
+						skillratio += 25 + 25 * skill_lv;
+#endif
+						break;
+					case NC_COLDSLOWER:
+						skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
+						if (sc && sc->data[SC_NEN])
+							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+						if (sc && sc->data[SC_KAGEMUSYA])
+							skillratio += 2 * (sstatus->dex);
+						if (sc->data[SC_FIREWEAPON])
+							skillratio += pc_checkskill(tsd, SA_FLAMELAUNCHER);
 						break;
 					case WL_TETRAVORTEX_FIRE:
 					case WL_TETRAVORTEX_WATER:

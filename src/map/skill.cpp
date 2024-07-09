@@ -5377,10 +5377,10 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		if (sc&& sc->data[SC_OVERBRANDREADY]){
 			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
-				BF_WEAPON, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
 		}
 		else {
-			skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+			skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
 		}
 		status_heal(src, skill_lv * (sd->status.base_level), 0, 0);
 		if (tsc && tsc->data[SC_FREEZE])
@@ -6502,6 +6502,8 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case WL_HELLINFERNO:
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc && sc->data[SC_MANU_DEF]){
+			status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
 		if (flag & 1) {
 			skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
 			skill_addtimerskill(src, tick + 300, bl->id, 0, 0, skill_id, skill_lv, BF_MAGIC, flag | 2);
@@ -13618,6 +13620,9 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
 	case MA_SHOWER:
 	case NC_COLDSLOWER:
+		sc_start(src, src, SC_MANU_DEF, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc && sc->data[SC_OVERBRANDREADY]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 	case RK_DRAGONBREATH:
 	case RK_DRAGONBREATH_WATER:
 	case NPC_DRAGONBREATH:
