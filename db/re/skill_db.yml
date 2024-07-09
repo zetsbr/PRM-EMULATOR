@@ -8636,7 +8636,7 @@ Body:
     CastTime: 3000
     AfterCastActDelay: 1000
     Cooldown: 3000
-    FixedCastTime: 700
+    FixedCastTime: 500
     SplashArea:
       - Level: 1
         Area: 1
@@ -19168,7 +19168,7 @@ Body:
     Duration1: 10000
     Duration2: 4000
     Cooldown: 3000
-    FixedCastTime: 700
+    FixedCastTime: 500
     Requires:
       SpRateCost: 30
       SpCost: 25
@@ -22060,7 +22060,7 @@ Body:
         Area: 2
     CastTime: 3000
     AfterCastActDelay: 1000
-    FixedCastTime: 700
+    FixedCastTime: 500
     Duration1: 10000
     Duration2: 4000
     Cooldown: 3000
