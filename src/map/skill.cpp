@@ -1874,7 +1874,6 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		// Status chances are applied officially through a check
 		// The skill first trys to give the frozen status to targets that are hit
 		sc_start(src, bl, SC_FREEZING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
-		sc_start(src, bl, SC_FREEZE, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case WL_HELLINFERNO:
 		sc_start(src, bl, SC_BURNING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
@@ -6502,7 +6501,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case WL_HELLINFERNO:
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-		if (sc && sc->data[SC_MANU_DEF]){
+		if (sc && sc->data[SC_MANU_DEF])
 			status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
 		if (flag & 1) {
 			skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
@@ -13621,7 +13620,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case MA_SHOWER:
 	case NC_COLDSLOWER:
 		sc_start(src, src, SC_MANU_DEF, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-		if (sc && sc->data[SC_OVERBRANDREADY]) {
+		if (sc && sc->data[SC_OVERBRANDREADY]) 
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 	case RK_DRAGONBREATH:
 	case RK_DRAGONBREATH_WATER:
