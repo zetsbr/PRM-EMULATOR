@@ -11552,10 +11552,12 @@ Body:
     Type: Weapon
     TargetType: Attack
     DamageFlags:
-      NoDamage: true
+      Splash: true
     Range: 6
     Hit: Multi_Hit
     HitCount: 2
+    Knockback: 6
+    SplashArea: 1
     Element: Weapon
     CopyFlags:
       Skill:

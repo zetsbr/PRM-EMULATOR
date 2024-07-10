@@ -5190,7 +5190,7 @@ static int skill_tarotcard(struct block_list* src, struct block_list* target, ui
 int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint16 skill_id, uint16 skill_lv, t_tick tick, int flag)
 {
 	struct map_session_data* sd = NULL;
-	struct status_data* tstatus;
+	struct status_data* tstatus,* sstatus;
 	struct status_change* sc, * tsc;
 
 	if (skill_id > 0 && !skill_lv) return 0;
@@ -5226,6 +5226,8 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		tsc = NULL;
 
 	tstatus = status_get_status_data(bl);
+	sstatus = status_get_status_data(src);
+	uint16 BF_FLEX_TYPE = sstatus->str > sstatus->int_ ? BF_WEAPON : BF_MAGIC;
 
 	map_freeblock_lock();
 
@@ -5369,6 +5371,29 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case RA_AIMEDBOLT:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+	case TK_JUMPKICK:
+		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
+		if (sc && sc->data[SC_CONCENTRATE]) {
+			map_foreachinshootrange(skill_attack_area, src,
+				skill_get_splash(skill_id, skill_lv), splash_target(src),
+				BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			skill_blown(src, src, skill_get_blewcount(skill_id, skill_lv), unit_getdir(src), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
+			clif_blown(src); // Always blow, otherwise it shows a casting animation. [Lemongrass]
+		}
+		else {
+			if (unit_movepos(src, bl->x, bl->y, 2, 1)) {
+				clif_blown(src);
+			}
+			if (sc && sc->data[SC_NEN]) {
+				map_foreachinshootrange(skill_attack_area, src,
+					skill_get_splash(skill_id, skill_lv), splash_target(src),
+					BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			}
+			else {
+				skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
+			}
+		}
+		break;
 	case LK_HEADCRUSH:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
@@ -5377,7 +5402,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
 				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-			status_percent_change(src, src, 0, sd->right_weapon.sp_drain_rate.per, 0);
+			status_percent_change(src, src, 0, sd->right_weapon.sp_drain_rate.per*10, 0);
 		}
 		else {
 			skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
@@ -7076,7 +7101,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	struct homun_data* hd;
 	s_mercenary_data* mer;
 	struct status_data* sstatus, * tstatus;
-	struct status_change* tsc;
+	struct status_change* tsc, * sc;
 	struct status_change_entry* tsce;
 
 	int i = 0;
@@ -7118,6 +7143,8 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 
 	tstatus = status_get_status_data(bl);
 	sstatus = status_get_status_data(src);
+	sc = status_get_sc(src);
+	uint16 damage_type = sstatus->str > sstatus->int_ ? BF_WEAPON : BF_MAGIC;
 
 	//Check for undead skills that convert a no-damage skill into a damage one. [Skotlex]
 	switch (skill_id) {
@@ -7630,14 +7657,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
 		// Initiate 20% of your damage becomes fire element.
 		sc_start4(src, src, SC_WATK_ELEMENT, 100, 3, 20, 0, 0, skill_get_time2(skill_id, skill_lv));
-		break;
-
-	case TK_JUMPKICK:
-		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
-			if (unit_movepos(src, bl->x, bl->y, 2, 1)) {
-				skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-				clif_blown(src);
-			}
 		break;
 	case PR_BENEDICTIO:
 		if (!battle_check_undead(tstatus->race, tstatus->def_ele) && tstatus->race != RC_DEMON)
