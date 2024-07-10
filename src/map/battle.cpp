@@ -6956,6 +6956,13 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						if (sc->data[SC_FIREWEAPON])
 							skillratio += pc_checkskill(tsd, SA_FLAMELAUNCHER);
 						break;
+					case TK_JUMPKICK:
+						skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
+						if (sc && sc->data[SC_CONCENTRATE])
+							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+						if (sc && sc->data[SC_GLORIA])
+							skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
+						break;
 					case WL_TETRAVORTEX_FIRE:
 					case WL_TETRAVORTEX_WATER:
 					case WL_TETRAVORTEX_WIND:
