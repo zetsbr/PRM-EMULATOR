@@ -11475,7 +11475,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
 			break;
 		case SC_ANGELUS:
-			val2 = 3*val1; // def increase
+			val2 = 10 * val1; // def increase
 			break;
 		case SC_IMPOSITIO:
 			val2 = 10*val1; // WATK/MATK increase

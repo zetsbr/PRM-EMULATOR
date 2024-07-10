@@ -7422,8 +7422,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 				if(!sd || !(skill = pc_checkskill(sd,HT_STEELCROW)))
 					skill = 0;
 #ifdef RENEWAL
-				md.damage += (skill_lv * 50 + (sstatus->luk) * pc_checkskill(sd, HT_STEELCROW)) / 3;
-
+				md.damage += (skill_lv * 50 + (sstatus->luk) * pc_checkskill(sd, HT_STEELCROW))/3;
 #else
 				md.damage = (sstatus->dex / 10 + sstatus->int_ / 2 + skill * 3 + 40) * 2;
 				if(mflag > 1) //Autocasted Blitz
