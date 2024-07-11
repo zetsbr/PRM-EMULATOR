@@ -347,7 +347,7 @@ Body:
   - Id: 79
     Option: BODY_ATTR_FIRE
     Script: |
-      bonus2 bHPDrainRate,500,getrandomoptinfo(ROA_VALUE);
+      bonus2 bHPDrainRate,100,getrandomoptinfo(ROA_VALUE);
   - Id: 80
     Option: BODY_ATTR_WIND
     Script: |
