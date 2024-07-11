@@ -418,7 +418,7 @@ Body:
       Wind: 25
       Poison: 100
       Holy: 100
-      Dark: 90
+      Dark: 75
       Ghost: 100
       Undead: 100
     Poison:
