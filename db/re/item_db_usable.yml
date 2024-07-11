@@ -31586,7 +31586,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      itemskill "MC_IDENTIFY",1;
+      identifyall;
   - Id: 14739
     AegisName: Infinite_Furnace_
     Name: Infinite Furnace
