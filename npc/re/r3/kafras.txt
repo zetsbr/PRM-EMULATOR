@@ -242,6 +242,7 @@ dewata,198,184,4	script	Kafra#dew	117,{
 				close;
 				break;
 		}
+		break;
 	case 4:
 		mes "[Kafra]";
 		mes "These destinations are available from this location.";
