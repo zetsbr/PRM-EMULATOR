@@ -57327,7 +57327,7 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bHPDrainRate,50,5+(.@r);
+      bonus2 bHPDrainRate,100,5+(.@r);
   - Id: 5874
     AegisName: Circlet_Of_Kriemhild
     Name: Circlet Of Kriemhild
