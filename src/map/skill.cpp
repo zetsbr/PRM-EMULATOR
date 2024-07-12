@@ -7745,6 +7745,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		status_change_end(bl, SC_CONCENTRATE, INVALID_TIMER);
 		status_change_end(bl, SC_NEN, INVALID_TIMER);
 		status_change_end(bl, SC_MAGNIFICAT, INVALID_TIMER);
+		clif_specialeffect(bl, EF_FLAMELAUNCHER, SELF);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		break;
