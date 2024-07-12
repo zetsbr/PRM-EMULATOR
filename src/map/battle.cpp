@@ -3912,9 +3912,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	switch(skill_id) {
 		case SM_BASH:
 		case MS_BASH:
-			skillratio += 100 +25 * skill_lv + sstatus->str;
+			skillratio += 100 +25 * skill_lv + 3 * sstatus->str;
 			if (sc && sc->data[SC_CONCENTRATE])
-			skillratio += 10 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				skillratio += 5 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (sc && sc->data[SC_DEATHBOUND])
+				skillratio += 15 * (1 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
 			break;
 		case SM_MAGNUM:
 		case MS_MAGNUM:
@@ -4167,9 +4169,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case MO_INVESTIGATE:
 #ifdef RENEWAL
-			skillratio += 150 + 10 * skill_lv + (sstatus->vit);
+			skillratio += 150 + 10 * skill_lv + 3 * (sstatus->str);
 			if (sc && sc->data[SC_NEN])
-				skillratio += 50 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				skillratio += 5 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (sc && sc->data[SC_DEATHBOUND])
+				skillratio += 15 * (1 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 65 * skill_lv + (3 * (sstatus->str));
 			break;
@@ -4358,11 +4362,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 50 + 5 * skill_lv + 3 * (sstatus->luk);
 			break;
 		case TK_JUMPKICK:
-			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
+			skillratio += 100 + 10 * skill_lv + 3 * (sstatus->dex);
 			if (sc && sc->data[SC_NEN])
-			skillratio += ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
+				skillratio += 5 * ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
+			if (sc && sc->data[SC_DEATHBOUND])
+				skillratio += 15 * (1 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
 			if (sc && sc->data[SC_GLORIA])
-			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
+				skillratio += 100 + 10 * skill_lv + 3 * (sstatus->dex);
 			break;
 		case GS_TRIPLEACTION:
 			skillratio += 30 + 20 * skill_lv + (sstatus->luk);
@@ -4670,11 +4676,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 15;
 			break;
 		case SC_FATALMENACE:
-			skillratio += 150 + 10 * skill_lv + (sstatus->vit);
+			skillratio += 150 + 10 * skill_lv + 3 * (sstatus->str);
 			if (sc && sc->data[SC_NEN])
-			skillratio += 30 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				skillratio += 5 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (sc && sc->data[SC_DEATHBOUND])
+				skillratio += 15 * (1 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
 			if (sc && sc->data[SC_OVERBRANDREADY])
-			skillratio += 50 * skill_lv + (3 *(sstatus->str));
+				skillratio += 50 * skill_lv + (3 *(sstatus->str));
 			break;
 		case SC_TRIANGLESHOT:
 			skillratio += 130 + 10 * skill_lv + 3 * sstatus->agi;
@@ -6921,6 +6929,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+						if (sc && sc->data[SC_DEATHBOUND])
+							skillratio += 15 * (1 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
 						break;
 					case WL_COMET:
 						skillratio += -100 + 50 * skill_lv + 6 * (sstatus->int_);
@@ -6943,6 +6953,8 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio += 150 + 20 * skill_lv; + 15 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+						if (sc && sc->data[SC_DEATHBOUND])
+							skillratio += 15 * (1-(((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
 #else
 						skillratio += 25 + 25 * skill_lv;
 #endif
@@ -6951,17 +6963,21 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+						if (sc && sc->data[SC_DEATHBOUND])
+							skillratio += 15 * (1 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
 						if (sc && sc->data[SC_KAGEMUSYA])
 							skillratio += 2 * (sstatus->dex);
 						if (sc->data[SC_FIREWEAPON])
 							skillratio += pc_checkskill(tsd, SA_FLAMELAUNCHER);
 						break;
 					case TK_JUMPKICK:
-						skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
+						skillratio += 100 + 10 * skill_lv + 3 * (sstatus->dex);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 5 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+						if (sc && sc->data[SC_DEATHBOUND])
+							skillratio += 15 * (1 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
 						if (sc && sc->data[SC_GLORIA])
-							skillratio += 100 + 10 * skill_lv + 2 * (sstatus->dex);
+							skillratio += 100 + 10 * skill_lv + 3 * (sstatus->dex);
 						break;
 					case WL_TETRAVORTEX_FIRE:
 					case WL_TETRAVORTEX_WATER:
