@@ -143934,6 +143934,15 @@ Body:
     ArmorLevel: 1
     EquipLevelMin: 1
     View: 783
+  - Id: 31665
+    AegisName: C_Master_Loki_S_B
+    Name: C Master Loki S B
+    Type: Armor
+    View: 2222
+    Locations:
+      Costume_Head_Low: true
+    ArmorLevel: 1
+    EquipLevelMin: 1
   - Id: 31667
     AegisName: Costume_Poring_Beret
     Name: C Poring Beret
