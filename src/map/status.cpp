@@ -2083,7 +2083,6 @@ void initChangeTables(void)
 	StatusChangeStateTable[SC_ENSEMBLEFATIGUE]		|= SCS_NOCAST;
 #endif
 	StatusChangeStateTable[SC__BLOODYLUST]			|= SCS_NOCAST;
-	StatusChangeStateTable[SC_DEATHBOUND]			|= SCS_NOCAST;
 	StatusChangeStateTable[SC_OBLIVIONCURSE]		|= SCS_NOCAST|SCS_NOCASTCOND;
 	StatusChangeStateTable[SC_WHITEIMPRISON]		|= SCS_NOCAST;
 	StatusChangeStateTable[SC__SHADOWFORM]			|= SCS_NOCAST;
@@ -11689,7 +11688,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 		/* Rune Knight */
 		case SC_DEATHBOUND:
-			val2 = 200 + 100 * val1;
+			val4 = tick / 200 * val1;
+			tick_time = 200 * val1;
 			break;
 		case SC_STONEHARDSKIN:
 			if (!status_charge(bl, status->hp / 5, 0)) // 20% of HP
@@ -14769,6 +14769,17 @@ TIMER_FUNC(status_change_timer){
 			status_heal(bl, heal, 0, 3);
 			sc_timer_next(5000 + tick);
 			return 0;
+		}
+		break;
+
+	case SC_DEATHBOUND:
+		if (sce->val4 >= 0) {
+			int64 hp_damage = status->max_hp*0.05;
+			int64 sp_damage = status->max_sp * 0.05;
+			if (!sd && hp_damage >= status->hp)
+				hp_damage = status->hp - 1; // No deadly damage for monsters
+			sc_timer_next((sce->val1*200) + tick);
+			status_zap(bl, hp_damage, sp_damage);
 		}
 		break;
 

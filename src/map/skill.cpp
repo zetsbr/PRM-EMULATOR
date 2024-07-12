@@ -5402,7 +5402,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
 				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-			status_percent_change(src, src, 0, sd->right_weapon.sp_drain_rate.per*10, 0);
 		}
 		else {
 			skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
@@ -7727,6 +7726,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 	case NJ_NEN:
 		status_change_end(bl, SC_CONCENTRATE, INVALID_TIMER);
+		status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		break;
@@ -7738,8 +7738,20 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case NPC_INVINCIBLE:
 	case NPC_INVINCIBLEOFF:
 	case MER_INVINCIBLEOFF2:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
 	case RK_DEATHBOUND:
+		status_change_end(bl, SC_CONCENTRATE, INVALID_TIMER);
+		status_change_end(bl, SC_NEN, INVALID_TIMER);
+		status_change_end(bl, SC_MAGNIFICAT, INVALID_TIMER);
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
 	case AB_EXPIATIO:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
 	case AB_DUPLELIGHT:
 	case AB_SECRAMENT:
 	case AB_OFFERTORIUM:
@@ -7961,6 +7973,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case AC_CONCENTRATION:
 	{
 		status_change_end(bl, SC_NEN, INVALID_TIMER);
+		status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);
 		int splash = skill_get_splash(skill_id, skill_lv);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
