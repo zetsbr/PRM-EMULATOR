@@ -6464,6 +6464,8 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 		str += 10;
 	if(sc->data[SC_NEN])
 		str += sc->data[SC_NEN]->val1;
+	if (sc->data[SC_DEATHBOUND])
+		str += sc->data[SC_DEATHBOUND]->val1 * 2;
 	if(sc->data[SC_BLESSING]) {
 		if(sc->data[SC_BLESSING]->val2)
 			str += sc->data[SC_BLESSING]->val2;
@@ -6528,8 +6530,8 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 	}
 	if(sc->data[SC_INCALLSTATUS])
 		agi += sc->data[SC_INCALLSTATUS]->val1;
-	if (sc->data[SC_CONCENTRATE] && !sc->data[SC_QUAGMIRE])
-		agi += (agi - sc->data[SC_CONCENTRATE]->val3) * sc->data[SC_CONCENTRATE]->val2 / 100;
+	if (sc->data[SC_DEATHBOUND] && !sc->data[SC_QUAGMIRE])
+		agi += (agi - sc->data[SC_DEATHBOUND]->val3) * sc->data[SC_DEATHBOUND]->val2 / 100;
 	if(sc->data[SC_INCAGI])
 		agi += sc->data[SC_INCAGI]->val1;
 	if(sc->data[SC_AGIFOOD])
@@ -6700,6 +6702,8 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 	}
 	if(sc->data[SC_CONCENTRATE])
 		int_ += sc->data[SC_CONCENTRATE]->val1;
+	if (sc->data[SC_DEATHBOUND])
+		int_ += sc->data[SC_DEATHBOUND]->val1*2;
 	if(sc->data[SC_MARIONETTE])
 		int_ -= ((sc->data[SC_MARIONETTE]->val4)>>16)&0xFF;
 	if(sc->data[SC_2011RWC_SCROLL])
@@ -11429,12 +11433,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK;
 			break;
 		case SC_CONCENTRATE:
-			val2 = 2 + val1;
-			if (sd) { // Store the card-bonus data that should not count in the %
-				val3 = sd->indexed_bonus.param_bonus[1]; // Agi
-				val4 = sd->indexed_bonus.param_bonus[4]; // Dex
-			} else
-				val3 = val4 = 0;
 			break;
 		case SC_MAXOVERTHRUST:
 			val2 = val1; // Power increase
@@ -11686,7 +11684,13 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 		/* Rune Knight */
 		case SC_DEATHBOUND:
-			val4 = tick / 200;
+			val2 = 2 + val1;
+			if (sd) { // Store the card-bonus data that should not count in the %
+				val3 = sd->indexed_bonus.param_bonus[1]; // Agi
+				val4 = sd->indexed_bonus.param_bonus[4]; // Dex
+			}
+			else
+				val3 = val4 = 0;
 			tick_time = 200;
 			break;
 		case SC_STONEHARDSKIN:
