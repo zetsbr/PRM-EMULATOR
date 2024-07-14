@@ -9297,7 +9297,7 @@ Body:
       percentheal 0,6;
   - Id: 12333
     AegisName: Ansila
-    Name: Ancilla
+    Name: Black Heart
     Type: Usable
     Weight: 500
     Stack:
@@ -9315,8 +9315,8 @@ Body:
       NoAuction: true
     Script: |
       specialeffect2 EF_POTION_BERSERK;
-      bonus_script "{ bonus2 bHPDrainRate,1000,10; bonus2 bHSDrainRate,1000,2; }",BaseLevel,0,0,EFST_GM_BATTLE;
-      ;
+      bonus_script "{ bonus2 bHPDrainRate,1000,10; bonus2 bSPDrainRate,1000,2; }",150,0,0,EFST_ANCILLA;
+      sc_start SC_ANCILLA,150000,100;
   - Id: 12334
     AegisName: Cherish_Box
     Name: Treasure Edition Helm Box

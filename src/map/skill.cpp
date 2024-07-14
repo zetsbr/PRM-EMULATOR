@@ -656,14 +656,6 @@ int skill_calc_heal(struct block_list* src, struct block_list* target, uint16 sk
 #else
 				hp += hp * tsc->data[SC_GLASTHEIM_HEAL]->val2 / 100;
 #endif
-			if (tsc->data[SC_ANCILLA])
-#ifdef RENEWAL
-				hp_bonus += tsc->data[SC_ANCILLA]->val1;
-#else
-				hp += hp * tsc->data[SC_ANCILLA]->val1 / 100;
-			if (tsc->data[SC_WATER_INSIGNIA] && tsc->data[SC_WATER_INSIGNIA]->val1 == 2)
-				hp += hp / 10;
-#endif
 #ifdef RENEWAL
 			if (tsc->data[SC_ASSUMPTIO])
 				hp_bonus += tsc->data[SC_ASSUMPTIO]->val1 * 10;
@@ -3848,7 +3840,7 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 				}
 			}
 #endif
-			}
+		}
 
 		if (tsc && tsc->data[SC_MAGICROD] && src == dsrc) {
 			int sp = skill_get_sp(skill_id, skill_lv);
@@ -4210,6 +4202,11 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 			battle_drain(sd, bl, dmg.damage, dmg.damage, tstatus->race, tstatus->class_);
 		else
 			battle_drain(sd, bl, dmg.damage, dmg.damage2, tstatus->race, tstatus->class_);
+	}
+
+	if (sd && src != bl && damage > 0 && sc && dmg.flag & BF_MAGIC && sc->data[SC_ANCILLA])
+	{
+		battle_drain(sd, bl, dmg.damage, dmg.damage, tstatus->race, tstatus->class_);
 	}
 
 	if (damage > 0) { // Post-damage effects
@@ -5227,7 +5224,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 
 	tstatus = status_get_status_data(bl);
 	sstatus = status_get_status_data(src);
-	uint16 BF_FLEX_TYPE = sstatus->str > sstatus->int_ ? BF_WEAPON : BF_MAGIC;
+	uint16 BF_FLEX_TYPE = BF_WEAPON;
+	if (sstatus->str <= sstatus->int_)
+		BF_FLEX_TYPE = BF_MAGIC;
 
 	map_freeblock_lock();
 
@@ -5374,23 +5373,25 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case TK_JUMPKICK:
 		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
 		if (sc && sc->data[SC_CONCENTRATE]) {
+			skill_area_temp[1] = 0;
 			map_foreachinshootrange(skill_attack_area, src,
 				skill_get_splash(skill_id, skill_lv), splash_target(src),
 				BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-			skill_blown(src, src, skill_get_blewcount(skill_id, skill_lv), unit_getdir(src), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
+			skill_blown(src, src, skill_get_range(skill_id, skill_lv), unit_getdir(src), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
 			clif_blown(src); // Always blow, otherwise it shows a casting animation. [Lemongrass]
 		}
 		else {
 			if (unit_movepos(src, bl->x, bl->y, 2, 1)) {
 				clif_blown(src);
-			}
-			if (sc && sc->data[SC_NEN]) {
-				map_foreachinshootrange(skill_attack_area, src,
-					skill_get_splash(skill_id, skill_lv), splash_target(src),
-					BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-			}
-			else {
-				skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
+				if (sc && sc->data[SC_NEN]) {
+					skill_area_temp[1] = 0;
+					map_foreachinshootrange(skill_attack_area, src,
+						skill_get_splash(skill_id, skill_lv), splash_target(src),
+						BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+				}
+				else {
+					skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
+				}
 			}
 		}
 		break;
@@ -5398,7 +5399,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 	case BA_MUSICALSTRIKE:
-		if (sc&& sc->data[SC_OVERBRANDREADY]){
+		if (sc && sc->data[SC_OVERBRANDREADY]){
 			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
 				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
@@ -10687,12 +10688,9 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	break;
 
 	case AB_ANCILLA:
-		if (sd) {
-			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
-			skill_produce_mix(sd, skill_id, ITEMID_ANCILLA, 0, 0, 0, 1, -1);
-		}
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		skill_produce_mix(sd, skill_id, ITEMID_ANCILLA, 0, 0, 0, 1, -1);
 		break;
-
 	case AB_CLEMENTIA:
 	case AB_CANTO:
 	{
@@ -21197,9 +21195,6 @@ bool skill_produce_mix(struct map_session_data* sd, uint16 skill_id, t_itemid na
 				flag = battle_config.produce_item_name_input & 0x2;
 				break;
 			case AL_HOLYWATER:
-			case AB_ANCILLA:
-				flag = battle_config.produce_item_name_input & 0x8;
-				break;
 			case ASC_CDP:
 				flag = battle_config.produce_item_name_input & 0x10;
 				break;

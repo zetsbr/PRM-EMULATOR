@@ -1930,7 +1930,7 @@ void initChangeTables(void)
 	StatusChangeFlagTable[SC_USE_SKILL_SP_SPA] |= SCB_NONE;
 	StatusChangeFlagTable[SC_USE_SKILL_SP_SHA] |= SCB_NONE;
 
-	StatusChangeFlagTable[SC_ANCILLA] |= SCB_REGEN;
+	StatusChangeFlagTable[SC_ANCILLA] |= SCB_NONE;
 	StatusChangeFlagTable[SC_ENSEMBLEFATIGUE] |= SCB_SPEED|SCB_ASPD;
 	StatusChangeFlagTable[SC_MISTY_FROST] |= SCB_NONE;
 
@@ -5459,8 +5459,6 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 		if (sc && sc->count) {
 			if (sc->data[SC_SHRIMPBLESSING])
 				val *= 150 / 100;
-			if (sc->data[SC_ANCILLA])
-				val += sc->data[SC_ANCILLA]->val2 / 100;
 			if (sc->data[SC_INCREASE_MAXSP])
 				val += val * sc->data[SC_INCREASE_MAXSP]->val2 / 100;
 		}
@@ -11688,8 +11686,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 		/* Rune Knight */
 		case SC_DEATHBOUND:
-			val4 = tick / 200 * val1;
-			tick_time = 200 * val1;
+			val4 = tick / 200;
+			tick_time = 200;
 			break;
 		case SC_STONEHARDSKIN:
 			if (!status_charge(bl, status->hp / 5, 0)) // 20% of HP
@@ -12554,10 +12552,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_GLASTHEIM_HPSP:
 			val1 = 10000; // HP bonus
 			val2 = 1000; // SP bonus
-			break;
-		case SC_ANCILLA:
-			val1 = 15; // Heal Power rate bonus
-			val2 = 30; // SP Recovery rate bonus
 			break;
 		case SC_HELPANGEL:
 			tick_time = 1000;
@@ -14774,12 +14768,14 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_DEATHBOUND:
 		if (sce->val4 >= 0) {
-			int64 hp_damage = status->max_hp*0.05;
-			int64 sp_damage = status->max_sp * 0.05;
+			int64 hp_damage = status->max_hp * (0.1 / sce->val1);
+			int64 sp_damage = status->max_sp * (0.1 / sce->val1);
 			if (!sd && hp_damage >= status->hp)
 				hp_damage = status->hp - 1; // No deadly damage for monsters
-			sc_timer_next((sce->val1*200) + tick);
+			sc_timer_next(200 + tick);
 			status_zap(bl, hp_damage, sp_damage);
+			if (sd && status->hp < 1)
+				status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);
 		}
 		break;
 
