@@ -25371,7 +25371,7 @@ Body:
     Script: |
       bonus bShortWeaponDamageReturn,50;
       bonus bStr,7;
-      bonus bAspd,-50;
+      bonus bAspd,-100;
       bonus bCritDefRate,50;
     UnEquipScript: |
       sc_end SC_AUTOGUARD;
