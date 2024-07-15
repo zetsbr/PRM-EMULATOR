@@ -18210,8 +18210,9 @@ Body:
       - Level: 10
         Time: 150000
     Requires:
-      SpCost: 50
+      SpCost: 5
       HpRateCost: -1
+      SpRateCost: -1
   - Id: 2004
     Name: RK_HUNDREDSPEAR
     Description: Million Stab
