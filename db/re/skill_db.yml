@@ -176,6 +176,7 @@ Body:
         Plagiarism: true
         Reproduce: true
     Cooldown: 1000
+    AfterCastActDelay: 500
     Requires:
       SpCost:
         - Level: 1
@@ -7282,7 +7283,7 @@ Body:
       Skill:
         Plagiarism: true
         Reproduce: true
-    AfterCastActDelay: 500
+    AfterCastActDelay: 1000
     Cooldown: 3000
     Requires:
       SpCost:
@@ -22937,7 +22938,7 @@ Body:
         Area: 2
       - Level: 10
         Area: 3
-    AfterCastActDelay: 500
+    AfterCastActDelay: 1000
     Cooldown: 3000
     Requires:
       HpRateCost: 20

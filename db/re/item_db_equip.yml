@@ -1443,7 +1443,7 @@ Body:
     Buy: 500
     Sell: 250
     Weight: 1000
-    Attack: 30
+    Attack: 10
     MagicAttack: 30
     Range: 1
     Slots: 4
@@ -1463,13 +1463,13 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,100;
-      bonus bMaxHPrate,25;
+      bonus2 bSPDrainRate,0,2;
       .@r = getrefine();
-      bonus2 bSkillAtk,"SM_BASH",5*(.@r);
-      bonus bNoRegen,1;
-      bonus bNoRegen,2;
-      bonus bSPGainValue,25;
+      bonus5 bAddEffOnSkill,"NC_COLDSLOWER",Eff_Curse,10000,ATF_TARGET,4000;
+      bonus5 bAddEffOnSkill,"WL_HELLINFERNO",Eff_Curse,10000,ATF_TARGET,4000;
+      bonus5 bAddEffOnSkill,"BA_MUSICALSTRIKE",Eff_Curse,10000,ATF_TARGET,4000;
+      bonus2 bIgnoreMdefClassRate,Class_Normal,(.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Boss,(.@r);
   - Id: 1140
     AegisName: Black_Rapier
     Name: Black Rapier
@@ -1838,8 +1838,8 @@ Body:
     Buy: 500
     Sell: 250
     Weight: 1000
-    Attack: 20
-    MagicAttack: 20
+    Attack: 10
+    MagicAttack: 30
     Range: 1
     Slots: 3
     Jobs:
@@ -1858,10 +1858,11 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,250;
-      bonus bHPDrainValue,100;
+      bonus2 bSPDrainRate,0,1;
+      .@r = getrefine();
       bonus bShortWeaponDamageReturn,5;
-      bonus2 bSkillCooldown,"SM_BASH",1000;
+      bonus4 bAutoSpellOnSkill,"BA_MUSICALSTRIKE","TF_POISON",.@r,1000;
+      bonus3 bAutoSpell,"TF_POISON",.@r,1000;
       bonus bAtkEle,Ele_Poison;
   - Id: 1151
     AegisName: Slayer
@@ -2679,25 +2680,27 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
+      bonus2 bHPDrainRate,0,10;
       bonus3 bAutoSpell,"SM_BASH",10,1000;
       bonus bHPrecovRate,2000;
       bonus bUseSPrate,10000;
       bonus bAspd,-10;
-      bonus bMaxSPrate,-99;
     EquipScript: |
       if(countitem(12333) >= 1) {
         specialeffect2 306;
         set .heart, countitem(12333);
         delitem 12333,.heart;
       }
-      percentheal -99,-99;
+      percentheal 50,50;
+      sc_start SC_DEATHBOUND,INVALID_TIMER,1;
     UnEquipScript: |
       if(countitem(12333) >= 1) {
         specialeffect2 306;
         set .heart, countitem(12333);
         delitem 12333,.heart;
       }
-      percentheal -99,-99;
+      percentheal 50,50;
+      sc_start SC_DEATHBOUND,INVALID_TIMER,1;
   - Id: 1175
     AegisName: Atlas_Weapon
     Name: Atlas Weapon
@@ -2706,32 +2709,21 @@ Body:
     Buy: 500
     Sell: 250
     Weight: 3000
-    Attack: 35
-    Range: 2
+    Attack: 100
+    Range: 3
     Slots: 2
     Jobs:
-      All: true
-      Archer: false
-      Gunslinger: false
-      KagerouOboro: false
-      Mage: false
-      Monk: false
-      Ninja: false
-      Novice: false
-      Rebellion: false
-      Summoner: false
-      SuperNovice: false
-      Wizard: false
+      Acolyte: true
     Locations:
-      Right_Hand: true
+      Both_Hand: true
     WeaponLevel: 4
     EquipLevelMin: 80
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_All,22;
-      bonus bAspd,-50;
+      bonus2 bHPDrainRate,0,5;
+      bonus bAspd,-100;
       bonus bVit,7;
       bonus bCritical,50;
   - Id: 1176
@@ -2948,32 +2940,28 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 1000
-    Attack: 25
+    Weight: 2000
+    Attack: 15
+    MagicAttack: 15
     Range: 1
     Slots: 1
     Jobs:
-      All: true
-      Archer: false
-      Gunslinger: false
-      KagerouOboro: false
-      Mage: false
-      Monk: false
-      Ninja: false
-      Novice: false
-      Rebellion: false
-      Summoner: false
-      SuperNovice: false
-      Wizard: false
+      Acolyte: True
+    Classes:
+      Normal: true
+      Upper: true
+      Third: true
+      Third_Upper: true
+      Third_Baby: true
     Locations:
-      Right_Hand: true
+      Both_Hand: true
     WeaponLevel: 4
     EquipLevelMin: 35
     Refineable: true
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_All,12;
+      bonus2 bHPDrainRate,0,4;
       bonus bHPGainValue,200;
       bonus bLongHPGainValue,200;
       bonus bMagicHPGainValue,200;
@@ -3378,13 +3366,16 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,120;
-      bonus2 bHPDrainRate,1000,10;
-      bonus2 bSkillUseSP,"AB_ANCILLA",-10000;
-      bonus2 bSkillCooldown,"WL_HELLINFERNO",-5000;
-      bonus bHPrecovRate,500;
-      skill "SM_MOVINGRECOVERY",1;
-      bonus bMaxHPrate,15;
+      bonus2 bHPDrainRate,0,10;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SM_BASH",(readparam(bInt));
+      bonus2 bSkillAtk,"MO_INVESTIGATE",(readparam(bInt));
+      bonus2 bSkillAtk,"SC_FATALMENACE",(readparam(bInt));
+      bonus2 bSkillAtk,"BA_MUSICALSTRIKE",(readparam(bStr));
+      bonus2 bSkillAtk,"WL_HELLINFERNO",(readparam(bStr));
+      bonus2 bSkillAtk,"NC_COLDSLOWER",(readparam(bStr));
+      bonus bMaxHPrate,(.@r);
+      bonus bMaxSPrate,(.@r);
   - Id: 1194
     AegisName: Royal_Saber
     Name: Royal Saber
@@ -25356,8 +25347,8 @@ Body:
     View: 1
     Buy: 500
     Weight: 3000
-    Defense: 25
-    Slots: 1
+    Defense: 50
+    Slots: 2
     Jobs:
       All: true
       Monk: false
@@ -25371,14 +25362,15 @@ Body:
       Third_Upper: true
       Third_Baby: true
     Locations:
-      Left_Hand: true
+      Both_Hand: true
     ArmorLevel: 1
     EquipLevelMin: 80
     Refineable: true
     Flags:
       DropEffect: BLUE_PILLAR
     Script: |
-      skill "CR_AUTOGUARD",5;
+      bonus bShortWeaponDamageReturn,50;
+      bonus bStr,7;
       bonus bAspd,-50;
       bonus bCritDefRate,50;
     UnEquipScript: |
@@ -66904,7 +66896,6 @@ Body:
       Both_Hand: true
     WeaponLevel: 1
     EquipLevelMin: 1
-    EquipLevelMax: 30
     Flags:
       DropEffect: RED_PILLAR
     Trade:
@@ -66916,7 +66907,7 @@ Body:
       NoMail: true
       NoAuction: true
     Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,100;
+      bonus2 bHPDrainRate,0,2;
       bonus bAtkEle,Ele_Dark;
       bonus2 bExpAddClass,Class_All,10;
       bonus bHPrecovRate,40;
@@ -68411,8 +68402,8 @@ Body:
     SubType: 1hSword
     Buy: 1000
     Weight: 1000
-    Attack: 25
-    MagicAttack: 5
+    Attack: 5
+    MagicAttack: 25
     Range: 1
     Slots: 2
     Jobs:
@@ -68438,6 +68429,7 @@ Body:
     Script: |
       bonus2 bIgnoreDefRaceRate,RC_All,10;
       skill "BA_MUSICALSTRIKE",3;
+      autobonus3 "{}",10000,10000,"BA_MUSICALSTRIKE","{ sc_start SC_OVERBRANDREADY,INVALID_TIMER,1;}";
       bonus4 bAutoSpellOnSkill,"BA_MUSICALSTRIKE","NC_COLDSLOWER",1,1000;
       bonus2 bSkillAtk,"NC_COLDSLOWER",25;
   - Id: 13464
@@ -124133,7 +124125,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillCooldown,"NC_COLDSLOWER",-500*(.@r);
+      bonus2 bSkillAtk,"TK_JUMPKICK",10+(2*(.@r));
   - Id: 24724
     AegisName: Cold_Embrace_G
     Name: Cold Embrace G
@@ -124154,7 +124146,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_COLDSLOWER",2*(.@r);
+      bonus2 bSkillAtk,"WL_HELLINFERNO",10+(.@r);
   - Id: 24725
     AegisName: Cold_Embrace_S
     Name: Cold Embrace S
@@ -124175,7 +124167,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"WL_HELLINFERNO",2*(.@r);
+      bonus2 bSkillAtk,"NC_COLDSLOWER",10+(.@r);
   - Id: 24726
     AegisName: Cold_Embrace_P
     Name: Cold Embrace P
@@ -138271,10 +138263,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillHeal,"AL_HEAL",3*(.@r);
-      bonus2 bSkillHeal,"CR_SLIMPITCHER",3*(.@r);
-      bonus2 bSkillHeal,"AB_CHEAL",3*(.@r);
-      bonus2 bSkillHeal,"AM_POTIONPITCHER",3*(.@r);
+      bonus bAspd,(-1*(.@r));
   - Id: 30083
     AegisName: Reverse_Hell_S
     Name: Reverse Hell S
@@ -138295,7 +138284,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bHealPower2,3*(.@r);
+      bonus bAspdRate,.@r;
   - Id: 30084
     AegisName: Reverse_Hell_P
     Name: Reverse Hell P
