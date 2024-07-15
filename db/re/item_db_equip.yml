@@ -2691,7 +2691,7 @@ Body:
         set .heart, countitem(12333);
         delitem 12333,.heart;
       }
-      percentheal 50,50;
+      percentheal -50,-50;
       sc_start SC_DEATHBOUND,INVALID_TIMER,1;
     UnEquipScript: |
       if(countitem(12333) >= 1) {
@@ -2699,7 +2699,7 @@ Body:
         set .heart, countitem(12333);
         delitem 12333,.heart;
       }
-      percentheal 50,50;
+      percentheal -50,-50;
       sc_start SC_DEATHBOUND,INVALID_TIMER,1;
   - Id: 1175
     AegisName: Atlas_Weapon
