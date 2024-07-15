@@ -138263,7 +138263,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAspd,(-1*(.@r));
+      bonus bAspd,(.@r);
   - Id: 30083
     AegisName: Reverse_Hell_S
     Name: Reverse Hell S
