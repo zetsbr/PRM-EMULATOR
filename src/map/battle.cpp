@@ -3912,8 +3912,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 	switch(skill_id) {
 		case SM_BASH:
 		case MS_BASH:
-			skillratio += 100 +25 * skill_lv + 3 * sstatus->str;
-			if (sc && sc->data[SC_CONCENTRATE])
+			skillratio += 50 + 10 * skill_lv + 2 * sstatus->str;
+			if (sc && sc->data[SC_NEN])
 				skillratio += 20 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
 			if (sc && sc->data[SC_DEATHBOUND])
 				skillratio += 50 * (100 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
