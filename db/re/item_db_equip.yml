@@ -2681,7 +2681,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       bonus2 bHPDrainRate,0,10;
-      bonus3 bAutoSpell,"SM_BASH",10,1000;
+      bonus3 bAutoSpell,"SM_BASH",1,1000;
       bonus bHPrecovRate,2000;
       bonus bUseSPrate,10000;
       bonus bAspd,-10;
