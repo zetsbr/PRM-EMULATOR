@@ -8632,7 +8632,7 @@ Body:
     TargetType: Attack
     Range: 6
     Hit: Multi_Hit
-    HitCount: 2
+    HitCount: -2
     Element: Weapon
     CastTime: 3000
     AfterCastActDelay: 1000
@@ -19148,7 +19148,7 @@ Body:
       Splash: true
     Range: 6
     Hit: Multi_Hit
-    HitCount: 2
+    HitCount: -2
     Element: Weapon
     CopyFlags:
       Skill:
@@ -22049,7 +22049,7 @@ Body:
       Skill:
         Plagiarism: true
     Hit: Multi_Hit
-    HitCount: 2
+    HitCount: -2
     Element: Weapon
     SplashArea:
       - Level: 1

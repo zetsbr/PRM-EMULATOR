@@ -10097,8 +10097,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_FOGWALL:
 			case SC_WHITEIMPRISON:
 			case SC_FEAR:
-			case SC_FREEZING: //aqui talvez seja como acerta mvp com esses dois
-			case SC_BURNING: //debuffs diferentes e ativar sinergias
 			case SC_MARSHOFABYSS:
 			case SC_ADORAMUS:
 			case SC_PARALYSIS:
@@ -14459,7 +14457,7 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_BURNING:
 		if (sce->val4 >= 0) {
-			int64 damage = 200 + (1 * status->max_hp) / 100; // Deals fixed (1000 + 3%*MaxHP)
+			int64 damage = 200; // Deals fixed (1000 + 3%*MaxHP)
 			map_freeblock_lock();
 			dounlock = true;
 			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false),0);
