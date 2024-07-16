@@ -6920,7 +6920,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += -100 + 10 * skill_lv + 2 * (sstatus->int_);
 						break;
 					case WL_HELLINFERNO:
-						skillratio += skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
+						skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						if (sc && sc->data[SC_DEATHBOUND])

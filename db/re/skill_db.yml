@@ -19147,7 +19147,7 @@ Body:
       Splash: true
     Range: 6
     Hit: Multi_Hit
-    HitCount: -3
+    HitCount: 2
     Element: Weapon
     CopyFlags:
       Skill:
