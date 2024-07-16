@@ -1442,7 +1442,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 1000
+    Weight: 200
     Attack: 10
     MagicAttack: 30
     Range: 1
@@ -1837,7 +1837,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 1000
+    Weight: 100
     Attack: 10
     MagicAttack: 30
     Range: 1
@@ -2660,7 +2660,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 2000
+    Weight: 500
     Attack: 100
     Range: 1
     Slots: 1
@@ -2691,7 +2691,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 3000
+    Weight: 300
     Attack: 100
     Range: 3
     Slots: 2
@@ -2923,7 +2923,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 2000
+    Weight: 200
     Attack: 15
     MagicAttack: 15
     Range: 1
@@ -3328,7 +3328,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 2000
+    Weight: 300
     Attack: 30
     MagicAttack: 30
     Range: 1
@@ -66860,7 +66860,7 @@ Body:
     SubType: 1hSword
     Buy: 200
     Sell: 100
-    Weight: 1000
+    Weight: 100
     Attack: 9
     Range: 1
     Jobs:
@@ -66897,7 +66897,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 2000
+    Weight: 300
     Attack: 25
     MagicAttack: 10
     Range: 1
