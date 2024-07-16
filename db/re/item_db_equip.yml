@@ -66920,7 +66920,7 @@ Body:
     Script: |
       bonus2 bHPDrainRate,0,4;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","MO_INVESTIGATE",1,1000;
+      bonus4 bAutoSpellOnSkill,"MO_INVESTIGATE","SM_BASH",1,1000;
       bonus bHPrecovRate,20*.@r;
   - Id: 13412
     AegisName: Twin_Edge_B
