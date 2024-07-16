@@ -5143,7 +5143,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case SU_PICKYPECK:
 		case SU_PICKYPECK_DOUBLE_ATK:
-			skillratio += 100 + (50 * skill_lv) + 3 * (sstatus->int_) + (2 * sd->battle_status.aspd_rate2);
+			skillratio += 200 + (50 * skill_lv) + 3 * (sstatus->int_) + (2 * sd->battle_status.aspd_rate2);
 			if (sc && sc->data[SC_LIGHTOFSUN])
 				skillratio += 25 + sstatus->dex;
 			break;
