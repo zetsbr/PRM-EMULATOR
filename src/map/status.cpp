@@ -2336,7 +2336,6 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			if (sc->data[SC_STONE] && sc->opt1 == OPT1_STONE)
 				status_change_end(target, SC_STONE, INVALID_TIMER);
 			status_change_end(target, SC_FREEZE, INVALID_TIMER);
-			status_change_end(target, SC_SHRIMP, INVALID_TIMER);
 			status_change_end(target, SC_SLEEP, INVALID_TIMER);
 			status_change_end(target, SC_WINKCHARM, INVALID_TIMER);
 			status_change_end(target, SC_CONFUSION, INVALID_TIMER);
