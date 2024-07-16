@@ -42076,7 +42076,7 @@ Body:
     EquipLevelMin: 100
     Script: |
       bonus bDex,(readparam(bDex)/9);
-      bonus bPerfectHitAddRate,5;
+      bonus2 bIgnoreDefRaceRate,RC_All,5;
   - Id: 5005
     AegisName: Gas_Mask
     Name: Gas Mask
