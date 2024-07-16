@@ -10098,8 +10098,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_FOGWALL:
 			case SC_WHITEIMPRISON:
 			case SC_FEAR:
-			case SC_FREEZING:
-			case SC_BURNING:
+			case SC_FREEZING: //aqui talvez seja como acerta mvp com esses dois
+			case SC_BURNING: //debuffs diferentes e ativar sinergias
 			case SC_MARSHOFABYSS:
 			case SC_ADORAMUS:
 			case SC_PARALYSIS:

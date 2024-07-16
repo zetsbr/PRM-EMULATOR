@@ -2164,9 +2164,21 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case NPC_MAGMA_ERUPTION:
 	case NC_MAGMA_ERUPTION: // Stun effect from 'slam'
+		if ((sc->data[SC_EDP]))
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);
+		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
+			&& sd && skill_id == TF_POISON
+			)
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 		sc_start(src, bl, SC_STUN, 90, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 	case NC_MAGMA_ERUPTION_DOTDAMAGE: // Burning effect from 'eruption'
+		if ((sc->data[SC_EDP]))
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);
+		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
+			&& sd && skill_id == TF_POISON
+			)
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
 		break;
 	case GN_ILLUSIONDOPING:

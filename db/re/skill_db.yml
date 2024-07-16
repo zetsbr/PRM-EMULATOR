@@ -27426,7 +27426,8 @@ Body:
       - Level: 10
         Time: 300
     Requires:
-      HpRateCost: 20
+      HpRateCost: 5
+      SpRateCost: 5
       SpCost:
         - Level: 1
           Amount: 48
@@ -32722,7 +32723,8 @@ Body:
       - Level: 10
         Time: 5000
     Requires:
-      HpRateCost: -10
+      HpRateCost: 5
+      SpRateCost: 5
       SpCost:
         - Level: 1
           Amount: 55
