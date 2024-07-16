@@ -4899,8 +4899,8 @@ Body:
       IgnoreElement: true
       IgnoreFlee: true
     Range: 3
-    Hit: Single
-    HitCount: 1
+    Hit: Multi_Hit
+    HitCount: -3
     Element: Poison
     SplashArea: 4
     CopyFlags:
@@ -27145,8 +27145,8 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    Hit: Single
-    HitCount: -1
+    Hit: Multi_Hit
+    HitCount: -5
     Element: Poison
     SplashArea:
       - Level: 1
