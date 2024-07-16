@@ -2682,25 +2682,8 @@ Body:
     Script: |
       bonus2 bHPDrainRate,0,10;
       bonus3 bAutoSpell,"SM_BASH",1,1000;
-      bonus bHPrecovRate,2000;
       bonus bUseSPrate,10000;
       bonus bAspd,-10;
-    EquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .heart, countitem(12333);
-        delitem 12333,.heart;
-      }
-      percentheal -50,-50;
-      sc_start SC_DEATHBOUND,INVALID_TIMER,1;
-    UnEquipScript: |
-      if(countitem(12333) >= 1) {
-        specialeffect2 306;
-        set .heart, countitem(12333);
-        delitem 12333,.heart;
-      }
-      percentheal -50,-50;
-      sc_start SC_DEATHBOUND,INVALID_TIMER,1;
   - Id: 1175
     AegisName: Atlas_Weapon
     Name: Atlas Weapon
@@ -25350,11 +25333,7 @@ Body:
     Defense: 50
     Slots: 2
     Jobs:
-      All: true
-      Monk: false
-      SoulLinker: false
-      Summoner: false
-      SuperNovice: false
+      All: false
     Classes:
       Normal: true
       Upper: true

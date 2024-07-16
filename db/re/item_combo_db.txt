@@ -2381,7 +2381,7 @@
 400006:4255,{ bonus2 bAddRace,RC_DemiHuman,10; bonus2 bAddRace,RC_Player_Human,10; bonus2 bAddRace,RC_Brute,10; bonus2 bAddRace,RC_Player_Doram,10; }
 400006:4256,{ bonus bAspdRate,3; bonus bDelayrate,-3; }
 400006:4066:4135:4143:4255:4256,{ skill "CR_DEFENDER",4; bonus bDefRatioAtkClass,Class_All; }
-30029:30030:30031:30032,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus4 bAutoSpellOnSkill,"GN_CRAZYWEED_ATK","AM_DEMONSTRATION",3,100; bonus5 bAddEffOnSkill,"GN_CRAZYWEED_ATK",Eff_Burning,1000,ATF_TARGET,10000; bonus2 bSkillCooldown,"GN_CRAZYWEED",-1000; }
+30029:30030:30031:30032,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus4 bAutoSpellOnSkill,"GN_CRAZYWEED_ATK","AM_DEMONSTRATION",3,100; bonus5 bAddEffOnSkill,"GN_CRAZYWEED_ATK",Eff_Burning,10000,ATF_TARGET,10000; bonus5 bAddEffOnSkill,"GN_CRAZYWEED",Eff_Burning,10000,ATF_TARGET,10000; bonus2 bSkillCooldown,"GN_CRAZYWEED",-1000; }
 300310:27333,{ bonus2 bAddRace,RC_All,3; }
 5932:4161,{ bonus3 bAutoSpell,"PR_GLORIA",5,20; }
 5932:1737,{ .@r = getequiprefinerycnt(EQI_HAND_R); if (BaseClass == Job_Ranger) { bonus2 bSkillAtk,"HT_BLITZBEAT",5*.@r; } }
