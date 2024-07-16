@@ -66918,9 +66918,9 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus3 bAutoSpell,"SM_BASH",10,5;
+      bonus2 bHPDrainRate,0,4;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"TK_JUMPKICK","BA_MUSICALSTRIKE",1,1000;
+      bonus4 bAutoSpellOnSkill,"MO_INVESTIGATE","SM_BASH",1,1000;
       bonus bHPrecovRate,20*.@r;
   - Id: 13412
     AegisName: Twin_Edge_B
@@ -68408,7 +68408,7 @@ Body:
     Script: |
       bonus2 bIgnoreDefRaceRate,RC_All,10;
       skill "BA_MUSICALSTRIKE",3;
-      autobonus3 "{}",10000,10000,"BA_MUSICALSTRIKE","{ sc_start SC_OVERBRANDREADY,INVALID_TIMER,1;}";
+      autobonus3 "{}",10000,10000,"BA_MUSICALSTRIKE","{ sc_end SC_OVERBRANDREADY;}";
       bonus4 bAutoSpellOnSkill,"BA_MUSICALSTRIKE","NC_COLDSLOWER",1,1000;
       bonus2 bSkillAtk,"NC_COLDSLOWER",25;
   - Id: 13464
