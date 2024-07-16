@@ -289,26 +289,22 @@ Body:
       - Name: AC_CONCENTRATION
         MaxLevel: 10
         Requires:
-          - Name: SM_SWORD
-            Level: 1
-          - Name: MO_SPIRITSRECOVERY
+          - Name: BA_MUSICALSTRIKE
             Level: 1
       - Name: PR_GLORIA
         MaxLevel: 5
         Requires:
-          - Name: BA_MUSICALSTRIKE
-            Level: 1
-          - Name: RK_DEATHBOUND
+          - Name: TK_JUMPKICK
             Level: 1
       - Name: NJ_NEN
-        MaxLevel: 5
+        MaxLevel: 10
         Requires:
-          - Name: AC_CONCENTRATION
+          - Name: MO_INVESTIGATE
             Level: 1
       - Name: RK_DEATHBOUND
         MaxLevel: 5
         Requires:
-          - Name: NJ_NEN
+          - Name: PR_GLORIA
             Level: 1
       - Name: SM_BASH
         MaxLevel: 10
@@ -318,22 +314,22 @@ Body:
       - Name: TK_JUMPKICK
         MaxLevel: 5
         Requires:
-          - Name: SM_BASH
+          - Name: SM_SWORD
+            Level: 1
+          - Name: MO_SPIRITSRECOVERY
             Level: 1
       - Name: SC_FATALMENACE
         MaxLevel: 10
         Requires:
-          - Name: TK_JUMPKICK
+          - Name: SM_BASH
             Level: 1
       - Name: MO_INVESTIGATE
         MaxLevel: 10
         Requires:
           - Name: SC_FATALMENACE
             Level: 1
-          - Name: RK_DEATHBOUND
-            Level: 1
       - Name: NC_COLDSLOWER
-        MaxLevel: 5
+        MaxLevel: 10
         Requires:
           - Name: WL_HELLINFERNO
             Level: 1
@@ -350,9 +346,11 @@ Body:
       - Name: AB_ANCILLA
         MaxLevel: 1
         Requires:
-          - Name: PR_GLORIA
+          - Name: NJ_NEN
             Level: 1
-          - Name: MO_INVESTIGATE
+          - Name: AC_CONCENTRATION
+            Level: 1
+          - Name: RK_DEATHBOUND
             Level: 1
   - Job: Merchant
     Inherit:

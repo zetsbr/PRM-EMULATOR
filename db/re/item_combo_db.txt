@@ -2381,7 +2381,7 @@
 400006:4255,{ bonus2 bAddRace,RC_DemiHuman,10; bonus2 bAddRace,RC_Player_Human,10; bonus2 bAddRace,RC_Brute,10; bonus2 bAddRace,RC_Player_Doram,10; }
 400006:4256,{ bonus bAspdRate,3; bonus bDelayrate,-3; }
 400006:4066:4135:4143:4255:4256,{ skill "CR_DEFENDER",4; bonus bDefRatioAtkClass,Class_All; }
-30029:30030:30031:30032,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus4 bAutoSpellOnSkill,"GN_CRAZYWEED_ATK","AM_DEMONSTRATION",3,100; bonus5 bAddEffOnSkill,"GN_CRAZYWEED_ATK",Eff_Burning,1000,ATF_TARGET,10000; bonus2 bSkillCooldown,"GN_CRAZYWEED",-1000; }
+30029:30030:30031:30032,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus4 bAutoSpellOnSkill,"GN_CRAZYWEED_ATK","AM_DEMONSTRATION",3,100; bonus5 bAddEffOnSkill,"GN_CRAZYWEED_ATK",Eff_Burning,10000,ATF_TARGET,10000; bonus5 bAddEffOnSkill,"GN_CRAZYWEED",Eff_Burning,10000,ATF_TARGET,10000; bonus2 bSkillCooldown,"GN_CRAZYWEED",-1000; }
 300310:27333,{ bonus2 bAddRace,RC_All,3; }
 5932:4161,{ bonus3 bAutoSpell,"PR_GLORIA",5,20; }
 5932:1737,{ .@r = getequiprefinerycnt(EQI_HAND_R); if (BaseClass == Job_Ranger) { bonus2 bSkillAtk,"HT_BLITZBEAT",5*.@r; } }
@@ -2474,7 +2474,7 @@
 20991:27087,{ bonus bInt,40; bonus bIntravision; if (BaseJob == Job_Warlock) { bonus2 bSkillAtk,"WZ_SIGHTRASHER",6*BaseLevel; bonus4 bAutoSpellOnSkill,"WZ_SIGHTRASHER","MG_SIGHT",1,1000; } /*Unknow Rate*/ }
 30073:30074:30075:30076,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus4 bAutoSpellOnSkill,"MO_FINGEROFFENSIVE","RL_MASS_SPIRAL",3,1000; bonus4 bAutoSpellOnSkill,"MO_FINGEROFFENSIVE","CR_SHIELDCHARGE",5,1000; bonus2 bSkillCooldown,"MO_FINGEROFFENSIVE",4000; bonus bMaxSP,.@r; }
 30077:30078:30079:30080,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; }
-30081:30082:30083:30084,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bHPDrainRate,1000,1; bonus2 bHPLossRate,500,500; bonus bAtk,.@r; }
+30081:30082:30083:30084,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bHPDrainRate,1000,1; bonus2 bHPLossRate,500,500; bonus bAtk,.@r; bonus bASPDCap,((.@r)/10); }
 310012:490076,{ bonus bAgi,40; bonus bNoSizeFix; }
 310655:29371,{ autobonus "{ bonus bFlee2,100; bonus2 bMagicAddClass,Class_Boss,100; }",50,10000,BF_MAGIC,"{ active_transform 1639,10000 }"; /*Unknow Rate*/ }
 310655:29509,{ autobonus "{ bonus bFlee2,100; bonus2 bAddClass,Class_Boss,100; }",50,10000,BF_WEAPON; /*Unknow Rate*/ }
@@ -2517,10 +2517,8 @@
 28505:4917,{ bonus bMaxHPrate,5; }
 28505:4918,{ bonus bMaxHPrate,5; }
 28505:4919,{ bonus bMaxHPrate,5; }
-24723:24724:24725:24726,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus5 bAddEffOnSkill,"BA_MUSICALSTRIKE",Eff_Freeze,5000,ATF_TARGET,10000; bonus2 bSkillCooldown,"BA_MUSICALSTRIKE",-2000; bonus2 bSkillCooldown,"WL_HELLINFERNO",-2000; bonus4 bAutoSpellOnSkill,"WL_HELLINFERNO","NC_COLDSLOWER",1,10*(.@r); }
-24725:24726:24727,{ .@sum = getequiprefinerycnt(EQI_SHADOW_WEAPON)+getequiprefinerycnt(EQI_SHADOW_ACC_L)+getequiprefinerycnt(EQI_SHADOW_ACC_R); bonus2 bAddClass,Class_All,1; if (.@sum>=27) { bonus3 bAutoSpell,"AS_SONICBLOW",10,80; } else if (.@sum>=27) { bonus3 bAutoSpell,"AS_SONICBLOW",7,40; } }
-24727:24728:24729:24730,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bSkillCooldown,"AC_CONCENTRATION",-59000; bonus4 bAutoSpellOnSkill,"MO_INVESTIGATE","SC_FATALMENACE",1,5*(.@r); bonus bBaseAtk,(.@r)/4; }
-24728:24729,{ .@sum = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHOES); bonus bMatkRate,2; if (.@sum>=27) { bonus3 bAutoSpell,"WL_JACKFROST",max(getskilllv("WL_JACKFROST"),4),80; } else if (.@sum>=27) { bonus3 bAutoSpell,"WL_JACKFROST",max(getskilllv("WL_JACKFROST"),2),40; } }
+24723:24724:24725:24726,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus5 bAddEffOnSkill,"NC_COLDSLOWER",Eff_Burning,10000,ATF_TARGET,4000; bonus5 bAddEffOnSkill,"WL_HELLINFERNO",Eff_Freezing,10000,ATF_TARGET,4000; bonus2 bSkillCooldown,"AC_CONCENTRATION",-5000; }
+24727:24728:24729:24730,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus4 bAutoSpellOnSkill,"MO_INVESTIGATE","SC_FATALMENACE",1,5*(.@r); bonus bBaseAtk,(.@r)/4; bonus2 bSkillCooldown,"NJ_NEN",-5000; }
 2473:2572:15034,{ bonus bAtkRate,1; }
 24731:24732:24733:24734,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bHPDrainRate,1000,10; bonus bMaxHP,30*(.@r); bonus bMaxHPrate,10; bonus bAtkRate,3; bonus bMatkRate,3; bonus2 bSkillUseSPrate,"AB_ANCILLA",-10000; }
 24735:24736:24737:24738,{ bonus bAllStats,3; bonus bAtkRate,2; bonus bSPrecovRate,30; }

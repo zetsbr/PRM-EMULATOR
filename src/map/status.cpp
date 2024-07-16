@@ -691,7 +691,7 @@ void initChangeTables(void)
 #else
 		);
 #endif
-	set_sc( AC_CONCENTRATION	, SC_CONCENTRATE	, EFST_CONCENTRATION, SCB_AGI|SCB_DEX );
+	set_sc( AC_CONCENTRATION	, SC_CONCENTRATE	, EFST_CONCENTRATION, SCB_INT );
 	set_sc( TF_HIDING		, SC_HIDING		, EFST_HIDING		, SCB_SPEED );
 	add_sc( TF_POISON		, SC_POISON		);
 	set_sc( KN_TWOHANDQUICKEN	, SC_TWOHANDQUICKEN	, EFST_TWOHANDQUICKEN	, SCB_ASPD
@@ -1006,7 +1006,7 @@ void initChangeTables(void)
 	add_sc( NJ_TATAMIGAESHI		, SC_TATAMIGAESHI	);
 	set_sc( NJ_SUITON		, SC_SUITON		, EFST_BLANK		, SCB_AGI|SCB_SPEED );
 	add_sc( NJ_HYOUSYOURAKU		, SC_FREEZE		);
-	set_sc( NJ_NEN			, SC_NEN		, EFST_NJ_NEN, SCB_STR|SCB_INT );
+	set_sc( NJ_NEN			, SC_NEN		, EFST_NJ_NEN, SCB_STR );
 	set_sc( NJ_UTSUSEMI		, SC_UTSUSEMI		, EFST_NJ_UTSUSEMI, SCB_NONE );
 	set_sc( NJ_BUNSINJYUTSU		, SC_BUNSINJYUTSU	, EFST_NJ_BUNSINJYUTSU, SCB_DYE );
 
@@ -1144,7 +1144,7 @@ void initChangeTables(void)
 	/* Rune Knight */
 	set_sc( RK_ENCHANTBLADE		, SC_ENCHANTBLADE	, EFST_ENCHANTBLADE		, SCB_NONE );
 	set_sc( RK_DRAGONHOWLING	, SC_FEAR		, EFST_BLANK			, SCB_FLEE|SCB_HIT );
-	set_sc( RK_DEATHBOUND		, SC_DEATHBOUND		, EFST_DEATHBOUND			, SCB_NONE );
+	set_sc( RK_DEATHBOUND		, SC_DEATHBOUND		, EFST_DEATHBOUND			, SCB_STR|SCB_INT );
 	set_sc( RK_WINDCUTTER		, SC_FEAR		, EFST_BLANK			, SCB_FLEE|SCB_HIT );
 	set_sc( RK_DRAGONBREATH		, SC_BURNING     , EFST_BURNT         , SCB_MDEF );
 	set_sc( RK_MILLENNIUMSHIELD	, SC_MILLENNIUMSHIELD 	, EFST_REUSE_MILLENNIUMSHIELD	, SCB_NONE );
@@ -1930,7 +1930,7 @@ void initChangeTables(void)
 	StatusChangeFlagTable[SC_USE_SKILL_SP_SPA] |= SCB_NONE;
 	StatusChangeFlagTable[SC_USE_SKILL_SP_SHA] |= SCB_NONE;
 
-	StatusChangeFlagTable[SC_ANCILLA] |= SCB_REGEN;
+	StatusChangeFlagTable[SC_ANCILLA] |= SCB_NONE;
 	StatusChangeFlagTable[SC_ENSEMBLEFATIGUE] |= SCB_SPEED|SCB_ASPD;
 	StatusChangeFlagTable[SC_MISTY_FROST] |= SCB_NONE;
 
@@ -2083,7 +2083,6 @@ void initChangeTables(void)
 	StatusChangeStateTable[SC_ENSEMBLEFATIGUE]		|= SCS_NOCAST;
 #endif
 	StatusChangeStateTable[SC__BLOODYLUST]			|= SCS_NOCAST;
-	StatusChangeStateTable[SC_DEATHBOUND]			|= SCS_NOCAST;
 	StatusChangeStateTable[SC_OBLIVIONCURSE]		|= SCS_NOCAST|SCS_NOCASTCOND;
 	StatusChangeStateTable[SC_WHITEIMPRISON]		|= SCS_NOCAST;
 	StatusChangeStateTable[SC__SHADOWFORM]			|= SCS_NOCAST;
@@ -2393,8 +2392,6 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			sc_start4(src,target,SC_PROVOKE,100,10,1,0,0,0);
 		if (sc->data[SC_BERSERK] && status->hp <= 100)
 			status_change_end(target, SC_BERSERK, INVALID_TIMER);
-		if (sc->data[SC_NEN] && status->hp <= 100)
-			status_change_end(target, SC_NEN, INVALID_TIMER);
 		if( sc->data[SC_RAISINGDRAGON] && status->hp <= 1000 )
 			status_change_end(target, SC_RAISINGDRAGON, INVALID_TIMER);
 		if (sc->data[SC_SATURDAYNIGHTFEVER] && status->hp <= 100)
@@ -5462,8 +5459,6 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 		if (sc && sc->count) {
 			if (sc->data[SC_SHRIMPBLESSING])
 				val *= 150 / 100;
-			if (sc->data[SC_ANCILLA])
-				val += sc->data[SC_ANCILLA]->val2 / 100;
 			if (sc->data[SC_INCREASE_MAXSP])
 				val += val * sc->data[SC_INCREASE_MAXSP]->val2 / 100;
 		}
@@ -6469,6 +6464,8 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 		str += 10;
 	if(sc->data[SC_NEN])
 		str += sc->data[SC_NEN]->val1;
+	if (sc->data[SC_DEATHBOUND])
+		str += sc->data[SC_DEATHBOUND]->val1 * 2;
 	if(sc->data[SC_BLESSING]) {
 		if(sc->data[SC_BLESSING]->val2)
 			str += sc->data[SC_BLESSING]->val2;
@@ -6533,8 +6530,8 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 	}
 	if(sc->data[SC_INCALLSTATUS])
 		agi += sc->data[SC_INCALLSTATUS]->val1;
-	if (sc->data[SC_CONCENTRATE] && !sc->data[SC_QUAGMIRE])
-		agi += (agi - sc->data[SC_CONCENTRATE]->val3) * sc->data[SC_CONCENTRATE]->val2 / 100;
+	if (sc->data[SC_DEATHBOUND] && !sc->data[SC_QUAGMIRE])
+		agi += (agi - sc->data[SC_DEATHBOUND]->val3) * sc->data[SC_DEATHBOUND]->val2 / 100;
 	if(sc->data[SC_INCAGI])
 		agi += sc->data[SC_INCAGI]->val1;
 	if(sc->data[SC_AGIFOOD])
@@ -6703,8 +6700,10 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 		else
 			int_ >>= 1;
 	}
-	if(sc->data[SC_NEN])
-		int_ += sc->data[SC_NEN]->val1;
+	if(sc->data[SC_CONCENTRATE])
+		int_ += sc->data[SC_CONCENTRATE]->val1;
+	if (sc->data[SC_DEATHBOUND])
+		int_ += sc->data[SC_DEATHBOUND]->val1*2;
 	if(sc->data[SC_MARIONETTE])
 		int_ -= ((sc->data[SC_MARIONETTE]->val4)>>16)&0xFF;
 	if(sc->data[SC_2011RWC_SCROLL])
@@ -7449,8 +7448,6 @@ static signed short status_calc_flee(struct block_list *bl, struct status_change
 		flee += flee * sc->data[SC_GOLDENE_FERSE]->val2 / 100;
 	if (sc->data[SC_SMOKEPOWDER])
 		flee += flee * 15 / 100;
-	if (sc->data[SC_NEN])
-		flee += flee * 10 / 100;
 	if (sc->data[SC_TEARGAS])
 		flee -= flee * 25 / 100;
 	//if( sc->data[SC_C_MARKER] )
@@ -7910,8 +7907,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_CLOAKING]->val1 >= 10 ? 25 : 3 * sc->data[SC_CLOAKING]->val1 - 3 );
 		if( sc->data[SC_BERSERK] )
 			val = max( val, 30 );
-		if (sc->data[SC_NEN])
-			val = max(val, 10);
 		if( sc->data[SC_RUN] )
 			val = max( val, 75 );
 		if( sc->data[SC_AVOID] )
@@ -11438,12 +11433,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = INFINITE_TICK;
 			break;
 		case SC_CONCENTRATE:
-			val2 = 2 + val1;
-			if (sd) { // Store the card-bonus data that should not count in the %
-				val3 = sd->indexed_bonus.param_bonus[1]; // Agi
-				val4 = sd->indexed_bonus.param_bonus[4]; // Dex
-			} else
-				val3 = val4 = 0;
 			break;
 		case SC_MAXOVERTHRUST:
 			val2 = val1; // Power increase
@@ -11481,7 +11470,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
 			break;
 		case SC_ANGELUS:
-			val2 = 10*val1; // def increase
+			val2 = 10 * val1; // def increase
 			break;
 		case SC_IMPOSITIO:
 			val2 = 10*val1; // WATK/MATK increase
@@ -11695,7 +11684,14 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 		/* Rune Knight */
 		case SC_DEATHBOUND:
-			val2 = 200 + 100 * val1;
+			val2 = 2 + val1;
+			if (sd) { // Store the card-bonus data that should not count in the %
+				val3 = sd->indexed_bonus.param_bonus[1]; // Agi
+				val4 = sd->indexed_bonus.param_bonus[4]; // Dex
+			}
+			else
+				val3 = val4 = 0;
+			tick_time = 200;
 			break;
 		case SC_STONEHARDSKIN:
 			if (!status_charge(bl, status->hp / 5, 0)) // 20% of HP
@@ -12560,10 +12556,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_GLASTHEIM_HPSP:
 			val1 = 10000; // HP bonus
 			val2 = 1000; // SP bonus
-			break;
-		case SC_ANCILLA:
-			val1 = 15; // Heal Power rate bonus
-			val2 = 30; // SP Recovery rate bonus
 			break;
 		case SC_HELPANGEL:
 			tick_time = 1000;
@@ -14775,6 +14767,19 @@ TIMER_FUNC(status_change_timer){
 			status_heal(bl, heal, 0, 3);
 			sc_timer_next(5000 + tick);
 			return 0;
+		}
+		break;
+
+	case SC_DEATHBOUND:
+		if (sce->val4 >= 0) {
+			int64 hp_damage = status->max_hp * (0.1 / sce->val1);
+			int64 sp_damage = status->max_sp * (0.1 / sce->val1);
+			if (!sd && hp_damage >= status->hp)
+				hp_damage = status->hp - 1; // No deadly damage for monsters
+			sc_timer_next(200 + tick);
+			status_zap(bl, hp_damage, sp_damage);
+			if (sd && status->hp < 1)
+				status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);
 		}
 		break;
 
