@@ -4384,7 +4384,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 15 * (sstatus->dex);
 			break;
 		case GS_PIERCINGSHOT:
-			skillratio += 100 + 20 * skill_lv + (sstatus->int_);
+			skillratio += 100 + 20 * skill_lv + 2 * (sstatus->int_);
 			if (sc && sc->data[SC_LIGHTOFSUN])
 				skillratio += 25 + sstatus->dex;
 			break;
@@ -5106,7 +5106,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 2 * skill_lv;
 			break;
 		case RL_AM_BLAST:
-			skillratio += 100 + 20 * skill_lv;
+			skillratio += 100 + 20 * skill_lv + 2 * (sstatus->int_);
 			if (sc && sc->data[SC_LIGHTOFSUN])
 				skillratio += 25 + sstatus->dex;
 			break;
@@ -5143,7 +5143,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case SU_PICKYPECK:
 		case SU_PICKYPECK_DOUBLE_ATK:
-			skillratio += 100 + (50 * skill_lv) + 3 * (sstatus->agi) + (2 * sd->battle_status.aspd_rate2);
+			skillratio += 200 + (50 * skill_lv) + 3 * (sstatus->int_) + (2 * sd->battle_status.aspd_rate2);
 			if (sc && sc->data[SC_LIGHTOFSUN])
 				skillratio += 25 + sstatus->dex;
 			break;
@@ -6920,7 +6920,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += -100 + 10 * skill_lv + 2 * (sstatus->int_);
 						break;
 					case WL_HELLINFERNO:
-						skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
+						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						if (sc && sc->data[SC_DEATHBOUND])
@@ -6944,7 +6944,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						if (tsc && tsc->data[SC_BURNING])
 							skillratio += 5 * (sstatus->int_);
 						if (sc && sc->data[SC_MANU_DEF])
-							skillratio += 150 + 20 * skill_lv; + 15 * (sstatus->int_);
+							skillratio += 150 + 20 * skill_lv; + 5 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						if (sc && sc->data[SC_DEATHBOUND])
@@ -6954,15 +6954,11 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 #endif
 						break;
 					case NC_COLDSLOWER:
-						skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
+						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						if (sc && sc->data[SC_DEATHBOUND])
 							skillratio += 50 * (100 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
-						if (sc && sc->data[SC_KAGEMUSYA])
-							skillratio += 2 * (sstatus->dex);
-						if (sc->data[SC_FIREWEAPON])
-							skillratio += pc_checkskill(tsd, SA_FLAMELAUNCHER);
 						break;
 					case TK_JUMPKICK:
 						skillratio += 100 + 10 * skill_lv + 1 * (sstatus->dex);

@@ -2278,17 +2278,17 @@ Body:
       - Name: SJ_LIGHTOFSUN
         MaxLevel: 5
         Requires:
-          - Name: NV_TRANSCENDENCE
+          - Name: TK_RUN
             Level: 1
       - Name: RL_AM_BLAST
         MaxLevel: 5
         Requires:
-          - Name: TK_RUN
+          - Name: NV_TRANSCENDENCE
             Level: 1
       - Name: GS_PIERCINGSHOT
         MaxLevel: 10
         Requires:
-          - Name: SJ_LIGHTOFSUN
+          - Name: RL_AM_BLAST
             Level: 1
       - Name: GS_DUST
         MaxLevel: 10
@@ -2315,7 +2315,7 @@ Body:
       - Name: SU_BUNCHOFSHRIMP
         MaxLevel: 5
         Requires:
-          - Name: RL_AM_BLAST
+          - Name: SJ_LIGHTOFSUN
             Level: 1
   - Job: Baby_Mage
     Inherit:

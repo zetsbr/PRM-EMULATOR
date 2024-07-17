@@ -2336,7 +2336,6 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			if (sc->data[SC_STONE] && sc->opt1 == OPT1_STONE)
 				status_change_end(target, SC_STONE, INVALID_TIMER);
 			status_change_end(target, SC_FREEZE, INVALID_TIMER);
-			status_change_end(target, SC_SHRIMP, INVALID_TIMER);
 			status_change_end(target, SC_SLEEP, INVALID_TIMER);
 			status_change_end(target, SC_WINKCHARM, INVALID_TIMER);
 			status_change_end(target, SC_CONFUSION, INVALID_TIMER);
@@ -10098,8 +10097,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_FOGWALL:
 			case SC_WHITEIMPRISON:
 			case SC_FEAR:
-			case SC_FREEZING:
-			case SC_BURNING:
 			case SC_MARSHOFABYSS:
 			case SC_ADORAMUS:
 			case SC_PARALYSIS:
@@ -14460,7 +14457,7 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_BURNING:
 		if (sce->val4 >= 0) {
-			int64 damage = 200 + (1 * status->max_hp) / 100; // Deals fixed (1000 + 3%*MaxHP)
+			int64 damage = 200; // Deals fixed (1000 + 3%*MaxHP)
 			map_freeblock_lock();
 			dounlock = true;
 			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false),0);

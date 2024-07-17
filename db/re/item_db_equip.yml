@@ -3328,7 +3328,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 2000
+    Weight: 3000
     Attack: 30
     MagicAttack: 30
     Range: 1
@@ -42076,7 +42076,7 @@ Body:
     EquipLevelMin: 100
     Script: |
       bonus bDex,(readparam(bDex)/9);
-      bonus bPerfectHitAddRate,5;
+      bonus2 bIgnoreDefRaceRate,RC_All,5;
   - Id: 5005
     AegisName: Gas_Mask
     Name: Gas Mask
@@ -66897,7 +66897,7 @@ Body:
     SubType: 1hSword
     Buy: 500
     Sell: 250
-    Weight: 2000
+    Weight: 3000
     Attack: 25
     MagicAttack: 10
     Range: 1
@@ -121025,8 +121025,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"SJ_NEWMOONKICK",10+2*(.@r);
+      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",50;
   - Id: 24561
     AegisName: Black_Moon_G
     Name: Black Moon G
@@ -121045,8 +121044,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"SJ_FULLMOONKICK",10+2*(.@r);
+      bonus2 bSkillCooldown,"SP_SOULCURSE",-5000;
   - Id: 24562
     AegisName: Black_Moon_S
     Name: Black Moon S
@@ -121066,7 +121064,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SR_SKYNETBLOW",10+2*(.@r);
+      bonus2 bSkillAtk,"HW_NAPALMVULCAN",15+2*(.@r);
+      bonus bInt,3;
   - Id: 24563
     AegisName: Black_Moon_P
     Name: Black Moon P
@@ -121085,7 +121084,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",50;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SP_CURSEEXPLOSION",5*(.@r);
   - Id: 24564
     AegisName: Element_Bender_A
     Name: Element Bender A
@@ -121124,8 +121124,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"HW_NAPALMVULCAN",15+2*(.@r);
-      bonus bInt,3;
+      bonus2 bSkillUseSPrate,"NJ_KAMAITACHI",5*(.@r);
   - Id: 24566
     AegisName: Element_Bender_S
     Name: Element Bender S
@@ -121206,7 +121205,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"SP_SOULCURSE",-5000;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SJ_FULLMOONKICK",10+2*(.@r);
   - Id: 24570
     AegisName: Living_Weap_S
     Name: Living Weap S
@@ -121226,7 +121226,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillUseSPrate,"NJ_KAMAITACHI",5*(.@r);
+      bonus2 bSkillAtk,"SR_SKYNETBLOW",10+2*(.@r);
   - Id: 24571
     AegisName: Living_Weap_P
     Name: Living Weap P
@@ -121246,7 +121246,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SP_CURSEEXPLOSION",5*(.@r);
+      bonus2 bSkillAtk,"SJ_NEWMOONKICK",10+2*(.@r);
   - Id: 24572
     AegisName: Ancestral_Funeral_A
     Name: Ancestral Funeral A

@@ -1367,10 +1367,14 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		}
 		break;
 	case GS_DUST:
-		if ((sc->data[SC_OVERBRANDREADY])) {
-			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 7000);
+		if (sc->data[SC_OVERBRANDREADY]) {
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
 			sc_start(src, src, SC_KAUPE, 100, 3, 3000);
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			status_change_end(src, SC_RUN, INVALID_TIMER);
+		}
+		else {
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 			status_change_end(src, SC_RUN, INVALID_TIMER);
 		}
 		break;
@@ -2164,9 +2168,21 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case NPC_MAGMA_ERUPTION:
 	case NC_MAGMA_ERUPTION: // Stun effect from 'slam'
+		if ((sc->data[SC_EDP]))
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);
+		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
+			&& sd && skill_id == TF_POISON
+			)
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 		sc_start(src, bl, SC_STUN, 90, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 	case NC_MAGMA_ERUPTION_DOTDAMAGE: // Burning effect from 'eruption'
+		if ((sc->data[SC_EDP]))
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);
+		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
+			&& sd && skill_id == TF_POISON
+			)
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
 		break;
 	case GN_ILLUSIONDOPING:
@@ -2309,6 +2325,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		skill_break_equip(src, bl, EQP_HEAD_TOP, max(skill_lv * 500, (sstatus->dex * skill_lv * 10) - (tstatus->agi * 20)), BCT_ENEMY); //! TODO: Figure out break chance formula
 		break;
 	case RL_AM_BLAST:
+		if (sc && (!sc->data[SC_OVERBRANDREADY]))
+			sc_start(src, src, SC_OVERBRANDREADY, 1000, skill_lv, skill_get_time(skill_id, skill_lv));
 		sc_start(src, bl, SC_ANTI_M_BLAST, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
 		sc_start(src, bl, SC_SILENCE, 50 + 20 * skill_lv, skill_lv, 5000);
 		sc_start(src, bl, SC_BLIND, 50 + 20 * skill_lv, skill_lv, 5000);
@@ -6036,8 +6054,9 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			clif_snap(src, src->x, src->y);
 		}
 		skill_addtimerskill(src, tick + (1500 + status_get_amotion(src)), bl->id, 0, 0, skill_id, skill_lv, BF_WEAPON, flag);
-		status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 		status_change_end(src, SC_RUN, INVALID_TIMER);
+		if (sc && (!sc->data[SC_OVERBRANDREADY]))
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		clif_emotion(bl, ET_HUK);
 		break;
 

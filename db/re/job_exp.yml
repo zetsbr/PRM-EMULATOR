@@ -1630,6 +1630,7 @@ Body:
       Ninja: true
       Baby_Ninja: true
       Baby_Gunslinger: true
+      Baby_Acolyte: true
     MaxJobLevel: 70
     JobExp:
       - Level: 1
@@ -3203,7 +3204,6 @@ Body:
         Exp: 800000
   - Jobs:
       Mage: true
-      Baby_Acolyte: true
       Baby_Swordman: true
       Baby_Summoner: true
     MaxJobLevel: 50
