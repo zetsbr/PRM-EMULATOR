@@ -6938,13 +6938,13 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						break;
 					case BA_MUSICALSTRIKE:
 #ifdef RENEWAL
-						skillratio += 150 + 20 * skill_lv + 4 * (sstatus->int_);
+						skillratio += 150 + 20 * skill_lv; + 5 * (sstatus->int_);
 						if (tsc && tsc->data[SC_FREEZING])
 							skillratio += 5 * (sstatus->int_);
 						if (tsc && tsc->data[SC_BURNING])
 							skillratio += 5 * (sstatus->int_);
 						if (sc && sc->data[SC_MANU_DEF])
-							skillratio += 600 * skill_lv + 4 * (sstatus->int_);
+							skillratio += 150 + 20 * skill_lv; + 5 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
 						if (sc && sc->data[SC_DEATHBOUND])
