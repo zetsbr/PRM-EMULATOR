@@ -1738,7 +1738,7 @@ Body:
         Time: 150000
     Requires:
       SpRateCost: -1
-      SpCost: 50
+      SpCost: 1
   - Id: 46
     Name: AC_DOUBLE
     Description: Double Strafe
@@ -15664,7 +15664,8 @@ Body:
       - Level: 10
         Time: 150000
     Requires:
-      SpCost: 50
+      SpCost: 0
+      HpCost: 1
       HpRateCost: -1
   - Id: 544
     Name: NJ_ISSEN
@@ -18211,7 +18212,8 @@ Body:
       - Level: 10
         Time: 150000
     Requires:
-      SpCost: 5
+      SpCost: 1
+      HpCost: 1
       HpRateCost: -1
       SpRateCost: -1
   - Id: 2004
