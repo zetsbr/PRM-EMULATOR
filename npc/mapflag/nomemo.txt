@@ -84,7 +84,7 @@ iz_dun02	mapflag	nomemo
 iz_dun03	mapflag	nomemo
 iz_dun04	mapflag	nomemo
 job_sword1	mapflag	nomemo
-izlu2dun	mapflag	nomemo
+//izlu2dun	mapflag	nomemo
 izlude_in	mapflag	nomemo
 job_thief1	mapflag	nomemo
 knight_1-1	mapflag	nomemo
@@ -261,7 +261,7 @@ g_room1-1	mapflag	nomemo
 g_room1-2	mapflag	nomemo
 g_room1-3	mapflag	nomemo
 g_room2	mapflag	nomemo
-tur_dun01	mapflag	nomemo
+//tur_dun01	mapflag	nomemo
 tur_dun02	mapflag	nomemo
 tur_dun03	mapflag	nomemo
 tur_dun04	mapflag	nomemo
@@ -976,7 +976,7 @@ ra_dun02	mapflag	nomemo
 loki_tomb01	mapflag	nomemo
 loki_tomb02	mapflag	nomemo
 1@sunk1	mapflag	nomemo
-va_in01	mapflag	nomemo
+//va_in01	mapflag	nomemo
 va_dun01	mapflag	nomemo
 va_dun02	mapflag	nomemo
 va_dun03	mapflag	nomemo
@@ -1034,7 +1034,7 @@ cry_dun02	mapflag	nomemo
 cry_dun03	mapflag	nomemo
 fall_q01	mapflag	nomemo
 iz_dun06	mapflag	nomemo
-face_dun01	mapflag	nomemo
+//face_dun01	mapflag	nomemo
 face_dun02	mapflag	nomemo
 face_dun03	mapflag	nomemo
 face_dun04	mapflag	nomemo
