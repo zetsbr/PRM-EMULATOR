@@ -33668,6 +33668,7 @@ Body:
     Attack: 60
     Jobs:
       Monk: true
+      Paladin: true
     Locations:
       Ammo: true
     EquipLevelMin: 50
@@ -33689,6 +33690,7 @@ Body:
     Attack: 50
     Jobs:
       Monk: true
+      Paladin: true
     Locations:
       Ammo: true
     EquipLevelMin: 130
@@ -33708,6 +33710,7 @@ Body:
     Attack: 30
     Jobs:
       Monk: true
+      Paladin: true
     Locations:
       Ammo: true
     EquipLevelMin: 10
