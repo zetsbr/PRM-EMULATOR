@@ -45750,7 +45750,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeFire";
   - Id: 28444
     AegisName: Water_Cantrips
@@ -45769,7 +45768,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeWater";
   - Id: 28445
     AegisName: Wind_Cantrips
@@ -45788,7 +45786,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeWind";
   - Id: 28446
     AegisName: Heal_Cantrips
@@ -45807,7 +45804,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeHeal";
   - Id: 28447
     AegisName: Thievery_Cantrips
@@ -45826,7 +45822,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeThief";
   - Id: 28448
     AegisName: Slash_Cantrips
@@ -45845,7 +45840,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeSlash";
   - Id: 28449
     AegisName: Power_Cantrips
@@ -45864,7 +45858,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizePower";
   - Id: 28450
     AegisName: Arrow_Cantrips
@@ -45883,7 +45876,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeArrow";
   - Id: 28451
     AegisName: Specialized_Cantrips
@@ -45902,7 +45894,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeSpecial";
   - Id: 28452
     AegisName: Expert_Cantrips
@@ -45921,7 +45912,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeExpert";
   - Id: 28453
     AegisName: Master_Cantrips
@@ -45940,7 +45930,6 @@ Body:
     Delay:
       Duration: 10000
     Script: |
-      percentheal -90,-90;
       callfunc "F_PlagiarizeMaster";
   - Id: 28599
     AegisName: Cantrips_Codex

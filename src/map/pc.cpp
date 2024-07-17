@@ -6747,9 +6747,6 @@ int pc_get_skillcooldown(struct map_session_data *sd, uint16 skill_id, uint16 sk
 	}
 
 	int cooldown = skill_get_cooldown(skill_id, skill_lv);
-	if (pc_checkskill((TBL_PC*)sd, HW_MAGICCRASHER)) {
-		cooldown += 500;
-	}
 
 	if (skill_id == SU_TUNABELLY && pc_checkskill(sd, SU_SPIRITOFSEA) > 0)
 		cooldown -= skill_get_time(SU_TUNABELLY, skill_lv);

@@ -177,7 +177,7 @@ function	script	MerchantLicense	{
 //MVP Prize Box - Ygg Berry and Minerals = % Same as MVP Level - ID 14704
 
 function	script	MVPPrizeBox	{
-	setarray .BoxItems[0],984,985,6240,6241,6292,6291,25729,6224,14735,7615,607;
+	setarray .BoxItems[0],6240,6241,6292,6291,25729,6224,14735,7615,607,6906,6290,6226,23080,6444;
 	set .Random, getarraysize( .BoxItems );
 	getitem .BoxItems[ rand( .Random ) ], 1;
 	end;
