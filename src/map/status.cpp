@@ -1939,11 +1939,6 @@ void initChangeTables(void)
 	StatusChangeFlagTable[SC_EP16_2_BUFF_SC] |= SCB_CRI;
 	StatusChangeFlagTable[SC_EP16_2_BUFF_AC] |= SCB_NONE;
 
-#ifdef RENEWAL
-	// renewal EDP increases your weapon atk
-	StatusChangeFlagTable[SC_EDP] |= SCB_WATK;
-#endif
-
 	StatusChangeFlagTable[SC_MADOGEAR] |= SCB_SPEED;
 
 	StatusChangeFlagTable[SC_PACKING_ENVELOPE1] |= SCB_WATK;
@@ -13283,7 +13278,6 @@ int status_change_clear(struct block_list* bl, int type)
 					break;
 			case SC_WEIGHT50:
 			case SC_WEIGHT90:
-			case SC_EDP:
 			case SC_MELTDOWN:
 			case SC_WEDDING:
 			case SC_XMAS:

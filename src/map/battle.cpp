@@ -1613,22 +1613,22 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			sce->val3&flag && sce->val4&flag)
 			damage -= damage * sc->data[SC_ARMOR]->val2 / 100;
 
-		if( sc->data[SC_ENERGYCOAT] && (skill_id == GN_HELLS_PLANT_ATK ||
-#ifdef RENEWAL
-			((flag&BF_WEAPON || flag&BF_MAGIC) && skill_id != WS_CARTTERMINATION)
-#else
-			(flag&BF_WEAPON && skill_id != WS_CARTTERMINATION)
-#endif
-			) )
-		{
-			struct status_data *status = status_get_status_data(bl);
-			int per = 100*status->sp / status->max_sp -1; //100% should be counted as the 80~99% interval
-			per /=20; //Uses 20% SP intervals.
-			//SP Cost: 1% + 0.5% per every 20% SP
-			if (!status_charge(bl, 0, (50+10*per)*status->max_sp/1000))
-				status_change_end(bl, SC_ENERGYCOAT, INVALID_TIMER);
-			damage += damage * 10 * (1 + per) / 100; //Increase DMG taken: 6% + 6% every 20%
-		}
+//		if( sc->data[SC_ENERGYCOAT] && (skill_id == GN_HELLS_PLANT_ATK ||
+//#ifdef RENEWAL
+//			((flag&BF_WEAPON || flag&BF_MAGIC) && skill_id != WS_CARTTERMINATION)
+//#else
+//			(flag&BF_WEAPON && skill_id != WS_CARTTERMINATION)
+//#endif
+//			) )
+//		{
+//			struct status_data *status = status_get_status_data(bl);
+//			int per = 100*status->sp / status->max_sp -1; //100% should be counted as the 80~99% interval
+//			per /=20; //Uses 20% SP intervals.
+//			//SP Cost: 1% + 0.5% per every 20% SP
+//			if (!status_charge(bl, 0, (50+10*per)*status->max_sp/1000))
+//				status_change_end(bl, SC_ENERGYCOAT, INVALID_TIMER);
+//			damage += damage * 10 * (1 + per) / 100; //Increase DMG taken: 6% + 6% every 20%
+//		}
 
 		if(sc->data[SC_GRANITIC_ARMOR])
 			damage -= damage * sc->data[SC_GRANITIC_ARMOR]->val2 / 100;
@@ -3914,9 +3914,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case MS_BASH:
 			skillratio += 50 + 10 * skill_lv + 2 * sstatus->str;
 			if (sc && sc->data[SC_NEN])
-				skillratio += 20 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				skillratio *= 1 + 15 * (1 - (20000 + (status_get_max_hp(src) - status_get_hp(src))) / (20000 + 1.1 * (status_get_max_hp(src) - status_get_hp(src))));
 			if (sc && sc->data[SC_DEATHBOUND])
-				skillratio += 50 * (100 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
+				skillratio *= 1 + 30 * (1 - (20000 + status_get_hp(src)) / (20000 + 1.1 * status_get_hp(src)));
 			break;
 		case SM_MAGNUM:
 		case MS_MAGNUM:
@@ -4170,12 +4170,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case MO_INVESTIGATE:
 #ifdef RENEWAL
 			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->str);
-			if (sc && sc->data[SC_NEN])
-				skillratio += 20 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
-			if (sc && sc->data[SC_DEATHBOUND])
-				skillratio += 50 * (100 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
 			if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 60 * skill_lv + (4 * (sstatus->str));
+				skillratio += 80 * skill_lv + (4 * (sstatus->str));
+			if (sc && sc->data[SC_NEN])
+				skillratio *= 1 + 15 * (1 - (20000 + (status_get_max_hp(src) - status_get_hp(src))) / (20000 + 1.1 * (status_get_max_hp(src) - status_get_hp(src))));
+			if (sc && sc->data[SC_DEATHBOUND])
+				skillratio *= 1 + 30 * (1 - (20000 + status_get_hp(src)) / (20000 + 1.1 * status_get_hp(src)));
 			break;
 #else
 			skillratio += 75 * skill_lv;
@@ -4184,9 +4184,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case TK_JUMPKICK:
 			skillratio += 100 + 10 * skill_lv + 1 * (sstatus->dex);
 			if (sc && sc->data[SC_NEN])
-				skillratio += 5 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+				skillratio *= 1 + 5 * (1 - (20000 + (status_get_max_hp(src) - status_get_hp(src))) / (20000 + 1.1 * (status_get_max_hp(src) - status_get_hp(src))));
 			if (sc && sc->data[SC_DEATHBOUND])
-				skillratio += 15 * (100 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
+				skillratio *= 1 + 10 * (1 - (20000 + status_get_hp(src)) / (20000 + 1.1 * status_get_hp(src)));
 			break;
 		case MO_EXTREMITYFIST:
 			skillratio += 2 * (sstatus->sp);			
@@ -4675,12 +4675,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case SC_FATALMENACE:
 			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->str);
-			if (sc && sc->data[SC_NEN])
-				skillratio += 20 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
-			if (sc && sc->data[SC_DEATHBOUND])
-				skillratio += 50 * (100 - (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src)));
 			if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 30 * skill_lv + (2 *(sstatus->str));
+				skillratio += 40 * skill_lv + (2 *(sstatus->str));
+			if (sc && sc->data[SC_NEN])
+				skillratio *= 1 + 15 * (1 - (20000 + (status_get_max_hp(src) - status_get_hp(src))) / (20000 + 1.1 * (status_get_max_hp(src) - status_get_hp(src))));
+			if (sc && sc->data[SC_DEATHBOUND])
+				skillratio *= 1 + 30 * (1 - (20000 + status_get_hp(src)) / (20000 + 1.1 * status_get_hp(src)));
 			break;
 		case SC_TRIANGLESHOT:
 			skillratio += 130 + 10 * skill_lv + 3 * sstatus->agi;
@@ -5320,37 +5320,7 @@ static void battle_attack_sc_bonus(struct Damage* wd, struct block_list *src, st
 		}
 		if (sc->data[SC_GT_CHANGE])
 			ATK_ADDRATE(wd->damage, wd->damage2, sc->data[SC_GT_CHANGE]->val1);
-		if (sc->data[SC_EDP]) {
-			switch(skill_id) {
-				case KO_MUCHANAGE:
-				case NJ_KUNAI:
-				case KO_HAPPOKUNAI:
-				// Pre-Renewal only: Soul Breaker ignores EDP
-				// Renewal only: Grimtooth and Venom Knife ignore EDP
-				// Both: Venom Splasher and Meteor Assault ignore EDP [helvetica]
-#ifndef RENEWAL
-				case GC_DARKCROW:
-#else
-				case GC_PHANTOMMENACE:
-				case AM_ACIDTERROR:
-#endif
-					break; // skills above have no effect with EDP
 
-#ifdef RENEWAL
-				default: // fall through to apply EDP bonuses
-					// Renewal EDP formula [helvetica]
-					// weapon atk * (1 + (edp level * .8))
-					// equip atk * (1 + (edp level * .6))
-					ATK_RATE(wd->weaponAtk, wd->weaponAtk2, 100 + (sc->data[SC_EDP]->val1 * 10));
-					ATK_RATE(wd->equipAtk, wd->equipAtk2, 100 + (sc->data[SC_EDP]->val1 * 10));
-					break;
-#else
-				default:
-					ATK_ADDRATE(wd->damage, wd->damage2, sc->data[SC_EDP]->val3);
-
-#endif
-			}
-		}
 		if (sc->data[SC_DANCEWITHWUG]) {
 			if (skill_get_inf2(skill_id, INF2_INCREASEDANCEWITHWUGDAMAGE)) {
 				ATK_ADDRATE(wd->damage, wd->damage2, sc->data[SC_DANCEWITHWUG]->val1 * 10 * battle_calc_chorusbonus(sd));
@@ -5475,7 +5445,7 @@ static void battle_calc_defense_reduction(struct Damage* wd, struct block_list *
 
 	}
 	if (sc && sc->data[SC_ENERGYCOAT]) {
-		i += 5 * sc->data[SC_ENERGYCOAT]->val1; // DEF Pierce 5% per level
+		i += 25; // DEF Pierce 25% on assault mode
 
 	}
 
@@ -6922,10 +6892,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case WL_HELLINFERNO:
 						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
-							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+							skillratio *= 1 + 15 * (1 - (2000 + status_get_max_sp(src) - status_get_sp(src)) / (2000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
-							skillratio += 50 * (100 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
-						break;
+							skillratio *= 1 + 30 * (1 - (2000 + status_get_sp(src)) / (2000 + 1.1 * status_get_sp(src)));
 					case WL_COMET:
 						skillratio += -100 + 50 * skill_lv + 6 * (sstatus->int_);
 						break;
@@ -6946,9 +6915,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						if (sc && sc->data[SC_MANU_DEF])
 							skillratio += 60 * skill_lv + 4 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
-							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+							skillratio *= 1 + 15 * (1 - (2000 + status_get_max_sp(src) - status_get_sp(src)) / (2000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
-							skillratio += 50 * (100 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
+							skillratio *= 1 + 30 * (1 - (2000 + status_get_sp(src)) / (2000 + 1.1 * status_get_sp(src)));
 #else
 						skillratio += 25 + 25 * skill_lv;
 #endif
@@ -6956,17 +6925,15 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case NC_COLDSLOWER:
 						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
-							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+							skillratio *= 1 + 15 * (1 - (2000 + status_get_max_sp(src) - status_get_sp(src)) / (2000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
-							skillratio += 50 * (100 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
-						break;
+							skillratio *= 1 + 30 * (1 - (2000 + status_get_sp(src)) / (2000 + 1.1 * status_get_sp(src)));
 					case TK_JUMPKICK:
 						skillratio += 100 + 10 * skill_lv + 1 * (sstatus->dex);
 						if (sc && sc->data[SC_CONCENTRATE])
-							skillratio += 20 * ((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src);
+							skillratio *= 1 + 5 * (1 - (2000 + status_get_max_sp(src) - status_get_sp(src)) / (2000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
-							skillratio += 50 * (100 - (((status_get_max_sp(src) - status_get_sp(src)) * 100) / status_get_max_sp(src)));
-						break;
+							skillratio *= 1 + 10 * (1 - (2000 + status_get_sp(src)) / (2000 + 1.1 * status_get_sp(src)));
 					case WL_TETRAVORTEX_FIRE:
 					case WL_TETRAVORTEX_WATER:
 					case WL_TETRAVORTEX_WIND:
@@ -7224,7 +7191,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 				}
 
 				if (sc->data[SC_ENERGYCOAT]){
-					i += 5 * sc->data[SC_ENERGYCOAT]->val1;// 5% per level
+					i += 25;// 25% on assault mode
 				}
 
 				if (sc->data[SC_MAGICPOWER]){

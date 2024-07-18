@@ -1451,12 +1451,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			skill_lv = pc_checkskill(sd, TF_POISON);
 	case TF_POISON:
 	case AS_SPLASHER:
-		if ((sc->data[SC_EDP]))
-			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);				 												
-		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
-			&& sd && skill_id == TF_POISON
-			)
-			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+		if (sc && sc->data[SC_EDP])
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		break;
 
 	case AS_SONICBLOW:
@@ -2168,21 +2164,13 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case NPC_MAGMA_ERUPTION:
 	case NC_MAGMA_ERUPTION: // Stun effect from 'slam'
-		if ((sc->data[SC_EDP]))
-			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);
-		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
-			&& sd && skill_id == TF_POISON
-			)
-			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+		if (sc && sc->data[SC_EDP])
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		sc_start(src, bl, SC_STUN, 90, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 	case NC_MAGMA_ERUPTION_DOTDAMAGE: // Burning effect from 'eruption'
-		if ((sc->data[SC_EDP]))
-			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, 10000);
-		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv))
-			&& sd && skill_id == TF_POISON
-			)
-			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+		if (sc && sc->data[SC_EDP])
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
 		break;
 	case GN_ILLUSIONDOPING:
@@ -3841,16 +3829,16 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 
 				dmg.damage = battle_attr_fix(bl, bl, dmg.damage, s_ele, status_get_element(bl), status_get_element_level(bl));
 
-				if (tsc && tsc->data[SC_ENERGYCOAT]) {
-					struct status_data* status = status_get_status_data(bl);
-					int per = 100 * status->sp / status->max_sp - 1; //100% should be counted as the 80~99% interval
-					per /= 20; //Uses 20% SP intervals.
-					//SP Cost: 1% + 0.5% per every 20% SP
-					if (!status_charge(bl, 0, (10 + 5 * per) * status->max_sp / 1000))
-						status_change_end(bl, SC_ENERGYCOAT, INVALID_TIMER);
-					//Reduction: 6% + 6% every 20%
-					dmg.damage += dmg.damage * (6 * (1 + per)) / 100;
-				}
+				//if (tsc && tsc->data[SC_ENERGYCOAT]) {
+				//	struct status_data* status = status_get_status_data(bl);
+				//	int per = 100 * status->sp / status->max_sp - 1; //100% should be counted as the 80~99% interval
+				//	per /= 20; //Uses 20% SP intervals.
+				//	//SP Cost: 1% + 0.5% per every 20% SP
+				//	if (!status_charge(bl, 0, (10 + 5 * per) * status->max_sp / 1000))
+				//		status_change_end(bl, SC_ENERGYCOAT, INVALID_TIMER);
+				//	//Reduction: 6% + 6% every 20%
+				//	dmg.damage += dmg.damage * (6 * (1 + per)) / 100;
+				//}
 
 				if (dmg.damage > 0 && tsd && tsd->bonus.reduce_damage_return != 0) {
 					dmg.damage -= dmg.damage * tsd->bonus.reduce_damage_return / 100;
@@ -7709,7 +7697,14 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 #ifndef RENEWAL
 	case MC_LOUD:
 #endif
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
 	case MG_ENERGYCOAT:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		sc_start(src, src, SC_SHADOWWEAPON, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+		break;
 	case MO_EXPLOSIONSPIRITS:
 	case MO_STEELBODY:
 	case MO_BLADESTOP:
@@ -7728,7 +7723,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case HW_MAGICPOWER:
 	case PF_MEMORIZE:
 	case PA_SACRIFICE:
-	case ASC_EDP:
 	case PF_DOUBLECASTING:
 	case SG_SUN_COMFORT:
 	case SG_MOON_COMFORT:
@@ -7741,6 +7735,10 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 #endif
 	case NJ_KASUMIKIRI:
 	case NJ_UTSUSEMI:
+		clif_skill_nodamage(src, bl, skill_id, skill_lv,
+			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		break;
+	case ASC_EDP:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
 		break;
@@ -13931,7 +13929,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 	}
 					 break;
-
+	
 	case NPC_MAGMA_ERUPTION:
 	case NC_MAGMA_ERUPTION:
 		// 1st, AoE 'slam' damage
