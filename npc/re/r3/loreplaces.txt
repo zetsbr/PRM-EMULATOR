@@ -563,42 +563,8 @@ payon_old,149,43,3	script	Sarah#oldpayon	668,{
 	mes "These items belong -ONLY TO YOU- ok? You can't go around re-selling them. That could mess up my profits!";
 	close2;
 	cutin "",255;
-	if ( hatpoints <11){
-	callshop "sarahhats1",1;
-	end;
-	}
-	if ( hatpoints <21){
-	callshop "sarahhats2",1;
-	end;
-	}
-	if ( hatpoints <31){
-	callshop "sarahhats3",1;
-	end;
-	}
-	if ( hatpoints <41){
-	callshop "sarahhats4",1;
-	end;
-	}
-	if ( hatpoints <51){
-	callshop "sarahhats5",1;
-	end;
-	}
-	if ( hatpoints <61){
-	callshop "sarahhats6",1;
-	end;
-	}
-	if ( hatpoints <71){
-	callshop "sarahhats7",1;
-	end;
-	}
-	if ( hatpoints <82){
-	callshop "sarahhats8",1;
-	end;
-	}
-	if ( hatpoints >81){
 	callshop "sarahhats9",1;
 	end;
-	}
 	case 2:
 	mes .@npc$;
 	mes "Chaos and Iris are not really rich, So they bring me cool hats they find on their trips to be sold.";
