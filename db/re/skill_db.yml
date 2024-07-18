@@ -5216,6 +5216,7 @@ Body:
     MaxLevel: 1
     Type: Magic
     TargetType: Self
+    Element: Dark
     DamageFlags:
       NoDamage: true
     Hit: Single
@@ -10238,7 +10239,6 @@ Body:
     Name: ASC_EDP
     Description: Enchant Deadly Poison
     MaxLevel: 10
-    Type: Weapon
     TargetType: Self
     CastTimeFlags:
       IgnoreDex: true
@@ -10270,28 +10270,8 @@ Body:
         Time: 220000
       - Level: 10
         Time: 240000  
-    Duration2:
-      - Level: 1
-        Time: 10000
-      - Level: 2
-        Time: 10000
-      - Level: 3
-        Time: 10000
-      - Level: 4
-        Time: 10000
-      - Level: 5
-        Time: 10000
-      - Level: 6
-        Time: 10000
-      - Level: 7
-        Time: 10000
-      - Level: 8
-        Time: 10000
-      - Level: 9
-        Time: 10000
-      - Level: 10
-        Time: 10000
-    Cooldown: 90000
+    Duration2: 10000
+    Cooldown: 10000
     Requires:
       HpRateCost: -75
       SpCost:
@@ -18183,7 +18163,6 @@ Body:
     Name: RK_DEATHBOUND
     Description: Death Bound
     MaxLevel: 5
-    Type: Weapon
     TargetType: Self
     DamageFlags:
       NoDamage: true
