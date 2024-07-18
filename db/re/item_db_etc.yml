@@ -4768,7 +4768,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus3 bAutoSpell,"TF_POISON",5,100;
+      bonus3 bAutoSpell,"TF_POISON",5,200;
   - Id: 4145
     AegisName: Berzebub_Card
     Name: Berzebub Card
@@ -41843,7 +41843,7 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus3 bAutoSpell,"TF_POISON",10,100;
+      bonus3 bAutoSpell,"TF_POISON",10,200;
       bonus bAspd,-5;
   - Id: 27165
     AegisName: Faceworm_D_Card
