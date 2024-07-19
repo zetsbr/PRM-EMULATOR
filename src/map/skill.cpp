@@ -5376,6 +5376,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case RA_AIMEDBOLT:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		break; 
 	case TK_JUMPKICK:
 		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
 		if (sc && sc->data[SC_CONCENTRATE]) {
