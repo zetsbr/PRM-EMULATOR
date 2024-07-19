@@ -5095,7 +5095,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case RL_HAMMER_OF_GOD:
 			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
-			if (sc && sc->data[SC_DPOISON])
+			if (tsc && tsc->data[SC_DPOISON])
 			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
 			break;
 		case RL_FIRE_RAIN:
