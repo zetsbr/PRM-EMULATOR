@@ -2177,7 +2177,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
 		break;
-	case NC_AXEBOOMERANG:
+	case NC_AXETORNADO:
 		if (sc && sc->data[SC_EDP])
 			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		break;

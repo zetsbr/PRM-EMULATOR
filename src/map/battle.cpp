@@ -4651,7 +4651,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case NC_AXEBOOMERANG:
 			skillratio += 60 + 15 * skill_lv + (sstatus->vit);
-			if (tsc && tsc->data[SC_POISON])
+			if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
 				skillratio += 3 * (sstatus->int_);
 			break;
 		case NC_POWERSWING: // According to current sources, only the str + dex gets modified by level [Akinari]
@@ -4668,7 +4668,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case NC_AXETORNADO:
 			skillratio += 100 + 10 * skill_lv + (sstatus->vit);
-			if (sc && sc->data[SC_POISON] || sc && sc->data[SC_DPOISON])
+			if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
 				skillratio += 3 * (sstatus->int_);
 			if (sc && sc->data[SC_POISONREACT])
 				skillratio += 5 * pc_checkskill(sd, SM_RECOVERY);
