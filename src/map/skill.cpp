@@ -1451,6 +1451,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			skill_lv = pc_checkskill(sd, TF_POISON);
 	case TF_POISON:
 	case AS_SPLASHER:
+		if (!sc_start2(src, bl, SC_POISON, (9 * skill_lv + 10), skill_lv, src->id, skill_get_time2(skill_id, skill_lv)) && sd && skill_id == TF_POISON)
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 		if (sc && sc->data[SC_EDP])
 			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		break;
