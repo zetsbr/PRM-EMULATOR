@@ -5173,22 +5173,10 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += (3 * skill_lv) * sd->spiritcharm;
 			break;
 		case SJ_FULLMOONKICK:
-			skillratio += 200 + 50 * skill_lv + 8 * (sstatus->agi);
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
-				skillratio += (10 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
-				skillratio += (10 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
-				skillratio += (10 * skill_lv) * sd->spiritcharm;
+			skillratio += 200 + 60 * skill_lv + 8 * (sstatus->agi);
 			break;
 		case SJ_NEWMOONKICK:
-			skillratio += 150 + 30 * skill_lv + 5 * (sstatus->agi);
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
-				skillratio += (5 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
-				skillratio += (5 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
-				skillratio += (5 * skill_lv) * sd->spiritcharm;
+			skillratio += 150 + 40 * skill_lv + 5 * (sstatus->agi);
 			break;
 		case SJ_STAREMPEROR:
 			skillratio += 700 + 200 * skill_lv;

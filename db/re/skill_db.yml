@@ -30018,7 +30018,6 @@ Body:
     HitCount: 1
     Element: Weapon
     SplashArea: 3
-    CastCancel: true
     Duration1: 10000
     Cooldown: 1000
     Requires:
@@ -30095,8 +30094,6 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    CastCancel: true
-    CastTime: 1000
     Duration1: 5000
     Cooldown: 5000
     Requires:
