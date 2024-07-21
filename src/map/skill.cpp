@@ -1873,6 +1873,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_BURNING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case NC_POWERSWING:
+		if (sc && sc->data[SC_EDP])
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		sc_start(src, bl, SC_STUN, 10, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case GC_WEAPONCRUSH:
@@ -2174,6 +2176,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		if (sc && sc->data[SC_EDP])
 			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
+		break;
+	case NC_AXEBOOMERANG:
+		if (sc && sc->data[SC_EDP])
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		break;
 	case GN_ILLUSIONDOPING:
 		if (sc_start(src, bl, SC_ILLUSIONDOPING, 100 - skill_lv * 10, skill_lv, skill_get_time(skill_id, skill_lv)))
@@ -8250,7 +8256,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case GS_SPREADATTACK:
 	case RK_WINDCUTTER:
 	case RK_STORMBLAST:
-	case NC_AXETORNADO:
 	case SR_SKYNETBLOW:
 	case SR_RAMPAGEBLASTER:
 	case SR_HOWLINGOFLION:
@@ -10632,6 +10637,29 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
 			src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+		short count = 1;
+		skill_area_temp[2] = 0;
+		if (tsc && tsc->data[SC_ROLLINGCUTTER])
+		{ // Every time the skill is casted the status change is reseted adding a counter.
+			count += (short)tsc->data[SC_ROLLINGCUTTER]->val1;
+			if (count > 5)
+				count = 5; // Max counter
+			status_change_end(bl, SC_ROLLINGCUTTER, INVALID_TIMER);
+		}
+		sc_start(src, bl, SC_ROLLINGCUTTER, 100, count, 3000);
+		clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
+	}
+	break;
+	case NC_AXETORNADO:
+	{
+		struct status_change* sc = status_get_sc(src);
+		int starget = BL_CHAR | BL_SKILL;
+		skill_area_temp[1] = 0;
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
+			src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+		if (!i)
+			clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SINGLE);
 		short count = 1;
 		skill_area_temp[2] = 0;
 		if (tsc && tsc->data[SC_ROLLINGCUTTER])

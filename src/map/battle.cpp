@@ -4657,7 +4657,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case NC_POWERSWING: // According to current sources, only the str + dex gets modified by level [Akinari]
 			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->vit);
 			if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
-			skillratio += 2 * (sstatus->int_);
+				skillratio += 2 * (sstatus->int_);
+			if (sc && sc->data[SC_ROLLINGCUTTER])
+				skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 20;
 			break;
 		case NC_MAGMA_ERUPTION: // 'Slam' damage
 			skillratio += 75 + 10 * skill_lv + 1 * (sstatus->vit);
@@ -4671,7 +4673,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (sc && sc->data[SC_POISONREACT])
 				skillratio += 5 * pc_checkskill(sd, SM_RECOVERY);
 			if (sc && sc->data[SC_ROLLINGCUTTER])
-			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 15;
+				skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 15;
 			break;
 		case SC_FATALMENACE:
 			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->str);
@@ -5096,7 +5098,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case RL_HAMMER_OF_GOD:
 			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
 			if (tsc && tsc->data[SC_DPOISON])
-			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
+				skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
 			break;
 		case RL_FIRE_RAIN:
 			skillratio += 150 + 10 * skill_lv + 1 * (sstatus->str) + (20 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));

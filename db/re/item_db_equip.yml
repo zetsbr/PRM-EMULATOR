@@ -120804,8 +120804,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      .@r = getrefine();
-      bonus2 bSkillAtk,"SO_CLOUD_KILL",10+2*(.@r);
+      bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
   - Id: 24550
     AegisName: Heavy_Guillotine_S
     Name: Heavy Guillotine S
@@ -120844,7 +120843,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillAtk,"NC_AXEBOOMERANG",50;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"SO_CLOUD_KILL",5*(.@r);
   - Id: 24552
     AegisName: Green_Mist_A
     Name: Green Mist A
