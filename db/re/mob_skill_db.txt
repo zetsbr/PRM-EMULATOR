@@ -6989,7 +6989,6 @@
 1373,Lord of the Dead@NPC_WIDEWEB,any,721,5,9600,1000,10000,no,self,myhpltmaxrate,60,,,,,,,
 1373,Lord of the Dead@NPC_WIDECONFUSE,any,667,5,9400,1000,10000,no,self,myhpltmaxrate,60,,,,,,,
 1373,Lord of the Dead@NPC_WIDESTONE,any,666,5,9200,1000,10000,no,self,myhpltmaxrate,80,,,,,,,
-1722,Jakk@NPC_WIDECONFUSE,any,667,5,9900,500,5000,no,self,always,,,,,,,29,
 1373,Lord of the Dead@NPC_WIDEFREEZE,any,664,5,9800,1000,10000,no,self,myhpltmaxrate,40,,,,,,,
 1540,Emperium Golem@NPC_WIDEWEB,any,721,5,9600,2500,20000,no,self,myhpltmaxrate,25,,,,,,,
 1374,Incubus@NPC_VAMPIRE_GIFT,any,679,2,6000,3500,5000,no,self,always,0,,,,,,,
