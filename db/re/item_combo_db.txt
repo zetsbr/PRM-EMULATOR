@@ -195,6 +195,7 @@
 15197:1525,{ bonus bAllStats,3; }
 15197:1721,{ bonus bAllStats,3; }
 15282:2392,{ bonus bDex,3; }
+4663:4664,{ bonus2 bDropAddRace,RC_All,5; bonus2 bExpAddClass,Class_All,5; }
 15368:15367:15366,{ bonus2 bExpAddClass,Class_All,5; skill "AL_HEAL",4; bonus bAllStats,1; }
 15369:15370:15371:15372,{ bonus bHPrecovRate,100; bonus bSPrecovRate,100; bonus bAllStats,3; bonus bAtkRate,3; bonus bMatkRate,3; }
 18123:5359,{ bonus bAspd,5; }
