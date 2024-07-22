@@ -68406,10 +68406,9 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_All,10;
-      skill "BA_MUSICALSTRIKE",3;
-      autobonus3 "{}",10000,10000,"BA_MUSICALSTRIKE","{ sc_end SC_OVERBRANDREADY;}";
-      bonus4 bAutoSpellOnSkill,"BA_MUSICALSTRIKE","NC_COLDSLOWER",1,1000;
+      bonus2 bIgnoreDefRaceRate,RC_All,0;
+      skill "NC_COLDSLOWER",5;
+      bonus4 bAutoSpellOnSkill,"NC_COLDSLOWER","BA_MUSICALSTRIKE",1,1000;
       bonus2 bSkillAtk,"NC_COLDSLOWER",25;
   - Id: 13464
     AegisName: Nopaew_Lufrewop
