@@ -30767,7 +30767,7 @@ Body:
     Description: Equinox
     MaxLevel: 5
     Type: Magic
-    TargetType: Attack
+    TargetType: Ground
     DamageFlags:
       IgnoreFlee: true
     Range: 1
@@ -30776,9 +30776,12 @@ Body:
         Plagiarism: true
     Flags:
       AlterRangeSnakeEye: true
-    Hit: Single
-    HitCount: 1
-    Element: Endowed
+    Hit: Multi_Hit
+    HitCount: -2
+    Element: Weapon
+    SplashArea:
+      - Level: 1
+        Area: 1
     CastTime: 250
     Cooldown: 2000
     Duration1:
