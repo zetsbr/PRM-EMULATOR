@@ -3427,7 +3427,7 @@ Body:
           - Name: NC_MAGMA_ERUPTION
             Level: 1
       - Name: RL_HAMMER_OF_GOD
-        MaxLevel: 10
+        MaxLevel: 5
         Requires:
           - Name: NC_POWERSWING
             Level: 1

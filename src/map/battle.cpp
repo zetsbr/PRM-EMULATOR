@@ -4651,13 +4651,15 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case NC_AXEBOOMERANG:
 			skillratio += 60 + 15 * skill_lv + (sstatus->vit);
-			if (tsc && tsc->data[SC_POISON])
+			if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
 				skillratio += 3 * (sstatus->int_);
 			break;
 		case NC_POWERSWING: // According to current sources, only the str + dex gets modified by level [Akinari]
 			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->vit);
 			if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
-			skillratio += 2 * (sstatus->int_);
+				skillratio += 2 * (sstatus->int_);
+			if (sc && sc->data[SC_ROLLINGCUTTER])
+				skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 20;
 			break;
 		case NC_MAGMA_ERUPTION: // 'Slam' damage
 			skillratio += 75 + 10 * skill_lv + 1 * (sstatus->vit);
@@ -4666,12 +4668,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case NC_AXETORNADO:
 			skillratio += 100 + 10 * skill_lv + (sstatus->vit);
-			if (sc && sc->data[SC_POISON] || sc && sc->data[SC_DPOISON])
+			if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
 				skillratio += 3 * (sstatus->int_);
 			if (sc && sc->data[SC_POISONREACT])
 				skillratio += 5 * pc_checkskill(sd, SM_RECOVERY);
 			if (sc && sc->data[SC_ROLLINGCUTTER])
-			skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 15;
+				skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 15;
 			break;
 		case SC_FATALMENACE:
 			skillratio += 100 + 10 * skill_lv + 2 * (sstatus->str);
@@ -5096,7 +5098,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case RL_HAMMER_OF_GOD:
 			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
 			if (tsc && tsc->data[SC_DPOISON])
-			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
+				skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
 			break;
 		case RL_FIRE_RAIN:
 			skillratio += 150 + 10 * skill_lv + 1 * (sstatus->str) + (20 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));
@@ -5171,22 +5173,10 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += (3 * skill_lv) * sd->spiritcharm;
 			break;
 		case SJ_FULLMOONKICK:
-			skillratio += 200 + 50 * skill_lv + 8 * (sstatus->agi);
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
-				skillratio += (10 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
-				skillratio += (10 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
-				skillratio += (10 * skill_lv) * sd->spiritcharm;
+			skillratio += 200 + 60 * skill_lv + 8 * (sstatus->agi);
 			break;
 		case SJ_NEWMOONKICK:
-			skillratio += 150 + 30 * skill_lv + 5 * (sstatus->agi);
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
-				skillratio += (5 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
-				skillratio += (5 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
-				skillratio += (5 * skill_lv) * sd->spiritcharm;
+			skillratio += 150 + 40 * skill_lv + 5 * (sstatus->agi);
 			break;
 		case SJ_STAREMPEROR:
 			skillratio += 700 + 200 * skill_lv;

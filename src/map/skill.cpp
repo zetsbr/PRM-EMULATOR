@@ -1873,6 +1873,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_BURNING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case NC_POWERSWING:
+		if (sc && sc->data[SC_EDP])
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		sc_start(src, bl, SC_STUN, 10, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case GC_WEAPONCRUSH:
@@ -2174,6 +2176,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		if (sc && sc->data[SC_EDP])
 			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		sc_start4(src, bl, SC_BURNING, 10 * skill_lv, skill_lv, 1000, src->id, 0, skill_get_time2(skill_id, skill_lv));
+		break;
+	case NC_AXETORNADO:
+		if (sc && sc->data[SC_EDP])
+			sc_start(src, bl, SC_DPOISON, 1000, skill_lv, skill_get_time2(ASC_EDP, pc_checkskill(sd, ASC_EDP)));
 		break;
 	case GN_ILLUSIONDOPING:
 		if (sc_start(src, bl, SC_ILLUSIONDOPING, 100 - skill_lv * 10, skill_lv, skill_get_time(skill_id, skill_lv)))
@@ -5708,6 +5714,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case RA_ARROWSTORM:
 	case RA_WUGDASH:
 	case NC_VULCANARM:
+	case SP_SPA:
 	case NC_COLDSLOWER:
 	case NC_SELFDESTRUCTION:
 	case NC_AXETORNADO:
@@ -6916,62 +6923,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			skill_castend_damage_id(src, bl, SJ_FALLINGSTAR_ATK2, skill_lv, tick, 0);
 		}
 		break;
-	case SP_SPA: {
-		sc_start(src, src, SC_USE_SKILL_SP_SPA, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-		sc_start(src, src, SC_SUFFRAGIUM, 100, skill_lv, 4000);
-		struct map_session_data* tsd = BL_CAST(BL_PC, bl);
-		struct mob_data* md = BL_CAST(BL_MOB, src), * tmd = BL_CAST(BL_MOB, bl);
-
-		// Only players and monsters can be tagged....I think??? [Rytech]
-		// Lets only allow players and monsters to use this skill for safety reasons.
-		if ((!tsd && !tmd) || !sd && !md) {
-			if (sd)
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL, 0);
-			break;
-		}
-
-		// Check if the target is already tagged by another source.
-		if ((tsd && tsd->sc.data[SC_FLASHKICK] && tsd->sc.data[SC_FLASHKICK]->val1 != src->id) || (tmd && tmd->sc.data[SC_FLASHKICK] && tmd->sc.data[SC_FLASHKICK]->val1 != src->id)) { // Same as the above check, but for monsters.
-			// Can't tag a player that was already tagged from another source.
-			if (sd)
-				clif_skill_fail(sd, skill_id, USESKILL_FAIL, 0);
-			map_freeblock_unlock();
-			return 1;
-		}
-
-		if (sd) { // Tagging the target.
-			int i;
-
-			ARR_FIND(0, MAX_STELLAR_MARKS, i, sd->stellar_mark[i] == bl->id);
-			if (i == MAX_STELLAR_MARKS) {
-				ARR_FIND(0, MAX_STELLAR_MARKS, i, sd->stellar_mark[i] == 0);
-				if (i == MAX_STELLAR_MARKS) { // Max number of targets tagged. Fail the skill.
-					clif_skill_fail(sd, skill_id, USESKILL_FAIL, 0);
-					map_freeblock_unlock();
-					return 1;
-				}
-			}
-
-			// Tag the target only if damage was done. If it deals no damage, it counts as a miss and won't tag.
-			// Note: Not sure if it works like this in official but you can't mark on something you can't
-			// hit, right? For now well just use this logic until we can get a confirm on if it does this or not. [Rytech]
-			if (skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag) > 0) { // Add the ID of the tagged target to the player's tag list and start the status on the target.
-				sd->stellar_mark[i] = bl->id;
-
-				// Val4 flags if the status was applied by a player or a monster.
-				// This will be important for other skills that work together with this one.
-				// 1 = Player, 2 = Monster.
-				// Note: Because the attacker's ID and the slot number is handled here, we have to
-				// apply the status here. We can't pass this data to skill_additional_effect.
-				sc_start4(src, bl, SC_FLASHKICK, 1000, src->id, i, skill_lv, 1, skill_get_time(skill_id, skill_lv));
-			}
-		}
-		else if (md) { // Monsters can't track with this skill. Just give the status.
-			if (skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag) > 0)
-				sc_start4(src, bl, SC_FLASHKICK, 100, 0, 0, skill_lv, 2, skill_get_time(skill_id, skill_lv));
-		}
-	}
-					 break;
 
 	case NPC_VENOMIMPRESS:
 		if (skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag))
@@ -8250,7 +8201,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case GS_SPREADATTACK:
 	case RK_WINDCUTTER:
 	case RK_STORMBLAST:
-	case NC_AXETORNADO:
 	case SR_SKYNETBLOW:
 	case SR_RAMPAGEBLASTER:
 	case SR_HOWLINGOFLION:
@@ -10632,6 +10582,29 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
 			src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+		short count = 1;
+		skill_area_temp[2] = 0;
+		if (tsc && tsc->data[SC_ROLLINGCUTTER])
+		{ // Every time the skill is casted the status change is reseted adding a counter.
+			count += (short)tsc->data[SC_ROLLINGCUTTER]->val1;
+			if (count > 5)
+				count = 5; // Max counter
+			status_change_end(bl, SC_ROLLINGCUTTER, INVALID_TIMER);
+		}
+		sc_start(src, bl, SC_ROLLINGCUTTER, 100, count, 3000);
+		clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
+	}
+	break;
+	case NC_AXETORNADO:
+	{
+		struct status_change* sc = status_get_sc(src);
+		int starget = BL_CHAR | BL_SKILL;
+		skill_area_temp[1] = 0;
+		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
+			src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+		if (!i)
+			clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skill_id, skill_lv, DMG_SINGLE);
 		short count = 1;
 		skill_area_temp[2] = 0;
 		if (tsc && tsc->data[SC_ROLLINGCUTTER])
@@ -13675,6 +13648,14 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	case WL_FROSTMISTY:
 	case RL_HAMMER_OF_GOD:
 		// Cast center might be relevant later (e.g. for knockback direction)
+		skill_area_temp[4] = x;
+		skill_area_temp[5] = y;
+		i = skill_get_splash(skill_id, skill_lv);
+		map_foreachinarea(skill_area_sub, src->m, x - i, y - i, x + i, y + i, BL_CHAR | BL_SKILL, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 1, skill_castend_damage_id);
+		break;
+	case SP_SPA:
+		sc_start(src, src, SC_USE_SKILL_SP_SPA, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
+		sc_start(src, src, SC_SUFFRAGIUM, 100, skill_lv, 4000);
 		skill_area_temp[4] = x;
 		skill_area_temp[5] = y;
 		i = skill_get_splash(skill_id, skill_lv);
