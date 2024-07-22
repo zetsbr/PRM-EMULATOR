@@ -359,12 +359,12 @@ enum e_element : int8{
 	ELE_DARK,
 	ELE_GHOST,
 	ELE_UNDEAD,
-	ELE_TRUENEUTRAL,
 	ELE_ALL,
 	ELE_MAX,
 	ELE_WEAPON,
 	ELE_ENDOWED,
 	ELE_RANDOM,
+	ELE_TRUENEUTRAL,
 };
 
 static std::unordered_map<std::string, e_element> um_eleid2elename {
@@ -378,6 +378,8 @@ static std::unordered_map<std::string, e_element> um_eleid2elename {
 	{ "Dark", ELE_DARK },
 	{ "Ghost", ELE_GHOST },
 	{ "Undead", ELE_UNDEAD },
+	{ "True Neutral", ELE_TRUENEUTRAL },
+
 };
 
 #define MAX_ELE_LEVEL 4 /// Maximum Element level
