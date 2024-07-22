@@ -44,6 +44,7 @@ Body:
       Dark: 100
       Ghost: 75
       Undead: 100
+      True Neutral: 100
     Water:
       Neutral: 100
       Water: 50
@@ -55,6 +56,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Earth:
       Neutral: 100
       Water: 100
@@ -66,6 +68,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Fire:
       Neutral: 100
       Water: 75
@@ -77,6 +80,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Wind:
       Neutral: 100
       Water: 125
@@ -88,6 +92,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Poison:
       Neutral: 125
       Water: 100
@@ -155,6 +160,7 @@ Body:
       Dark: 100
       Ghost: 75
       Undead: 100
+      True Neutral: 100
     Water:
       Neutral: 100
       Water: 50
@@ -166,6 +172,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Earth:
       Neutral: 100
       Water: 100
@@ -177,6 +184,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Fire:
       Neutral: 100
       Water: 75
@@ -188,6 +196,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Wind:
       Neutral: 100
       Water: 125
@@ -199,6 +208,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Poison:
       Neutral: 125
       Water: 100
@@ -266,6 +276,7 @@ Body:
       Dark: 100
       Ghost: 75
       Undead: 100
+      True Neutral: 100
     Water:
       Neutral: 100
       Water: 50
@@ -277,6 +288,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Earth:
       Neutral: 100
       Water: 100
@@ -288,6 +300,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Fire:
       Neutral: 100
       Water: 75
@@ -299,6 +312,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Wind:
       Neutral: 100
       Water: 125
@@ -310,6 +324,7 @@ Body:
       Dark: 90
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Poison:
       Neutral: 125
       Water: 100
@@ -377,6 +392,7 @@ Body:
       Dark: 100
       Ghost: 50
       Undead: 100
+      True Neutral: 100
     Water:
       Neutral: 100
       Water: 25
@@ -388,6 +404,7 @@ Body:
       Dark: 75
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Earth:
       Neutral: 100
       Water: 100
@@ -399,6 +416,7 @@ Body:
       Dark: 75
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Fire:
       Neutral: 100
       Water: 50
@@ -410,6 +428,7 @@ Body:
       Dark: 75
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Wind:
       Neutral: 100
       Water: 125
@@ -421,6 +440,7 @@ Body:
       Dark: 75
       Ghost: 100
       Undead: 100
+      True Neutral: 100
     Poison:
       Neutral: 125
       Water: 100
