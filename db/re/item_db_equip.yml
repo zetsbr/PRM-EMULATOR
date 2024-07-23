@@ -120843,7 +120843,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillAtk,"NC_AXETORNADO",50;
+      .@r = getrefine();
+      bonus2 bSkillAtk,"NC_AXETORNADO",5*(.@r);
   - Id: 24552
     AegisName: Green_Mist_A
     Name: Green Mist A
