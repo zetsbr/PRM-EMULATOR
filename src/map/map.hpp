@@ -359,12 +359,13 @@ enum e_element : int8{
 	ELE_DARK,
 	ELE_GHOST,
 	ELE_UNDEAD,
+	ELE_TRUENEUTRAL,
 	ELE_ALL,
 	ELE_MAX,
 	ELE_WEAPON,
 	ELE_ENDOWED,
 	ELE_RANDOM,
-	ELE_TRUENEUTRAL,
+
 };
 
 static std::unordered_map<std::string, e_element> um_eleid2elename {
