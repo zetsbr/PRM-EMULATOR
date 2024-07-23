@@ -2328,7 +2328,7 @@ Body:
             MinValue: 10
             MaxValue: 10
             Chance: 10000
-   - Id: 23
+  - Id: 23
     Group: 2sword
     Slots:
       - Slot: 1
