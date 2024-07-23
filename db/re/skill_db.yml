@@ -4899,8 +4899,8 @@ Body:
       IgnoreElement: true
       IgnoreFlee: true
     Range: 3
-    Hit: Multi_Hit
-    HitCount: -3
+    Hit: Single
+    HitCount: 1
     Element: Poison
     SplashArea: 4
     CopyFlags:
@@ -5223,6 +5223,7 @@ Body:
     HitCount: 1
     CastCancel: true
     Duration1: 60000
+    Duration2: 60000
     Cooldown: 45000
     FixedCastTime: 1000
     Requires:
