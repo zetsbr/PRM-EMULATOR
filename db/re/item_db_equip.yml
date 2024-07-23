@@ -120844,7 +120844,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"SO_CLOUD_KILL",5*(.@r);
+      bonus2 bSkillAtk,"NC_AXETORNADO",5*(.@r);
   - Id: 24552
     AegisName: Green_Mist_A
     Name: Green Mist A

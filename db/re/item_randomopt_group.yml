@@ -2328,4 +2328,63 @@ Body:
             MinValue: 10
             MaxValue: 10
             Chance: 10000
-            
+  - Id: 23
+    Group: 2sword
+    Slots:
+      - Slot: 1
+        Options:
+          - Option: VAR_ATKPERCENT
+            MinValue: 3
+            MaxValue: 3
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 3
+            MaxValue: 3
+            Chance: 2000
+      - Slot: 2
+        Options:
+          - Option: DEC_SPELL_DELAY_TIME
+            MinValue: 10
+            MaxValue: 10
+            Chance: 3000
+          - Option: VAR_PLUSASPD
+            MinValue: 2
+            MaxValue: 2
+            Chance: 3000
+          - Option: VAR_HITSUCCESSVALUE
+            MinValue: 20
+            MaxValue: 20
+            Chance: 3000
+          - Option: ADDEXPPERCENT_KILLRACE_HUMAN
+            MinValue: 10
+            MaxValue: 10
+            Chance: 3000
+      - Slot: 3
+        Options:
+          - Option: ADDSKILLMDAMAGE_ALL
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+          - Option: MELEE_ATTACK_DAMAGE_TARGET
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
+      - Slot: 4
+        Options:
+          - Option: REFLECT_DAMAGE_PERCENT
+            MinValue: 100
+            MaxValue: 100
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_PLANT
+            MinValue: 200
+            MaxValue: 200
+            Chance: 4000
+          - Option: ADDEXPPERCENT_KILLRACE_DRAGON
+            MinValue: 1
+            MaxValue: 1
+            Chance: 4000
+          - Option: BODY_ATTR_FIRE
+            MinValue: 5
+            MaxValue: 5
+            Chance: 4000
+           
