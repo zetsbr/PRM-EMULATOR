@@ -6758,7 +6758,7 @@ Body:
         RandomOptionGroup: garment
       - Item: Relic_Claymore
         Rate: 200
-        RandomOptionGroup: sword
+        RandomOptionGroup: 2sword
       - Item: Broken_ScepterMVP
         Rate: 10
   - Id: 1155
@@ -24181,7 +24181,7 @@ Body:
         Rate: 10
       - Item: Darkness_Metal_S
         Rate: 100
-        RandomOptionGroup: sword
+        RandomOptionGroup: 2sword
   - Id: 1617
     AegisName: WASTE_STOVE
     Name: Old Stove
@@ -24623,8 +24623,8 @@ Body:
         Rate: 300
         StealProtected: true
       - Item: Tyrfing
-        Rate: 300
-        RandomOptionGroup: spear
+        Rate: 500
+        RandomOptionGroup: 2sword
       - Item: HD_Bradium
         Rate: 10000
       - Item: 3rd_Shadow_Coffer
@@ -28090,8 +28090,8 @@ Body:
       - Item: Jewel_Shadowdecon
         Rate: 2500
       - Item: Tartaros
-        Rate: 10
-        RandomOptionGroup: manual
+        Rate: 500
+        RandomOptionGroup: 2sword
       - Item: Winged_Mantle
         Rate: 1000
         RandomOptionGroup: garment
@@ -31293,7 +31293,7 @@ Body:
         Rate: 5750
       - Item: Atlas_Weapon
         Rate: 1500
-        RandomOptionGroup: sword
+        RandomOptionGroup: 2sword
       - Item: Atroce_Card
         Rate: 300
         StealProtected: true
@@ -46384,7 +46384,7 @@ Body:
         Rate: 10000
       - Item: Rusty_Eater
         Rate: 150
-        RandomOptionGroup: sword
+        RandomOptionGroup: 2sword
       - Item: Sedora_Card
         Rate: 100
         StealProtected: true
@@ -60114,7 +60114,7 @@ Body:
         Rate: 7500
       - Item: AvengedTartaros
         Rate: 500
-        RandomOptionGroup: sword
+        RandomOptionGroup: 2sword
       - Item: B_Thanatos_Card
         Rate: 300
         StealProtected: true
