@@ -323,13 +323,15 @@ function	script	F_GetArmorType	{
 		case EQP_SHADOW_ARMOR:
 			return "Shadow Armor";
 		case EQP_SHADOW_WEAPON:
-			return "Shadow Weapon";
+			return "Rune";
 		case EQP_SHADOW_SHIELD:
-			return "Shadow Shield";
+			return "Shadow Gloves";
 		case EQP_SHADOW_SHOES:
 			return "Shadow Shoes";
 		case EQP_SHADOW_ACC_R:
+			return "Manual";
 		case EQP_SHADOW_ACC_L:
+			return "Shadow Pendant";
 		case EQP_SHADOW_ACC_RL:
 			return "Shadow Accessory";
 		default:
@@ -632,13 +634,13 @@ function	script	F_CanChangeJob	{
 //////////////////////////////////////////////////////////////////////////////////
 function	script	F_getpositionname	{
 	switch( getarg(0,999) ) {
-		case EQI_ACC_L:		return "Accessory 1";
-		case EQI_ACC_R:		return "Accessory 2";
+		case EQI_ACC_L:		return "Left Accessory";
+		case EQI_ACC_R:		return "Right Accessory";
 		case EQI_SHOES:		return "Shoes";
 		case EQI_GARMENT:	return "Robe";
-		case EQI_HEAD_LOW:	return "Head 3";
-		case EQI_HEAD_MID:	return "Head 2";
-		case EQI_HEAD_TOP:	return "Head";
+		case EQI_HEAD_LOW:	return "Lower";
+		case EQI_HEAD_MID:	return "Middle";
+		case EQI_HEAD_TOP:	return "Headgear";
 		case EQI_ARMOR:		return "Body";
 		case EQI_HAND_L:	return "Left hand";
 		case EQI_HAND_R:	return "Right hand";
@@ -648,11 +650,11 @@ function	script	F_getpositionname	{
 		case EQI_COSTUME_GARMENT:	return "Costume Garment";
 		case EQI_AMMO:			return "Arrow/Ammunition";
 		case EQI_SHADOW_ARMOR:	return "Shadow Armor";
-		case EQI_SHADOW_WEAPON:	return "Shadow Weapon";
-		case EQI_SHADOW_SHIELD:	return "Shadow Shield";
+		case EQI_SHADOW_WEAPON:	return "Rune";
+		case EQI_SHADOW_SHIELD:	return "Shadow Gloves";
 		case EQI_SHADOW_SHOES:	return "Shadow Shoes";
-		case EQI_SHADOW_ACC_R:	return "Shadow Accessory 2";
-		case EQI_SHADOW_ACC_L:	return "Shadow Accessory 1";
+		case EQI_SHADOW_ACC_R:	return "Manual";
+		case EQI_SHADOW_ACC_L:	return "Shadow Pendant";
 		default:
 			return "Unknown";
 	}
