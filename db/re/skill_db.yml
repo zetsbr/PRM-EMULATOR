@@ -5223,6 +5223,7 @@ Body:
     HitCount: 1
     CastCancel: true
     Duration1: 60000
+    Duration2: 60000
     Cooldown: 45000
     FixedCastTime: 1000
     Requires:
