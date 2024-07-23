@@ -2912,7 +2912,8 @@ accessory#1#7#  VAR_DEXAMOUNT  # 1:1 #  bonus bDex,getrandomoptinfo(ROA_VALUE);
 accessory#1#8#  VAR_LUKAMOUNT  # 1:1 #  bonus bLuk,getrandomoptinfo(ROA_VALUE);
 */
 
-va_orpha,263,336,4	script	Change	914,{
+//va_orpha,263,336,4	script	Option Changer#orpha	914,
+{
 	
 	
 	setarray .@opt_acc, 13,14,15,3,4,5,6,7,8;
