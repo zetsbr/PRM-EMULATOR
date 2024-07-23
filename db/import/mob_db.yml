@@ -77,7 +77,53 @@ Header:
   Type: MOB_DB
   Version: 2
 
-#Body:
+Body:
+  - Id: 3905
+    AegisName: BARRICADE
+    Name: Holy Barricade
+    Level: 98
+    Hp: 600500
+    Agi: 17
+    Int: 80
+    Dex: 151
+    Luk: 20
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    RaceGroups:
+      Gvg: true
+    Element: Holy
+    ElementLevel: 1
+    WalkSpeed: 300
+    AttackDelay: 1288
+    AttackMotion: 288
+    DamageMotion: 384
+    Class: Boss
+  - Id: 3906
+    AegisName: BARRICADE
+    Name: Dark Barricade
+    Level: 98
+    Hp: 600500
+    Agi: 17
+    Int: 80
+    Dex: 151
+    Luk: 20
+    AttackRange: 1
+    SkillRange: 10
+    ChaseRange: 12
+    Size: Large
+    Race: Formless
+    RaceGroups:
+      Gvg: true
+    Element: Dark
+    ElementLevel: 1
+    WalkSpeed: 300
+    AttackDelay: 1288
+    AttackMotion: 288
+    DamageMotion: 384
+    Class: Boss
 # eAthena Dev Team
 #=============================================================
 #  - Id: 1900
