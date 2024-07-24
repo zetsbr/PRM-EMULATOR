@@ -28070,6 +28070,8 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: C_Thanatos_Sword
+        Rate: 10
       - Item: Jewel_Shadowdecon
         Rate: 10000
     Drops:
