@@ -2912,15 +2912,135 @@ accessory#1#7#  VAR_DEXAMOUNT  # 1:1 #  bonus bDex,getrandomoptinfo(ROA_VALUE);
 accessory#1#8#  VAR_LUKAMOUNT  # 1:1 #  bonus bLuk,getrandomoptinfo(ROA_VALUE);
 */
 
-//va_orpha,263,336,4	script	Option Changer#orpha	914,
-{
+/*
+armor#1#3#  VAR_STRAMOUNT  # 2:2 #  bonus bStr,getrandomoptinfo(ROA_VALUE);
+armor#1#4#  VAR_AGIAMOUNT  # 2:2 #  bonus bAgi,getrandomoptinfo(ROA_VALUE);
+armor#1#5#  VAR_VITAMOUNT  # 2:2 #  bonus bVit,getrandomoptinfo(ROA_VALUE);
+armor#1#6#  VAR_INTAMOUNT  # 2:2 #  bonus bInt,getrandomoptinfo(ROA_VALUE);
+armor#1#7#  VAR_DEXAMOUNT  # 2:2 #  bonus bDex,getrandomoptinfo(ROA_VALUE);
+armor#1#8#  VAR_LUKAMOUNT  # 2:2 #  bonus bLuk,getrandomoptinfo(ROA_VALUE);
+
+armor#2#10#  VAR_MAXSPPERCENT  # 5:5 #  bonus bMaxSPrate,getrandomoptinfo(ROA_VALUE);
+armor#2#9#  VAR_MAXHPPERCENT  # 5:5 #  bonus bMaxHPrate,getrandomoptinfo(ROA_VALUE);
+
+armor#3#169#  HEAL_MODIFY_PERCENT  # 10:10 #  bonus bHealPower2,getrandomoptinfo(ROA_VALUE);
+armor#3#236#  ADDEXPPERCENT_KILLRACE_INSECT  # 3:3 #  bonus bNoWeaponDamage,getrandomoptinfo(ROA_VALUE);
+armor#3#237#  ADDEXPPERCENT_KILLRACE_FISHS  # 3:3 #  bonus bNoMagicDamage,getrandomoptinfo(ROA_VALUE);
+*/
+
+/*
+axe#1#13#  VAR_ATKPERCENT  # 3:3 #  bonus2 bAddClass,Class_All,getrandomoptinfo(ROA_VALUE);
+axe#1#14#  VAR_MAGICATKPERCENT  # 3:3 #  bonus bMatkRate,getrandomoptinfo(ROA_VALUE);
+
+axe#2#15#  VAR_PLUSASPD  # 2:2 #  bonus bAspd,getrandomoptinfo(ROA_VALUE);
+axe#2#171#  DEC_SPELL_DELAY_TIME  # 10:10 #  bonus bDelayrate,-(getrandomoptinfo(ROA_VALUE));
+axe#2#18#  VAR_HITSUCCESSVALUE  # 20:20 #  bonus bHit,getrandomoptinfo(ROA_VALUE);
+axe#2#239#  ADDEXPPERCENT_KILLRACE_HUMAN  # 10:10 #  bonus bUseSPrate,-(getrandomoptinfo(ROA_VALUE));
+
+axe#3#219#  MELEE_ATTACK_DAMAGE_TARGET  # 10:10 #  bonus bShortAtkRate,getrandomoptinfo(ROA_VALUE);
+axe#3#231#  ADDSKILLMDAMAGE_ALL  # 10:10 #  bonus2 bMagicAtkEle,Ele_All,getrandomoptinfo(ROA_VALUE);
+
+axe#4#218#  REFLECT_DAMAGE_PERCENT  # 100:100 #  bonus bReduceDamageReturn,getrandomoptinfo(ROA_VALUE);
+axe#4#235#  ADDEXPPERCENT_KILLRACE_PLANT  # 200:200 #  bonus bFixedCast,-(getrandomoptinfo(ROA_VALUE));
+axe#4#236#  ADDEXPPERCENT_KILLRACE_INSECT  # 3:3 #  bonus bNoWeaponDamage,getrandomoptinfo(ROA_VALUE);
+axe#4#237#  ADDEXPPERCENT_KILLRACE_FISHS  # 3:3 #  bonus bNoMagicDamage,getrandomoptinfo(ROA_VALUE);
+axe#4#241#  ADDEXPPERCENT_KILLRACE_DRAGON  # 2:2 #  bonus bSplashAddRange,getrandomoptinfo(ROA_VALUE);
+*/
+
+/*
+13#  VAR_ATKPERCENT  # 3:3 #  bonus2 bAddClass,Class_All,getrandomoptinfo(ROA_VALUE);
+14#  VAR_MAGICATKPERCENT  # 3:3 #  bonus bMatkRate,getrandomoptinfo(ROA_VALUE);
+
+15#  VAR_PLUSASPD  # 2:2 #  bonus bAspd,getrandomoptinfo(ROA_VALUE);
+18#  VAR_HITSUCCESSVALUE  # 20:20 #  bonus bHit,getrandomoptinfo(ROA_VALUE);
+239#  ADDEXPPERCENT_KILLRACE_HUMAN  # 10:10 #  bonus bUseSPrate,-(getrandomoptinfo(ROA_VALUE));
+24#  VAR_CRITICALSUCCESSVALUE  # 10:10 #  bonus bCritical,getrandomoptinfo(ROA_VALUE);
+
+166#  RANGE_ATTACK_DAMAGE_TARGET  # 10:10 #  bonus bLongAtkRate,getrandomoptinfo(ROA_VALUE);
+230#  ADDSKILLMDAMAGE_UNDEAD  # 2:2 #  bonus bAtkRange,getrandomoptinfo(ROA_VALUE);
+231#  ADDSKILLMDAMAGE_ALL  # 10:10 #  bonus2 bMagicAtkEle,Ele_All,getrandomoptinfo(ROA_VALUE);
+
+164#  DAMAGE_CRI_TARGET  # 10:10 #  bonus bCritAtkRate,getrandomoptinfo(ROA_VALUE);
+230#  ADDSKILLMDAMAGE_UNDEAD  # 1:1 #  bonus bAtkRange,getrandomoptinfo(ROA_VALUE);
+235#  ADDEXPPERCENT_KILLRACE_PLANT  # 200:200 #  bonus bFixedCast,-(getrandomoptinfo(ROA_VALUE));
+*/
+
+
+
+/*
+setarray .@opt_, ;
+setarray .@opt__max, ;
+setarray .@opt__name$, ;
+*/
+
+
+va_orpha,263,336,4	script	OptionChanger#orpha	914,{
 	
+	set .@file$, "option_list.txt";
+    set .@line$, "";
+    // .@filehandle = fopen(.@file$, "r");
+    // if (.@filehandle == -1) {
+    //     mes "Failed to open file.";
+    //     close;
+    // }
+    // while (fgets(.@line$, 255, .@filehandle)) {
+    //     split(.@line$, "#", .@fiopt_minmaxelds$);
+    //     setarray .@opt_name$[getarraysize(.@locations$)], .@fields$[0];
+    //     setarray .@opt_slot[getarraysize(.@x_coords)], atoi(.@fields$[1]);
+    //     setarray .@opt_id[getarraysize(.@y_coords)], atoi(.@fields$[2]);
+    //     setarray .@opt_extended_name[getarraysize(.@zeny)], atoi(.@fields$[3]);
+    //     split(.@fields$[4], ":", .@opt_minmax$);
+    //     setarray .@opt_max$[getarraysize(.@zeny)], atoi(.@opt_minmax$[1]);
+    //     setarray .@opt_script[getarraysize(.@zeny)], atoi(.@fields$[5]);
+    // }
+    // fclose(.@filehandle);
+
 	
+
 	setarray .@opt_acc, 13,14,15,3,4,5,6,7,8;
 	setarray .@opt_acc_max, 1,1,1,1,1,1,1,1,1;
 	setarray .@opt_acc_name$, "ATK%","MATK%","Base ASPD","STR","AGI","VIT","INT","DEX","LUK";
 
+	setarray .@opt_armor1, 3,4,5,6,7,8;
+	setarray .@opt_armor1_max, 2,2,2,2,2,2;
+	setarray .@opt_armor1_name$, "STR","AGI","VIT","INT","DEX","LUK";
+	setarray .@opt_armor2, 10,9;
+	setarray .@opt_armor2_max, 5,5;
+	setarray .@opt_armor2_name$, "Max SP%","Max HP%";
+	setarray .@opt_armor3, 169,236,237;
+	setarray .@opt_armor3_max, 3,3,3;
+	setarray .@opt_armor2_name$, "Healing Received","Physical Damage Reduction","Magical Damage Reduction";
+
+	setarray .@opt_axe1, 13,14;
+	setarray .@opt_axe1_max, 3,3;
+	setarray .@opt_axe1_name$, "ATK%","MATK%";
+	setarray .@opt_axe2, 15,171,18,239;
+	setarray .@opt_axe2_max, 2,10,20,10;
+	setarray .@opt_axe2_name$, "ASPD","After Cast Delay","Hit","SP Cost -";
+	setarray .@opt_axe3, 219,231;
+	setarray .@opt_axe3_max, 10,10;
+	setarray .@opt_axe3_name$, "Short Range Damage","Magic Damage";
+	setarray .@opt_axe4, 218,235,236,237,241;
+	setarray .@opt_axe4_max, 100,200,3,3,2;
+	setarray .@opt_axe4_name$, "Reflect damage","Fixed Cast Time","Physical Damage Reduction","Magical Damage Reduction","Splash Range";
+
+	setarray .@opt_bow1, 13,14;
+	setarray .@opt_bow1_max, 3,3;
+	setarray .@opt_bow1_name$, "ATK%","MATK%";
+	setarray .@opt_bow2, 15,18,239,24;
+	setarray .@opt_bow2_max, 2,20,10,10;
+	setarray .@opt_bow2_name$, "ASPD","Hit","SP Cost -","Crit";
+	setarray .@opt_bow3, 166,230,231;
+	setarray .@opt_bow3_max, 10,2,10;
+	setarray .@opt_bow3_name$, "Long Range Damage","Splash Range","Magic Damage";
+	setarray .@opt_bow4, 164,230,235;
+	setarray .@opt_bow4_max, 10,1,200;
+	setarray .@opt_bow4_name$, "Crit","Attack Range","Fixed Cast -";
+
+	
+
 	disable_items;
+
 	start_exchange_option:
 		.@menu$ = "";
 		mes "What piece do you want to change options:";
@@ -2948,6 +3068,7 @@ accessory#1#8#  VAR_LUKAMOUNT  # 1:1 #  bonus bLuk,getrandomoptinfo(ROA_VALUE);
 		}
 
 	change_option:		
+		goto rand_bow;
 		if ( F_getpositionname(.@part) == "Right Accessory" || F_getpositionname(.@part) == "Left Accessory" ) {
 			goto rand_acc;
 		}
@@ -2960,11 +3081,32 @@ accessory#1#8#  VAR_LUKAMOUNT  # 1:1 #  bonus bLuk,getrandomoptinfo(ROA_VALUE);
 		.@optv = rand(.@sz2);
 		.@val = .@opt_acc_max[.@optv];
 		.@opt = .@opt_acc[.@optv];
+		.@roll$ = .@opt_acc_name$[.@optv];
+		goto apply_option;
+		
+	rand_axe:
+		.@idx = 0;
+		.@sz2 = getarraysize(.@opt_axe2_name$);
+		.@optv = rand(.@sz2);
+		.@val = .@opt_axe2_max[.@optv];
+		.@opt = .@opt_axe2[.@optv];
+		.@roll$ = .@opt_axe2_name$[.@optv];
+		goto apply_option;
+		
+	rand_bow:
+		.@idx = 0;
+		.@sz2 = getarraysize(.@opt_bow4_name$);
+		.@optv = rand(.@sz2);
+		.@val = .@opt_bow4_max[.@optv];
+		.@opt = .@opt_bow4[.@optv];
+		.@roll$ = .@opt_bow4_name$[.@optv];
 		goto apply_option;
 
 	apply_option:
+		mes getequiprandomoption(.@part,0,ROA_ID)," ";
+		mes .@opt;
 		mes "Applied at slot : ^0C9610"+(.@idx+1);
-		mes "^6A01A1"+.@opt_acc_name$[.@optv]+" +"+.@val;
+		mes "^6A01A1"+.@roll$+" +"+.@val;
 
 		setrandomoption(.@part, .@idx, .@opt, .@val, .@idx, getcharid(0));
 		close2;
