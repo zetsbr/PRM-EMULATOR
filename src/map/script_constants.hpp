@@ -1718,6 +1718,8 @@
 	export_constant(SC_EXTREMITYFIST2);
 #endif
 
+	export_constant(SC_FINISHER_BOOST);
+
 	/* status icons */
 	export_deprecated_constant2("SI_BLANK",-1);
 	export_deprecated_constant2("SI_PROVOKE",0);
