@@ -602,8 +602,9 @@ Body:
       IsAutoShadowSpell: true
     Range: 9
     Hit: Single
-    HitCount: 1
+    HitCount: -3
     Element: Water
+    SplashArea: 2
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -6086,6 +6087,7 @@ Body:
         Plagiarism: true
     DamageFlags:
       Splash: true
+      IgnoreFlee: true
     Flags:
       TargetTrap: true
       AllowWhenHidden: true
@@ -6459,7 +6461,7 @@ Body:
         Plagiarism: true
         Reproduce: true
     CastCancel: true
-    CastTime: 750
+    CastTime: 500
     AfterCastActDelay: 750
     Duration1:
       - Level: 1
@@ -6472,8 +6474,8 @@ Body:
         Time: 11000
       - Level: 5
         Time: 12000
+    Duration2: 5000
     Cooldown: 4000
-    FixedCastTime: 750
     Requires:
       SpCost: 40
       ItemCost:
@@ -6506,7 +6508,7 @@ Body:
         Plagiarism: true
         Reproduce: true
     CastCancel: true
-    CastTime: 750
+    CastTime: 500
     AfterCastActDelay: 750
     Cooldown: 2500
     Duration1:
@@ -6531,7 +6533,6 @@ Body:
       - Level: 10
         Time: 14
     Duration2: 120000
-    FixedCastTime: 750
     Requires:
       SpCost: 45
       ItemCost:
@@ -18121,8 +18122,6 @@ Body:
     MaxLevel: 13
     Type: Weapon
     TargetType: Attack
-    DamageFlags:
-      Critical: true
     Range:
       - Level: 1
         Size: 5
@@ -18151,7 +18150,7 @@ Body:
       Skill:
         Plagiarism: true
     AfterCastActDelay: 1000
-    Cooldown: 3000
+    Cooldown: 2000
     Requires:
       SpCost:
         - Level: 1
@@ -21242,7 +21241,7 @@ Body:
       IgnoreStatus: true
       IgnoreItemBonus: true
     Requires:
-      SpRateCost: -50
+      SpRateCost: 50
       SpCost:
         - Level: 1
           Amount: 55
@@ -21809,9 +21808,9 @@ Body:
       AlterRangeRadius: true
       AlterRangeVulture: true
     TargetType: Attack
-    Range: 4
+    Range: 5
     Hit: Single
-    HitCount: 1
+    HitCount: -2
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -21829,18 +21828,8 @@ Body:
       - Level: 5
         Time: 500
     Requires:
-      SpRateCost: -7
-      SpCost:
-        - Level: 1
-          Amount: 30
-        - Level: 2
-          Amount: 40
-        - Level: 3
-          Amount: 50
-        - Level: 4
-          Amount: 60
-        - Level: 5
-          Amount: 70
+      SpRateCost: 5
+      SpCost: 50
   - Id: 2257
     Name: NC_PILEBUNKER
     Description: Guard Breaker
@@ -24074,7 +24063,7 @@ Body:
           Amount: 56
         - Level: 5
           Amount: 68
-      SpRateCost: -60
+      SpRateCost: 50
       Weapon:
         Bow: true
   - Id: 2317

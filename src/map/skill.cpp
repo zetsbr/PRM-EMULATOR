@@ -1581,6 +1581,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 
 	case AM_DEMONSTRATION:
 #ifdef RENEWAL
+		sc_start2(src, bl, SC_BURNING, (20*skill_lv), skill_lv, src->id, skill_get_time2(skill_id, skill_lv));
 		skill_break_equip(src, bl, EQP_WEAPON, 300 * skill_lv, BCT_ENEMY);
 #else
 		skill_break_equip(src, bl, EQP_WEAPON, 100 * skill_lv, BCT_ENEMY);
@@ -5686,6 +5687,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case AC_SHOWER:
 	case MA_SHOWER:
 	case MG_FIREBALL:
+	case MG_FROSTDIVER:
 	case RG_RAID:
 #ifdef RENEWAL
 	case SN_SHARPSHOOTING:
@@ -6078,7 +6080,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case NPC_DARKTHUNDER:
 	case NPC_FIRESTORM:
 	case PR_ASPERSIO:
-	case MG_FROSTDIVER:
 	case WZ_SIGHTBLASTER:
 	case WZ_SIGHTRASHER:
 #ifdef RENEWAL
