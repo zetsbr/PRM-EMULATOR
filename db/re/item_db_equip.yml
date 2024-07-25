@@ -140260,7 +140260,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bCritAtkRate,.@r;
+      bonus bCritAtkRate,2*(.@r);
       bonus bCritical,.@r;
   - Id: 31212
     AegisName: Caelum_Moon
