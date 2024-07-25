@@ -4,6 +4,7 @@
 // ID:ID:ID:ID,{ Script }
 
 1175:2133,{ bonus bAllStats,20; }
+13583:13584:13585:13586:4399,{ bonus bAllStats,5; }
 1223:4121,{ bonus bFlee2,3; }
 1240:16154,{ bonus bHPrecovRate,100; bonus bSPrecovRate,100; bonus bAllStats,1; }
 13034:13035,{ skill "TF_DOUBLE",10; bonus2 bMagicAddSize,Size_Medium,5; bonus2 bAddSize,Size_Medium,5; bonus bAspd,5; if (getequiprefinerycnt(EQI_HAND_R)+getequiprefinerycnt(EQI_HAND_L) >= 12) { bonus bNoSizeFix; } }
