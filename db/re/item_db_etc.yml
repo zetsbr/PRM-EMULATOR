@@ -6789,12 +6789,12 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Garment: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"RK_SONICWAVE",-1000;
+      bonus2 bSkillAtk,"RK_SONICWAVE",15;
   - Id: 4292
     AegisName: Kobold_Archer_Card
     Name: Kobold Archer Card
@@ -7172,7 +7172,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus3 bSplashSkill,"MG_FROSTDIVER",3,100;
+      skill "WZ_FROSTNOVA",1;
   - Id: 4319
     AegisName: Freezer_Card
     Name: Freezer Card
