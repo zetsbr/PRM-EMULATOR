@@ -19156,7 +19156,6 @@ Body:
         Area: 2
       - Level: 10
         Area: 2
-    CastCancel: true
     CastTime: 3000
     AfterCastActDelay: 1000
     Duration1: 10000
