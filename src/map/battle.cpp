@@ -3380,9 +3380,9 @@ static void battle_calc_attack_masteries(struct Damage* wd, struct block_list *s
 #ifdef RENEWAL
 		//General skill masteries
 		if(skill_id == TF_POISON) //Additional ATK from Envenom is treated as mastery type damage [helvetica]
-			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 15 * skill_lv + 2 * sstatus->int_ + (10 * pc_checkskill(sd, GC_RESEARCHNEWPOISON)));
+			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 2 * sstatus->int_ + (2 * pc_checkskill(sd, GC_RESEARCHNEWPOISON)));
 		if (skill_id == TF_POISON && sc && sc->data[SC_POISONREACT])
-			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 15 * skill_lv + sstatus->int_);
+			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, sstatus->int_);
 		if (skill_id != MC_CARTREVOLUTION && pc_checkskill(sd, BS_HILTBINDING) > 0)
 			ATK_ADD(wd->masteryAtk, wd->masteryAtk2, 4);
 		if (skill_id != CR_SHIELDBOOMERANG)
@@ -4187,6 +4187,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio *= 1 + 5 * (1 - (20000 + (status_get_max_hp(src) - status_get_hp(src))) / (20000 + 1.1 * (status_get_max_hp(src) - status_get_hp(src))));
 			if (sc && sc->data[SC_DEATHBOUND])
 				skillratio *= 1 + 10 * (1 - (20000 + status_get_hp(src)) / (20000 + 1.1 * status_get_hp(src)));
+			break;
+		case TF_POISON:
+			skillratio -= 50;
 			break;
 		case MO_EXTREMITYFIST:
 			skillratio += 2 * (sstatus->sp);			
@@ -6292,8 +6295,6 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 
 		if ((skill = pc_checkskill(sd, BS_WEAPONRESEARCH)) > 0)
 			ATK_ADD(wd.damage, wd.damage2, skill * 2);
-		if (skill_id == TF_POISON)
-			ATK_ADD(wd.damage, wd.damage2, 15 * skill_lv);
 		if (skill_id == GS_GROUNDDRIFT)
 			ATK_ADD(wd.damage, wd.damage2, 50 * skill_lv);
 		if (skill_id != CR_SHIELDBOOMERANG) //Only Shield boomerang doesn't takes the Star Crumbs bonus.

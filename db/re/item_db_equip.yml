@@ -120966,7 +120966,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"TF_POISON",20*(.@r);
+      bonus2 bSkillAtk,"TF_POISON",5*(.@r);
   - Id: 24558
     AegisName: Walking_Pest_S
     Name: Walking Pest S
