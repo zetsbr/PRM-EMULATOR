@@ -4254,7 +4254,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case CH_PALMSTRIKE:
 			skillratio += 5 * skill_lv - sd->bonus.speed_add_rate - sd->bonus.speed_rate;
-			if (tsc && tsc->data[SC_FINISHER_BOOST])
+			if (sc && sc->data[SC_VOID_DASH_BOOST])
 				skillratio += 50 + (10 * skill_lv) + (sstatus->int_);
 			if (sc && sc->data[SC_LIGHTOFSUN])
 				skillratio += 25 + sstatus->dex;
