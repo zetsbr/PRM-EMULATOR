@@ -4110,12 +4110,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break; 
 		case CR_SHIELDBOOMERANG:
 #ifdef RENEWAL
-			skillratio += 100 + 25 * skill_lv + 2*(sstatus->vit) + (5 * pc_checkskill(sd, AL_DP));
+			skillratio += 100 + 20 * skill_lv + 1 * (sstatus->vit) + (5 * pc_checkskill(sd, AL_DP));
 			if (sc && sc->data[SC_SHIELDSPELL_ATK]) {
 				skillratio += 2 * (sstatus->vit) + 1 * (sstatus->str);
 			}
 			if (sd->equip_index[EQI_HAND_L] >= 0 && sd->inventory_data[sd->equip_index[EQI_HAND_L]] && sd->inventory_data[sd->equip_index[EQI_HAND_L]]->type == IT_ARMOR) {
-				skillratio += sd->inventory_data[sd->equip_index[EQI_HAND_L]]->weight / 10 * skill_lv;
+				skillratio += sd->inventory_data[sd->equip_index[EQI_HAND_L]]->weight / 10;
 			}
 #else
 			skillratio += 30 * skill_lv;
@@ -4187,7 +4187,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio *= 1 + 10 * (1 - (20000 + status_get_hp(src)) / (20000 + 1.1 * status_get_hp(src)));
 			break;
 		case TF_POISON:
-			skillratio -= 50;
+			skillratio -= 75;
 			break;
 		case MO_EXTREMITYFIST:
 			skillratio += 2 * (sstatus->sp);			

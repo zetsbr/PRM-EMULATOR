@@ -5269,7 +5269,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case CR_HOLYCROSS:
 	case NPC_DARKCROSS:
 	case CR_SHIELDCHARGE:
-	case CR_SHIELDBOOMERANG:
 	case NPC_PIERCINGATT:
 	case NPC_MENTALBREAKER:
 	case NPC_RANGEATTACK:
@@ -5688,6 +5687,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case MA_SHOWER:
 	case MG_FIREBALL:
 	case MG_FROSTDIVER:
+	case CR_SHIELDBOOMERANG:
 	case RG_RAID:
 #ifdef RENEWAL
 	case SN_SHARPSHOOTING:

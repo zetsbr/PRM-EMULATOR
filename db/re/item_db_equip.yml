@@ -31325,7 +31325,7 @@ Body:
     Script: |
       bonus bSpeedAddRate,9;
       bonus2 bSkillUseSPrate,"SR_KNUCKLEARROW",-70;
-      bonus2 bSkillAtk,"SR_KNUCKLEARROW",70;
+      bonus2 bSkillAtk,"SR_KNUCKLEARROW",30;
   - Id: 2418
     AegisName: Vidar's_Boots
     Name: Vidar's Boots
