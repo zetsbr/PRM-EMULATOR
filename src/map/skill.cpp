@@ -6054,7 +6054,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		}
 		skill_addtimerskill(src, tick + (1500 + status_get_amotion(src)), bl->id, 0, 0, skill_id, skill_lv, BF_WEAPON, flag);
 		if (sc && sc->data[SC_SPL_ATK]) {
-			sc_start(src, src, SC_FINISHER_BOOST, 100, skill_lv, (1500 + status_get_amotion(src)));
+			sc_start(src, src, SC_FINISHER_BOOST, 100, skill_lv, (1500 + 100 + status_get_amotion(src))); // Void Dash timer tends to be inconsistent; 100 extra ms to prevent timer bugs 
 		}
 		status_change_end(src, SC_RUN, INVALID_TIMER);
 		if (sc && (!sc->data[SC_OVERBRANDREADY]))
