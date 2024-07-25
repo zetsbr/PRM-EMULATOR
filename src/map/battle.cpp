@@ -5848,7 +5848,7 @@ static void battle_calc_weapon_final_atk_modifiers(struct Damage* wd, struct blo
 		)
 	{
 		ATK_RATER(wd->damage, 50)
-		status_fix_damage(target,src,wd->damage,clif_damage(target,src,gettick(),0,0,wd->damage,0,DMG_NORMAL,0,false),ST_REJECTSWORD);
+		//status_fix_damage(target,src,wd->damage,clif_damage(target,src,gettick(),0,0,wd->damage,0,DMG_NORMAL,0,false),ST_REJECTSWORD);
 		clif_skill_nodamage(target,target,ST_REJECTSWORD,tsc->data[SC_REJECTSWORD]->val1,1);
 		if( --(tsc->data[SC_REJECTSWORD]->val3) <= 0 )
 			status_change_end(target, SC_REJECTSWORD, INVALID_TIMER);
@@ -7880,15 +7880,18 @@ bool battle_vellum_damage(struct map_session_data *sd, struct block_list *target
 /*===========================================
  * Perform battle drain effects (HP/SP loss)
  *-------------------------------------------*/
-void battle_drain(struct map_session_data *sd, struct block_list *tbl, int64 rdamage, int64 ldamage, int race, int class_)
+void battle_drain(struct map_session_data* sd, struct block_list* tbl, int64 rdamage, int64 ldamage, int race, int class_)
 {
-	struct weapon_data *wd;
-	int64 *damage;
+	struct weapon_data* wd;
+	int64* damage;
+	struct status_change* sc;
 	int thp = 0, // HP gained
 		tsp = 0, // SP gained
 		//rhp = 0, // HP reduced from target
 		//rsp = 0, // SP reduced from target
 		hp = 0, sp = 0;
+
+	sc = status_get_sc(&sd->bl);
 
 	if (!CHK_RACE(race) && !CHK_CLASS(class_))
 		return;
@@ -7898,7 +7901,8 @@ void battle_drain(struct map_session_data *sd, struct block_list *tbl, int64 rda
 		if (i < 2) {
 			wd = &sd->right_weapon;
 			damage = &rdamage;
-		} else {
+		}
+		else {
 			wd = &sd->left_weapon;
 			damage = &ldamage;
 		}
@@ -7908,30 +7912,37 @@ void battle_drain(struct map_session_data *sd, struct block_list *tbl, int64 rda
 
 		if (i == 1 || i == 3) {
 			hp = wd->hp_drain_class[class_] + wd->hp_drain_class[CLASS_ALL];
-			hp += battle_calc_drain(*damage, wd->hp_drain_rate.rate, wd->hp_drain_rate.per);
-
 			sp = wd->sp_drain_class[class_] + wd->sp_drain_class[CLASS_ALL];
-			sp += battle_calc_drain(*damage, wd->sp_drain_rate.rate, wd->sp_drain_rate.per);
 
-			if( hp ) {
+			if (sc && sc->data[SC_ANCILLA]) {
+				hp += battle_calc_drain(*damage, wd->hp_drain_rate.rate + 1000, wd->hp_drain_rate.per + 10);
+				sp += battle_calc_drain(*damage, wd->sp_drain_rate.rate + 1000, wd->sp_drain_rate.per + 1);
+			}
+			else {
+				hp += battle_calc_drain(*damage, wd->hp_drain_rate.rate, wd->hp_drain_rate.per);
+				sp += battle_calc_drain(*damage, wd->sp_drain_rate.rate, wd->sp_drain_rate.per);
+			}
+
+			if (hp) {
 				//rhp += hp;
 				thp += hp;
 			}
 
-			if( sp ) {
+			if (sp) {
 				//rsp += sp;
 				tsp += sp;
 			}
-		} else {
+		}
+		else {
 			hp = wd->hp_drain_race[race] + wd->hp_drain_race[RC_ALL];
 			sp = wd->sp_drain_race[race] + wd->sp_drain_race[RC_ALL];
 
-			if( hp ) {
+			if (hp) {
 				//rhp += hp;
 				thp += hp;
 			}
 
-			if( sp ) {
+			if (sp) {
 				//rsp += sp;
 				tsp += sp;
 			}
@@ -7941,7 +7952,7 @@ void battle_drain(struct map_session_data *sd, struct block_list *tbl, int64 rda
 	if (!thp && !tsp)
 		return;
 
-	status_heal(&sd->bl, thp, tsp, battle_config.show_hp_sp_drain?3:1);
+	status_heal(&sd->bl, thp, tsp, battle_config.show_hp_sp_drain ? 3 : 1);
 
 	//if (rhp || rsp)
 	//	status_zap(tbl, rhp, rsp);
