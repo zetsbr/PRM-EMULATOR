@@ -1889,7 +1889,7 @@ Body:
     Type: Weapon
     TargetType: Attack
     Range: 6
-     Hit: Multi_Hit
+    Hit: Multi_Hit
     HitCount:
       - Level: 1
         Count: 1
