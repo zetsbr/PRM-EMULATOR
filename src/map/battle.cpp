@@ -6817,9 +6817,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						RE_LVL_DMOD(100);
 						break;
 					case PA_PRESSURE:
-						skillratio += 30 * skill_lv + 3 * (sstatus->luk);
+						skillratio += 45 * skill_lv + 4.5 * (sstatus->luk);
 						if (sc && sc->data[SC_OVERBRANDREADY])
-						skillratio += 2 * (sstatus->luk);
+						skillratio += 3 * (sstatus->luk);
 						break;
 #else
 					case WZ_VERMILION:

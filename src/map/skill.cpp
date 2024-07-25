@@ -5685,7 +5685,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case HT_BLITZBEAT:
 	case AC_SHOWER:
 	case MA_SHOWER:
-	case MG_NAPALMBEAT:
 	case MG_FIREBALL:
 	case RG_RAID:
 #ifdef RENEWAL
@@ -6542,6 +6541,10 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
 			skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
 
+		break;
+	case MG_NAPALMBEAT:
+		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+		skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 	case RA_WUGSTRIKE:
 		if (!pc_isriding(sd)) {

@@ -14182,7 +14182,7 @@ Body:
     Script: |
       bonus bNoRegen,2;
       .@r = getrefine();
-      autobonus3 "{}",10000,10000,11,"{ sc_start SC_OVERBRANDREADY,2000,1;}";
+      bonus3 bSplashSkill,"MG_NAPALMBEAT",1,100;
       bonus bUseSPrate,-18;
       bonus2 bSkillAtk,"MG_NAPALMBEAT",3*(.@r);
   - Id: 1580

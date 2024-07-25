@@ -340,9 +340,6 @@ Body:
     MaxLevel: 7
     Type: Magic
     TargetType: Attack
-    DamageFlags:
-      Splash: true
-      SplashSplit: true
     Flags:
       IsAutoShadowSpell: true
       TargetTrap: true
@@ -350,9 +347,9 @@ Body:
     Hit: Multi_Hit
     HitCount: 2
     Element: Weapon
-    SplashArea: 1
     Cooldown: 100
     AfterCastActDelay: 250
+    Duration1: 3000
     Requires:
       Weapon:
         Book: true
@@ -9914,7 +9911,7 @@ Body:
     TargetType: Attack
     Range: 6
     Hit: Multi_Hit
-    HitCount: 3
+    HitCount: 2
     Element: Weapon
     CopyFlags:
       Skill:
@@ -10989,7 +10986,7 @@ Body:
     TargetType: Attack
     Range: 6
     Hit: Single
-    HitCount: 1
+    HitCount: -2
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -21513,7 +21510,7 @@ Body:
       State: Riding
   - Id: 2245
     Name: RA_TOOTHOFWUG
-    Description: Tooth of Warg
+    Description: Claw Sharpening
     MaxLevel: 10
   - Id: 2246
     Name: RA_SENSITIVEKEEN
@@ -31392,7 +31389,7 @@ Body:
       - Level: 5
         Size: 6
     Hit: Single
-    HitCount: 1
+    HitCount: 3
     Element: Weapon
     SplashArea: 2
     CastTime:
