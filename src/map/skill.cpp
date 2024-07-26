@@ -6053,9 +6053,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			clif_snap(src, src->x, src->y);
 		}
 		skill_addtimerskill(src, tick + (1500 + status_get_amotion(src)), bl->id, 0, 0, skill_id, skill_lv, BF_WEAPON, flag);
-		if (sc && sc->data[SC_SPL_ATK]) {
-			sc_start(src, src, SC_VOID_DASH_BOOST, 100, skill_lv, (1500 + status_get_amotion(src)));
-		}
 		status_change_end(src, SC_RUN, INVALID_TIMER);
 		if (sc && (!sc->data[SC_OVERBRANDREADY]))
 			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time(skill_id, skill_lv));

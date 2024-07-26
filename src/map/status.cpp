@@ -2344,7 +2344,6 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 			status_change_end(target, SC_NEWMOON, INVALID_TIMER);
 			if (!(sc->data[SC_DEFENDER])) {
 				status_change_end(target, SC_SPL_ATK, INVALID_TIMER);
-				status_change_end(target, SC_VOID_DASH_BOOST, INVALID_TIMER);
 			}
 			status_change_end(target, SC_LIGHTOFSUN, INVALID_TIMER);
 			if ((sce=sc->data[SC_ENDURE]) && !sce->val4) {
