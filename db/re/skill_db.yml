@@ -14046,7 +14046,7 @@ Body:
     HitCount: 1
     Element: Weapon
     AfterCastActDelay: 500
-    Duration2: 5000
+    Duration2: 3000
     Cooldown: 2000
     FixedCastTime: 100
     Requires:
@@ -14201,8 +14201,8 @@ Body:
     Element: Weapon
     AfterCastActDelay: 500
     Cooldown: 2000
-    Duration1: 5000
-    Duration2: 7000
+    Duration1: 3000
+    Duration2: 3000
     Requires:
       SpCost:
         - Level: 1
