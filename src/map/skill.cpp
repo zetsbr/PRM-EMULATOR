@@ -213,6 +213,7 @@ int skill_get_ele(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, ski
 int skill_get_max(uint16 skill_id) { skill_get(skill_id, skill_db.find(skill_id)->max); }
 int skill_get_range(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, skill_lv, skill_db.find(skill_id)->range); }
 int skill_get_splash_(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, skill_lv, skill_db.find(skill_id)->splash); }
+
 int skill_get_num(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, skill_lv, skill_db.find(skill_id)->num); }
 int skill_get_cast(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, skill_lv, skill_db.find(skill_id)->cast); }
 int skill_get_delay(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, skill_lv, skill_db.find(skill_id)->delay); }
@@ -252,11 +253,11 @@ int skill_get_state(uint16 skill_id) { skill_get(skill_id, skill_db.find(skill_i
 int skill_get_status_count(uint16 skill_id) { skill_get(skill_id, skill_db.find(skill_id)->require.status.size()); }
 int skill_get_spiritball(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, skill_lv, skill_db.find(skill_id)->require.spiritball); }
 
-int skill_get_splash(uint16 skill_id, uint16 skill_lv, struct map_session_data* sd = nullptr) {
+int skill_get_splash(uint16 skill_id, uint16 skill_lv, struct map_session_data* sd) {
 	
 	int splash_bonus = 0;
 	int splash = skill_get_splash_(skill_id, skill_lv);
-	if (sd != nullptr)
+	if (sd)
 		 splash_bonus = pc_skillaoe_bonus(sd, skill_id);
 	if (splash < 0)
 		return AREA_SIZE;
