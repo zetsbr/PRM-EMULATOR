@@ -4128,6 +4128,17 @@ void pc_bonus2(struct map_session_data *sd,int type,int type2,int val)
 
 		pc_bonus_itembonus(sd->skillatk, type2, val, false);
 		break;
+
+	case SP_SKILL_AOE: // bonus2 bSkillAoe,sk,n;
+		if(sd->state.lr_flag == 2)
+			break;
+		if (sd->skillaoe.size() == MAX_PC_BONUS) {
+			ShowWarning("pc_bonus2: SP_SKILL_AOE: Reached max (%d) number of skills per character, bonus skill %d (+%d%%) lost.\n", MAX_PC_BONUS, type2, val);
+			break;
+		}
+
+		pc_bonus_itembonus(sd->skillaoe, type2, val, false);
+		break;
 	case SP_SKILL_HEAL: // bonus2 bSkillHeal,sk,n;
 		if(sd->state.lr_flag == 2)
 			break;
@@ -8710,6 +8721,24 @@ int pc_resethate(struct map_session_data* sd)
 		pc_setglobalreg(sd, add_str(sg_info[i].hate_var), 0);
 	}
 	return 0;
+}
+
+int pc_skillaoe_bonus(struct map_session_data *sd, uint16 skill_id)
+{
+	int bonus = 0;
+
+	nullpo_ret(sd);
+
+	skill_id = skill_dummy2skill_id(skill_id);
+
+	for (auto &it : sd->skillaoe) {
+		if (it.id == skill_id) {
+			bonus += it.val;
+			break;
+		}
+	}
+
+	return bonus;
 }
 
 int pc_skillatk_bonus(struct map_session_data *sd, uint16 skill_id)
