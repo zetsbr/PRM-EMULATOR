@@ -253,10 +253,15 @@ int skill_get_status_count(uint16 skill_id) { skill_get(skill_id, skill_db.find(
 int skill_get_spiritball(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_id, skill_lv, skill_db.find(skill_id)->require.spiritball); }
 
 int skill_get_splash(uint16 skill_id, uint16 skill_lv) {
+
+	struct unit_data* ud = unit_bl2ud(src);
+	struct map_session_data* sd = map_id2sd(src->id);
+
 	int splash = skill_get_splash_(skill_id, skill_lv);
+	int splash_bonus = pc_skillaoe_bonus(sd, skill_id);
 	if (splash < 0)
 		return AREA_SIZE;
-	return splash;
+	return splash + splash_bonus;
 }
 
 bool skill_get_nk_(uint16 skill_id, std::vector<e_skill_nk> nk) {

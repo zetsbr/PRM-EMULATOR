@@ -5063,6 +5063,14 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case RL_BANISHING_BUSTER:
 			skillratio += 100 + 20 * skill_lv + 5 * sstatus->int_;
 			break;
+		case WL_DRAINLIFE:
+		if (tsc && tsc->data[SC_JYUMONJIKIRI])
+			skillratio +=50 + (sstatus->dex);
+		if(sd && sd->status.weapon == W_DOUBLE_AA)
+			skillratio += 40 * skill_lv + 8 * (sstatus->int_);
+		else
+			skillratio += 30 * skill_lv + 4 * (sstatus->int_);
+			break;			
 		case RL_S_STORM:
 			skillratio += -100 + 1700 + 200 * skill_lv;
 			break;
@@ -6869,14 +6877,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio += -100 + 1000 + 300 * skill_lv;
 						RE_LVL_DMOD(100);
 						break;
-					case WL_DRAINLIFE:
-					if (tsc && tsc->data[SC_JYUMONJIKIRI])
-						skillratio +=50 + (sstatus->dex);
-					if(sd && sd->status.weapon == W_DOUBLE_AA)
-						skillratio += 40 * skill_lv + 8 * (sstatus->int_);
-					else
-						skillratio += 30 * skill_lv + 4 * (sstatus->int_);
-						break;
+
 					case WL_CRIMSONROCK:
 						skillratio += -100 + 10 * skill_lv + 2 * (sstatus->int_);
 						break;
