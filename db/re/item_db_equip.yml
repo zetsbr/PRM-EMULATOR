@@ -68410,8 +68410,6 @@ Body:
       skill "BA_MUSICALSTRIKE",3;
       autobonus3 "{}",10000,10000,"BA_MUSICALSTRIKE","{ sc_end SC_OVERBRANDREADY;}";
       bonus4 bAutoSpellOnSkill,"BA_MUSICALSTRIKE","NC_COLDSLOWER",1,1000;
-      bonus2 bSkillAtk,"NC_COLDSLOWER",25;
-      bonus2 bSkillAoe,"NC_COLDSLOWER",5;
   - Id: 13464
     AegisName: Nopaew_Lufrewop
     Name: Nopaew Lufrewop
