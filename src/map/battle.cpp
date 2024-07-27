@@ -6623,7 +6623,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio += 10 * sd->spiritcharm;
 						break;
 					case AL_HOLYLIGHT:
-						skillratio += 30 * skill_lv + 2 * (sstatus->luk);
+						skillratio += 30 * skill_lv + 2 * (sstatus->int_);
 						break;
 					case AL_RUWACH:
 						skillratio += 45;

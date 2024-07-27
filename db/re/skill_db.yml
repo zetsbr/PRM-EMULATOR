@@ -13686,28 +13686,28 @@ Body:
     AfterCastActDelay: 200
     Cooldown: 10000
     Requires:
-      SpRateCost: -10
+      SpRateCost: 10
       SpCost:
         - Level: 1
-          Amount: 20
+          Amount: 5
         - Level: 2
-          Amount: 30
+          Amount: 10
         - Level: 3
-          Amount: 40
+          Amount: 15
         - Level: 4
-          Amount: 50
+          Amount: 20
         - Level: 5
-          Amount: 60
+          Amount: 25
         - Level: 6
-          Amount: 70
+          Amount: 30
         - Level: 7
-          Amount: 80
+          Amount: 35
         - Level: 8
-          Amount: 90
+          Amount: 40
         - Level: 9
-          Amount: 100
+          Amount: 45
         - Level: 10
-          Amount: 110
+          Amount: 50
   - Id: 500
     Name: GS_GLITTERING
     Description: Flip the Coin
@@ -14444,27 +14444,7 @@ Body:
     Hit: Multi_Hit
     HitCount: 2
     Element: Weapon
-    Cooldown:
-      - Level: 1
-        Time: 5000
-      - Level: 2
-        Time: 5000
-      - Level: 3
-        Time: 5000
-      - Level: 4
-        Time: 5000
-      - Level: 5
-        Time: 5000
-      - Level: 6
-        Time: 15000
-      - Level: 7
-        Time: 15000
-      - Level: 8
-        Time: 15000
-      - Level: 9
-        Time: 15000
-      - Level: 10
-        Time: 15000
+    Cooldown: 5000
     SplashArea:
       - Level: 1
         Area: 1
@@ -14508,31 +14488,51 @@ Body:
       - Level: 10
         Time: 80000
     Requires:
-       SpCost: 5
        Ammo:
          Shuriken: true
        AmmoAmount: 1
-       SpRateCost:
+       SpCost:
         - Level: 1
-          Amount: 15
+          Amount: 5
         - Level: 2
-          Amount: 15
+          Amount: 10
         - Level: 3
           Amount: 15
         - Level: 4
-          Amount: 15
+          Amount: 20
         - Level: 5
-          Amount: 15
+          Amount: 25
         - Level: 6
-          Amount: -15
+          Amount: 10
         - Level: 7
-          Amount: -15
+          Amount: 20
         - Level: 8
-          Amount: -15
+          Amount: 30
         - Level: 9
-          Amount: -15
+          Amount: 40
         - Level: 10
-          Amount: -15
+          Amount: 50
+       SpRateCost:
+        - Level: 1
+          Amount: 5
+        - Level: 2
+          Amount: 5
+        - Level: 3
+          Amount: 5
+        - Level: 4
+          Amount: 5
+        - Level: 5
+          Amount: 5
+        - Level: 6
+          Amount: 10
+        - Level: 7
+          Amount: 10
+        - Level: 8
+          Amount: 10
+        - Level: 9
+          Amount: 10
+        - Level: 10
+          Amount: 10
   - Id: 524
     Name: NJ_KUNAI
     Description: Flying Knife
@@ -18374,7 +18374,6 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    CastTime: 500
     Cooldown: 12000
     Requires:
       SpCost:
@@ -24364,8 +24363,6 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    CastCancel: true
-    CastTime: 1000
     AfterCastActDelay: 200
     Duration1:
       - Level: 1
@@ -24380,28 +24377,28 @@ Body:
         Time: 100
     Cooldown: 10000
     Requires:
-      SpRateCost: -10
+      SpRateCost: 10
       SpCost:
         - Level: 1
-          Amount: 20
+          Amount: 5
         - Level: 2
-          Amount: 30
+          Amount: 10
         - Level: 3
-          Amount: 40
+          Amount: 15
         - Level: 4
-          Amount: 50
+          Amount: 20
         - Level: 5
-          Amount: 60
+          Amount: 25
         - Level: 6
-          Amount: 70
+          Amount: 30
         - Level: 7
-          Amount: 80
+          Amount: 35
         - Level: 8
-          Amount: 90
+          Amount: 40
         - Level: 9
-          Amount: 100
+          Amount: 45
         - Level: 10
-          Amount: 110
+          Amount: 50
   - Id: 2324
     Name: LG_HESPERUSLIT
     Description: Conviction
@@ -24422,28 +24419,28 @@ Body:
     AfterCastActDelay: 200
     Cooldown: 1500
     Requires:
-      SpRateCost: -5
+      SpRateCost: 5
       SpCost:
         - Level: 1
-          Amount: 10
+          Amount: 3
         - Level: 2
-          Amount: 12
+          Amount: 5
         - Level: 3
-          Amount: 14
+          Amount: 8
         - Level: 4
-          Amount: 16
+          Amount: 10
         - Level: 5
-          Amount: 18
+          Amount: 13
         - Level: 6
-          Amount: 20
+          Amount: 15
         - Level: 7
-          Amount: 22
+          Amount: 18
         - Level: 8
-          Amount: 24
+          Amount: 20
         - Level: 9
-          Amount: 26
+          Amount: 23
         - Level: 10
-          Amount: 28
+          Amount: 25
   - Id: 2325
     Name: LG_INSPIRATION
     Description: Inspiration
@@ -33096,28 +33093,28 @@ Body:
       - Level: 10
         Time: 1100
     Requires:
-      SpRateCost: -3
+      SpRateCost: 5
       SpCost:
         - Level: 1
-          Amount: 10
+          Amount: 3
         - Level: 2
-          Amount: 12
+          Amount: 5
         - Level: 3
-          Amount: 14
+          Amount: 8
         - Level: 4
-          Amount: 16
+          Amount: 10
         - Level: 5
-          Amount: 18
+          Amount: 13
         - Level: 6
-          Amount: 20
+          Amount: 15
         - Level: 7
-          Amount: 22
+          Amount: 18
         - Level: 8
-          Amount: 24
+          Amount: 20
         - Level: 9
-          Amount: 26
+          Amount: 23
         - Level: 10
-          Amount: 28
+          Amount: 25
   - Id: 5022
     Name: SU_STOOP
     Description: Soul Guard
