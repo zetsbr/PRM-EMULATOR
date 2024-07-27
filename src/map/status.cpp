@@ -4061,7 +4061,7 @@ bool status_calc_weight(struct map_session_data *sd, enum e_status_calc_weight_o
 	sc = &sd->sc;
 	b_max_weight = sd->max_weight; // Store max weight for later comparison
 	b_weight = sd->weight; // Store current weight for later comparison
-	sd->max_weight = job_db.get_maxWeight(pc_mapid2jobid(sd->class_, sd->status.sex)) + sd->status.str * 500; // Recalculate max weight
+	sd->max_weight = 40000 + (sd->status.str * 500) + (floor(sd->status.base_level / 10) * 500); // Recalculate max weight
 
 	if (flag&CALCWT_ITEM) {
 		sd->weight = 0; // Reset current weight
