@@ -7724,6 +7724,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		clif_specialeffect(bl, EF_FLAMELAUNCHER, SELF);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+		clif_blown(src);
 		break;
 	case AB_EXPIATIO:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
@@ -11530,8 +11531,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case WM_GLOOMYDAY:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		if (dstsd && (pc_checkskill(dstsd, KN_BRANDISHSPEAR) || pc_checkskill(dstsd, LK_SPIRALPIERCE) ||
-			pc_checkskill(dstsd, CR_SHIELDCHARGE) || pc_checkskill(dstsd, CR_SHIELDBOOMERANG) ||
-			pc_checkskill(dstsd, PA_SHIELDCHAIN) || pc_checkskill(dstsd, LG_SHIELDPRESS)))
+			pc_checkskill(dstsd, CR_SHIELDCHARGE) || pc_checkskill(dstsd, PA_SHIELDCHAIN) || pc_checkskill(dstsd, LG_SHIELDPRESS)))
 		{ // !TODO: Which skills aren't boosted anymore?
 			sc_start(src, bl, SC_GLOOMYDAY_SK, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 			break;
@@ -18391,10 +18391,6 @@ int skill_delayfix(struct block_list* bl, uint16 skill_id, uint16 skill_lv)
 	if (sc && sc->count) {
 		if (sc->data[SC_SPIRIT]) {
 			switch (skill_id) {
-			case CR_SHIELDBOOMERANG:
-				if (sc->data[SC_SPIRIT]->val2 == SL_CRUSADER)
-					time /= 2;
-				break;
 			case AS_SONICBLOW:
 				if (!map_flag_gvg2(bl->m) && !map_getmapflag(bl->m, MF_BATTLEGROUND) && sc->data[SC_SPIRIT]->val2 == SL_ASSASIN)
 					time /= 2;
