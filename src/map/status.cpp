@@ -1439,6 +1439,7 @@ void initChangeTables(void)
 #ifdef RENEWAL
 	set_sc( NV_HELPANGEL			, SC_HELPANGEL		, EFST_HELPANGEL	, SCB_NONE );
 #endif
+	set_sc(PK_BLOOD_ROSE, SC_BLOODROSE, EFST_BLOODROSE, SCB_NONE);
 
 	/* Storing the target job rather than simply SC_SPIRIT simplifies code later on */
 	SkillStatusChangeTable[skill_get_index(SL_ALCHEMIST)]	= (sc_type)MAPID_ALCHEMIST,
@@ -1951,6 +1952,12 @@ void initChangeTables(void)
 	StatusChangeFlagTable[SC_PACKING_ENVELOPE8] |= SCB_MDEF;
 	StatusChangeFlagTable[SC_PACKING_ENVELOPE9] |= SCB_CRI;
 	StatusChangeFlagTable[SC_PACKING_ENVELOPE10] |= SCB_HIT;
+
+	//peacekeeper trinket icons
+	StatusChangeFlagTable[SC_FLAMESPINNER] |= EFST_DEATHBOUND;//EFST_FLAMINGSPINNER;
+	StatusChangeFlagTable[SC_FROSTSPINNER] |= EFST_DEATHBOUND;//EFST_FROSTSPINNER;
+	StatusChangeFlagTable[SC_DEADLYROSE] |= EFST_DEATHBOUND;//EFST_DEADLYROSE;
+	StatusChangeFlagTable[SC_GUARDROCK] |= EFST_DEATHBOUND;//EFST_GUARDROCK;
 
 	/* StatusDisplayType Table [Ind] */
 	StatusDisplayType[SC_ALL_RIDING]	  = BL_PC;
@@ -3758,6 +3765,8 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 			if (sc->data[SC_ANGELUS])
 				bonus += sc->data[SC_ANGELUS]->val1 * 500;
 #endif
+			if (sc->data[SC_GUARDROCK])
+				bonus += sc->data[SC_GUARDROCK]->val1 * 500;
 		}
 	} else if (type == STATUS_BONUS_RATE) {
 		struct status_change *sc = status_get_sc(bl);
@@ -7042,7 +7051,9 @@ static unsigned short status_calc_watk(struct block_list *bl, struct status_chan
 	if(sc->data[SC_STRIKING])
 		watk += sc->data[SC_STRIKING]->val2;
 	if(sc->data[SC_RUSHWINDMILL])
-		watk += sc->data[SC_RUSHWINDMILL]->val3;
+		watk += 10;
+	if (sc->data[SC_MANU_ATK])
+		watk += 5;
 	if(sc->data[SC_FIRE_INSIGNIA] && sc->data[SC_FIRE_INSIGNIA]->val1 == 2)
 		watk += 50;
 	if((sc->data[SC_FIRE_INSIGNIA] && sc->data[SC_FIRE_INSIGNIA]->val1 == 2)
@@ -7111,6 +7122,10 @@ static unsigned short status_calc_ematk(struct block_list *bl, struct status_cha
 		matk += 50;
 	if (sc->data[SC_GLORIA])
 		matk += 10; // 70 lvl1, 100lvl2
+	if (sc->data[SC_FROSTSPINNER])
+		matk += 20;
+	if (sc->data[SC_FLAMESPINNER])
+		matk += 20;
 	if(sc->data[SC_ODINS_POWER])
 		matk += 40 + 30 * sc->data[SC_ODINS_POWER]->val1; // 70 lvl1, 100lvl2
 	if(sc->data[SC_MOONLITSERENADE])
@@ -7611,14 +7626,16 @@ static signed short status_calc_def2(struct block_list *bl, struct status_change
 	if (sc->data[SC_SKA])
 		def2 += 80;
 #endif
+	if (sc->data[SC_GUARDROCK])
+		def2 += status_get_vit(bl) * sc->data[SC_GUARDROCK]->val2 / 100;
 	if(sc->data[SC_ANGELUS])
 #ifdef RENEWAL /// The VIT stat bonus is boosted by angelus [RENEWAL]
 		def2 += status_get_vit(bl) * sc->data[SC_ANGELUS]->val2/100;
 #else
 		def2 += def2 * sc->data[SC_ANGELUS]->val2/100;
+#endif
 	if(sc->data[SC_CONCENTRATION])
 		def2 -= def2 * sc->data[SC_CONCENTRATION]->val4/100;
-#endif
 	if(sc->data[SC_POISON])
 		def2 -= def2 * 10/100;
 	if(sc->data[SC_DPOISON])
@@ -7926,7 +7943,9 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 		if( sc->data[SC_DORAM_WALKSPEED] )
 			val = max(val, sc->data[SC_DORAM_WALKSPEED]->val1);
 		if (sc->data[SC_RUSHWINDMILL])
-			val = max(val, 25); // !TODO: Confirm bonus movement speed
+			val = max(val, 25);
+		if (sc->data[SC_MANU_ATK])
+			val = max(val, 10);
 		if (sc->data[SC_EMERGENCY_MOVE])
 			val = max(val, sc->data[SC_EMERGENCY_MOVE]->val2);
 
@@ -10984,7 +11003,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = (val1 + 1) / 2; // Perfect dodge increase
 			break;
 		case SC_ASSNCROS:
-			val2 = val1 < 10 ? val1 * 2 - 1 : 20; // ASPD increase
+			val2 = val1 < 10 ? val1 * 2 : 20; // ASPD increase
 			break;
 		case SC_POEMBRAGI:
 			val2 = 2 * val1; // Cast time reduction
@@ -11461,6 +11480,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = 10*val1; // Hit Increase
 			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
 			break;
+		case SC_GUARDROCK:
+			val2 = 10 * val1; // def increase
+			break;
 		case SC_ANGELUS:
 			val2 = 10 * val1; // def increase
 			break;
@@ -11685,6 +11707,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				val3 = val4 = 0;
 			tick_time = 200;
 			break;
+		case SC_BLOODROSE:
+			val2 = src->id;
+			tick_time = 1000;
 		case SC_STONEHARDSKIN:
 			if (!status_charge(bl, status->hp / 5, 0)) // 20% of HP
 				return 0;
@@ -14315,10 +14340,11 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
  */
 TIMER_FUNC(status_change_timer){
 	enum sc_type type = (sc_type)data;
-	struct block_list *bl;
+	struct block_list *bl, *src;
 	struct map_session_data *sd;
 	int interval = status_get_sc_interval(type);
 	bool dounlock = false;
+	int64 damage;
 
 	bl = map_id2bl(id);
 	if(!bl) {
@@ -14773,7 +14799,15 @@ TIMER_FUNC(status_change_timer){
 				status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);
 		}
 		break;
-
+	case SC_BLOODROSE:
+		src = map_id2bl(sce->val2);
+		damage = 100 * sce->val1;
+		if (!sd && damage >= status->hp)
+			damage = status->hp - 1; // No deadly damage for monsters
+		status_zap(bl, damage, 0);
+		if(src && src != nullptr)
+			status_heal(src, damage, 0, 1);
+		break;
 	case SC_SPHERE_1:
 	case SC_SPHERE_2:
 	case SC_SPHERE_3:

@@ -5220,8 +5220,8 @@ Body:
     Flags:
       IsQuest: true
     Range: 9
-    Hit: Single
-    HitCount: 1
+    Hit: Multi_Hit
+    HitCount: 5
     Element: Holy
     CastCancel: true
     CastTime: 800
@@ -24353,6 +24353,7 @@ Body:
     TargetType: Self
     DamageFlags:
       Splash: true
+      Critical: true
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -38041,6 +38042,39 @@ Body:
     HitCount: -5
     Element: Earth
     SplashArea: 1
+    Requires:
+      SpCost: 80
+  - Id: 8443
+    Name: PK_BLOOD_ROSE
+    Description: Blood Rose
+    MaxLevel: 1
+    Type: Weapon
+    TargetType: Attack
+    Range: 9
+    Hit: Single
+    HitCount: -5
+    Element: Weapon
+    Duration1:
+      - Level: 1
+        Time: 1000
+      - Level: 2
+        Time: 2000
+      - Level: 3
+        Time: 3000
+      - Level: 4
+        Time: 4000
+      - Level: 5
+        Time: 5000
+      - Level: 6
+        Time: 6000
+      - Level: 7
+        Time: 7000
+      - Level: 8
+        Time: 8000
+      - Level: 9
+        Time: 9000
+      - Level: 10
+        Time: 10000
     Requires:
       SpCost: 80
   - Id: 10000

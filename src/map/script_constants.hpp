@@ -3883,6 +3883,7 @@
 	export_constant(ELE_DARK);
 	export_constant(ELE_GHOST);
 	export_constant(ELE_UNDEAD);
+	export_constant(ELE_TRUENEUTRAL);
 	export_constant(ELE_ALL);
 	export_constant(ELE_WEAPON);
 	export_constant(ELE_ENDOWED);

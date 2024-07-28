@@ -1959,12 +1959,15 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			if (ammo_id == 13246) {
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_ASPERSIO, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 1585, AREA);
-					clif_specialeffect(src, 1587, AREA);
-					clif_specialeffect(src, 1824, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_ASPERSIO, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 1585, AREA);
+						clif_specialeffect(src, 1587, AREA);
+						clif_specialeffect(src, 1824, AREA);
 					}
+				}
+				else {
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, AL_HOLYLIGHT, 1, 1000, current_equip_card_id, bl, tick);
 				}
 				clif_specialeffect(bl, 1559, AREA);
 				clif_specialeffect(bl, 1558, AREA);
@@ -1972,15 +1975,17 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				break;
 			}
 			if (ammo_id == 13247) {
-				sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000); 
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_EXPLOSIONSPIRITS, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 1730, AREA);
-					clif_specialeffect(src, 1862, AREA);
-					clif_specialeffect(src, 1865, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_EXPLOSIONSPIRITS, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 1730, AREA);
+						clif_specialeffect(src, 1862, AREA);
+						clif_specialeffect(src, 1865, AREA);
 					}
+				}
+				else {
+					sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1626, AREA);
 				clif_specialeffect(bl, 1627, AREA);
@@ -1990,12 +1995,15 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			if (ammo_id == 13248) {
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_RUSHWINDMILL, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 1621, AREA);
-					clif_specialeffect(src, 1640, AREA);
-					clif_specialeffect(src, 1641, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_RUSHWINDMILL, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 1621, AREA);
+						clif_specialeffect(src, 1640, AREA);
+						clif_specialeffect(src, 1641, AREA);
 					}
+				}
+				else {
+					sc_start(src, src, SC_MANU_DEF, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1713, AREA);
 				clif_specialeffect(bl, 1716, AREA);
@@ -2005,11 +2013,15 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			}
 			if (ammo_id == 13249) {
 				if (skill_lv > 5) {
-					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_MANU_ATK, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 1620, AREA);
+						if ((sc->data[SC_MANU_DEF])) {
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_MANU_ATK, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+						status_change_start(src, bl, SC_ENCPOISON, 10000, skill_lv, 0, 0, 0, skill_get_time2(skill_id, skill_lv), SCSTART_NOICON);
+						clif_specialeffect(src, 1620, AREA);
 					}
+				}
+				else {
+					sc_start(src, bl, SC_POISON, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1713, AREA);
 				clif_specialeffect(bl, 1663, AREA);
@@ -2019,11 +2031,14 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			if (ammo_id == 13250){
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_WATERWEAPON, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 1856, AREA);
-					clif_specialeffect(src, 1857, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_FROSTSPINNER, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 1856, AREA);
+						clif_specialeffect(src, 1857, AREA);
 					}
+				}
+				else {
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, NJ_HYOUSENSOU, skill_lv / 2, 1000, current_equip_card_id, bl, tick);
 				}
 				clif_specialeffect(bl, 1668, AREA);
 				clif_specialeffect(bl, 1781, AREA);
@@ -2036,11 +2051,14 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			if(ammo_id == 13251) {
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_BLOODSUCKER, 1000, skill_lv/2, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 1796, AREA);
-					clif_specialeffect(src, 1797, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_DEADLYROSE, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 1796, AREA);
+						clif_specialeffect(src, 1797, AREA);
 					}
+				}
+				else {
+					
 				}
 				clif_specialeffect(bl, 2049, AREA);
 				clif_specialeffect(bl, 2046, AREA);
@@ -2050,11 +2068,14 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			if (ammo_id == 13252) {
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_KYRIE, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 2181, AREA);
-					clif_specialeffect(src, 1890, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_GUARDROCK, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 2181, AREA);
+						clif_specialeffect(src, 1890, AREA);
 					}
+				}
+				else {
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, ST_REJECTSWORD, skill_lv / 2, 1000, current_equip_card_id, src, tick);
 				}
 				clif_specialeffect(bl, 2104, AREA);
 				clif_specialeffect(bl, 2107, AREA);
@@ -2064,11 +2085,24 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			if (ammo_id == 13253) {
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_POEMBRAGI, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 2117, AREA);
-					clif_specialeffect(src, 2075, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_POEMBRAGI, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 2117, AREA);
+						clif_specialeffect(src, 2075, AREA);
 					}
+				}
+				else {
+					status_change_end(bl, SC_KYRIE, INVALID_TIMER);
+					status_change_end(bl, SC_ASSUMPTIO, INVALID_TIMER);
+					status_change_end(bl, SC_STEELBODY, INVALID_TIMER);
+					status_change_end(bl, SC_GT_CHANGE, INVALID_TIMER);
+					status_change_end(bl, SC_GT_REVITALIZE, INVALID_TIMER);
+					status_change_end(bl, SC_AUTOGUARD, INVALID_TIMER);
+					status_change_end(bl, SC_REFLECTDAMAGE, INVALID_TIMER);
+					status_change_end(bl, SC_DEFENDER, INVALID_TIMER);
+					status_change_end(bl, SC_PRESTIGE, INVALID_TIMER);
+					status_change_end(bl, SC_BANDING, INVALID_TIMER);
+					status_change_end(bl, SC_MILLENNIUMSHIELD, INVALID_TIMER);
 				}
 				clif_specialeffect(bl, 1593, AREA);
 				clif_specialeffect(bl, 2064, AREA);
@@ -2077,15 +2111,34 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 			if (ammo_id == 13254) {
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
-					status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-					sc_start(src, src, SC_ASSNCROS, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
-					clif_specialeffect(src, 1658, AREA);
-					clif_specialeffect(src, 1798, AREA);
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_ASSNCROS, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 1658, AREA);
+						clif_specialeffect(src, 1798, AREA);
 					}
+				}
+				else {
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, AL_DECAGI, skill_lv, 1000, current_equip_card_id, bl, tick);
 				}
 				clif_specialeffect(bl, 1570, AREA);
 				clif_specialeffect(bl, 1571, AREA);
 				clif_specialeffect(bl, 1567, AREA);
+				break;
+			}
+			if (ammo_id == 14742) {
+				if (skill_lv > 5) {
+					if ((sc->data[SC_MANU_DEF])) {
+						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+						sc_start(src, src, SC_FLAMESPINNER, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+						clif_specialeffect(src, 1550, AREA);
+						clif_specialeffect(src, 1552, AREA);
+					}
+				}
+				else {
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, NJ_KOUENKA, skill_lv / 2, 1000, current_equip_card_id, bl, tick);
+				}
+				clif_specialeffect(bl, 1729, AREA);
+				clif_specialeffect(bl, 1728, AREA);
 				break;
 			}
 			sd->itemid = 0;
@@ -6931,6 +6984,11 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case NPC_VENOMIMPRESS:
 		if (skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag))
 			sc_start(src, bl, SC_VENOMIMPRESS, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+		break;
+
+	case PK_BLOOD_ROSE:
+		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		sc_start(src, bl, SC_BLOODROSE, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 
 	default:

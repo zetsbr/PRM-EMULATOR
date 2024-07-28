@@ -32675,7 +32675,7 @@ Body:
       Baby: true
     Locations:
       Ammo: true
-    EquipLevelMin: 90
+    EquipLevelMin: 100
     Trade:
       Override: 100
       NoDrop: true
@@ -32686,18 +32686,19 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus bAtkEle,Ele_Holy;
     EquipScript: |
       sc_end SC_ASSNCROS;
       sc_end SC_FURY;
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
-      sc_end SC_ASPERSIO;
   - Id: 13247
     AegisName: Destiny_Brush_T
     Name: Destiny Brush T
@@ -32712,7 +32713,7 @@ Body:
       Baby: true
     Locations:
       Ammo: true
-    EquipLevelMin: 105
+    EquipLevelMin: 80
     Trade:
       Override: 100
       NoDrop: true
@@ -32726,9 +32727,16 @@ Body:
     Script: |
       bonus bAtkEle,Ele_Ghost;
     EquipScript: |
-      sc_end SC_EXPLOSIONSPIRITS;
-    UnEquipScript: |
-      sc_end SC_EXPLOSIONSPIRITS;
+      sc_end SC_ASSNCROS;
+      sc_end SC_FURY;
+      sc_end SC_ASPERSIO;
+      sc_end SC_RUSHWINDMILL;
+      sc_end SC_MANU_ATK;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
+      sc_end SC_POEMBRAGI;
   - Id: 13248
     AegisName: Wicked_Eden_T
     Name: Wicked Eden T
@@ -32743,7 +32751,7 @@ Body:
       Baby: true
     Locations:
       Ammo: true
-    EquipLevelMin: 120
+    EquipLevelMin: 130
     Trade:
       Override: 100
       NoDrop: true
@@ -32754,18 +32762,20 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus bAtkEle,Ele_TrueNeutral;
+      bonus2 bSkillCooldown,"NJ_SYURIKEN",-2000;
     EquipScript: |
       sc_end SC_ASSNCROS;
       sc_end SC_FURY;
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
-      sc_end SC_RUSHWINDMILL;
   - Id: 13249
     AegisName: Dread_Razor_T
     Name: Dread Razor T
@@ -32791,18 +32801,21 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus bAtkEle,Ele_Poison;
+      bonus2 bSkillCooldown,"NJ_SYURIKEN",-2000;
+      bonus5 bAddEffOnSkill,"NJ_SYURIKEN",Eff_Poison,10000,ATF_TARGET,10000;
     EquipScript: |
       sc_end SC_ASSNCROS;
       sc_end SC_FURY;
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
-      sc_end SC_MANU_ATK;
   - Id: 13250
     AegisName: Frost_Spinner_T
     Name: Frost Spinner T
@@ -32817,7 +32830,7 @@ Body:
       Baby: true
     Locations:
       Ammo: true
-    EquipLevelMin: 15
+    EquipLevelMin: 80
     Trade:
       Override: 100
       NoDrop: true
@@ -32836,12 +32849,11 @@ Body:
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
-      sc_end SC_WATERWEAPON;
   - Id: 13251
     AegisName: Deadly_Rose_T
     Name: Deadly Rose T
@@ -32856,7 +32868,7 @@ Body:
       Baby: true
     Locations:
       Ammo: true
-    EquipLevelMin: 30
+    EquipLevelMin: 100
     Trade:
       Override: 100
       NoDrop: true
@@ -32873,12 +32885,11 @@ Body:
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
-      sc_end SC_BLOODSUCKER;
   - Id: 13252
     AegisName: Guard_Rock_T
     Name: Guard Rock T
@@ -32912,12 +32923,11 @@ Body:
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
-      sc_end SC_KYRIE;
   - Id: 13253
     AegisName: Broken_Serenade_T
     Name: Broken Serenade T
@@ -32931,7 +32941,7 @@ Body:
       Baby: true
     Locations:
       Ammo: true
-    EquipLevelMin: 60
+    EquipLevelMin: 15
     Trade:
       Override: 100
       NoDrop: true
@@ -32948,12 +32958,11 @@ Body:
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
-      sc_end SC_ASSNCROS;
   - Id: 13254
     AegisName: Amulet_Siegfried_T
     Name: Amulet Siegfried T
@@ -32968,7 +32977,7 @@ Body:
       Baby: true
     Locations:
       Ammo: true
-    EquipLevelMin: 75
+    EquipLevelMin: 100
     Trade:
       Override: 100
       NoDrop: true
@@ -32985,11 +32994,48 @@ Body:
       sc_end SC_ASPERSIO;
       sc_end SC_RUSHWINDMILL;
       sc_end SC_MANU_ATK;
-      sc_end SC_WATERWEAPON;
-      sc_end SC_BLOODSUCKER;
-      sc_end SC_KYRIE;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
-    UnEquipScript: |
+  - Id: 14742
+    AegisName: Flame_Spinner_T
+    Name: Flame Spinner T
+    Type: Ammo
+    SubType: Shuriken
+    Buy: 4
+    Weight: 1
+    Attack: 10
+    Jobs:
+      SuperNovice: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 120
+    Trade:
+      Override: 100
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bAtkEle,Ele_Fire;
+    EquipScript: |
+      sc_end SC_ASSNCROS;
+      sc_end SC_FURY;
+      sc_end SC_ASPERSIO;
+      sc_end SC_RUSHWINDMILL;
+      sc_end SC_MANU_ATK;
+      sc_end SC_FROSTSPINNER;
+      sc_end SC_DEADLYROSE;
+      sc_end SC_GUARDROCK;
+      sc_end SC_FLAMESPINNER;
       sc_end SC_POEMBRAGI;
   - Id: 13255
     AegisName: Kunai_Of_Icicle
