@@ -3875,7 +3875,7 @@
 	export_constant(EFST_RUSH_QUAKE1);
 	export_constant(EFST_RUSH_QUAKE2);
 	export_constant(EFST_SBUNSHIN);
-	export_constant(EFST_FLAMINGSPINNER);
+	export_constant(EFST_FLAMESPINNER);
 	export_constant(EFST_DEADLYROSE);
 	export_constant(EFST_GUARDROCK);
 	export_constant(EFST_FROSTSPINNER);

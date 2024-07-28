@@ -1439,7 +1439,7 @@ void initChangeTables(void)
 #ifdef RENEWAL
 	set_sc( NV_HELPANGEL			, SC_HELPANGEL		, EFST_HELPANGEL	, SCB_NONE );
 #endif
-	set_sc(PK_BLOOD_ROSE, SC_BLOODROSE, EFST_BLOODROSE, SCB_NONE);
+	set_sc(PK_BLOOD_ROSE, SC_BLOODROSE, EFST_COLORS_OF_HYUN_ROK_5, SCB_NONE);
 
 	/* Storing the target job rather than simply SC_SPIRIT simplifies code later on */
 	SkillStatusChangeTable[skill_get_index(SL_ALCHEMIST)]	= (sc_type)MAPID_ALCHEMIST,
@@ -1760,10 +1760,10 @@ void initChangeTables(void)
 	StatusIconChangeTable[SC_PACKING_ENVELOPE9] = EFST_PACKING_ENVELOPE9;
 	StatusIconChangeTable[SC_PACKING_ENVELOPE10] = EFST_PACKING_ENVELOPE10;
 	//peacekeeper trinket icons
-	StatusIconChangeTable[SC_FLAMESPINNER] |= EFST_DEATHBOUND;//EFST_FLAMINGSPINNER;
-	StatusIconChangeTable[SC_FROSTSPINNER] |= EFST_DEATHBOUND;//EFST_FROSTSPINNER;
-	StatusIconChangeTable[SC_DEADLYROSE] |= EFST_DEATHBOUND;//EFST_DEADLYROSE;
-	StatusIconChangeTable[SC_GUARDROCK] |= EFST_DEATHBOUND;//EFST_GUARDROCK;
+	StatusIconChangeTable[SC_FLAMESPINNER] |= EFST_FLAMESPINNER;
+	StatusIconChangeTable[SC_FROSTSPINNER] |= EFST_FROSTSPINNER;
+	StatusIconChangeTable[SC_DEADLYROSE] |= EFST_DEADLYROSE;
+	StatusIconChangeTable[SC_GUARDROCK] |= EFST_GUARDROCK;
 
 	/* Other SC which are not necessarily associated to skills */
 	StatusChangeFlagTable[SC_ASPDPOTION0] |= SCB_ASPD;
