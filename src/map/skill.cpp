@@ -1956,7 +1956,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		}
 		if (sd) {
 			t_itemid ammo_id = sd->inventory_data[sd->equip_index[EQI_AMMO]]->nameid;
-			if (ammo_id == 13246) {
+			if (ammo_id == 13246) {  // holy cross trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -1974,7 +1974,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 1557, AREA);
 				break;
 			}
-			if (ammo_id == 13247) {
+			if (ammo_id == 13247) { // destiny brush trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -1992,7 +1992,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 1632, AREA);
 				break;
 			}
-			if (ammo_id == 13248) {
+			if (ammo_id == 13248) { // wicked eden trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2011,7 +2011,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 1721, AREA);
 				break;
 			}
-			if (ammo_id == 13249) {
+			if (ammo_id == 13249) { // dread razor trinket
 				if (skill_lv > 5) {
 						if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2028,13 +2028,14 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 1703, AREA);
 				break;
 			}
-			if (ammo_id == 13250){
+			if (ammo_id == 13250){ // frost spinner trinket
 				if (skill_lv > 5) {
-					if ((sc->data[SC_MANU_DEF])) {
+					if ((sc->data[SC_MANU_DEF])) { // SC_MANU_DEF = turnabout
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-						sc_start(src, src, SC_FROSTSPINNER, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
-						clif_specialeffect(src, 1856, AREA);
-						clif_specialeffect(src, 1857, AREA);
+						if (sc_start(src, src, SC_FROSTSPINNER, 1000, skill_lv, skill_get_time2(skill_id, skill_lv))){
+							clif_specialeffect(src, 1856, AREA);
+							clif_specialeffect(src, 1857, AREA);
+						}
 					}
 				}
 				else {

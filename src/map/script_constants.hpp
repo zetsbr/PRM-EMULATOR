@@ -1714,14 +1714,15 @@
 	export_constant(SC_WIDEWEB);
 	export_constant(SC_BURNT);
 	export_constant(SC_CHILL);
-#ifdef RENEWAL
-	export_constant(SC_EXTREMITYFIST2);
-#endif
 	export_constant(SC_FLAMESPINNER);
 	export_constant(SC_DEADLYROSE);
 	export_constant(SC_GUARDROCK);
 	export_constant(SC_FROSTSPINNER);
 	export_constant(SC_BLOODROSE);
+#ifdef RENEWAL
+	export_constant(SC_EXTREMITYFIST2);
+#endif
+	export_constant(SC_MAX);
 
 
 	/* status icons */
