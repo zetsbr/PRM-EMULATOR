@@ -6932,17 +6932,17 @@ Body:
       - Level: 4
         Count: -2
       - Level: 5
-        Count: -5
+        Count: -3
       - Level: 6
-        Count: -6
+        Count: -3
       - Level: 7
-        Count: -7
+        Count: -4
       - Level: 8
-        Count: -8
+        Count: -4
       - Level: 9
-        Count: -9
+        Count: -5
       - Level: 10
-        Count: -10
+        Count: -5
     CopyFlags:
       Skill:
         Plagiarism: true

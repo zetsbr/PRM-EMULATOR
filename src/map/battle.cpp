@@ -2920,8 +2920,6 @@ static bool is_attack_hitting(struct Damage* wd, struct block_list *src, struct 
 		return true;
 	else if ((skill_id == AS_SPLASHER || skill_id == GN_SPORE_EXPLOSION) && !wd->miscflag)
 		return true;
-	else if (skill_id == CR_SHIELDBOOMERANG && sc && sc->data[SC_SPIRIT] && sc->data[SC_SPIRIT]->val2 == SL_CRUSADER )
-		return true;
 	else if (tsc && tsc->opt1 && tsc->opt1 != OPT1_STONEWAIT && tsc->opt1 != OPT1_BURNING)
 		return true;
 	else if (nk[NK_IGNOREFLEE])
@@ -4109,17 +4107,15 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 50;
 			break; 
 		case CR_SHIELDBOOMERANG:
-#ifdef RENEWAL
 			skillratio += 100 + 20 * skill_lv + 1 * (sstatus->vit) + (5 * pc_checkskill(sd, AL_DP));
 			if (sc && sc->data[SC_SHIELDSPELL_ATK]) {
 				skillratio += 2 * (sstatus->vit) + 1 * (sstatus->str);
 			}
-			if (sd->equip_index[EQI_HAND_L] >= 0 && sd->inventory_data[sd->equip_index[EQI_HAND_L]] && sd->inventory_data[sd->equip_index[EQI_HAND_L]]->type == IT_ARMOR) {
-				skillratio += sd->inventory_data[sd->equip_index[EQI_HAND_L]]->weight / 10;
+			if (src->type != BL_MOB) {
+				if (sd->equip_index[EQI_HAND_L] >= 0 && sd->inventory_data[sd->equip_index[EQI_HAND_L]] && sd->inventory_data[sd->equip_index[EQI_HAND_L]]->type == IT_ARMOR) {
+					skillratio += sd->inventory_data[sd->equip_index[EQI_HAND_L]]->weight / 10;
+				}
 			}
-#else
-			skillratio += 30 * skill_lv;
-#endif
 			break;
 		case NPC_DARKCROSS:
 		case CR_HOLYCROSS:
@@ -5306,10 +5302,7 @@ static void battle_attack_sc_bonus(struct Damage* wd, struct block_list *src, st
 			if (skill_id == AS_SONICBLOW && sc->data[SC_SPIRIT]->val2 == SL_ASSASIN) {
 				ATK_ADDRATE(wd->damage, wd->damage2, map_flag_gvg2(src->m) ? 25 : 100); //+25% dmg on woe/+100% dmg on nonwoe
 				RE_ALLATK_ADDRATE(wd, map_flag_gvg2(src->m) ? 25 : 100); //+25% dmg on woe/+100% dmg on nonwoe
-			} else if (skill_id == CR_SHIELDBOOMERANG && sc->data[SC_SPIRIT]->val2 == SL_CRUSADER) {
-				ATK_ADDRATE(wd->damage, wd->damage2, 100);
-				RE_ALLATK_ADDRATE(wd, 100);
-			}
+			} 
 		}
 		if (sc->data[SC_GT_CHANGE])
 			ATK_ADDRATE(wd->damage, wd->damage2, sc->data[SC_GT_CHANGE]->val1);
@@ -6297,8 +6290,6 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 			ATK_ADD(wd.damage, wd.damage2, skill * 2);
 		if (skill_id == GS_GROUNDDRIFT)
 			ATK_ADD(wd.damage, wd.damage2, 50 * skill_lv);
-		if (skill_id != CR_SHIELDBOOMERANG) //Only Shield boomerang doesn't takes the Star Crumbs bonus.
-			ATK_ADD2(wd.damage, wd.damage2, ((wd.div_ < 1) ? 1 : wd.div_) * sd->right_weapon.star, ((wd.div_ < 1) ? 1 : wd.div_) * sd->left_weapon.star);
 		if (skill_id != MC_CARTREVOLUTION && pc_checkskill(sd, BS_HILTBINDING) > 0)
 			ATK_ADD(wd.damage, wd.damage2, 4);
 		if (skill_id == MO_FINGEROFFENSIVE) { //The finger offensive spheres on moment of attack do count. [Skotlex]
@@ -6306,7 +6297,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 		} else
 			ATK_ADD(wd.damage, wd.damage2, ((wd.div_ < 1) ? 1 : wd.div_) * sd->spiritball * 1);
 #endif
-		if( skill_id == CR_SHIELDBOOMERANG || skill_id == PA_SHIELDCHAIN ) { //Refine bonus applies after cards and elements.
+		if( skill_id == PA_SHIELDCHAIN ) { //Refine bonus applies after cards and elements.
 			short index = sd->equip_index[EQI_HAND_L];
 
 			if( index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_ARMOR )
