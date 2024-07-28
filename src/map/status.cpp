@@ -4247,7 +4247,6 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	sd->autospell2.clear();
 	sd->autospell3.clear();
 	sd->autospellbaseline.clear();
-	sd->skillaoe.clear();
 	sd->reduce_cooldown.clear();
 	sd->skillbounce.clear();
 	sd->splash_skill.clear();
