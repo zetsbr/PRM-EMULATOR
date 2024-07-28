@@ -5214,20 +5214,125 @@ Body:
   - Id: 156
     Name: AL_HOLYLIGHT
     Description: Holy Light
-    MaxLevel: 1
+    MaxLevel: 10
     Type: Magic
-    TargetType: Attack
     Flags:
-      IsQuest: true
+      IsAutoShadowSpell: true
+    TargetType: Attack
     Range: 9
     Hit: Multi_Hit
-    HitCount: 5
+    HitCount:
+      - Level: 1
+        Count: 1
+      - Level: 2
+        Count: 2
+      - Level: 3
+        Count: 3
+      - Level: 4
+        Count: 4
+      - Level: 5
+        Count: 5
+      - Level: 6
+        Count: 6
+      - Level: 7
+        Count: 7
+      - Level: 8
+        Count: 8
+      - Level: 9
+        Count: 9
+      - Level: 10
+        Count: 10
     Element: Holy
-    CastCancel: true
-    CastTime: 800
-    FixedCastTime: 200
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+        Reproduce: true
+    Cooldown:
+      - Level: 1
+        Time: 750
+      - Level: 2
+        Time: 1000
+      - Level: 3
+        Time: 1250
+      - Level: 4
+        Time: 1500
+      - Level: 5
+        Time: 1750
+      - Level: 6
+        Time: 2000
+      - Level: 7
+        Time: 2250
+      - Level: 8
+        Time: 2500
+      - Level: 9
+        Time: 2750
+      - Level: 10
+        Time: 3000
+    AfterCastActDelay: 250
+    CastTime:
+      - Level: 1
+        Time: 250
+      - Level: 2
+        Time: 500
+      - Level: 3
+        Time: 750
+      - Level: 4
+        Time: 1500
+      - Level: 5
+        Time: 2500
+      - Level: 6
+        Time: 4000
+      - Level: 7
+        Time: 4600
+      - Level: 8
+        Time: 5200
+      - Level: 9
+        Time: 5800
+      - Level: 10
+        Time: 7000
+    FixedCastTime:
+      - Level: 1
+        Time: 75
+      - Level: 2
+        Time: 150
+      - Level: 3
+        Time: 225
+      - Level: 4
+        Time: 300
+      - Level: 5
+        Time: 375
+      - Level: 6
+        Time: 450
+      - Level: 7
+        Time: 525
+      - Level: 8
+        Time: 600
+      - Level: 9
+        Time: 675
+      - Level: 10
+        Time: 750
     Requires:
-      SpCost: 15
+      SpCost:
+        - Level: 1
+          Amount: 10
+        - Level: 2
+          Amount: 15
+        - Level: 3
+          Amount: 20
+        - Level: 4
+          Amount: 25
+        - Level: 5
+          Amount: 30
+        - Level: 6
+          Amount: 35
+        - Level: 7
+          Amount: 40
+        - Level: 8
+          Amount: 45
+        - Level: 9
+          Amount: 50
+        - Level: 10
+          Amount: 55
   - Id: 157
     Name: MG_ENERGYCOAT
     Description: Assault Mode
@@ -38044,39 +38149,6 @@ Body:
     SplashArea: 1
     Requires:
       SpCost: 80
-  - Id: 8443
-    Name: PK_BLOOD_ROSE
-    Description: Blood Rose
-    MaxLevel: 1
-    Type: Weapon
-    TargetType: Attack
-    Range: 9
-    Hit: Single
-    HitCount: -5
-    Element: Weapon
-    Duration1:
-      - Level: 1
-        Time: 1000
-      - Level: 2
-        Time: 2000
-      - Level: 3
-        Time: 3000
-      - Level: 4
-        Time: 4000
-      - Level: 5
-        Time: 5000
-      - Level: 6
-        Time: 6000
-      - Level: 7
-        Time: 7000
-      - Level: 8
-        Time: 8000
-      - Level: 9
-        Time: 9000
-      - Level: 10
-        Time: 10000
-    Requires:
-      SpCost: 80
   - Id: 10000
     Name: GD_APPROVAL
     Description: Official Guild Approval
@@ -38306,3 +38378,36 @@ Body:
     SplashArea: 15
     Duration1: 10000
     Cooldown: 600000
+  - Id: 11007
+    Name: PK_BLOOD_ROSE
+    Description: Blood Rose
+    MaxLevel: 1
+    Type: Weapon
+    TargetType: Attack
+    Range: 9
+    Hit: Single
+    HitCount: -5
+    Element: Weapon
+    Duration1:
+      - Level: 1
+        Time: 1000
+      - Level: 2
+        Time: 2000
+      - Level: 3
+        Time: 3000
+      - Level: 4
+        Time: 4000
+      - Level: 5
+        Time: 5000
+      - Level: 6
+        Time: 6000
+      - Level: 7
+        Time: 7000
+      - Level: 8
+        Time: 8000
+      - Level: 9
+        Time: 9000
+      - Level: 10
+        Time: 10000
+    Requires:
+      SpCost: 80

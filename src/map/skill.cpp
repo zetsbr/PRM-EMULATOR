@@ -1967,7 +1967,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, AL_HOLYLIGHT, 1, 1000, current_equip_card_id, bl, tick);
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, AL_HOLYLIGHT, skill_lv * 2, 1000, current_equip_card_id, bl, tick);
 				}
 				clif_specialeffect(bl, 1559, AREA);
 				clif_specialeffect(bl, 1558, AREA);
@@ -2038,7 +2038,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, NJ_HYOUSENSOU, skill_lv / 2, 1000, current_equip_card_id, bl, tick);
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, NJ_HYOUSENSOU, skill_lv * 2, 1000, current_equip_card_id, bl, tick);
 				}
 				clif_specialeffect(bl, 1668, AREA);
 				clif_specialeffect(bl, 1781, AREA);
@@ -2058,7 +2058,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, PK_BLOOD_ROSE, skill_lv, 1000, current_equip_card_id, bl, tick);
 				}
 				clif_specialeffect(bl, 2049, AREA);
 				clif_specialeffect(bl, 2046, AREA);
@@ -2135,7 +2135,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, NJ_KOUENKA, skill_lv / 2, 1000, current_equip_card_id, bl, tick);
+					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, NJ_KOUENKA, skill_lv * 2, 1000, current_equip_card_id, bl, tick);
 				}
 				clif_specialeffect(bl, 1729, AREA);
 				clif_specialeffect(bl, 1728, AREA);
@@ -6120,8 +6120,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 	case AL_HOLYLIGHT:
-		sc_start(src, src, SC_OVERBRANDREADY, 150, skill_lv, skill_get_time2(skill_id, skill_lv));
-		status_change_end(bl, SC_P_ALTER, INVALID_TIMER);
+		skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 	case MG_SOULSTRIKE:
 	case NPC_DARKSTRIKE:

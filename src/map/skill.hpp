@@ -2115,7 +2115,7 @@ enum e_skill {
 	EL_ROCK_CRUSHER,
 	EL_ROCK_CRUSHER_ATK,
 	EL_STONE_RAIN,
-	PK_BLOOD_ROSE,
+	PK_BLOOD_ROSE = 11007,
 };
 
 /// The client view ids for land skills.
