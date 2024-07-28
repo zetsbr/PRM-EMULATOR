@@ -543,7 +543,7 @@ struct map_session_data {
 	std::vector<s_addeffect> addeff, addeff_atked;
 	std::vector<s_addeffectonskill> addeff_onskill;
 	std::vector<s_item_bonus> skillatk, skillusesprate, skillusesp, skillheal, skillheal2, skillblown, skillcastrate, skillfixcastrate, subskill, skillcooldown, skillfixcast,
-		skillvarcast, skilldelay, itemhealrate, add_def, add_mdef, add_mdmg, reseff, itemgrouphealrate, itemsphealrate, itemgroupsphealrate;
+		skillvarcast, skilldelay, itemhealrate, add_def, add_mdef, add_mdmg, reseff, itemgrouphealrate, itemsphealrate, itemgroupsphealrate, skillaoe;
 	std::vector<s_reduce_cooldown> reduce_cooldown;
 	std::vector<s_bounce> skillbounce;
 	std::vector<s_splash_skill> splash_skill;
@@ -1383,6 +1383,7 @@ void pc_checkitem(struct map_session_data*);
 void pc_check_available_item(struct map_session_data *sd, uint8 type);
 int pc_useitem(struct map_session_data*,int);
 
+int pc_skillaoe_bonus(struct map_session_data *sd, uint16 skill_id);
 int pc_skillatk_bonus(struct map_session_data *sd, uint16 skill_id);
 int pc_sub_skillatk_bonus(struct map_session_data *sd, uint16 skill_id);
 int pc_skillheal_bonus(struct map_session_data *sd, uint16 skill_id);

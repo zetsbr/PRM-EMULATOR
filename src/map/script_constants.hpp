@@ -756,6 +756,7 @@
 	export_constant2("bAddEffWhenHit",SP_ADDEFF_WHENHIT);
 	export_constant2("bAutoSpellWhenHit",SP_AUTOSPELL_WHENHIT);
 	export_constant2("bSkillAtk",SP_SKILL_ATK);
+	export_constant2("bSkillAoe",SP_SKILL_AOE);
 	export_constant2("bSkillHPFlat", SP_SKILL_HPFLAT);
 	export_constant2("bSkillHPRate", SP_SKILL_HPRATE);
 	export_constant2("bSkillSPFlat", SP_SKILL_SPFLAT);
