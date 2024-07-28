@@ -5137,7 +5137,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 10 + 2 * sstatus->int_;
 			if (sc && sc->data[SC_FLAMESPINNER])
 				skillratio += 10 + 2 * sstatus->int_;
-			if (sc && sc->data[SC_DEADLYINFECT])
+			if (sc && sc->data[SC_DEADLYROSE])
 				skillratio += 10 + 3 * ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
 			if (sc && sc->data[SC_GUARDROCK])
 				skillratio += 10 + 2 * sstatus->vit;
