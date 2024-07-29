@@ -4478,7 +4478,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += ((skill_lv - 1) % 5 + 1) * 100;
 			break;
 		case RK_SONICWAVE:
-			skillratio += 150 + 20 * skill_lv + 2* (sstatus->str);
+			if (src->type != BL_MOB) {
+				skillratio += 150 + 20 * skill_lv + 2 * (sstatus->str);
+			}
+			else {
+				skillratio += 100 + 20 * skill_lv + 0.5 * (sstatus->str);
+			}
 			break;
 		case RK_HUNDREDSPEAR:
 			if (tsc && tsc->data[SC_SOULCURSE])
@@ -4823,9 +4828,14 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 120 + 30 * skill_lv + 3 * sstatus->dex;
 			break;
 		case SR_KNUCKLEARROW:
-			skillratio += 100 + 25 * skill_lv + 2 * (sstatus->str);
-			if (sc && sc->data[SC_ROLLINGCUTTER])
-				skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 20;
+			if (src->type != BL_MOB) {
+				skillratio += 100 + 25 * skill_lv + 2 * (sstatus->str);
+				if (sc && sc->data[SC_ROLLINGCUTTER])
+					skillratio += sc->data[SC_ROLLINGCUTTER]->val1 * 20;
+			}
+			else {
+				skillratio += 100 + 25 * skill_lv + 0.5 * (sstatus->str);
+			}
 			break;
 		case SR_WINDMILL: // ATK [(Caster Base Level + Caster DEX) x Caster Base Level / 100] %
 			skillratio += -100 + status_get_lv(src) + sstatus->dex;
