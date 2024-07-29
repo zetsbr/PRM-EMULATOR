@@ -7014,7 +7014,7 @@
 2556,Strange Crusader@CR_AUTOGUARD,any,249,9,3000,0,90000,no,self,always,0,,,,,,,
 2556,Strange Crusader@CR_GRANDCROSS,attack,254,2,7000,1900,10000,no,self,always,0,,,,,,,
 2650,Angel of Genesis@CR_GRANDCROSS,attack,254,5,7000,1500,10000,no,self,always,0,,,,,,,
-2556,Strange Crusader@CR_SHIELDBOOMERANG,any,251,2,4000,2000,5000,no,target,always,0,,,,,,,
+2556,Strange Crusader@CR_SHIELDBOOMERANG,any,251,4,4000,2000,5000,no,target,always,0,,,,,,,
 2557,Shadow Chaser@RG_RAID,any,214,5,6500,1500,12000,no,self,always,0,,,,,,6,
 2557,Shadow Chaser@RG_BACKSTAP,any,212,10,6500,1500,5000,no,target,always,0,,,,,,6,
 2557,Shadow Chaser@RG_CLOSECONFINE,any,1005,1,9500,2000,25000,no,target,always,0,,,,,,6,
