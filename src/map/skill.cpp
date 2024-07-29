@@ -2032,7 +2032,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) { // SC_MANU_DEF = turnabout
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-						if (sc_start(src, src, SC_FROSTSPINNER, 1000, skill_lv, skill_get_time2(skill_id, skill_lv))){
+						if (sc_start(src, src, SC_FROSTSPINNER_T, 1000, skill_lv, skill_get_time2(skill_id, skill_lv))){
 							clif_specialeffect(src, 1856, AREA);
 							clif_specialeffect(src, 1857, AREA);
 						}
@@ -2053,7 +2053,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-						sc_start(src, src, SC_DEADLYROSE, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
+						sc_start(src, src, SC_DEADLYROSE_T, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
 						clif_specialeffect(src, 1796, AREA);
 						clif_specialeffect(src, 1797, AREA);
 					}
@@ -2070,7 +2070,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-						sc_start(src, src, SC_GUARDROCK, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
+						sc_start(src, src, SC_GUARDROCK_T, 1000, skill_lv / 2, skill_get_time2(skill_id, skill_lv));
 						clif_specialeffect(src, 2181, AREA);
 						clif_specialeffect(src, 1890, AREA);
 					}
@@ -2130,7 +2130,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
-						sc_start(src, src, SC_FLAMESPINNER, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
+						sc_start(src, src, SC_FLAMESPINNER_T, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
 						clif_specialeffect(src, 1550, AREA);
 						clif_specialeffect(src, 1552, AREA);
 					}
@@ -5258,6 +5258,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	struct map_session_data* sd = NULL;
 	struct status_data* tstatus,* sstatus;
 	struct status_change* sc, * tsc;
+	int heal, heal_rate;
 
 	if (skill_id > 0 && !skill_lv) return 0;
 
@@ -6987,8 +6988,22 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 
 	case PK_BLOOD_ROSE:
-		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-		sc_start(src, bl, SC_BLOODROSE, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+		clif_specialeffect(bl, 2049, AREA);
+		clif_specialeffect(bl, 2046, AREA);
+		clif_specialeffect(bl, 2048, AREA);
+		heal = (int)skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag); 
+		heal_rate = 75 + 5 * skill_lv;
+
+		heal = heal * (20 * skill_lv) / 100;
+
+		if (bl->type == BL_SKILL)
+			heal = 0; // Don't absorb heal from Ice Walls or other skill units.
+
+		if (heal && rnd() % 100 < heal_rate)
+		{
+			status_heal(src, heal, 0, 0);
+		}
+		// sc_start(src, bl, SC_BLOODROSE, 100, skill_lv, skill_get_time(skill_id, skill_lv)); //Debuff com duração infinita mas efeito interessante para conceitos futuros
 		break;
 
 	default:
@@ -7520,12 +7535,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			pet_catch_process1(sd, dstmd->mob_id);
 		}
 		break;
-
-	case CR_PROVIDENCE:
-		clif_skill_nodamage(src, bl, skill_id, skill_lv,
-			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
-		break;
-
 	case CG_MARIONETTE:
 	{
 		if (sd) {
@@ -8408,7 +8417,9 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		}
 		status_damage(src, src, sstatus->max_hp, 0, 0, 1, skill_id);
 		break;
+
 	case AL_ANGELUS:
+	case CR_PROVIDENCE:
 #ifdef RENEWAL
 	case PR_SUFFRAGIUM:
 	case PR_IMPOSITIO:

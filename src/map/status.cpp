@@ -1439,7 +1439,7 @@ void initChangeTables(void)
 #ifdef RENEWAL
 	set_sc( NV_HELPANGEL			, SC_HELPANGEL		, EFST_HELPANGEL	, SCB_NONE );
 #endif
-	set_sc(PK_BLOOD_ROSE, SC_BLOODROSE, EFST_COLORS_OF_HYUN_ROK_5, SCB_NONE);
+	add_sc(PK_BLOOD_ROSE, SC_BLOODROSE);
 
 	/* Storing the target job rather than simply SC_SPIRIT simplifies code later on */
 	SkillStatusChangeTable[skill_get_index(SL_ALCHEMIST)]	= (sc_type)MAPID_ALCHEMIST,
@@ -1760,10 +1760,10 @@ void initChangeTables(void)
 	StatusIconChangeTable[SC_PACKING_ENVELOPE9] = EFST_PACKING_ENVELOPE9;
 	StatusIconChangeTable[SC_PACKING_ENVELOPE10] = EFST_PACKING_ENVELOPE10;
 	//peacekeeper trinket icons
-	StatusIconChangeTable[SC_FLAMESPINNER] |= EFST_FLAMESPINNER;
-	StatusIconChangeTable[SC_FROSTSPINNER] |= EFST_FROSTSPINNER;
-	StatusIconChangeTable[SC_DEADLYROSE] |= EFST_DEADLYROSE;
-	StatusIconChangeTable[SC_GUARDROCK] |= EFST_GUARDROCK;
+	set_sc_with_vfx_noskill(SC_FLAMESPINNER_T, EFST_FLAMESPINNER_T, SCB_MATK);
+	set_sc_with_vfx_noskill(SC_FROSTSPINNER_T, EFST_FROSTSPINNER_T, SCB_MATK);
+	set_sc_with_vfx_noskill(SC_DEADLYROSE_T, EFST_DEADLYROSE_T, SCB_NONE);
+	set_sc_with_vfx_noskill(SC_GUARDROCK_T, EFST_GUARDROCK_T, SCB_DEF2|SCB_MAXHP);
 
 	/* Other SC which are not necessarily associated to skills */
 	StatusChangeFlagTable[SC_ASPDPOTION0] |= SCB_ASPD;
@@ -3764,8 +3764,8 @@ static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type) {
 			if (sc->data[SC_ANGELUS])
 				bonus += sc->data[SC_ANGELUS]->val1 * 500;
 #endif
-			if (sc->data[SC_GUARDROCK])
-				bonus += sc->data[SC_GUARDROCK]->val1 * 500;
+			if (sc->data[SC_GUARDROCK_T])
+				bonus += sc->data[SC_GUARDROCK_T]->val1 * 500;
 		}
 	} else if (type == STATUS_BONUS_RATE) {
 		struct status_change *sc = status_get_sc(bl);
@@ -7121,9 +7121,9 @@ static unsigned short status_calc_ematk(struct block_list *bl, struct status_cha
 		matk += 50;
 	if (sc->data[SC_GLORIA])
 		matk += 10; // 70 lvl1, 100lvl2
-	if (sc->data[SC_FROSTSPINNER])
+	if (sc->data[SC_FROSTSPINNER_T])
 		matk += 20;
-	if (sc->data[SC_FLAMESPINNER])
+	if (sc->data[SC_FLAMESPINNER_T])
 		matk += 20;
 	if(sc->data[SC_ODINS_POWER])
 		matk += 40 + 30 * sc->data[SC_ODINS_POWER]->val1; // 70 lvl1, 100lvl2
@@ -7625,8 +7625,8 @@ static signed short status_calc_def2(struct block_list *bl, struct status_change
 	if (sc->data[SC_SKA])
 		def2 += 80;
 #endif
-	if (sc->data[SC_GUARDROCK])
-		def2 += status_get_vit(bl) * sc->data[SC_GUARDROCK]->val2 / 100;
+	if (sc->data[SC_GUARDROCK_T])
+		def2 += status_get_vit(bl) * sc->data[SC_GUARDROCK_T]->val2 / 100;
 	if(sc->data[SC_ANGELUS])
 #ifdef RENEWAL /// The VIT stat bonus is boosted by angelus [RENEWAL]
 		def2 += status_get_vit(bl) * sc->data[SC_ANGELUS]->val2/100;
@@ -9069,6 +9069,8 @@ void status_change_init(struct block_list *bl)
 static int status_get_sc_interval(enum sc_type type)
 {
 	switch (type) {
+		case SC_BLOODROSE:
+			return 500;
 		case SC_POISON:
 		case SC_LEECHESEND:
 		case SC_DPOISON:
@@ -9278,6 +9280,9 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 		case SC_BURNING:
 			tick_def2 = 75*status->luk + 125*status->agi;
 			break;
+		case SC_BLOODROSE:
+			tick_def2 = 75 * status->luk + 125 * status->agi;
+			break;
 		case SC_FREEZING:
 			tick_def2 = (status->vit + status->dex)*50;
 			break;
@@ -9434,6 +9439,7 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 			tick = i64max(tick, 6000); // Minimum duration 6s
 			// NEED AEGIS CHECK: might need to be 10s (http://ro.gnjoy.com/news/notice/View.asp?seq=5352)
 			break;
+		case SC_BLOODROSE:
 		case SC_BURNING:
 		case SC_STASIS:
 		case SC_VOICEOFSIREN:
@@ -9634,6 +9640,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_DEEPSLEEP:
 			case SC_BURNING:
 			case SC_FREEZING:
+			case SC_BLOODROSE:
 			case SC_CRYSTALIZE:
 			case SC_TOXIN:
 			case SC_PARALYSE:
@@ -9654,6 +9661,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_BURNING:
 			case SC_FREEZING:
 			case SC_CRYSTALIZE:
+			case SC_BLOODROSE:
 			case SC_FEAR:
 			case SC_TOXIN:
 			case SC_PARALYSE:
@@ -9682,6 +9690,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_HALLUCINATION:
 			case SC_BURNING:
 			case SC_CRYSTALIZE:
+			case SC_BLOODROSE:
 			case SC_FREEZING:
 			case SC_DEEPSLEEP:
 			case SC_FEAR:
@@ -10295,6 +10304,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		status_change_end(bl, SC_BLEEDING, INVALID_TIMER);
 		status_change_end(bl, SC_BURNING, INVALID_TIMER);
 		status_change_end(bl, SC_FREEZING, INVALID_TIMER);
+		status_change_end(bl, SC_BLOODROSE, INVALID_TIMER);
 		status_change_end(bl, SC_MANDRAGORA, INVALID_TIMER);
 		status_change_end(bl, SC_PARALYSE, INVALID_TIMER);
 		status_change_end(bl, SC_PYREXIA, INVALID_TIMER);
@@ -10507,6 +10517,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		status_change_end(bl, SC_FREEZING, INVALID_TIMER);
 		status_change_end(bl, SC_FREEZE, INVALID_TIMER);
 		status_change_end(bl, SC_STONE, INVALID_TIMER);
+		status_change_end(bl, SC_BLOODROSE, INVALID_TIMER);
 		break;
 	case SC_FEAR:
 		status_change_end(bl, SC_BLIND, INVALID_TIMER);
@@ -10517,6 +10528,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		status_change_end(bl,SC_CONFUSION,INVALID_TIMER);
 		status_change_end(bl,SC_HALLUCINATION,INVALID_TIMER);
 		status_change_end(bl,SC_BURNING,INVALID_TIMER);
+		status_change_end(bl,SC_BLOODROSE,INVALID_TIMER);
 		status_change_end(bl,SC_DEEPSLEEP,INVALID_TIMER);
 		// Fall through
 	case SC_GROOMING:
@@ -10606,6 +10618,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_FEAR:
 			case SC_BURNING:
 			case SC_FREEZING:
+			case SC_BLOODROSE:
 			case SC_WHITEIMPRISON:
 			case SC_TOXIN:
 			case SC_PARALYSE:
@@ -11061,7 +11074,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = val3;
 			calc_flag = 0; // Actual status changes take effect on petrified state.
 			break;
-		  
+		case SC_BLOODROSE:
+			val2 = src->id;
 		case SC_POISON:
 		case SC_BLEEDING:
 		case SC_BURNING:
@@ -11479,7 +11493,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = 10*val1; // Hit Increase
 			sc_start(src, bl, SC_ENDURE, 100, 1, tick); // Level 1 Endure effect
 			break;
-		case SC_GUARDROCK:
+		case SC_GUARDROCK_T:
 			val2 = 10 * val1; // def increase
 			break;
 		case SC_ANGELUS:
@@ -11706,9 +11720,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				val3 = val4 = 0;
 			tick_time = 200;
 			break;
-		case SC_BLOODROSE:
-			val2 = src->id;
-			tick_time = 1000;
 		case SC_STONEHARDSKIN:
 			if (!status_charge(bl, status->hp / 5, 0)) // 20% of HP
 				return 0;
@@ -12695,6 +12706,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_POISON:
 			case SC_DPOISON:
 			case SC_BLEEDING:
+			case SC_BLOODROSE:
 			case SC_BURNING:
 			case SC_TOXIN:
 				tick_time = tick;
@@ -14099,10 +14111,10 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 	case SC_STUN:
 	case SC_SLEEP:
 	case SC_BURNING:
+	case SC_BLOODROSE:
 	case SC_WHITEIMPRISON:
 		sc->opt1 = OCF_NONE;
 		break;
-
 	case SC_POISON:
 	case SC_CURSE:
 	case SC_SILENCE:
@@ -14459,7 +14471,7 @@ TIMER_FUNC(status_change_timer){
 		if (sce->val4 >= 0 && !sc->data[SC_SLOWPOISON]) {
 			unsigned int damage = 0;																				
 			if (status->hp > umax(status->max_hp / 2, damage)) // Stop damaging after 25% HP left.
-				status_zap(bl, damage, 0);
+				status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
 		}
 		break;
 
@@ -14470,7 +14482,7 @@ TIMER_FUNC(status_change_timer){
 				damage = status->hp - 1; // No deadly damage for monsters
 			map_freeblock_lock();
 			dounlock = true;
-			status_zap(bl, damage, 0);
+			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
 		}
 		break;
 
@@ -14482,7 +14494,22 @@ TIMER_FUNC(status_change_timer){
 			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false),0);
 		}
 		break;
-		
+
+	case SC_BLOODROSE:
+		if (sce->val4 >= 0) {
+			src = map_id2bl(sce->val2);
+			damage = 100 * sce->val1;
+			if (!sd && damage >= status->hp)
+				damage = status->hp - 1; // No deadly damage for monsters
+			map_freeblock_lock();
+			dounlock = true;
+			sc_timer_next(500 + tick);
+			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
+			if (src && src != nullptr)
+				status_heal(src, damage, 0, 1);
+		}
+		break;
+
 	case SC_TOXIN:
 		if (sce->val4 >= 0) { // Damage is every 10 seconds including 3%sp drain.
 			if (sce->val3 == 1) { // Target
@@ -14797,15 +14824,6 @@ TIMER_FUNC(status_change_timer){
 			if (sd && status->hp < 1)
 				status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);
 		}
-		break;
-	case SC_BLOODROSE:
-		src = map_id2bl(sce->val2);
-		damage = 100 * sce->val1;
-		if (!sd && damage >= status->hp)
-			damage = status->hp - 1; // No deadly damage for monsters
-		status_zap(bl, damage, 0);
-		if(src && src != nullptr)
-			status_heal(src, damage, 0, 1);
 		break;
 	case SC_SPHERE_1:
 	case SC_SPHERE_2:
@@ -15609,6 +15627,7 @@ void status_change_clear_buffs(struct block_list* bl, uint8 type)
 			case SC_DEEPSLEEP:
 			case SC_BURNING:
 			case SC_FREEZING:
+			case SC_BLOODROSE:
 			case SC_CRYSTALIZE:
 			case SC_TOXIN:
 			case SC_PARALYSE:
@@ -15757,6 +15776,7 @@ int status_change_spread(struct block_list *src, struct block_list *bl, bool typ
 			case SC_POISON:
 			case SC_DPOISON:
 			case SC_BLEEDING:
+			case SC_BLOODROSE:
 			case SC_BURNING:
 				if (sc->data[i]->timer != INVALID_TIMER)
 					data.tick = DIFF_TICK(timer->tick, tick) + sc->data[i]->val4;

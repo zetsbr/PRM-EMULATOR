@@ -1711,7 +1711,7 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 		if ((sce = sc->data[SC_BLOODSUCKER]) && flag & BF_WEAPON && damage > 0 && rnd() % 100 < (10 * sce->val1))
 			status_heal(src, damage * (sce->val1 *3) / 100, 0, 3);
 
-		if ((sce = sc->data[SC_DEADLYROSE]) && flag & BF_WEAPON && damage > 0 && rnd() % 100 < (10 * sce->val1))
+		if ((sce = sc->data[SC_DEADLYROSE_T]) && flag & BF_WEAPON && damage > 0 && rnd() % 100 < (10 * sce->val1))
 			status_heal(src, damage * (sce->val1 * 3) / 100, 0, 3);
 
 		if (flag&BF_MAGIC && bl->type == BL_PC && sc->data[SC_GVG_GIANT] && sc->data[SC_GVG_GIANT]->val4)
@@ -3914,13 +3914,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 10 + 2 * sstatus->int_;
 			if (sc && sc->data[SC_EXPLOSIONSPIRITS])
 				skillratio += 10 + 2 * sstatus->luk;
-			if (sc && sc->data[SC_FROSTSPINNER])
+			if (sc && sc->data[SC_FROSTSPINNER_T])
 				skillratio += 10 + 2 * sstatus->int_;
-			if (sc && sc->data[SC_FLAMESPINNER])
+			if (sc && sc->data[SC_FLAMESPINNER_T])
 				skillratio += 10 + 2 * sstatus->int_;
-			if (sc && sc->data[SC_DEADLYROSE])
+			if (sc && sc->data[SC_DEADLYROSE_T])
 				skillratio += 10 + 3 * ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
-			if (sc && sc->data[SC_GUARDROCK])
+			if (sc && sc->data[SC_GUARDROCK_T])
 				skillratio += 10 + 2 * sstatus->vit;
 			if (sc && sc->data[SC_RUSHWINDMILL])
 				skillratio += 10 + 2 * sstatus->dex;
@@ -3933,9 +3933,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			if (sc && sc->data[SC_MANU_DEF])
 				skillratio += 30 * skill_lv;
 			if (sc && sc->data[SC_SUFFRAGIUM])
-				skillratio += 15 * skill_lv;
-			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 20 * skill_lv;
+			if (sc && sc->data[SC_OVERBRANDREADY])
+				skillratio += 25 * skill_lv;
 			break;
 		case AC_DOUBLE:
 		case MA_DOUBLE:
@@ -4728,24 +4728,24 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 2 * (sstatus->dex);
 			break;
 		case LG_EARTHDRIVE:
-			skillratio += 150 + 15 * skill_lv + (2 * sstatus->dex) + (5 * (pc_checkskill(sd, BS_SKINTEMPER)));
+			skillratio += 50 + 10 * skill_lv + (2 * sstatus->dex) + (5 * (pc_checkskill(sd, BS_SKINTEMPER)));
 			if (sc && sc->data[SC_MANU_DEF])
-				skillratio += 10 * skill_lv;
+				skillratio += 25 * skill_lv;
 			if (sc && sc->data[SC_SUFFRAGIUM])
-				skillratio += 10 * skill_lv;
+				skillratio += 15 * skill_lv;
 			if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 10 * skill_lv;
+				skillratio += 20 * skill_lv;
 			if (sc && sc->data[SC_ASPERSIO])
 				skillratio += 10 + 2 * sstatus->int_;
 			if (sc && sc->data[SC_EXPLOSIONSPIRITS])
 				skillratio += 10 + 2 * sstatus->luk;
-			if (sc && sc->data[SC_FROSTSPINNER])
+			if (sc && sc->data[SC_FROSTSPINNER_T])
 				skillratio += 10 + 2 * sstatus->int_;
-			if (sc && sc->data[SC_FLAMESPINNER])
+			if (sc && sc->data[SC_FLAMESPINNER_T])
 				skillratio += 10 + 2 * sstatus->int_;
-			if (sc && sc->data[SC_DEADLYROSE])
+			if (sc && sc->data[SC_DEADLYROSE_T])
 				skillratio += 10 + 3 * ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
-			if (sc && sc->data[SC_GUARDROCK])
+			if (sc && sc->data[SC_GUARDROCK_T])
 				skillratio += 10 + 2 * sstatus->vit;
 			if (sc && sc->data[SC_RUSHWINDMILL])
 				skillratio += 10 + 2 * sstatus->dex;
@@ -4762,13 +4762,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 					skillratio += 10 + 2 * sstatus->int_;
 				if (sc && sc->data[SC_EXPLOSIONSPIRITS])
 					skillratio += 10 + 2 * sstatus->luk;
-				if (sc && sc->data[SC_FROSTSPINNER])
+				if (sc && sc->data[SC_FROSTSPINNER_T])
 					skillratio += 10 + 2 * sstatus->int_;
-				if (sc && sc->data[SC_FLAMESPINNER])
+				if (sc && sc->data[SC_FLAMESPINNER_T])
 					skillratio += 10 + 2 * sstatus->int_;
-				if (sc && sc->data[SC_DEADLYROSE])
+				if (sc && sc->data[SC_DEADLYROSE_T])
 					skillratio += 10 + 3 * ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
-				if (sc && sc->data[SC_GUARDROCK])
+				if (sc && sc->data[SC_GUARDROCK_T])
 					skillratio += 10 + 2 * sstatus->vit;
 				if (sc && sc->data[SC_RUSHWINDMILL])
 					skillratio += 10 + 2 * sstatus->dex;
@@ -5129,13 +5129,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 10 + 2 * sstatus->int_;
 			if (sc && sc->data[SC_EXPLOSIONSPIRITS])
 				skillratio += 10 + 2 * sstatus->luk;
-			if (sc && sc->data[SC_FROSTSPINNER])
+			if (sc && sc->data[SC_FROSTSPINNER_T])
 				skillratio += 10 + 2 * sstatus->int_;
-			if (sc && sc->data[SC_FLAMESPINNER])
+			if (sc && sc->data[SC_FLAMESPINNER_T])
 				skillratio += 10 + 2 * sstatus->int_;
-			if (sc && sc->data[SC_DEADLYROSE])
+			if (sc && sc->data[SC_DEADLYROSE_T])
 				skillratio += 10 + 3 * ((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src);
-			if (sc && sc->data[SC_GUARDROCK])
+			if (sc && sc->data[SC_GUARDROCK_T])
 				skillratio += 10 + 2 * sstatus->vit;
 			if (sc && sc->data[SC_RUSHWINDMILL])
 				skillratio += 10 + 2 * sstatus->dex;
@@ -5209,7 +5209,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += skillratio * sc->data[SC_LIGHTOFSTAR]->val2 / 100;
 			break;
 		case PK_BLOOD_ROSE:
-			skillratio += 25 * skill_lv;
+			skillratio += 30 * skill_lv + 1 * (sstatus->dex);
 	}
 	if(sd && !sd->skillbounce.empty()) {
 		for (auto& it : sd->skillbounce) {
