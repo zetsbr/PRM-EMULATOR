@@ -319,7 +319,6 @@ bat_a02	mapflag	nosave	SavePoint
 2012rwc_08	mapflag	nosave	SavePoint
 
 evt_bomb	mapflag	nosave	SavePoint
-evt_zombie	mapflag	nosave	SavePoint
 
 //alde_dun03	mapflag	nosave	SavePoint
 //alde_dun04	mapflag	nosave	SavePoint

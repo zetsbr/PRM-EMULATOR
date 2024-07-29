@@ -745,18 +745,18 @@ OnTouch_:
 		mes .@npc$;
 		mes "Creating Trinkets will always require at least one refine material... which is unknown, and a catalyst to transform it.";
 		close2;
-		switch(select("Frost Spinner:Deadly Rose:Guard Rock:Broken Serenade:Amulet of Siegfried:Holy Cross:Destiny Brush:Wicked Eden")) {
+		switch(select("Frost Spinner:Deadly Rose:Guard Rock:Broken Serenade:Amulet of Siegfried:Holy Cross:Destiny Brush:Flame Spinner:Wicked Eden")) {
 	case 1:
 		if (pktrkta ==1){
 		mes "You already have this trinket.";
 		close;	
 		}
 		if(countitem(4956) < 1) goto L_noitems1;
-		if(countitem(984) < 1) goto L_noitems1;
+		if(countitem(6291) < 1) goto L_noitems1;
 		mes .@npc$;
 		mes "You created the Frost Spinner trinket!";
 		delitem 4956,1;
-		delitem 984,1;
+		delitem 6291,1;
 		getitem 13250,1;
 		set pktrkta,1;
 		close;
@@ -769,11 +769,11 @@ OnTouch_:
 		close;	
 		}
 		if(countitem(4961) < 1) goto L_noitems2;
-		if(countitem(25729) < 1) goto L_noitems2;
+		if(countitem(6906) < 1) goto L_noitems2;
 		mes .@npc$;
 		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
 		delitem 4961,1;
-		delitem 25729,1;
+		delitem 6906,1;
 		getitem 13251,1;
 		set pktrktb,1;
 		close;
@@ -803,11 +803,11 @@ OnTouch_:
 		close;	
 		}
 		if(countitem(4991) < 1) goto L_noitems4;
-		if(countitem(6292) < 1) goto L_noitems4;
+		if(countitem(6241) < 1) goto L_noitems4;
 		mes .@npc$;
 		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
 		delitem 4991,1;
-		delitem 6292,1;
+		delitem 6241,1;
 		getitem 13253,1;
 		set pktrktd,1;
 		close;
@@ -820,11 +820,11 @@ OnTouch_:
 		close;	
 		}
 		if(countitem(4948) < 1) goto L_noitems5;
-		if(countitem(6224) < 1) goto L_noitems5;
+		if(countitem(23080) < 1) goto L_noitems5;
 		mes .@npc$;
 		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
 		delitem 4948,1;
-		delitem 6224,1;
+		delitem 23080,1;
 		getitem 13254,1;
 		set pktrkte,1;
 		close;
@@ -836,11 +836,11 @@ OnTouch_:
 		mes "You already have this trinket.";
 		close;	
 		}
-		if(countitem(7511) < 1) goto L_noitems6;
+		if(countitem(4985) < 1) goto L_noitems6;
 		if(countitem(6226) < 1) goto L_noitems6;
 		mes .@npc$;
 		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
-		delitem 7511,1;
+		delitem 4985,1;
 		delitem 6226,1;
 		getitem 13246,1;
 		set pktrktf,1;
@@ -854,11 +854,11 @@ OnTouch_:
 		close;	
 		}
 		if(countitem(4995) < 1) goto L_noitems7;
-		if(countitem(6906) < 1) goto L_noitems7;
+		if(countitem(6292) < 1) goto L_noitems7;
 		mes .@npc$;
 		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
 		delitem 4995,1;
-		delitem 6906,1;
+		delitem 6292,1;
 		getitem 13247,1;
 		set pktrktg,1;
 		close;
@@ -866,6 +866,23 @@ OnTouch_:
 		mes "You don't feel the energy of this trinket coming towards you...";
 		close;
 	case 8:
+		if (pktrkth ==1){
+		mes "You already have this trinket.";
+		close;	
+		}
+		if(countitem(6226) < 1) goto L_noitems8;
+		if(countitem(4984) < 1) goto L_noitems8;
+		mes .@npc$;
+		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
+		delitem 6226,1;
+		delitem 4984,1;
+		getitem 14742,1;
+		set pktrkth,1;
+		close;
+	L_noitems8:
+		mes "You don't feel the energy of this trinket coming towards you...";
+		close;
+	case 9:
 		if (pktrkth ==1){
 		mes "You already have this trinket.";
 		close;	
@@ -882,7 +899,7 @@ OnTouch_:
 	L_noitems8:
 		mes "You don't feel the energy of this trinket coming towards you...";
 		close;
-	case 9:
+	case 10:
 		end;
 	}
 }

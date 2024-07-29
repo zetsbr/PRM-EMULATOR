@@ -5214,20 +5214,125 @@ Body:
   - Id: 156
     Name: AL_HOLYLIGHT
     Description: Holy Light
-    MaxLevel: 1
+    MaxLevel: 10
     Type: Magic
-    TargetType: Attack
     Flags:
-      IsQuest: true
+      IsAutoShadowSpell: true
+    TargetType: Attack
     Range: 9
-    Hit: Single
-    HitCount: 1
+    Hit: Multi_Hit
+    HitCount:
+      - Level: 1
+        Count: 1
+      - Level: 2
+        Count: 2
+      - Level: 3
+        Count: 3
+      - Level: 4
+        Count: 4
+      - Level: 5
+        Count: 5
+      - Level: 6
+        Count: 6
+      - Level: 7
+        Count: 7
+      - Level: 8
+        Count: 8
+      - Level: 9
+        Count: 9
+      - Level: 10
+        Count: 10
     Element: Holy
-    CastCancel: true
-    CastTime: 800
-    FixedCastTime: 200
+    CopyFlags:
+      Skill:
+        Plagiarism: true
+        Reproduce: true
+    Cooldown:
+      - Level: 1
+        Time: 750
+      - Level: 2
+        Time: 1000
+      - Level: 3
+        Time: 1250
+      - Level: 4
+        Time: 1500
+      - Level: 5
+        Time: 1750
+      - Level: 6
+        Time: 2000
+      - Level: 7
+        Time: 2250
+      - Level: 8
+        Time: 2500
+      - Level: 9
+        Time: 2750
+      - Level: 10
+        Time: 3000
+    AfterCastActDelay: 250
+    CastTime:
+      - Level: 1
+        Time: 250
+      - Level: 2
+        Time: 500
+      - Level: 3
+        Time: 750
+      - Level: 4
+        Time: 1500
+      - Level: 5
+        Time: 2500
+      - Level: 6
+        Time: 4000
+      - Level: 7
+        Time: 4600
+      - Level: 8
+        Time: 5200
+      - Level: 9
+        Time: 5800
+      - Level: 10
+        Time: 7000
+    FixedCastTime:
+      - Level: 1
+        Time: 75
+      - Level: 2
+        Time: 150
+      - Level: 3
+        Time: 225
+      - Level: 4
+        Time: 300
+      - Level: 5
+        Time: 375
+      - Level: 6
+        Time: 450
+      - Level: 7
+        Time: 525
+      - Level: 8
+        Time: 600
+      - Level: 9
+        Time: 675
+      - Level: 10
+        Time: 750
     Requires:
-      SpCost: 15
+      SpCost:
+        - Level: 1
+          Amount: 10
+        - Level: 2
+          Amount: 15
+        - Level: 3
+          Amount: 20
+        - Level: 4
+          Amount: 25
+        - Level: 5
+          Amount: 30
+        - Level: 6
+          Amount: 35
+        - Level: 7
+          Amount: 40
+        - Level: 8
+          Amount: 45
+        - Level: 9
+          Amount: 50
+        - Level: 10
+          Amount: 55
   - Id: 157
     Name: MG_ENERGYCOAT
     Description: Assault Mode
@@ -7122,12 +7227,13 @@ Body:
     Name: CR_PROVIDENCE
     Description: Dawn to Dusk
     MaxLevel: 10
-    TargetType: Support
+    TargetType: Self
     DamageFlags:
       NoDamage: true
     Range: 9
     Hit: Single
     HitCount: 1
+    SplashArea: 18
     CastCancel: true
     CastTime: 1500
     Duration1: 60000
@@ -13686,28 +13792,28 @@ Body:
     AfterCastActDelay: 200
     Cooldown: 10000
     Requires:
-      SpRateCost: -10
+      SpRateCost: 10
       SpCost:
         - Level: 1
-          Amount: 20
+          Amount: 5
         - Level: 2
-          Amount: 30
+          Amount: 10
         - Level: 3
-          Amount: 40
+          Amount: 15
         - Level: 4
-          Amount: 50
+          Amount: 20
         - Level: 5
-          Amount: 60
+          Amount: 25
         - Level: 6
-          Amount: 70
+          Amount: 30
         - Level: 7
-          Amount: 80
+          Amount: 35
         - Level: 8
-          Amount: 90
+          Amount: 40
         - Level: 9
-          Amount: 100
+          Amount: 45
         - Level: 10
-          Amount: 110
+          Amount: 50
   - Id: 500
     Name: GS_GLITTERING
     Description: Flip the Coin
@@ -14046,7 +14152,7 @@ Body:
     HitCount: 1
     Element: Weapon
     AfterCastActDelay: 500
-    Duration2: 5000
+    Duration2: 3000
     Cooldown: 2000
     FixedCastTime: 100
     Requires:
@@ -14201,8 +14307,8 @@ Body:
     Element: Weapon
     AfterCastActDelay: 500
     Cooldown: 2000
-    Duration1: 5000
-    Duration2: 7000
+    Duration1: 3000
+    Duration2: 3000
     Requires:
       SpCost:
         - Level: 1
@@ -14444,27 +14550,7 @@ Body:
     Hit: Multi_Hit
     HitCount: 2
     Element: Weapon
-    Cooldown:
-      - Level: 1
-        Time: 5000
-      - Level: 2
-        Time: 5000
-      - Level: 3
-        Time: 5000
-      - Level: 4
-        Time: 5000
-      - Level: 5
-        Time: 5000
-      - Level: 6
-        Time: 15000
-      - Level: 7
-        Time: 15000
-      - Level: 8
-        Time: 15000
-      - Level: 9
-        Time: 15000
-      - Level: 10
-        Time: 15000
+    Cooldown: 5000
     SplashArea:
       - Level: 1
         Area: 1
@@ -14508,31 +14594,51 @@ Body:
       - Level: 10
         Time: 80000
     Requires:
-       SpCost: 5
        Ammo:
          Shuriken: true
        AmmoAmount: 1
-       SpRateCost:
+       SpCost:
         - Level: 1
-          Amount: 15
+          Amount: 5
         - Level: 2
-          Amount: 15
+          Amount: 10
         - Level: 3
           Amount: 15
         - Level: 4
-          Amount: 15
+          Amount: 20
         - Level: 5
-          Amount: 15
+          Amount: 25
         - Level: 6
-          Amount: -15
+          Amount: 10
         - Level: 7
-          Amount: -15
+          Amount: 20
         - Level: 8
-          Amount: -15
+          Amount: 30
         - Level: 9
-          Amount: -15
+          Amount: 40
         - Level: 10
-          Amount: -15
+          Amount: 50
+       SpRateCost:
+        - Level: 1
+          Amount: 5
+        - Level: 2
+          Amount: 5
+        - Level: 3
+          Amount: 5
+        - Level: 4
+          Amount: 5
+        - Level: 5
+          Amount: 5
+        - Level: 6
+          Amount: 10
+        - Level: 7
+          Amount: 10
+        - Level: 8
+          Amount: 10
+        - Level: 9
+          Amount: 10
+        - Level: 10
+          Amount: 10
   - Id: 524
     Name: NJ_KUNAI
     Description: Flying Knife
@@ -18374,7 +18480,6 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    CastTime: 500
     Cooldown: 12000
     Requires:
       SpCost:
@@ -24354,6 +24459,7 @@ Body:
     TargetType: Self
     DamageFlags:
       Splash: true
+      Critical: true
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -24364,8 +24470,6 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    CastCancel: true
-    CastTime: 1000
     AfterCastActDelay: 200
     Duration1:
       - Level: 1
@@ -24380,28 +24484,28 @@ Body:
         Time: 100
     Cooldown: 10000
     Requires:
-      SpRateCost: -10
+      SpRateCost: 10
       SpCost:
         - Level: 1
-          Amount: 20
+          Amount: 5
         - Level: 2
-          Amount: 30
+          Amount: 10
         - Level: 3
-          Amount: 40
+          Amount: 15
         - Level: 4
-          Amount: 50
+          Amount: 20
         - Level: 5
-          Amount: 60
+          Amount: 25
         - Level: 6
-          Amount: 70
+          Amount: 30
         - Level: 7
-          Amount: 80
+          Amount: 35
         - Level: 8
-          Amount: 90
+          Amount: 40
         - Level: 9
-          Amount: 100
+          Amount: 45
         - Level: 10
-          Amount: 110
+          Amount: 50
   - Id: 2324
     Name: LG_HESPERUSLIT
     Description: Conviction
@@ -24422,28 +24526,28 @@ Body:
     AfterCastActDelay: 200
     Cooldown: 1500
     Requires:
-      SpRateCost: -5
+      SpRateCost: 5
       SpCost:
         - Level: 1
-          Amount: 10
+          Amount: 3
         - Level: 2
-          Amount: 12
+          Amount: 5
         - Level: 3
-          Amount: 14
+          Amount: 8
         - Level: 4
-          Amount: 16
+          Amount: 10
         - Level: 5
-          Amount: 18
+          Amount: 13
         - Level: 6
-          Amount: 20
+          Amount: 15
         - Level: 7
-          Amount: 22
+          Amount: 18
         - Level: 8
-          Amount: 24
+          Amount: 20
         - Level: 9
-          Amount: 26
+          Amount: 23
         - Level: 10
-          Amount: 28
+          Amount: 25
   - Id: 2325
     Name: LG_INSPIRATION
     Description: Inspiration
@@ -33096,28 +33200,28 @@ Body:
       - Level: 10
         Time: 1100
     Requires:
-      SpRateCost: -3
+      SpRateCost: 5
       SpCost:
         - Level: 1
-          Amount: 10
+          Amount: 3
         - Level: 2
-          Amount: 12
+          Amount: 5
         - Level: 3
-          Amount: 14
+          Amount: 8
         - Level: 4
-          Amount: 16
+          Amount: 10
         - Level: 5
-          Amount: 18
+          Amount: 13
         - Level: 6
-          Amount: 20
+          Amount: 15
         - Level: 7
-          Amount: 22
+          Amount: 18
         - Level: 8
-          Amount: 24
+          Amount: 20
         - Level: 9
-          Amount: 26
+          Amount: 23
         - Level: 10
-          Amount: 28
+          Amount: 25
   - Id: 5022
     Name: SU_STOOP
     Description: Soul Guard
@@ -38275,3 +38379,16 @@ Body:
     SplashArea: 15
     Duration1: 10000
     Cooldown: 600000
+  - Id: 11007
+    Name: PK_BLOOD_ROSE
+    Description: Blood Rose
+    MaxLevel: 1
+    Type: Weapon
+    TargetType: Attack
+    Range: 9
+    Hit: Single
+    HitCount: -5
+    Element: Weapon
+    Duration1: 5000
+    Requires:
+      SpCost: 80
