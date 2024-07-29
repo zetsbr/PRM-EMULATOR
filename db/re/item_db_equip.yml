@@ -21989,8 +21989,8 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bInt,5;
-      bonus4 bAutoSpellOnSkill,"LG_HESPERUSLIT","NJ_HYOUSENSOU",3,1000;
-      bonus4 bAutoSpellOnSkill,"SU_SCRATCH","NJ_HYOUSENSOU",3,1000;
+      bonus4 bAutoSpellOnSkill,"LG_HESPERUSLIT","NJ_HYOUSENSOU",5,1000;
+      bonus4 bAutoSpellOnSkill,"SU_SCRATCH","NJ_HYOUSENSOU",5,1000;
       bonus2 bAddEff,Eff_Freeze,500;
   - Id: 1962
     AegisName: Lariat
@@ -124897,9 +124897,9 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      skill "RK_ENCHANTBLADE",1;
       bonus2 bIgnoreMdefClassRate,Class_Normal,25;
       bonus2 bIgnoreMdefClassRate,Class_Boss,25;
+      bonus2 bSkillCooldown,"CR_PROVIDENCE",-1000 * .@r;
   - Id: 24781
     AegisName: Coat_Arms_A
     Name: Coat Arms A
