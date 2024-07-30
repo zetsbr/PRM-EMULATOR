@@ -2075,7 +2075,7 @@ Body:
     Range: 4
     Hit: Single
     SplashArea: 2
-    HitCount: 1
+    HitCount: -2
     Element: Weapon
     Knockback: 7
     Cooldown: 10000
@@ -7000,6 +7000,7 @@ Body:
     Description: Shield Boomerang
     MaxLevel: 10
     Type: Weapon
+    Element: Weapon
     TargetType: Attack
     SplashArea: 1
     CopyFlags:
@@ -7141,7 +7142,7 @@ Body:
       IgnoreLongCard: true
     Range: 3
     Hit: Single
-    HitCount: 1
+    HitCount: -2
     Element: Weapon
     CopyFlags:
       Skill:
@@ -13207,6 +13208,7 @@ Body:
     Description: King's Chains
     MaxLevel: 10
     Type: Weapon
+    Element: Weapon
     CopyFlags:
       Skill:
         Plagiarism: true

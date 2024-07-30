@@ -2845,7 +2845,7 @@ static int is_attack_piercing(struct Damage* wd, struct block_list *src, struct 
 		struct map_session_data *sd = BL_CAST(BL_PC, src);
 		struct status_data *tstatus = status_get_status_data(target);
 
-		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS && skill_id != PA_SHIELDCHAIN && skill_id != KO_HAPPOKUNAI
+		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS && skill_id != KO_HAPPOKUNAI
 #ifndef RENEWAL
 			&& !is_attack_critical(wd, src, target, skill_id, skill_lv, false)
 #endif
@@ -3276,9 +3276,6 @@ static void battle_calc_element_damage(struct Damage* wd, struct block_list *src
 		// Forced to neutral skills [helvetica]
 		// Skills forced to neutral gain benefits from weapon element but final damage is considered "neutral" and resistances are applied again
 		switch (skill_id) {
-#ifdef RENEWAL
-			case PA_SHIELDCHAIN:
-#endif
 			case MC_CARTREVOLUTION:
 			case SR_CRESCENTELBOW_AUTOSPELL:
 			case GN_FIRE_EXPANSION_ACID:
@@ -3559,20 +3556,7 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 			}
 #endif
 			break;
-		case PA_SHIELDCHAIN:
-			wd->damage = sstatus->batk;
-			if (sd) {
-				short index = sd->equip_index[EQI_HAND_L];
 
-				if (index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_ARMOR) {
-					ATK_ADD(wd->damage, wd->damage2, sd->inventory_data[index]->weight / 9);
-#ifdef RENEWAL
-					ATK_ADD(wd->weaponAtk, wd->weaponAtk2, sd->inventory_data[index]->weight / 9);
-#endif
-				}
-			} else
-				ATK_ADD(wd->damage, wd->damage2, sstatus->rhw.atk2); //Else use Atk2
-			break;
 		case NC_SELFDESTRUCTION: {
 				int damagevalue = (skill_lv + 1) * ((sd ? pc_checkskill(sd,NC_MAINFRAME) : 0) + 8) * (status_get_sp(src) + sstatus->vit);
 
@@ -4341,6 +4325,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += (sstatus->vit) * sd->spiritball;
 			if (sc && sc->data[SC_SPL_ATK])
 				skillratio += 30 * (((status_get_max_hp(src) - status_get_hp(src)) * 100) / status_get_max_hp(src));
+			if (src->type != BL_MOB) {
+				if (sd->equip_index[EQI_HAND_L] >= 0 && sd->inventory_data[sd->equip_index[EQI_HAND_L]] && sd->inventory_data[sd->equip_index[EQI_HAND_L]]->type == IT_ARMOR) {
+					skillratio += sd->inventory_data[sd->equip_index[EQI_HAND_L]]->weight / 10;
+				}
+			}
 #else
 			skillratio += 30 * skill_lv;
 #endif
@@ -6321,12 +6310,6 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 		} else
 			ATK_ADD(wd.damage, wd.damage2, ((wd.div_ < 1) ? 1 : wd.div_) * sd->spiritball * 1);
 #endif
-		if( skill_id == PA_SHIELDCHAIN ) { //Refine bonus applies after cards and elements.
-			short index = sd->equip_index[EQI_HAND_L];
-
-			if( index >= 0 && sd->inventory_data[index] && sd->inventory_data[index]->type == IT_ARMOR )
-				ATK_ADD(wd.damage, wd.damage2, 10*sd->inventory.u.items_inventory[index].refine);
-		}
 #ifndef RENEWAL
 		//Card Fix for attacker (sd), 2 is added to the "left" flag meaning "attacker cards only"
 		switch(skill_id) {
