@@ -4254,7 +4254,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case LK_HEADCRUSH:
 			skillratio += 30 + 15 * skill_lv + 1 * (sstatus->luk);
-			if (sc && sc->data[SC_OVERBRANDREADY])
+			if (sc && (sc->data[SC_OVERBRANDREADY] || sc->data[SC_SUFFRAGIUM]))
 				skillratio += 2 * (sstatus->luk);
 			break;
 		case LK_JOINTBEAT:
@@ -4960,7 +4960,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 					skillratio += 2 * sstatus->agi;
 				}
 				if (sd->inventory_data[sd->equip_index[EQI_AMMO]]->nameid == 13254) {
-					skillratio += 2 * sstatus->str;
+					skillratio += -50 + 2 * sstatus->str;
 				}
 				if (sd->inventory_data[sd->equip_index[EQI_AMMO]]->nameid == 13246) {
 					skillratio += -50 + 2 * sstatus->int_;
