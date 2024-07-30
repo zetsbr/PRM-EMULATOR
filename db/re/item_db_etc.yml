@@ -32701,6 +32701,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13247
     AegisName: Destiny_Brush_T
     Name: Destiny Brush T
@@ -32741,6 +32742,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13248
     AegisName: Wicked_Eden_T
     Name: Wicked Eden T
@@ -32782,6 +32784,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13249
     AegisName: Dread_Razor_T
     Name: Dread Razor T
@@ -32824,6 +32827,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13250
     AegisName: Frost_Spinner_T
     Name: Frost Spinner T
@@ -32864,6 +32868,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13251
     AegisName: Deadly_Rose_T
     Name: Deadly Rose T
@@ -32902,6 +32907,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13252
     AegisName: Guard_Rock_T
     Name: Guard Rock T
@@ -32942,6 +32948,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13253
     AegisName: Broken_Serenade_T
     Name: Broken Serenade T
@@ -32979,6 +32986,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13254
     AegisName: Amulet_Siegfried_T
     Name: Amulet Siegfried T
@@ -33017,6 +33025,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 14742
     AegisName: Flame_Spinner_T
     Name: Flame Spinner T
@@ -33057,6 +33066,7 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13255
     AegisName: Kunai_Of_Icicle
     Name: Icicle Kunai

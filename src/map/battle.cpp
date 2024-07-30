@@ -4254,7 +4254,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case LK_HEADCRUSH:
 			skillratio += 30 + 15 * skill_lv + 1 * (sstatus->luk);
-			if (sc && sc->data[SC_OVERBRANDREADY])
+			if (sc && (sc->data[SC_OVERBRANDREADY]))
 				skillratio += 2 * (sstatus->luk);
 			break;
 		case LK_JOINTBEAT:
@@ -4960,7 +4960,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 					skillratio += 2 * sstatus->agi;
 				}
 				if (sd->inventory_data[sd->equip_index[EQI_AMMO]]->nameid == 13254) {
-					skillratio += 2 * sstatus->str;
+					skillratio += -50 + 2 * sstatus->str;
 				}
 				if (sd->inventory_data[sd->equip_index[EQI_AMMO]]->nameid == 13246) {
 					skillratio += -50 + 2 * sstatus->int_;
@@ -6259,15 +6259,18 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 #ifdef RENEWAL
 		if (is_attack_critical(&wd, src, target, skill_id, skill_lv, false)) {
 		if (sd) { //Check for player so we don't crash out, monsters don't have bonus crit rates [helvetica]
+			int crit_atk_rate = sd->bonus.crit_atk_rate;
+			if (sc && sc->data[SC_DESTINYBRUSH_UT])
+				crit_atk_rate += sc->data[SC_DESTINYBRUSH_UT]->val1 * 5;
 			if (skill_id > 0)
-				wd.damage = (int64)floor((float)((wd.damage * 120) / 100 * (100 + ((status_get_status_data(src)->luk) / 10) + (sd->bonus.crit_atk_rate / 2))) / 100);
+				wd.damage = (int64)floor((float)((wd.damage * 120) / 100 * (100 + ((status_get_status_data(src)->luk) / 10) + (crit_atk_rate / 2))) / 100);
 			else
-				wd.damage = (int64)floor((float)((wd.damage * 120) / 100 * (100 + ((status_get_status_data(src)->luk) / 5) + (sd->bonus.crit_atk_rate / 2))) / 100);
+				wd.damage = (int64)floor((float)((wd.damage * 120) / 100 * (100 + ((status_get_status_data(src)->luk) / 5) + (crit_atk_rate / 2))) / 100);
 			if (is_attack_left_handed(src, skill_id)) {
 				if (skill_id > 0)
-					wd.damage = (int64)floor((float)((wd.damage * 110) / 100 * (100 + ((status_get_status_data(src)->luk) / 10) + (sd->bonus.crit_atk_rate / 4))) / 100);
+					wd.damage = (int64)floor((float)((wd.damage * 110) / 100 * (100 + ((status_get_status_data(src)->luk) / 10) + (crit_atk_rate / 4))) / 100);
 				else
-					wd.damage = (int64)floor((float)((wd.damage * 110) / 100 * (100 + ((status_get_status_data(src)->luk) / 10) + (sd->bonus.crit_atk_rate / 4))) / 100);
+					wd.damage = (int64)floor((float)((wd.damage * 110) / 100 * (100 + ((status_get_status_data(src)->luk) / 10) + (crit_atk_rate / 4))) / 100);
 			}
 		}
 		else

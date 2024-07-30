@@ -1719,6 +1719,7 @@
 	export_constant(SC_GUARDROCK_T);
 	export_constant(SC_FROSTSPINNER_T);
 	export_constant(SC_BLOODROSE);
+	export_constant(SC_DESTINYBRUSH_UT);
 #ifdef RENEWAL
 	export_constant(SC_EXTREMITYFIST2);
 #endif

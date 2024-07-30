@@ -1985,7 +1985,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000);
+					sc_start(src, src, SC_DESTINYBRUSH_UT, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1626, AREA);
 				clif_specialeffect(bl, 1627, AREA);
@@ -2049,7 +2049,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 1792, AREA);
 				break;
 			}
-			if(ammo_id == 13251) {
+			if(ammo_id == 13251) { // deadly rose trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2066,7 +2066,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 2048, AREA);
 				break;
 			}
-			if (ammo_id == 13252) {
+			if (ammo_id == 13252) { // guard rock trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2083,7 +2083,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 2113, AREA);
 				break;
 			}
-			if (ammo_id == 13253) {
+			if (ammo_id == 13253) { // broken berenade trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2109,7 +2109,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 2064, AREA);
 				break;
 			}
-			if (ammo_id == 13254) {
+			if (ammo_id == 13254) { // amulet of siegfried trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2119,14 +2119,14 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, AL_DECAGI, skill_lv, 1000, current_equip_card_id, bl, tick);
+					sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1570, AREA);
 				clif_specialeffect(bl, 1571, AREA);
 				clif_specialeffect(bl, 1567, AREA);
 				break;
 			}
-			if (ammo_id == 14742) {
+			if (ammo_id == 14742) { // flame spinner trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);

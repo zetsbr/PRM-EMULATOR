@@ -1764,6 +1764,7 @@ void initChangeTables(void)
 	set_sc_with_vfx_noskill(SC_FROSTSPINNER_T, EFST_FROSTSPINNER_T, SCB_MATK);
 	set_sc_with_vfx_noskill(SC_DEADLYROSE_T, EFST_DEADLYROSE_T, SCB_NONE);
 	set_sc_with_vfx_noskill(SC_GUARDROCK_T, EFST_GUARDROCK_T, SCB_DEF2|SCB_MAXHP);
+	set_sc_with_vfx_noskill(SC_DESTINYBRUSH_UT, EFST_PROVOKE, SCB_NONE);
 
 	/* Other SC which are not necessarily associated to skills */
 	StatusChangeFlagTable[SC_ASPDPOTION0] |= SCB_ASPD;
@@ -10103,7 +10104,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			return 0;
 		switch (type) {
 			case SC_BLESSING:
-			case SC_DECREASEAGI:
 			case SC_PROVOKE:
 			case SC_COMA:
 #ifndef RENEWAL
