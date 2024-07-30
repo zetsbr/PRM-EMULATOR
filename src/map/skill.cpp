@@ -254,9 +254,10 @@ int skill_get_spiritball(uint16 skill_id, uint16 skill_lv) { skill_get_lv(skill_
 
 int skill_get_splash(uint16 skill_id, uint16 skill_lv, struct map_session_data* sd) {
 	
+
 	int splash_bonus = 0;
 	int splash = skill_get_splash_(skill_id, skill_lv);
-	if (sd)
+	if (sd->bl.type == BL_PC)
 		 splash_bonus = pc_skillaoe_bonus(sd, skill_id);
 	if (splash < 0)
 		return AREA_SIZE;
@@ -4510,7 +4511,11 @@ static int skill_check_unit_range2(struct block_list* bl, int x, int y, uint16 s
 
 	//Range for INF2_DISABLENEARNPC is using skill splash value [Cydh]
 	if (isNearNPC)
-		range = skill_get_splash(skill_id, skill_lv, map_id2sd(bl->id));
+		if (bl->type == BL_PC) {
+			range = skill_get_splash(skill_id, skill_lv, map_id2sd(bl->id));
+		} else {
+			range = skill_get_splash(skill_id, skill_lv);
+		}
 
 	//While checking INF2_DISABLENEARNPC and the range from splash is 0, get the range from skill_unit range and layout. [Cydh]
 	if (!isNearNPC || !range) {
@@ -4713,8 +4718,13 @@ static TIMER_FUNC(skill_timerskill) {
 			if (skl->skill_id == SR_SKYNETBLOW) {
 				skill_area_temp[1] = 0;
 				clif_skill_damage(src, src, tick, status_get_amotion(src), 0, -30000, 1, skl->skill_id, skl->skill_lv, DMG_SINGLE);
+				if (src->type == BL_PC){
 				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skl->skill_id, skl->skill_lv, map_id2sd(id) ), BL_CHAR | BL_SKILL, src,
 					skl->skill_id, skl->skill_lv, tick, skl->flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+				} else {
+				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skl->skill_id, skl->skill_lv), BL_CHAR | BL_SKILL, src,
+					skl->skill_id, skl->skill_lv, tick, skl->flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+				}
 				break;
 			}
 
@@ -4761,7 +4771,11 @@ static TIMER_FUNC(skill_timerskill) {
 				break;
 			case BA_FROSTJOKER:
 			case DC_SCREAM:
-				range = skill_get_splash(skl->skill_id, skl->skill_lv, map_id2sd(id));
+				if (src->type == BL_PC){
+					range = skill_get_splash(skl->skill_id, skl->skill_lv, map_id2sd(id));
+				} else {
+					range = range = skill_get_splash(skl->skill_id, skl->skill_lv);
+				}
 				map_foreachinallarea(skill_frostjoke_scream, skl->map, skl->x - range, skl->y - range,
 					skl->x + range, skl->y + range, BL_CHAR, src, skl->skill_id, skl->skill_lv, tick);
 				break;
@@ -4938,9 +4952,14 @@ static TIMER_FUNC(skill_timerskill) {
 				skill_unitsetting(src, skl->skill_id, skl->skill_lv, skl->x, skl->y, (skl->type << 16) | skl->flag);
 				break;
 			case RL_FIRE_RAIN: {
-				int dummy = 1, i = skill_get_splash(skl->skill_id, skl->skill_lv, map_id2sd(id));
-
-					map_foreachinallarea(skill_cell_overlap, src->m, skl->x - i, skl->y - i, skl->x + i, skl->y + i, BL_SKILL, skl->skill_id, &dummy, src);
+				int dummy = 1;
+				int i = 0;
+				if (src->type == BL_PC){
+					i = skill_get_splash(skl->skill_id, skl->skill_lv, map_id2sd(id));
+				} else {
+					i = skill_get_splash(skl->skill_id, skl->skill_lv);
+				}
+				map_foreachinallarea(skill_cell_overlap, src->m, skl->x - i, skl->y - i, skl->x + i, skl->y + i, BL_SKILL, skl->skill_id, &dummy, src);
 				skill_unitsetting(src, skl->skill_id, skl->skill_lv, skl->x, skl->y, 0);
 			}
 							 break;
@@ -5395,9 +5414,15 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
 		if (sc && sc->data[SC_CONCENTRATE]) {
 			skill_area_temp[1] = 0;
-			map_foreachinshootrange(skill_attack_area, src,
-				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), splash_target(src),
-				BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			if (src->type == BL_PC) {
+				map_foreachinshootrange(skill_attack_area, src,
+					skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), splash_target(src),
+					BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			} else {
+				map_foreachinshootrange(skill_attack_area, src,
+					skill_get_splash(skill_id, skill_lv), splash_target(src),
+					BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			}
 			skill_blown(src, src, skill_get_range(skill_id, skill_lv), unit_getdir(src), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
 			clif_blown(src); // Always blow, otherwise it shows a casting animation. [Lemongrass]
 		}
@@ -5406,9 +5431,16 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 				clif_blown(src);
 				if (sc && sc->data[SC_NEN]) {
 					skill_area_temp[1] = 0;
-					map_foreachinshootrange(skill_attack_area, src,
-						skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), splash_target(src),
-						BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+					if (src->type == BL_PC) {
+						map_foreachinshootrange(skill_attack_area, src,
+							skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), splash_target(src),
+							BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+					} else {
+						map_foreachinshootrange(skill_attack_area, src,
+							skill_get_splash(skill_id, skill_lv), splash_target(src),
+							BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+
+					}
 				}
 				else {
 					skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
@@ -5421,9 +5453,15 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case BA_MUSICALSTRIKE:
 		if (sc && sc->data[SC_OVERBRANDREADY]){
-			map_foreachinshootrange(skill_attack_area, bl,
-				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_type(skill_id),
-				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			if (src->type == BL_PC) {
+				map_foreachinshootrange(skill_attack_area, bl,
+					skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_type(skill_id),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			} else {
+				map_foreachinshootrange(skill_attack_area, bl,
+					skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			}
 		}
 		else {
 			skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
@@ -5441,10 +5479,17 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case CH_CHAINCRUSH:
 		if (!(flag & 1) && tsc && tsc->data[SC_C_MARKER])
 		{	//Becomes a splash attack when marked.
+			if (src->type == BL_PC){
 			map_foreachinshootrange(skill_area_sub, bl,
 				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), BL_CHAR | BL_SKILL,
 				src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 1,
 				skill_castend_damage_id);
+			} else {
+			map_foreachinshootrange(skill_area_sub, bl,
+				skill_get_splash(skill_id, skill_lv), BL_CHAR | BL_SKILL,
+				src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 1,
+				skill_castend_damage_id);
+			}
 		}
 		else
 			skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
@@ -5453,9 +5498,15 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case TK_STORMKICK: // Taekwon kicks [Dralnu]
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		skill_area_temp[1] = 0;
-		map_foreachinshootrange(skill_attack_area, src,
-			skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), BL_CHAR | BL_SKILL,
-			BF_WEAPON, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		if (src->type == BL_PC) {
+			map_foreachinshootrange(skill_attack_area, src,
+				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), BL_CHAR | BL_SKILL,
+				BF_WEAPON, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		} else {
+			map_foreachinshootrange(skill_attack_area, src,
+				skill_get_splash(skill_id, skill_lv), BL_CHAR | BL_SKILL,
+				BF_WEAPON, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		}
 		break;
 
 	case KN_CHARGEATK:
@@ -5484,14 +5535,26 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		skill_area_temp[1] = bl->id;
 		if (battle_config.skill_eightpath_algorithm) {
 			//Use official AoE algorithm
-			map_foreachindir(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
-				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), 0, splash_target(src),
-				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			if (src->type == BL_PC) {
+				map_foreachindir(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), 0, splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			} else {
+				map_foreachindir(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv), skill_get_maxcount(skill_id, skill_lv), 0, splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			}
 		}
 		else {
-			map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
-				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
-				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			if (src->type == BL_PC) {
+				map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			} else {
+				map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			}
 		}
 		break;
 
@@ -5510,22 +5573,42 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		skill_area_temp[1] = bl->id;
 		if (battle_config.skill_eightpath_algorithm) {
 			//Use official AoE algorithm
-			if (!(map_foreachindir(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
-				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), 0, splash_target(src),
-				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY))) {
-#ifndef RENEWAL
-				if (skill_id == SN_SHARPSHOOTING)
-					flag &= ~2; // Only targets in the splash area are affected
-#endif
+			if (src->type == BL_PC) {
+				if (!(map_foreachindir(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), 0, splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY))) {
+	#ifndef RENEWAL
+					if (skill_id == SN_SHARPSHOOTING)
+						flag &= ~2; // Only targets in the splash area are affected
+	#endif
 
-				//These skills hit at least the target if the AoE doesn't hit
-				skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
+					//These skills hit at least the target if the AoE doesn't hit
+					skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
+				}
+			} else {
+				if (!(map_foreachindir(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv), skill_get_maxcount(skill_id, skill_lv), 0, splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY))) {
+	#ifndef RENEWAL
+					if (skill_id == SN_SHARPSHOOTING)
+						flag &= ~2; // Only targets in the splash area are affected
+	#endif
+
+					//These skills hit at least the target if the AoE doesn't hit
+					skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, flag);
+				}
 			}
 		}
 		else {
-			map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
-				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
-				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			if (src->type == BL_PC) {
+				map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			} else {
+				map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+					skill_get_splash(skill_id, skill_lv), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
+					skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+			}
 		}
 		break;
 
@@ -5677,9 +5760,15 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case SU_SVG_SPIRIT:
 		skill_area_temp[1] = bl->id;
-		map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
-			skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
-			skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		if (src->type == BL_PC) {
+			map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+				skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
+				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		} else {
+			map_foreachinpath(skill_attack_area, src->m, src->x, src->y, bl->x, bl->y,
+				skill_get_splash(skill_id, skill_lv), skill_get_maxcount(skill_id, skill_lv), splash_target(src),
+				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+		}
 		break;
 
 		//Splash attack skills.
@@ -5853,11 +5942,19 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			// if skill damage should be split among targets, count them
 			//SD_LEVEL -> Forced splash damage for Auto Blitz-Beat -> count targets
 			//special case: Venom Splasher uses a different range for searching than for splashing
-			if (flag & SD_LEVEL || skill_get_nk(skill_id, NK_SPLASHSPLIT))
-				skill_area_temp[0] = map_foreachinallrange(skill_area_sub, bl, (skill_id == AS_SPLASHER) ? 1 : skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), BL_CHAR, src, skill_id, skill_lv, tick, BCT_ENEMY, skill_area_sub_count);
-
+			if (flag & SD_LEVEL || skill_get_nk(skill_id, NK_SPLASHSPLIT)) {
+				if (src->type == BL_PC) {
+					skill_area_temp[0] = map_foreachinallrange(skill_area_sub, bl, (skill_id == AS_SPLASHER) ? 1 : skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), BL_CHAR, src, skill_id, skill_lv, tick, BCT_ENEMY, skill_area_sub_count);
+				} else {
+					skill_area_temp[0] = map_foreachinallrange(skill_area_sub, bl, (skill_id == AS_SPLASHER) ? 1 : skill_get_splash(skill_id, skill_lv), BL_CHAR, src, skill_id, skill_lv, tick, BCT_ENEMY, skill_area_sub_count);
+				}
+			}
 			// recursive invocation of skill_castend_damage_id() with flag|1
-			map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), starget, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+			if (src->type == BL_PC) {
+				map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv, map_id2sd(src->id)), starget, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+			} else {
+				map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
+			}
 
 			if (skill_id == RA_ARROWSTORM)
 				status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
