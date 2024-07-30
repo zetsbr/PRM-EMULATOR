@@ -2611,7 +2611,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	cutin "",255;
 	//Sub Lv 70
 	if ($orphanagelevel >=60){
-	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Insect Society Nest:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Juperos:Kiel Hyre Factory:Thanatos Tower:Crystal Caves:Cancel")) {
+	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Insect Society Nest:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Juperos:Kiel Hyre Factory:Thanatos Tower:Crystal Caves:Sky Garden:Cancel")) {
 	case 1:
 	if (judgejob ==0){
 	mes "Sorry, I can't help you with this. Only Judges can use this particular service.";
@@ -2764,6 +2764,15 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	warp "snow_fild04",237,77;
 	end;
 	case 18:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "skyent",28,66;
+	end;
+	case 19:
 	mes .@npc$;
 	mes "Take Care!";
 	close;
