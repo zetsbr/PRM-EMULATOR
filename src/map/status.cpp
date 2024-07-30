@@ -10103,7 +10103,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			return 0;
 		switch (type) {
 			case SC_BLESSING:
-			case SC_DECREASEAGI:
 			case SC_PROVOKE:
 			case SC_COMA:
 #ifndef RENEWAL
