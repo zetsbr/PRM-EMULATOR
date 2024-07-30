@@ -2611,7 +2611,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	cutin "",255;
 	//Sub Lv 70
 	if ($orphanagelevel >=60){
-	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Juperos:Kiel Hyre Factory:Thanatos Tower:Crystal Caves:Cancel")) {
+	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Insect Society Nest:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Juperos:Kiel Hyre Factory:Thanatos Tower:Crystal Caves:Cancel")) {
 	case 1:
 	if (judgejob ==0){
 	mes "Sorry, I can't help you with this. Only Judges can use this particular service.";
@@ -2644,7 +2644,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "moc_fild19",107,99;
+	warp "moc_fild04",248,311;
 	end;
 	case 5:
 	if (zeny < 1000){
@@ -2653,7 +2653,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "gef_fild09",291,53;
+	warp "moc_fild19",107,99;
 	end;
 	case 6:
 	if (zeny < 1000){
@@ -2662,7 +2662,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "gef_fild10",57,328;
+	warp "gef_fild09",291,53;
 	end;
 	case 7:
 	if (zeny < 1000){
@@ -2671,7 +2671,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "mjolnir_02",84,359;
+	warp "gef_fild10",57,328;
 	end;
 	case 8:
 	if (zeny < 1000){
@@ -2680,7 +2680,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "prt_fild01",131,364;
+	warp "mjolnir_02",84,359;
 	end;
 	case 9:
 	if (zeny < 1000){
@@ -2689,7 +2689,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "ein_fild10",170,37;
+	warp "prt_fild01",131,364;
 	end;
 	case 10:
 	if (zeny < 1000){
@@ -2698,7 +2698,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "um_fild03",333,353;
+	warp "ein_fild10",170,37;
 	end;
 	case 11:
 	if (zeny < 1000){
@@ -2707,7 +2707,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "glast_01",200,83;
+	warp "um_fild03",333,353;
 	end;
 	case 12:
 	if (zeny < 1000){
@@ -2716,7 +2716,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "yuno_fild01",195,151;
+	warp "glast_01",200,83;
 	end;
 	case 13:
 	if (zeny < 1000){
@@ -2725,7 +2725,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "yuno_fild07",219,175;
+	warp "yuno_fild01",195,151;
 	end;
 	case 14:
 	if (zeny < 1000){
@@ -2734,7 +2734,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "yuno_fild08",89,186;
+	warp "yuno_fild07",219,175;
 	end;
 	case 15:
 	if (zeny < 1000){
@@ -2743,7 +2743,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "hu_fild01",141,157;
+	warp "yuno_fild08",89,186;
 	end;
 	case 16:
 	if (zeny < 1000){
@@ -2752,9 +2752,18 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "snow_fild04",237,77;
+	warp "hu_fild01",141,157;
 	end;
 	case 17:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "snow_fild04",237,77;
+	end;
+	case 18:
 	mes .@npc$;
 	mes "Take Care!";
 	close;
@@ -2762,7 +2771,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	}
 	//Sub Level 60
 	if ($orphanagelevel <=59){
-	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Cancel")) {
+	switch(select("Judge Headquarters:Payon Archer Village:Prontera Culvert:Insect Society Nest:Morroc Sphinx:Geffen Cave:Orc Village:Coal Mines:Forest Maze:Airship Crash Site:Dragon Nest:Glast Heim:Abandoned Kafra Warehouse:Cancel")) {
 	case 1:
 	if (judgejob ==0){
 	mes "Sorry, I can't help you with this. Only Judges can use this particular service.";
@@ -2795,7 +2804,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "moc_fild19",107,99;
+	warp "moc_fild04",248,311;
 	end;
 	case 5:
 	if (zeny < 1000){
@@ -2804,7 +2813,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "gef_fild09",291,53;
+	warp "moc_fild19",107,99;
 	end;
 	case 6:
 	if (zeny < 1000){
@@ -2813,7 +2822,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "gef_fild10",57,328;
+	warp "gef_fild09",291,53;
 	end;
 	case 7:
 	if (zeny < 1000){
@@ -2822,7 +2831,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "mjolnir_02",84,359;
+	warp "gef_fild10",57,328;
 	end;
 	case 8:
 	if (zeny < 1000){
@@ -2831,7 +2840,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "prt_fild01",131,364;
+	warp "mjolnir_02",84,359;
 	end;
 	case 9:
 	if (zeny < 1000){
@@ -2840,7 +2849,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "ein_fild10",170,37;
+	warp "prt_fild01",131,364;
 	end;
 	case 10:
 	if (zeny < 1000){
@@ -2849,7 +2858,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "um_fild03",333,353;
+	warp "ein_fild10",170,37;
 	end;
 	case 11:
 	if (zeny < 1000){
@@ -2858,7 +2867,7 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "glast_01",200,83;
+	warp "um_fild03",333,353;
 	end;
 	case 12:
 	if (zeny < 1000){
@@ -2867,9 +2876,18 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	close;
 	}
 	set Zeny, Zeny - 1000;
-	warp "yuno_fild01",195,151;
+	warp "glast_01",200,83;
 	end;
 	case 13:
+	if (zeny < 1000){
+	mes .@npc$;
+	mes "Sorry, You don't have enough zeny.";
+	close;
+	}
+	set Zeny, Zeny - 1000;
+	warp "yuno_fild01",195,151;
+	end;
+	case 14:
 	mes .@npc$;
 	mes "Take Care!";
 	close;
