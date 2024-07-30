@@ -1035,6 +1035,7 @@ enum sc_type : int16 {
 	SC_FROSTSPINNER_T,
 	SC_GUARDROCK_T,
 	SC_BLOODROSE,
+	SC_DESTINYBRUSH_UT,
 	SC_MAX, //Automatically updated max, used in for's to check we are within bounds.
 };
 

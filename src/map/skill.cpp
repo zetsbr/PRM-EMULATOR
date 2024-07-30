@@ -1985,7 +1985,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, LK_HEADCRUSH, skill_lv, 1000, current_equip_card_id, bl, tick);
+					sc_start(src, src, SC_DESTINYBRUSH_UT, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1626, AREA);
 				clif_specialeffect(bl, 1627, AREA);
