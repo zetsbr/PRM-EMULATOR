@@ -866,7 +866,7 @@ OnTouch_:
 		mes "You don't feel the energy of this trinket coming towards you...";
 		close;
 	case 8:
-		if (pktrkth ==1){
+		if (pktrktfs ==1){
 		mes "You already have this trinket.";
 		close;	
 		}
@@ -877,18 +877,18 @@ OnTouch_:
 		delitem 6226,1;
 		delitem 4984,1;
 		getitem 14742,1;
-		set pktrkth,1;
+		set pktrktfs,1;
 		close;
 	L_noitems8:
 		mes "You don't feel the energy of this trinket coming towards you...";
 		close;
 	case 9:
-		if (pktrkth ==1){
+		if (pktrkth == 1){
 		mes "You already have this trinket.";
 		close;	
 		}
-		if(countitem(4944) < 1) goto L_noitems8;
-		if(countitem(6444) < 1) goto L_noitems8;
+		if(countitem(4944) < 1) goto L_noitems9;
+		if(countitem(6444) < 1) goto L_noitems9;
 		mes .@npc$;
 		mes "You feel the energy of the trinket around you and ...successfully created the trinket!";
 		delitem 4944,1;
@@ -896,7 +896,7 @@ OnTouch_:
 		getitem 13248,1;
 		set pktrkth,1;
 		close;
-	L_noitems8:
+	L_noitems9:
 		mes "You don't feel the energy of this trinket coming towards you...";
 		close;
 	case 10:
