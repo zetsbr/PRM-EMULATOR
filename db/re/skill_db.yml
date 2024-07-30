@@ -10476,7 +10476,7 @@ Body:
     Hit: Single
     HitCount: 1
     Duration1: 60000
-    Cooldown: 80000
+    Cooldown: 60000
     Requires:
       SpCost:
         - Level: 1
