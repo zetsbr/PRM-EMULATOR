@@ -4502,6 +4502,9 @@ void pc_bonus2(struct map_session_data *sd,int type,int type2,int val)
 
 		pc_bonus_itembonus( sd->itemgroupsphealrate, type2, val, false );
 		break;
+	case SP_DEL_SPIRITCHARM: // bonus2 bDelSpiritcharm,n,ele;
+		pc_delspiritcharm(sd, type2, val);
+		break;
 	default:
 		if (current_equip_combo_pos > 0) {
 			ShowWarning("pc_bonus2: unknown bonus type %d %d %d in a combo with item #%u\n", type, type2, val, sd->inventory_data[pc_checkequip( sd, current_equip_combo_pos )]->nameid);
@@ -4777,6 +4780,9 @@ void pc_bonus3(struct map_session_data *sd,int type,int type2,int type3,int val)
 		sd->skillsprate.push_back(entry);
 	}
 	break;
+	case SP_ADD_SPIRITCHARM: // bonus3 bAddSpiritcharm,t,n,ele;
+		pc_addspiritcharm(sd, type2, type3, val);
+		break;
 	default:
 		if (current_equip_combo_pos > 0) {
 			ShowWarning("pc_bonus3: unknown bonus type %d %d %d %d in a combo with item #%u\n", type, type2, type3, val, sd->inventory_data[pc_checkequip( sd, current_equip_combo_pos )]->nameid);

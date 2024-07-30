@@ -32701,6 +32701,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13247
     AegisName: Destiny_Brush_T
@@ -32742,6 +32744,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13248
     AegisName: Wicked_Eden_T
@@ -32784,6 +32788,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13249
     AegisName: Dread_Razor_T
@@ -32827,6 +32833,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13250
     AegisName: Frost_Spinner_T
@@ -32868,6 +32876,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13251
     AegisName: Deadly_Rose_T
@@ -32907,6 +32917,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13252
     AegisName: Guard_Rock_T
@@ -32948,6 +32960,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13253
     AegisName: Broken_Serenade_T
@@ -32986,6 +33000,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13254
     AegisName: Amulet_Siegfried_T
@@ -33025,6 +33041,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 14742
     AegisName: Flame_Spinner_T
@@ -33066,6 +33084,8 @@ Body:
       sc_end SC_POEMBRAGI;
       sc_end SC_ENCPOISON;
       sc_end SC_REJECTSWORD;
+      bonus2 bDelSpiritcharm,10,Ele_Water;
+      bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
   - Id: 13255
     AegisName: Kunai_Of_Icicle
