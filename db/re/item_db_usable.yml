@@ -10575,7 +10575,7 @@ Body:
     Buy: 2
     Weight: 10
     Script: |
-      sc_start SC_EXPBOOST,1800000,50;
+      sc_start SC_EXPBOOST,1000,50;
   - Id: 12440
     AegisName: F_Insurance
     Name: F Insurance
