@@ -3332,7 +3332,7 @@ Body:
     Attack: 30
     MagicAttack: 30
     Range: 1
-    Slots: 4
+    Slots: 1
     Jobs:
       Acolyte: true
     Classes:
