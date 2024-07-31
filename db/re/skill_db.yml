@@ -6586,9 +6586,9 @@ Body:
     Cooldown: 4000
     Requires:
       SpCost: 40
-      ItemCost:
-        - Item: Fire_Bottle
-          Amount: 1
+      Ammo:
+        Kunai: true
+      AmmoAmount: 1
     Unit:
       Id: Demonstration
       Range: 1
@@ -6643,9 +6643,9 @@ Body:
     Duration2: 120000
     Requires:
       SpCost: 45
-      ItemCost:
-        - Item: Acid_Bottle
-          Amount: 1
+      Ammo:
+        Kunai: true
+      AmmoAmount: 1
   - Id: 231
     Name: AM_POTIONPITCHER
     Description: Potion Pitcher
@@ -13599,11 +13599,9 @@ Body:
     Requires:
       SpRateCost: -10
       SpCost: 150
-      ItemCost:
-        - Item: Fire_Bottle
-          Amount: 5
-        - Item: Acid_Bottle
-          Amount: 5
+      Ammo:
+        Kunai: true
+      AmmoAmount: 10
   - Id: 491 # Removed on kRO
     Name: CR_CULTIVATION
     Description: Plant Cultivation
@@ -21512,10 +21510,6 @@ Body:
     Requires:
       SpCost: 100
       ItemCost:
-        - Item: Fire_Bottle
-          Amount: 1
-        - Item: Acid_Bottle
-          Amount: 1
         - Item: Special_Alloy_Trap
           Amount: 1 
     Unit:
@@ -28579,9 +28573,9 @@ Body:
           Amount: 80
         - Level: 10
           Amount: 84
-      ItemCost:
-        - Item: Acid_Bottle
-          Amount: 3
+      Ammo:
+        Kunai: true
+      AmmoAmount: 5
   - Id: 2482
     Name: GN_WALLOFTHORN
     Description: Wall of Thorns
@@ -28681,11 +28675,9 @@ Body:
           Amount: 56
         - Level: 10
           Amount: 60
-      ItemCost:
-        - Item: Acid_Bottle
-          Amount: 1
-        - Item: Fire_Bottle
-          Amount: 1
+      Ammo:
+        Kunai: true
+      AmmoAmount: 7
   - Id: 2484
     Name: GN_CRAZYWEED_ATK
     Description: Crazy Weed Attack
@@ -28746,9 +28738,9 @@ Body:
     TargetType: Ground
     Range: 9
     Hit: Single
-    HitCount: 1
-    Element: Fire
-    ActiveInstance: 3
+    HitCount: -2
+    Element: Weapon
+    ActiveInstance: 5
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -28820,9 +28812,9 @@ Body:
           Amount: 36
         - Level: 5
           Amount: 40
-      ItemCost:
-        - Item: Fire_Bottle
-          Amount: 3
+      Ammo:
+        Kunai: true
+      AmmoAmount: 5
     Unit:
       Id: Demonic_Fire
       Range: 2
@@ -29906,7 +29898,7 @@ Body:
     DamageFlags:
       Splash: true
       IgnoreFlee: true
-    Range: 3
+    Range: 5
     Hit: Multi_Hit
     HitCount: -2
     Element: Weapon
@@ -29920,6 +29912,9 @@ Body:
     Requires:
       SpCost: 150
       SpRateCost: -10
+      Ammo:
+        Kunai: true
+      AmmoAmount: 7
     Unit:
       Id: Fire_Rain
       Layout: 2

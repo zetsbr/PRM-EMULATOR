@@ -18079,7 +18079,7 @@ Body:
         RandomOptionGroup: armor
       - Item: DangerousSackMVP
         Rate: 10
-      - Item: Arrow_Cantrips
+      - Item: Stray_Cantrips
         Rate: 75
   - Id: 1431
     AegisName: G_BAPHOMET_

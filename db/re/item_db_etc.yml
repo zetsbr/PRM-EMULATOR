@@ -33124,7 +33124,7 @@ Body:
       Ammo: true
     EquipLevelMin: 50
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: |
       skill 537,10;
       skill 2447,10;
@@ -33145,7 +33145,7 @@ Body:
       Ammo: true
     EquipLevelMin: 50
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: |
       skill 540,10;
       skill 542,10;
@@ -33166,7 +33166,7 @@ Body:
       Ammo: true
     EquipLevelMin: 35
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: |
       skill 70,10;
       skill 2050,5;
@@ -33187,7 +33187,7 @@ Body:
       Ammo: true
     EquipLevelMin: 10
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: | 
       skill 4,10;
       skill 2036,5;
@@ -33208,7 +33208,7 @@ Body:
       Ammo: true
     EquipLevelMin: 40
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: | 
       skill 56,5;
       skill 530,10;
@@ -33229,7 +33229,7 @@ Body:
       Ammo: true
     EquipLevelMin: 60
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: | 
       skill 136,10;
       skill 62,5;
@@ -33250,7 +33250,7 @@ Body:
       Ammo: true
     EquipLevelMin: 50
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: | 
       skill 359,1;
       skill 48,10;
@@ -33271,7 +33271,7 @@ Body:
       Ammo: true
     EquipLevelMin: 70
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: | 
       skill 379,10;
       skill 2307,5;
@@ -33297,7 +33297,7 @@ Body:
       Ammo: true
     EquipLevelMin: 80
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: | 
       skill 518,10;
       skill 481,10;
@@ -33319,7 +33319,7 @@ Body:
       Ammo: true
     EquipLevelMin: 100
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: | 
       skill 2454,7;
       skill 2004,10;
@@ -33342,12 +33342,48 @@ Body:
       Ammo: true
     EquipLevelMin: 1
     Flags:
-      DropEffect: PURPLE_PILLA
+      DropEffect: PURPLE_PILLAR
     Script: |
       skill 2602,5;
       skill 2593,10;
       skill 212,10;
       skill 13,10;
+  - Id: 7135
+    AegisName: Fire_Bottle
+    Name: Bottle Grenade
+    Sell: 5
+    Weight: 20
+    Type: Ammo
+    SubType: Kunai
+    buy: 10000
+    Attack: 20
+    Weight: 500
+    Jobs:
+      Genetic: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 1
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      bonus bAtkEle,Ele_Fire;
+  - Id: 7136
+    AegisName: Acid_Bottle
+    Name: Acid Bottle
+    Sell: 5
+    Weight: 20
+    Type: Ammo
+    SubType: Kunai
+    buy: 10000
+    Attack: 20
+    Weight: 500
+    Jobs:
+      Genetic: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 1
+    Flags:
+      DropEffect: PURPLE_PILLAR
   - Id: 13255
     AegisName: Kunai_Of_Icicle
     Name: Icicle Kunai
