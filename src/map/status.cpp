@@ -9070,6 +9070,8 @@ void status_change_init(struct block_list *bl)
 static int status_get_sc_interval(enum sc_type type)
 {
 	switch (type) {
+		case SC_DEATHBOUND:
+			return 200;
 		case SC_BLOODROSE:
 			return 500;
 		case SC_POISON:
@@ -11714,7 +11716,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 		/* Rune Knight */
 		case SC_DEATHBOUND:
-			tickdelay = 200;
+			tickdelay = status_get_sc_interval(type);
 			val2 = tick / tickdelay;
 			tick_time = tickdelay;
 			if (sd) { // Store the card-bonus data that should not count in the %
@@ -14820,7 +14822,7 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_DEATHBOUND:
 		if (--(sce->val2) > 0) {
-			uint16 tickdelay = 200;
+			uint16 tickdelay = status_get_sc_interval(type);
 			int64 hp_damage = status->max_hp * (0.1 / sce->val1);
 			int64 sp_damage = status->max_sp * (0.1 / sce->val1);
 			if (!sd && hp_damage >= status->hp)
