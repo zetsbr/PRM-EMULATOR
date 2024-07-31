@@ -9609,6 +9609,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	int calc_flag, undead_flag, val_flag = 0, tick_time = 0;
 	bool sc_isnew = true;
 
+	uint16 tickdelay = 0;
+
 	nullpo_ret(bl);
 	sc = status_get_sc(bl);
 	status = status_get_status_data(bl);
@@ -11712,14 +11714,16 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 		/* Rune Knight */
 		case SC_DEATHBOUND:
-			val2 = 2 + val1;
+			tickdelay = 200;
+			val2 = tick / tickdelay;
+			tick_time = tickdelay;
 			if (sd) { // Store the card-bonus data that should not count in the %
 				val3 = sd->indexed_bonus.param_bonus[1]; // Agi
 				val4 = sd->indexed_bonus.param_bonus[4]; // Dex
 			}
 			else
 				val3 = val4 = 0;
-			tick_time = 200;
+
 			break;
 		case SC_STONEHARDSKIN:
 			if (!status_charge(bl, status->hp / 5, 0)) // 20% of HP
@@ -14815,12 +14819,13 @@ TIMER_FUNC(status_change_timer){
 		break;
 
 	case SC_DEATHBOUND:
-		if (sce->val4 >= 0) {
+		if (--(sce->val2) > 0) {
+			uint16 tickdelay = 200;
 			int64 hp_damage = status->max_hp * (0.1 / sce->val1);
 			int64 sp_damage = status->max_sp * (0.1 / sce->val1);
 			if (!sd && hp_damage >= status->hp)
 				hp_damage = status->hp - 1; // No deadly damage for monsters
-			sc_timer_next(200 + tick);
+			sc_timer_next(tick + tickdelay);
 			status_zap(bl, hp_damage, sp_damage);
 			if (sd && status->hp < 1)
 				status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);
