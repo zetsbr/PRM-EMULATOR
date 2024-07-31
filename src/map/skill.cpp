@@ -7775,7 +7775,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 	case NPC_DEFENDER:
 	case NPC_MAGICMIRROR:
-	case ST_PRESERVE:
 	case NPC_KEEPING:
 	case NPC_BARRIER:
 	case NPC_INVINCIBLE:
@@ -8490,6 +8489,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case TK_READYSTORM:
 	case TK_READYDOWN:
 	case TK_READYTURN:
+	case ST_PRESERVE:
 	case TK_READYCOUNTER:
 	case TK_DODGE:
 	case CR_SHRINK:
@@ -11600,7 +11600,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case WM_GLOOMYDAY:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		if (dstsd && (pc_checkskill(dstsd, KN_BRANDISHSPEAR) || pc_checkskill(dstsd, LK_SPIRALPIERCE) ||
-			pc_checkskill(dstsd, CR_SHIELDCHARGE) || pc_checkskill(dstsd, LG_SHIELDPRESS)))
+			pc_checkskill(dstsd, CR_SHIELDCHARGE) || pc_checkskill(dstsd, PA_SHIELDCHAIN) || pc_checkskill(dstsd, LG_SHIELDPRESS)))
 		{ // !TODO: Which skills aren't boosted anymore?
 			sc_start(src, bl, SC_GLOOMYDAY_SK, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 			break;
@@ -22732,6 +22732,7 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case TK_READYDOWN:
 	case TK_READYSTORM:
 	case TK_READYTURN:
+	case ST_PRESERVE:
 	case TK_RUN:
 	case SG_FUSION:
 	case KO_YAMIKUMO:

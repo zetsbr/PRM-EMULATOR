@@ -2009,6 +2009,7 @@ Body:
     Requires:
       SpCost: 15
       Weapon:
+        Book: true
         Mace: true
   - Id: 57
     Name: KN_BRANDISHSPEAR
@@ -4737,6 +4738,7 @@ Body:
         - Level: 10
           Amount: 34
       Weapon:
+        Book: true
         Katar: true
   - Id: 137
     Name: AS_GRIMTOOTH
@@ -6175,6 +6177,7 @@ Body:
           Amount: 37
       SpRateCost: 5
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 213
@@ -13093,8 +13096,6 @@ Body:
     DamageFlags:
       NoDamage: true
     HitCount: 1
-    CastCancel: true
-    Duration1: 180000
     FixedCastTime: 250
     Requires:
       SpCost: 50
@@ -14874,6 +14875,7 @@ Body:
     Requires:
       SpCost: 50
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 531
@@ -18303,6 +18305,7 @@ Body:
         - Level: 5
           Amount: 33
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 2003
@@ -18401,6 +18404,7 @@ Body:
     Requires:
       SpCost: 100
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 2005
@@ -20395,6 +20399,7 @@ Body:
       SpCost: 10
       SpRateCost: 5
       Weapon:
+        Book: true
         1hSword: true
         1hAxe: true
         Katar: true
@@ -23288,6 +23293,7 @@ Body:
         - Level: 10
           Amount: 40
       Weapon:
+        Book: true
         1hSword: true
         Dagger: true
   - Id: 2289
@@ -23959,6 +23965,7 @@ Body:
         - Level: 5
           Amount: 50
       Weapon:
+        Book: true
         Katar: true
         1hSword: true
   - Id: 2308
@@ -26043,6 +26050,7 @@ Body:
         - Level: 10
           Amount: 170
       Weapon:
+        Book: true
         Mace: true
       ItemCost:
         - Item: Shadow_Orb
@@ -30645,6 +30653,7 @@ Body:
     Requires:
       SpCost: 15
       Weapon:
+        Book: true
         1hSpear: true
         2hSpear: true
   - Id: 2594

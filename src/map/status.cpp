@@ -10746,6 +10746,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_READYDOWN:
 		case SC_READYCOUNTER:
 		case SC_READYTURN:
+		case SC_PRESERVE:
 		case SC_DODGE:
 		case SC_PUSH_CART:
 		case SC_SPRITEMABLE:
