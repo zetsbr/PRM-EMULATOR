@@ -33087,6 +33087,303 @@ Body:
       bonus2 bDelSpiritcharm,10,Ele_Water;
       bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
+  - Id: 28443
+    AegisName: Fire_Cantrips
+    Name: Fire Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 50
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      skill 534,10;
+      skill 2259,10;
+      skill 2443,10;
+  - Id: 28444
+    AegisName: Water_Cantrips
+    Name: Water Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 50
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      skill 537,10;
+      skill 2447,10;
+      skill 2203,3;
+  - Id: 28445
+    AegisName: Wind_Cantrips
+    Name: Wind Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 50
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      skill 540,10;
+      skill 542,10;
+      skill 541,10;
+  - Id: 28446
+    AegisName: Heal_Cantrips
+    Name: Heal Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 35
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      skill 70,10;
+      skill 2050,5;
+      skill 2345,7;
+  - Id: 28447
+    AegisName: Thievery_Cantrips
+    Name: Thievery Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 10
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: | 
+      skill 4,10;
+      skill 2036,5;
+      skill 52,10;
+  - Id: 28448
+    AegisName: Slash_Cantrips
+    Name: Slash Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 40
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: | 
+      skill 56,5;
+      skill 530,10;
+      skill 2002,10;
+  - Id: 28449
+    AegisName: Power_Cantrips
+    Name: Power Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 60
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: | 
+      skill 136,10;
+      skill 62,5;
+      skill 2336,10;
+  - Id: 28450
+    AegisName: Stray_Cantrips
+    Name: Stray Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 50
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: | 
+      skill 359,1;
+      skill 48,10;
+      skill 265,10;
+  - Id: 28451
+    AegisName: Specialized_Cantrips
+    Name: Specialized Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 70
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: | 
+      skill 379,10;
+      skill 2307,5;
+      skill 2448,10;
+      skill 2327,5;
+      skill 2038,10;
+      skill 2288,10;
+      skill 2485,10;
+      skill 357,5;
+  - Id: 28452
+    AegisName: Expert_Cantrips
+    Name: Expert Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 80
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: | 
+      skill 518,10;
+      skill 481,10;
+      skill 2324,5;
+      skill 421,5;
+  - Id: 28453
+    AegisName: Master_Cantrips
+    Name: Master Cantrips
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 100
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: | 
+      skill 2454,7;
+      skill 2004,10;
+      skill 2216,10;
+      skill 2213,5;
+      skill 2418,10;
+  - Id: 28599
+    AegisName: Cantrips_Codex
+    Name: Cantrips Codex
+    Type: Ammo
+    SubType: Shuriken
+    buy: 1
+    Attack: 1
+    Weight: 500
+    Jobs:
+      Swordman: true
+    Classes:
+      Baby: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 1
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      skill 2602,5;
+      skill 2593,10;
+      skill 212,10;
+      skill 13,10;
+  - Id: 7135
+    AegisName: Fire_Bottle
+    Name: Bottle Grenade
+    Sell: 5
+    Weight: 20
+    Type: Ammo
+    SubType: Kunai
+    buy: 10000
+    Attack: 20
+    Weight: 500
+    Jobs:
+      Genetic: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 1
+    Flags:
+      DropEffect: PURPLE_PILLAR
+    Script: |
+      bonus bAtkEle,Ele_Fire;
+  - Id: 7136
+    AegisName: Acid_Bottle
+    Name: Acid Bottle
+    Sell: 5
+    Weight: 20
+    Type: Ammo
+    SubType: Kunai
+    buy: 10000
+    Attack: 20
+    Weight: 500
+    Jobs:
+      Genetic: true
+    Locations:
+      Ammo: true
+    EquipLevelMin: 1
+    Flags:
+      DropEffect: PURPLE_PILLAR
   - Id: 13255
     AegisName: Kunai_Of_Icicle
     Name: Icicle Kunai

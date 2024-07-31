@@ -2009,6 +2009,7 @@ Body:
     Requires:
       SpCost: 15
       Weapon:
+        Book: true
         Mace: true
   - Id: 57
     Name: KN_BRANDISHSPEAR
@@ -2075,7 +2076,7 @@ Body:
     Range: 4
     Hit: Single
     SplashArea: 2
-    HitCount: 1
+    HitCount: -2
     Element: Weapon
     Knockback: 7
     Cooldown: 10000
@@ -4737,6 +4738,7 @@ Body:
         - Level: 10
           Amount: 34
       Weapon:
+        Book: true
         Katar: true
   - Id: 137
     Name: AS_GRIMTOOTH
@@ -6175,6 +6177,7 @@ Body:
           Amount: 37
       SpRateCost: 5
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 213
@@ -6583,9 +6586,9 @@ Body:
     Cooldown: 4000
     Requires:
       SpCost: 40
-      ItemCost:
-        - Item: Fire_Bottle
-          Amount: 1
+      Ammo:
+        Kunai: true
+      AmmoAmount: 1
     Unit:
       Id: Demonstration
       Range: 1
@@ -6640,9 +6643,9 @@ Body:
     Duration2: 120000
     Requires:
       SpCost: 45
-      ItemCost:
-        - Item: Acid_Bottle
-          Amount: 1
+      Ammo:
+        Kunai: true
+      AmmoAmount: 1
   - Id: 231
     Name: AM_POTIONPITCHER
     Description: Potion Pitcher
@@ -7000,6 +7003,7 @@ Body:
     Description: Shield Boomerang
     MaxLevel: 10
     Type: Weapon
+    Element: Weapon
     TargetType: Attack
     SplashArea: 1
     CopyFlags:
@@ -7141,7 +7145,7 @@ Body:
       IgnoreLongCard: true
     Range: 3
     Hit: Single
-    HitCount: 1
+    HitCount: -2
     Element: Weapon
     CopyFlags:
       Skill:
@@ -10475,7 +10479,7 @@ Body:
     Hit: Single
     HitCount: 1
     Duration1: 60000
-    Cooldown: 80000
+    Cooldown: 60000
     Requires:
       SpCost:
         - Level: 1
@@ -13092,8 +13096,6 @@ Body:
     DamageFlags:
       NoDamage: true
     HitCount: 1
-    CastCancel: true
-    Duration1: 180000
     FixedCastTime: 250
     Requires:
       SpCost: 50
@@ -13207,6 +13209,7 @@ Body:
     Description: King's Chains
     MaxLevel: 10
     Type: Weapon
+    Element: Weapon
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -13596,11 +13599,9 @@ Body:
     Requires:
       SpRateCost: -10
       SpCost: 150
-      ItemCost:
-        - Item: Fire_Bottle
-          Amount: 5
-        - Item: Acid_Bottle
-          Amount: 5
+      Ammo:
+        Kunai: true
+      AmmoAmount: 10
   - Id: 491 # Removed on kRO
     Name: CR_CULTIVATION
     Description: Plant Cultivation
@@ -14872,6 +14873,7 @@ Body:
     Requires:
       SpCost: 50
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 531
@@ -18301,6 +18303,7 @@ Body:
         - Level: 5
           Amount: 33
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 2003
@@ -18399,6 +18402,7 @@ Body:
     Requires:
       SpCost: 100
       Weapon:
+        Book: true
         Dagger: true
         1hSword: true
   - Id: 2005
@@ -20393,6 +20397,7 @@ Body:
       SpCost: 10
       SpRateCost: 5
       Weapon:
+        Book: true
         1hSword: true
         1hAxe: true
         Katar: true
@@ -21505,10 +21510,6 @@ Body:
     Requires:
       SpCost: 100
       ItemCost:
-        - Item: Fire_Bottle
-          Amount: 1
-        - Item: Acid_Bottle
-          Amount: 1
         - Item: Special_Alloy_Trap
           Amount: 1 
     Unit:
@@ -23286,6 +23287,7 @@ Body:
         - Level: 10
           Amount: 40
       Weapon:
+        Book: true
         1hSword: true
         Dagger: true
   - Id: 2289
@@ -23957,6 +23959,7 @@ Body:
         - Level: 5
           Amount: 50
       Weapon:
+        Book: true
         Katar: true
         1hSword: true
   - Id: 2308
@@ -26041,6 +26044,7 @@ Body:
         - Level: 10
           Amount: 170
       Weapon:
+        Book: true
         Mace: true
       ItemCost:
         - Item: Shadow_Orb
@@ -28569,9 +28573,9 @@ Body:
           Amount: 80
         - Level: 10
           Amount: 84
-      ItemCost:
-        - Item: Acid_Bottle
-          Amount: 3
+      Ammo:
+        Kunai: true
+      AmmoAmount: 5
   - Id: 2482
     Name: GN_WALLOFTHORN
     Description: Wall of Thorns
@@ -28671,11 +28675,9 @@ Body:
           Amount: 56
         - Level: 10
           Amount: 60
-      ItemCost:
-        - Item: Acid_Bottle
-          Amount: 1
-        - Item: Fire_Bottle
-          Amount: 1
+      Ammo:
+        Kunai: true
+      AmmoAmount: 7
   - Id: 2484
     Name: GN_CRAZYWEED_ATK
     Description: Crazy Weed Attack
@@ -28736,9 +28738,9 @@ Body:
     TargetType: Ground
     Range: 9
     Hit: Single
-    HitCount: 1
-    Element: Fire
-    ActiveInstance: 3
+    HitCount: -2
+    Element: Weapon
+    ActiveInstance: 5
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -28810,9 +28812,9 @@ Body:
           Amount: 36
         - Level: 5
           Amount: 40
-      ItemCost:
-        - Item: Fire_Bottle
-          Amount: 3
+      Ammo:
+        Kunai: true
+      AmmoAmount: 5
     Unit:
       Id: Demonic_Fire
       Range: 2
@@ -29896,7 +29898,7 @@ Body:
     DamageFlags:
       Splash: true
       IgnoreFlee: true
-    Range: 3
+    Range: 5
     Hit: Multi_Hit
     HitCount: -2
     Element: Weapon
@@ -29910,6 +29912,9 @@ Body:
     Requires:
       SpCost: 150
       SpRateCost: -10
+      Ammo:
+        Kunai: true
+      AmmoAmount: 7
     Unit:
       Id: Fire_Rain
       Layout: 2
@@ -30643,6 +30648,7 @@ Body:
     Requires:
       SpCost: 15
       Weapon:
+        Book: true
         1hSpear: true
         2hSpear: true
   - Id: 2594

@@ -4987,7 +4987,6 @@ static TIMER_FUNC(skill_timerskill) {
 				break;
 			case RL_FIRE_RAIN: {
 				int dummy = 1, i = skill_get_splash(skl->skill_id, skl->skill_lv);
-
 					map_foreachinallarea(skill_cell_overlap, src->m, skl->x - i, skl->y - i, skl->x + i, skl->y + i, BL_SKILL, skl->skill_id, &dummy, src);
 				skill_unitsetting(src, skl->skill_id, skl->skill_lv, skl->x, skl->y, 0);
 			}
@@ -7775,7 +7774,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 	case NPC_DEFENDER:
 	case NPC_MAGICMIRROR:
-	case ST_PRESERVE:
 	case NPC_KEEPING:
 	case NPC_BARRIER:
 	case NPC_INVINCIBLE:
@@ -8490,6 +8488,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case TK_READYSTORM:
 	case TK_READYDOWN:
 	case TK_READYTURN:
+	case ST_PRESERVE:
 	case TK_READYCOUNTER:
 	case TK_DODGE:
 	case CR_SHRINK:
@@ -13960,7 +13959,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 		break;
 	case RL_FIRE_RAIN: {
-		int w, wave = 9, dir = map_calc_dir(src, x, y);
+		int w, wave = skill_lv, dir = map_calc_dir(src, x, y);
 		int sx = x = src->x, sy = y = src->y;
 
 		for (w = 0; w <= wave; w++) { 
@@ -13982,7 +13981,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 				sx = x + w;
 				break;
 			}
-			skill_addtimerskill(src, gettick() + ( 100 * (w * skill_lv)), 0, sx, sy, skill_id, skill_lv, dir, flag);
+			skill_addtimerskill(src, gettick() + ( 100 * w ), 0, sx, sy, skill_id, skill_lv, dir, flag);
 		}
 	}
 					 break;
@@ -22732,6 +22731,7 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case TK_READYDOWN:
 	case TK_READYSTORM:
 	case TK_READYTURN:
+	case ST_PRESERVE:
 	case TK_RUN:
 	case SG_FUSION:
 	case KO_YAMIKUMO:
