@@ -33359,7 +33359,11 @@ Body:
     Attack: 20
     Weight: 500
     Jobs:
+      Paladin: true
+      Crusader: true
+      Creator: true
       Genetic: true
+      Rogue: true
     Locations:
       Ammo: true
     EquipLevelMin: 1
@@ -33378,7 +33382,11 @@ Body:
     Attack: 20
     Weight: 500
     Jobs:
+      Paladin: true
+      Crusader: true
+      Creator: true
       Genetic: true
+      Rogue: true
     Locations:
       Ammo: true
     EquipLevelMin: 1
