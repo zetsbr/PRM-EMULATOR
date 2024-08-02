@@ -33105,9 +33105,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 534,10;
-      skill 2259,10;
-      skill 2443,10;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 534,10;
+        skill 2259,10;
+        skill 2443,10;
+      }
   - Id: 28444
     AegisName: Water_Cantrips
     Name: Water Cantrips
@@ -33126,9 +33128,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 537,10;
-      skill 2447,10;
-      skill 2203,3;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 537,10;
+        skill 2447,10;
+        skill 2203,3;
+      }
   - Id: 28445
     AegisName: Wind_Cantrips
     Name: Wind Cantrips
@@ -33147,9 +33151,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 540,10;
-      skill 542,10;
-      skill 541,10;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 540,10;
+        skill 542,10;
+        skill 541,10;
+      }
   - Id: 28446
     AegisName: Heal_Cantrips
     Name: Heal Cantrips
@@ -33168,9 +33174,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 70,10;
-      skill 2050,5;
-      skill 2345,7;
+      if(getskilllv("SG_KNOWLEDGE")>=3){
+        skill 70,10;
+        skill 2050,5;
+        skill 2345,7;
+      }
   - Id: 28447
     AegisName: Thievery_Cantrips
     Name: Thievery Cantrips
@@ -33189,9 +33197,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 4,10;
-      skill 2036,5;
-      skill 52,10;
+      if(getskilllv("SG_KNOWLEDGE")>=1){
+        skill 4,10;
+        skill 2036,5;
+        skill 52,10;
+      }
   - Id: 28448
     AegisName: Slash_Cantrips
     Name: Slash Cantrips
@@ -33210,9 +33220,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 56,5;
-      skill 530,10;
-      skill 2002,10;
+      if(getskilllv("SG_KNOWLEDGE")>=4){
+        skill 56,5;
+        skill 530,10;
+        skill 2002,10;
+      }
   - Id: 28449
     AegisName: Power_Cantrips
     Name: Power Cantrips
@@ -33231,9 +33243,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 136,10;
-      skill 62,5;
-      skill 2336,10;
+      if(getskilllv("SG_KNOWLEDGE")>=6){
+        skill 136,10;
+        skill 62,5;
+        skill 2336,10;
+      }
   - Id: 28450
     AegisName: Stray_Cantrips
     Name: Stray Cantrips
@@ -33252,9 +33266,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 359,1;
-      skill 48,10;
-      skill 265,10;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 359,1;
+        skill 48,10;
+        skill 265,10;
+      }
   - Id: 28451
     AegisName: Specialized_Cantrips
     Name: Specialized Cantrips
@@ -33273,14 +33289,16 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 379,10;
-      skill 2307,5;
-      skill 2448,10;
-      skill 2327,5;
-      skill 2038,10;
-      skill 2288,10;
-      skill 2485,10;
-      skill 357,5;
+      if(getskilllv("SG_KNOWLEDGE")>=7){
+        skill 379,10;
+        skill 2307,5;
+        skill 2448,10;
+        skill 2327,5;
+        skill 2038,10;
+        skill 2288,10;
+        skill 2485,10;
+        skill 357,5;
+      }
   - Id: 28452
     AegisName: Expert_Cantrips
     Name: Expert Cantrips
@@ -33299,10 +33317,12 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 518,10;
-      skill 481,10;
-      skill 2324,5;
-      skill 421,5;
+      if(getskilllv("SG_KNOWLEDGE")>=8){
+        skill 518,10;
+        skill 481,10;
+        skill 2324,5;
+        skill 421,5;
+      }
   - Id: 28453
     AegisName: Master_Cantrips
     Name: Master Cantrips
@@ -33321,11 +33341,13 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 2454,7;
-      skill 2004,10;
-      skill 2216,10;
-      skill 2213,5;
-      skill 2418,10;
+      if(getskilllv("SG_KNOWLEDGE")>=10){
+        skill 2454,7;
+        skill 2004,10;
+        skill 2216,10;
+        skill 2213,5;
+        skill 2418,10;
+      }
   - Id: 28599
     AegisName: Cantrips_Codex
     Name: Cantrips Codex
