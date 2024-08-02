@@ -4189,7 +4189,7 @@ Body:
     Requires:
       SpCost: 15
       ItemCost:
-        - Item: Booby_Trap
+        - Item: Special_Alloy_Trap
           Amount: 1
     Unit:
       Id: Anklesnare
