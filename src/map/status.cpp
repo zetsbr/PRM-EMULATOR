@@ -11079,8 +11079,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = val3;
 			calc_flag = 0; // Actual status changes take effect on petrified state.
 			break;
-		case SC_BLOODROSE:
-			val2 = src->id;
+		//case SC_BLOODROSE:
+			// val2 = src->id;
+			// val4 = status_get_sc_interval(type);
+			//ShowDebug("SC Start; Val4 = %d",val4);
+			//break;
 		case SC_POISON:
 		case SC_BLEEDING:
 		case SC_BURNING:
@@ -12713,12 +12716,16 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_POISON:
 			case SC_DPOISON:
 			case SC_BLEEDING:
-			case SC_BLOODROSE:
 			case SC_BURNING:
 			case SC_TOXIN:
 				tick_time = tick;
 				tick = tick_time + max(val4, 0);
 				break;
+			case SC_BLOODROSE:
+				tickdelay = status_get_sc_interval(SC_BLOODROSE);
+				val4 = tick / tickdelay;
+				tick_time = tickdelay;
+				ShowDebug("SC Start part2, tickdelay = %d, val4 = %d, tick_time = %d, src id = %d \n", &tickdelay, &val4, &tick_time, src->id );
 			case SC_DEATHHURT:
 				if (val3 == 1)
 					break;
@@ -14503,17 +14510,25 @@ TIMER_FUNC(status_change_timer){
 		break;
 
 	case SC_BLOODROSE:
-		if (sce->val4 >= 0) {
+		ShowDebug("sc change timer, val4 = %d\n", &sce->val4);
+		if (--sce->val4 >= 0) {
 			src = map_id2bl(sce->val2);
-			damage = 100 * sce->val1;
+			damage = 20 * sce->val1;
 			if (!sd && damage >= status->hp)
 				damage = status->hp - 1; // No deadly damage for monsters
 			map_freeblock_lock();
 			dounlock = true;
-			sc_timer_next(500 + tick);
+		
+			ShowDebug("sc change timer, sc interval is %d, type is %d\n",status_get_sc_interval(type), type);
+			
 			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
-			if (src && src != nullptr)
+			if (src && src != nullptr) {
+				damage *= 30;
+				damage /= 100;
 				status_heal(src, damage, 0, 1);
+				clif_skill_nodamage(NULL, src, AL_HEAL, damage, 1);
+			}
+			sc_timer_next( (status_get_sc_interval(SC_BLOODROSE) + tick) );
 		}
 		break;
 
