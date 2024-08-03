@@ -2992,7 +2992,7 @@ setarray .@opt__name$, ;
 */
 
 
-va_orpha,263,336,4	script	OptionChanger#orpha	914,{
+//va_orpha,263,336,4	script	OptionChanger#orpha	914,{
 	
 	set .@file$, "option_list.txt";
     set .@line$, "";
