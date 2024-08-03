@@ -26462,7 +26462,7 @@ Body:
       .@r = getrefine();
       bonus bSPrecovRate,25;
       if (.@r>=10) {
-        bonus bSPrecovRate,0;
+        bonus bSPrecovRate,50;
       }
   - Id: 7384
     AegisName: AwakenedOrphan
