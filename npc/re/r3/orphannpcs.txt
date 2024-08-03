@@ -2905,3 +2905,395 @@ va_orpha,244,320,4	script	Skia Nerius#castle	10116,{
 	
 	}
 }
+
+
+//=========================================================================
+// Array of Equip ID is:
+//
+//	1		=	Headgear
+//	2		=	Mid Headgear
+//	3		=	Lower Headgear
+//	4		=	Armor
+//	5		=	Right Weapon
+//	6		=	Left Weapon
+//	7		=	Garment
+//	8		=	Shoes
+//	9		=	Right Accessory
+//	10		=	Left Accessory
+//	11		=	Rune
+//	12		=	Shadow Armor
+//	13		=	Shadow Gloves
+//	14		=	Shadow Shoes
+//	15		=	Shadow Pendant
+//
+//=========================================================================
+
+/*
+accessory#1#13#  VAR_ATKPERCENT  # 1:1 #  bonus2 bAddClass,Class_All,getrandomoptinfo(ROA_VALUE);
+accessory#1#14#  VAR_MAGICATKPERCENT  # 1:1 #  bonus bMatkRate,getrandomoptinfo(ROA_VALUE);
+accessory#1#15#  VAR_PLUSASPD  # 1:1 #  bonus bAspd,getrandomoptinfo(ROA_VALUE);
+accessory#1#3#  VAR_STRAMOUNT  # 1:1 #  bonus bStr,getrandomoptinfo(ROA_VALUE);
+accessory#1#4#  VAR_AGIAMOUNT  # 1:1 #  bonus bAgi,getrandomoptinfo(ROA_VALUE);
+accessory#1#5#  VAR_VITAMOUNT  # 1:1 #  bonus bVit,getrandomoptinfo(ROA_VALUE);
+accessory#1#6#  VAR_INTAMOUNT  # 1:1 #  bonus bInt,getrandomoptinfo(ROA_VALUE);
+accessory#1#7#  VAR_DEXAMOUNT  # 1:1 #  bonus bDex,getrandomoptinfo(ROA_VALUE);
+accessory#1#8#  VAR_LUKAMOUNT  # 1:1 #  bonus bLuk,getrandomoptinfo(ROA_VALUE);
+*/
+
+/*
+armor#1#3#  VAR_STRAMOUNT  # 2:2 #  bonus bStr,getrandomoptinfo(ROA_VALUE);
+armor#1#4#  VAR_AGIAMOUNT  # 2:2 #  bonus bAgi,getrandomoptinfo(ROA_VALUE);
+armor#1#5#  VAR_VITAMOUNT  # 2:2 #  bonus bVit,getrandomoptinfo(ROA_VALUE);
+armor#1#6#  VAR_INTAMOUNT  # 2:2 #  bonus bInt,getrandomoptinfo(ROA_VALUE);
+armor#1#7#  VAR_DEXAMOUNT  # 2:2 #  bonus bDex,getrandomoptinfo(ROA_VALUE);
+armor#1#8#  VAR_LUKAMOUNT  # 2:2 #  bonus bLuk,getrandomoptinfo(ROA_VALUE);
+
+armor#2#10#  VAR_MAXSPPERCENT  # 5:5 #  bonus bMaxSPrate,getrandomoptinfo(ROA_VALUE);
+armor#2#9#  VAR_MAXHPPERCENT  # 5:5 #  bonus bMaxHPrate,getrandomoptinfo(ROA_VALUE);
+
+armor#3#169#  HEAL_MODIFY_PERCENT  # 10:10 #  bonus bHealPower2,getrandomoptinfo(ROA_VALUE);
+armor#3#236#  ADDEXPPERCENT_KILLRACE_INSECT  # 3:3 #  bonus bNoWeaponDamage,getrandomoptinfo(ROA_VALUE);
+armor#3#237#  ADDEXPPERCENT_KILLRACE_FISHS  # 3:3 #  bonus bNoMagicDamage,getrandomoptinfo(ROA_VALUE);
+*/
+
+/*
+axe#1#13#  VAR_ATKPERCENT  # 3:3 #  bonus2 bAddClass,Class_All,getrandomoptinfo(ROA_VALUE);
+axe#1#14#  VAR_MAGICATKPERCENT  # 3:3 #  bonus bMatkRate,getrandomoptinfo(ROA_VALUE);
+
+axe#2#15#  VAR_PLUSASPD  # 2:2 #  bonus bAspd,getrandomoptinfo(ROA_VALUE);
+axe#2#171#  DEC_SPELL_DELAY_TIME  # 10:10 #  bonus bDelayrate,-(getrandomoptinfo(ROA_VALUE));
+axe#2#18#  VAR_HITSUCCESSVALUE  # 20:20 #  bonus bHit,getrandomoptinfo(ROA_VALUE);
+axe#2#239#  ADDEXPPERCENT_KILLRACE_HUMAN  # 10:10 #  bonus bUseSPrate,-(getrandomoptinfo(ROA_VALUE));
+
+axe#3#219#  MELEE_ATTACK_DAMAGE_TARGET  # 10:10 #  bonus bShortAtkRate,getrandomoptinfo(ROA_VALUE);
+axe#3#231#  ADDSKILLMDAMAGE_ALL  # 10:10 #  bonus2 bMagicAtkEle,Ele_All,getrandomoptinfo(ROA_VALUE);
+
+axe#4#218#  REFLECT_DAMAGE_PERCENT  # 100:100 #  bonus bReduceDamageReturn,getrandomoptinfo(ROA_VALUE);
+axe#4#235#  ADDEXPPERCENT_KILLRACE_PLANT  # 200:200 #  bonus bFixedCast,-(getrandomoptinfo(ROA_VALUE));
+axe#4#236#  ADDEXPPERCENT_KILLRACE_INSECT  # 3:3 #  bonus bNoWeaponDamage,getrandomoptinfo(ROA_VALUE);
+axe#4#237#  ADDEXPPERCENT_KILLRACE_FISHS  # 3:3 #  bonus bNoMagicDamage,getrandomoptinfo(ROA_VALUE);
+axe#4#241#  ADDEXPPERCENT_KILLRACE_DRAGON  # 2:2 #  bonus bSplashAddRange,getrandomoptinfo(ROA_VALUE);
+*/
+
+/*
+13#  VAR_ATKPERCENT  # 3:3 #  bonus2 bAddClass,Class_All,getrandomoptinfo(ROA_VALUE);
+14#  VAR_MAGICATKPERCENT  # 3:3 #  bonus bMatkRate,getrandomoptinfo(ROA_VALUE);
+
+15#  VAR_PLUSASPD  # 2:2 #  bonus bAspd,getrandomoptinfo(ROA_VALUE);
+18#  VAR_HITSUCCESSVALUE  # 20:20 #  bonus bHit,getrandomoptinfo(ROA_VALUE);
+239#  ADDEXPPERCENT_KILLRACE_HUMAN  # 10:10 #  bonus bUseSPrate,-(getrandomoptinfo(ROA_VALUE));
+24#  VAR_CRITICALSUCCESSVALUE  # 10:10 #  bonus bCritical,getrandomoptinfo(ROA_VALUE);
+
+166#  RANGE_ATTACK_DAMAGE_TARGET  # 10:10 #  bonus bLongAtkRate,getrandomoptinfo(ROA_VALUE);
+230#  ADDSKILLMDAMAGE_UNDEAD  # 2:2 #  bonus bAtkRange,getrandomoptinfo(ROA_VALUE);
+231#  ADDSKILLMDAMAGE_ALL  # 10:10 #  bonus2 bMagicAtkEle,Ele_All,getrandomoptinfo(ROA_VALUE);
+
+164#  DAMAGE_CRI_TARGET  # 10:10 #  bonus bCritAtkRate,getrandomoptinfo(ROA_VALUE);
+230#  ADDSKILLMDAMAGE_UNDEAD  # 1:1 #  bonus bAtkRange,getrandomoptinfo(ROA_VALUE);
+235#  ADDEXPPERCENT_KILLRACE_PLANT  # 200:200 #  bonus bFixedCast,-(getrandomoptinfo(ROA_VALUE));
+*/
+
+
+
+/*
+setarray .@opt_, ;
+setarray .@opt__max, ;
+setarray .@opt__name$, ;
+*/
+
+
+va_orpha,263,336,4	script	OptionChanger#orpha	914,{
+	
+	set .@file$, "option_list.txt";
+    set .@line$, "";
+    // .@filehandle = fopen(.@file$, "r");
+    // if (.@filehandle == -1) {
+    //     mes "Failed to open file.";
+    //     close;
+    // }
+    // while (fgets(.@line$, 255, .@filehandle)) {
+    //     split(.@line$, "#", .@fiopt_minmaxelds$);
+    //     setarray .@opt_name$[getarraysize(.@locations$)], .@fields$[0];
+    //     setarray .@opt_slot[getarraysize(.@x_coords)], atoi(.@fields$[1]);
+    //     setarray .@opt_id[getarraysize(.@y_coords)], atoi(.@fields$[2]);
+    //     setarray .@opt_extended_name[getarraysize(.@zeny)], atoi(.@fields$[3]);
+    //     split(.@fields$[4], ":", .@opt_minmax$);
+    //     setarray .@opt_max$[getarraysize(.@zeny)], atoi(.@opt_minmax$[1]);
+    //     setarray .@opt_script[getarraysize(.@zeny)], atoi(.@fields$[5]);
+    // }
+    // fclose(.@filehandle);
+
+	setarray .Shadow_100[0],24472,24473,24474,24475,24476,24477,24478,24479,24484,24485,24486,24487,24480,24481,24482,24483,24460,24461,24462,24463,24468,24469,24470,24471,24464,24465,24466,24467,24488,24489,24490,24491,24500,24501,24502,24503,24532,24533,24534,24535,24516,24517,24518,24519,24492,24493,24494,24495,24496,24497,24498,24499,24713,24714,24715,24722,24052,24053,24054,24055,24064,24065,24066,24067,24023,24024,24025,24026,24112,24113,24114,24115,25000,24773,24774,24775,24776,24793,24794,24795,24796;
+	.sz_100 = getarraysize(.Shadow_100);
+
+	setarray .Shadow_105[0],30001, 30002, 30003, 30004, 30005, 30006, 30007, 30008, 30009, 30010, 30011, 30012, 30013, 30014, 30015, 30016, 30017, 30018, 30019, 30020, 30021, 30022, 30023, 30024, 30025, 30026, 30027, 30028, 30029, 30030, 30031, 30032, 30033, 30034, 30035, 30036, 30037, 30038, 30039, 30040, 30041, 30042, 30043, 30044, 30045, 30046, 30047, 30048, 30049, 30050, 30051, 30052, 30053, 30054, 30055, 30056, 30057, 30058, 30059, 30060, 30061, 30062, 30063, 30064, 30065, 30066, 30067, 30068, 30069, 30070, 30071, 30072, 30073, 30074, 30075, 30076, 30077, 30078, 30079, 30080, 30081, 30082, 30083, 30084;
+	.sz_105 = getarraysize(.Shadow_105);
+
+	setarray .Shadow_110[0],24536,24537,24538,24539,24548,24549,24550,24551,24560,24561,24562,24563,24572,24573,24574,24575,24584,24585,24586,24587,24596,24597,24598,24599,24608,24609,24610,24611,24620,24621,24622,24623,24632,24633,24634,24635,24644,24645,24646,24647,24656,24657,24658,24659,24668,24669,24670,24671,24701,24702,24703,24704,24723,24724,24725,24726,24739,24740,24741,24742,24747,24748,24749,24750,24068,24069,24070,24071,24119,24120,24121,24122,25001,24797,24798,24799,24800,24777,24778,24779,24780;
+	.sz_110 = getarraysize(.Shadow_110);
+
+	setarray .Shadow_115[0],24540,24541,24542,24543,24552,24553,24554,24555,24564,24565,24566,24567,24576,24577,24578,24579,24588,24589,24590,24591,24600,24601,24602,24603,24612,24613,24614,24615,24624,24625,24626,24627,24636,24637,24638,24639,24648,24649,24650,24651,24660,24661,24662,24663,24672,24673,24674,24675,24705,24706,24707,24708,24727,24728,24729,24730,24056,24057,24058,24059,24089,24090,24091,24092,24036,24037,24038,24039,24125,24126,24127,24128,24131,24132,24133,24134,25002,24781,24782,24783,24784,24801,24802,24803,24804;
+	.sz_115 = getarraysize(.Shadow_115);
+
+	setarray .Shadow_120[0],24544,24545,24546,24547,24556,24557,24558,24559,24568,24569,24570,24571,24580,24581,24582,24583,24592,24593,24594,24595,24604,24605,24606,24607,24616,24617,24618,24619,24628,24629,24630,24631,24640,24641,24642,24643,24652,24653,24654,24655,24664,24665,24666,24667,24676,24677,24678,24679,24709,24710,24711,24712,24731,24732,24733,24734,24060,24061,24062,24063,24093,24094,24095,24096,24044,24045,24046,24047,25003,24805,24806,24807,24808,24785,24786,24787,24788;
+	.sz_120 = getarraysize(.Shadow_120);
+
+	setarray .Shadow_Golden[0],24274,24275,24276,24277,24302,24303,24304,24305,24326,24327,24328,24329,24358,24359,24360,24361,24362,24363,24364,24365,24366,24367,24368,24369,24370,24371,24372,24373,24528,24529,24530,24531,24399,24400,24401,24402,24456,24457,24458,24459,24789,24790,24791,24792,24769,24770,24771,24772,24735,24736,24737,24738,24743,24744,24745,24746;
+	.sz_golden = getarraysize(.Shadow_Golden);
+
+
+	setarray .@opt_acc, 13,14,15,3,4,5,6,7,8;
+	setarray .@opt_acc_max, 1,1,1,1,1,1,1,1,1;
+	setarray .@opt_acc_name$, "ATK%","MATK%","Base ASPD","STR","AGI","VIT","INT","DEX","LUK";
+
+	setarray .@opt_armor1, 3,4,5,6,7,8;
+	setarray .@opt_armor1_max, 2,2,2,2,2,2;
+	setarray .@opt_armor1_name$, "STR","AGI","VIT","INT","DEX","LUK";
+	setarray .@opt_armor2, 10,9;
+	setarray .@opt_armor2_max, 5,5;
+	setarray .@opt_armor2_name$, "Max SP%","Max HP%";
+	setarray .@opt_armor3, 169,236,237;
+	setarray .@opt_armor3_max, 3,3,3;
+	setarray .@opt_armor2_name$, "Healing Received","Physical Damage Reduction","Magical Damage Reduction";
+
+	setarray .@opt_axe1, 13,14;
+	setarray .@opt_axe1_max, 3,3;
+	setarray .@opt_axe1_name$, "ATK%","MATK%";
+	setarray .@opt_axe2, 15,171,18,239;
+	setarray .@opt_axe2_max, 2,10,20,10;
+	setarray .@opt_axe2_name$, "ASPD","After Cast Delay","Hit","SP Cost -";
+	setarray .@opt_axe3, 219,231;
+	setarray .@opt_axe3_max, 10,10;
+	setarray .@opt_axe3_name$, "Short Range Damage","Magic Damage";
+	setarray .@opt_axe4, 218,235,236,237,241;
+	setarray .@opt_axe4_max, 100,200,3,3,2;
+	setarray .@opt_axe4_name$, "Reflect damage","Fixed Cast Time","Physical Damage Reduction","Magical Damage Reduction","Splash Range";
+
+	setarray .@opt_bow1, 13,14;
+	setarray .@opt_bow1_max, 3,3;
+	setarray .@opt_bow1_name$, "ATK%","MATK%";
+	setarray .@opt_bow2, 15,18,239,24;
+	setarray .@opt_bow2_max, 2,20,10,10;
+	setarray .@opt_bow2_name$, "ASPD","Hit","SP Cost -","Crit";
+	setarray .@opt_bow3, 166,230,231;
+	setarray .@opt_bow3_max, 10,2,10;
+	setarray .@opt_bow3_name$, "Long Range Damage","Splash Range","Magic Damage";
+	setarray .@opt_bow4, 164,230,235;
+	setarray .@opt_bow4_max, 10,1,200;
+	setarray .@opt_bow4_name$, "Crit","Attack Range","Fixed Cast -";
+
+	
+
+	disable_items;
+
+	start_exchange_option:
+
+		.@menu$ = "";
+		mes "What piece do you want to change options:";
+		next;
+		setarray .@eq[1], EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW, EQI_ARMOR, EQI_HAND_R, EQI_HAND_L, EQI_GARMENT, EQI_SHOES, EQI_ACC_R, EQI_ACC_L, EQI_SHADOW_WEAPON, EQI_SHADOW_ARMOR, EQI_SHADOW_SHIELD, EQI_SHADOW_SHOES, EQI_SHADOW_ACC_L;
+		.@sz = getarraysize(.@eq);
+		for(.@i = 1; .@i < .@sz; ++.@i){
+			if(getequipisequiped(.@eq[.@i]))
+			{
+				.@menu$ = .@menu$ + F_getpositionname(.@eq[.@i]) + " [ " + getequipname(.@eq[.@i]) + " ]";
+			}
+				.@menu$ = .@menu$ + ":";
+		}
+		.@part = .@eq[select(.@menu$)];
+		.@id = getequipid(.@part);
+		mes "You are trying to change options for:","" +getequipname(.@part)+ " ",F_GetArmorType(.@id),"Do you want to proceed?"; //F_GetArmorType  F_GetWeaponType(
+		next;
+		switch(select("Yes:Reject and go back")){
+			case 1:
+				goto change_option;
+			end;
+			case 2:
+				goto start_exchange_option;
+			end;
+		}
+		
+	// .@id = getequipid(EQI_HAND_R);
+	// 	for(.@i = 0; .@i < .sz; ++.@i){
+	// 		if(.@id == .alloweditems[.@i])
+	// 			.@allowed = 1;
+	// 	}   .Shadow_105
+	not_allowed:
+		mes "The item you tried to change isn't allowed","Try Again?";
+		switch(select("Yes:No")){
+			case 1:
+				goto start_exchange_option;
+			end;
+			case 2:
+				goto close;
+			end;
+		}
+
+	verify_allowed_shadow:
+		// .sz_total = .sz_100 + .sz_105 + .sz_110 + .sz_115 + .sz_120 + .sz_golden;
+		.@allowed = 0;
+		.@allowed2 = 0;
+
+		for(.@i = 0; .@i < .sz_100; ++.@i){
+			if(.@id == .Shadow_100[.@i]){
+				.@allowed = 1;
+			}
+		}
+		if(.@allowed == 1){
+			goto rand_shadow_3;
+		}
+		for(.@i = 0; .@i < .sz_105; ++.@i){
+			if(.@id == .Shadow_105[.@i]){
+				.@allowed = 1;
+			}
+		}
+		if(.@allowed == 1){
+			goto rand_shadow_3;
+		}
+		for(.@i = 0; .@i < .sz_110; ++.@i){
+			if(.@id == .Shadow_110[.@i]){
+				.@allowed = 1;
+			}
+		}
+		if(.@allowed == 1){
+			goto rand_shadow_3;
+		}
+		for(.@i = 0; .@i < .sz_115; ++.@i){
+			if(.@id == .Shadow_115[.@i]){
+				.@allowed = 1;
+			}
+		}
+		if(.@allowed == 1){
+			goto rand_shadow_3;
+		}
+		for(.@i = 0; .@i < .sz_120; ++.@i){
+			if(.@id == .Shadow_120[.@i]){
+				.@allowed = 1;
+			}
+		}
+		if(.@allowed == 1){
+			goto rand_shadow_3;
+		}
+		for(.@i = 0; .@i < .sz_golden; ++.@i){
+			if(.@id == .Shadow_Golden[.@i]){
+				.@allowed2 = 1;
+			}
+		}
+		if(.@allowed == 1){
+			goto rand_shadow_3;
+		}
+		else{
+			if(.@allowed2 == 1){
+				goto rand_shadow_5;
+			}else{
+				goto not_allowed;
+			}
+		}
+
+		// for(.@i = 0; .@i < .sz_total; ++.@i){
+		// 	if(.@i < .sz_100 && .@id == .Shadow_100[.@i]){
+		// 		.@allowed = 1;
+		// 	}else if(.@i > (.sz_100) && .@i < (.sz_100 + .sz_105) && .@id == .Shadow_105[(.@i-(.sz_100))]){
+		// 		.@allowed = 1;
+		// 	}else if(.@i < (.sz_100 + .sz_105 + .sz_110) && .@id == .Shadow_110[(.@i-(.sz_100 + .sz_105))]){
+		// 		.@allowed = 1;
+		// 	}else if(.@i < (.sz_100 + .sz_105 + .sz_110 + .sz_115) && .@id == .Shadow_115[(.@i-(.sz_100 + .sz_105 + .sz_110))]){
+		// 		.@allowed = 1;
+		// 	}else if(.@i < (.sz_100 + .sz_105 + .sz_110 + .sz_115 + .sz_120) && .@id == .Shadow_120[(.@i-(.sz_100 + .sz_105 + .sz_110 + .sz_115))]){
+		// 		.@allowed = 1;
+		// 	}else if(.@i < (.sz_100 + .sz_105 + .sz_110 + .sz_115 + .sz_120 + .sz_golden) && .@id == .Shadow_Golden[(.@i-(.sz_100 + .sz_105 + .sz_110 + .sz_115 + .sz_120))]){
+		// 		.@allowed = 1;
+		// 	}
+		// }
+
+
+	change_option:		
+		if ( F_getpositionname(.@part) == "Right Accessory" || F_getpositionname(.@part) == "Left Accessory" ) {
+			goto rand_acc;
+		}
+		else if(F_getpositionname(.@part) == "Shadow Armor" || F_getpositionname(.@part) == "Shadow Gloves" || F_getpositionname(.@part) == "Shadow Shoes" || F_getpositionname(.@part) == "Shadow Pendant"){
+			goto verify_allowed_shadow;
+		}
+		goto rand_bow;
+
+	rand_shadow_3:
+		.@idx = 0;
+		.@sz2 = getarraysize(.@opt_acc_name$);
+		.@optv = rand(.@sz2);
+		.@val = 3;
+		.@opt = .@opt_acc[.@optv];
+		.@roll$ = .@opt_acc_name$[.@optv];
+		goto apply_option;
+
+	rand_shadow_5:
+		.@idx = 0;
+		.@sz2 = getarraysize(.@opt_acc_name$);
+		.@optv = rand(.@sz2);
+		.@val = 5;
+		.@opt = .@opt_acc[.@optv];
+		.@roll$ = .@opt_acc_name$[.@optv];
+		goto apply_option;
+
+	rand_acc:
+		.@idx = 0;
+		.@sz2 = getarraysize(.@opt_acc_name$);
+		.@optv = rand(.@sz2);
+		.@val = .@opt_acc_max[.@optv];
+		.@opt = .@opt_acc[.@optv];
+		.@roll$ = .@opt_acc_name$[.@optv];
+		goto apply_option;
+		
+	rand_axe:
+		.@idx = 0;
+		.@sz2 = getarraysize(.@opt_axe2_name$);
+		.@optv = rand(.@sz2);
+		.@val = .@opt_axe2_max[.@optv];
+		.@opt = .@opt_axe2[.@optv];
+		.@roll$ = .@opt_axe2_name$[.@optv];
+		goto apply_option;
+		
+	rand_bow:
+		.@idx = 0;
+		.@sz2 = getarraysize(.@opt_bow4_name$);
+		.@optv = rand(.@sz2);
+		.@val = .@opt_bow4_max[.@optv];
+		.@opt = .@opt_bow4[.@optv];
+		.@roll$ = .@opt_bow4_name$[.@optv];
+		goto apply_option;
+
+	apply_option:
+		mes getequiprandomoption(.@part,0,ROA_ID)," ";
+		mes .@opt;
+		mes "Applied at slot : ^0C9610"+(.@idx+1);
+		mes "^6A01A1"+.@roll$+" +"+.@val;
+
+		setrandomoption(.@part, .@idx, .@opt, .@val, .@idx, getcharid(0));
+		close2;
+
+	end;
+}
+
+
+		// input .@idx;
+		// while (.@idx > 5 || .@idx < 1){
+		// 	mes "Please input a valid number","(1,2,3,4 or 5)";
+		// 	next;
+		// 	input .@idx;
+		// }
+		// .@idx = .@idx - 1;
+
+		// for(.@i = 0; .@i < .@sz2; ++.@i){
+		// 	.@menu2$ = .@menu2$ + .@opt_acc_name$[.@i] + ":";
+		// }
+
+
+
+		// mes "Please indicate the option that you want to apply.";
+		// next;
+		// input .@opt;
+
+		// mes "Option Type: " + .@opt_acc_name$[.@opt];
+
+		// mes "Please indicate the Value that you want to apply.";
+		// mes "This will be the effect rate or value of your selected option type.";
+		// next;
