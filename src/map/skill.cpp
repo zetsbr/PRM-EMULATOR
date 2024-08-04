@@ -2799,9 +2799,8 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 				}
 				else {
 					sec += it.val;
-					sett_tickimer(sd->scd[i]->timer, sec);
 				}
-				clif_skill_cooldown(sd, it.skill2, tick+sec);
+				clif_skill_cooldown(sd, it.skill2, tick + sec);
 				clif_skillinfoblock(sd);
 			}
 		}
@@ -2841,7 +2840,6 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 				}
 				else {
 					sec += it.val;
-					sett_tickimer(sd->scd[i]->timer, sec);
 				}
 				clif_skill_cooldown(sd, it.skill1, tick + sec);
 				clif_skillinfoblock(sd);
