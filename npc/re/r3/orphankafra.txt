@@ -139,7 +139,7 @@ va_orpha,265,303,4	script	Kafra Allysia	894,{
 			next;
 			cutin "",255;
 		if ($orphanagelevel >=80){
-			switch(select("Prontera:Izlude:Payon:Alberta:Geffen:Aldebaran:Comodo:Yuno:Umbala:Mora:Einbroch:Hugel:Lutie:Einbech:Lighthalzen:Rachel:Veins:Niflheim:Nomad Village:Dicastes Diel:Cancel")) {
+			switch(select("Prontera:Izlude:Payon:Alberta:Geffen:Aldebaran:Comodo:Yuno:Umbala:Mora:Einbroch:Hugel:Lutie:Einbech:Lighthalzen:Rachel:Veins:Niflheim:Nomad Village:Verus Ruins:Dicastes Diel:Cancel")) {
 			case 1:
 			if (zeny < 500){
 				mes "[Kafra Allysia]";
@@ -340,10 +340,20 @@ va_orpha,265,303,4	script	Kafra Allysia	894,{
 				close;
 				}
 				set Zeny, Zeny - 500;
-				warp "dicast_out",120,206;
+				warp "verus04",121,244;
 				end;
 				break;
 			case 21:
+			if (zeny < 500){
+				mes "[Kafra Allysia]";
+				mes "Sorry, You don't have enough zeny.";
+				close;
+				}
+				set Zeny, Zeny - 500;
+				warp "dicast_out",120,206;
+				end;
+				break;
+			case 22:
 				mes "[Kafra Allysia]";
 				mes "Let me know if you change your mind!";
 				mes "Thanks for your patronage!";
