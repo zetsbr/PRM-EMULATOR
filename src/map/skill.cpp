@@ -1576,7 +1576,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 #else
 		if (skill_break_equip(src, bl, EQP_ARMOR, 100 * skill_get_time(skill_id, skill_lv), BCT_ENEMY))
 #endif
-			clif_emotion(bl, ET_HUK);
+		if (tsc && tsc->data[SC_BURNING])
+			clif_specialeffect(bl, 1759, AREA);
 		break;
 
 	case AM_DEMONSTRATION:
