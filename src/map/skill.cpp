@@ -2804,7 +2804,6 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 				clif_skill_cooldown(sd, it.skill2, tick+sec);
 				clif_skillinfoblock(sd);
 			}
-			
 		}
 	}
 	if (sd && !sd->reduce_cooldown_on_debuff.empty()) {
@@ -2834,10 +2833,18 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 			}
 			//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", it.skill1, it.skill2, it.val);
 			if (sec && it.val < 0) {
-				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Timer: %d\n", sec);
-				if (sec < (-1 * it.val)) sec = 1;
-				else sec += it.val;
-				skill_blockpc_start(sd, it.skill1, sec);
+				if (sec <= (-1 * it.val)) {
+					sec = 0.1;
+					delete_timer(sd->scd[i]->timer, skill_blockpc_end);
+					aFree(sd->scd[i]);
+					sd->scd[i] = NULL;
+				}
+				else {
+					sec += it.val;
+					sett_tickimer(sd->scd[i]->timer, sec);
+				}
+				clif_skill_cooldown(sd, it.skill1, tick + sec);
+				clif_skillinfoblock(sd);
 			}
 		}
 	}
