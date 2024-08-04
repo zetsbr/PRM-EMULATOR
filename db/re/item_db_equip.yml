@@ -10287,7 +10287,6 @@ Body:
     Script: |
       skill "SJ_PROMINENCEKICK",6;
       bonus bLongAtkRate,20;
-      bonus4 bReduceCooldown,"KN_SPEARBOOMERANG",2008,1000,-5000;
       bonus2 bSkillCooldown,"KN_SPEARBOOMERANG",-2000;
   - Id: 1431
     AegisName: Master_WSpear
