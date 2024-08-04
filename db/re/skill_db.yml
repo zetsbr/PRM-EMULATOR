@@ -31720,8 +31720,6 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    DamageFlags:
-      SplashSplit: true
     Range: 3
     Hit: Multi_Hit
     HitCount: 4
