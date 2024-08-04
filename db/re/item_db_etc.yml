@@ -8145,13 +8145,15 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Garment: true
     Refineable: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus4 bAutoSpellOnSkill,"RA_WUGSTRIKE","SJ_SUNSTANCE",1,1000;
+      bonus2 bSkillAtk,"RA_WUGSTRIKE",15;
+      .@r = getrefine();
+      bonus bMaxHP,100*.@r;
   - Id: 4387
     AegisName: Ancient_Mimic_Card
     Name: Ancient Mimic Card

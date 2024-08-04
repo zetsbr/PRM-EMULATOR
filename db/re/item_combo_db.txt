@@ -257,7 +257,7 @@
 24468:24469:24470:24471,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus bMaxSP,5*.@r; }
 24472:24473:24474:24475,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bSkillCooldown,"GC_DARKCROW",-(1000*.@r); }
 25000:25001:25002:25003,{ .@r = getequiprefinerycnt(EQI_SHADOW_ARMOR)+getequiprefinerycnt(EQI_SHADOW_SHIELD)+getequiprefinerycnt(EQI_SHADOW_SHOES)+getequiprefinerycnt(EQI_SHADOW_ACC_L); bonus bAllStats,4; bonus2 bSkillAtk,"HW_MAGICCRASHER",.@r; bonus2 bSkillCooldown,"SA_ABRACADABRA",-1000; }
-2554:4456,{ bonus bMaxHPrate,5; bonus bAllStats,1; }
+2554:4456,{ bonus bMaxHPrate,5; bonus bAllStats,1; bonus2 bSkillAtk,"RA_WUGSTRIKE",15; }
 2905:2906,{ bonus bAllStats,1; }
 2710:2913:2655,{ bonus bSpeedAddRate,40; bonus bAllStats,2; }
 27165:27164,{ bonus bMaxHPrate,10; bonus bMaxSPrate,10; bonus bHPrecovRate,10; bonus bSPrecovRate,10; }

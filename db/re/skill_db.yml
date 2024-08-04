@@ -2106,11 +2106,11 @@ Body:
         Size: 7
       - Level: 5
         Size: 8
-    Hit: Single
-    HitCount: 1
+    Hit: Multi_Hit
+    HitCount: -2
     Element: Weapon
     AfterCastActDelay: 1000
-    Cooldown: 4000
+    Cooldown: 3000
     Requires:
       SpCost: 25
       Weapon:
@@ -18517,17 +18517,17 @@ Body:
     Name: RK_DRAGONBREATH
     Description: Dragon Breath
     MaxLevel: 10
-    Type: Magic
+    Type: Weapon
     TargetType: Ground
     DamageFlags:
       Splash: true
       IgnoreFlee: true
     Range: 7
-    Hit: Single
+    Hit: Multi_Hit
     CopyFlags:
       Skill:
         Plagiarism: true
-    HitCount: 1
+    HitCount: -5
     Element: Fire
     SplashArea:
       - Level: 1
@@ -18573,7 +18573,7 @@ Body:
         Time: 500
     AfterCastActDelay: 500
     Duration1: 10000
-    Cooldown: 10000
+    Cooldown: 5000
     FixedCastTime: 500
     Requires:
       SpCost:
@@ -21570,35 +21570,15 @@ Body:
     Range: 9
     Hit: Multi_Hit
     HitCount: 2
-    Cooldown: 6000
+    Cooldown: 5000
     CopyFlags:
       Skill:
         Plagiarism: true
     DamageFlags:
       IgnoreFlee: true
     Requires:
-      SpRateCost: -15
-      SpCost:
-        - Level: 1
-          Amount: 50
-        - Level: 2
-          Amount: 50
-        - Level: 3
-          Amount: 50
-        - Level: 4
-          Amount: 50
-        - Level: 5
-          Amount: 50
-        - Level: 6
-          Amount: 50
-        - Level: 7
-          Amount: 50
-        - Level: 8
-          Amount: 50
-        - Level: 9
-          Amount: 50
-        - Level: 10
-          Amount: 50
+      SpRateCost: 15
+      SpCost: 50
       State: Starstance
   - Id: 2244
     Name: RA_WUGBITE

@@ -10227,7 +10227,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "SJ_PROMINENCEKICK",8;
-      bonus4 bAutoSpellOnSkill,"LG_SHIELDPRESS","RK_DRAGONBREATH",1,1000;
+      bonus4 bAutoSpellOnSkill,"KN_SPEARBOOMERANG","RK_DRAGONBREATH",1,1000;
       .@r = getrefine();
       bonus2 bSkillAtk,"RA_WUGSTRIKE",5*(.@r);
       bonus2 bSkillCooldown,"RA_WUGSTRIKE",-1000;
@@ -10287,7 +10287,7 @@ Body:
     Script: |
       skill "SJ_PROMINENCEKICK",6;
       bonus bLongAtkRate,20;
-      bonus2 bSkillCooldown,"KN_SPEARBOOMERANG",-3000;
+      bonus2 bSkillCooldown,"KN_SPEARBOOMERANG",-2000;
   - Id: 1431
     AegisName: Master_WSpear
     Name: Master WSpear
@@ -11334,9 +11334,9 @@ Body:
       DropEffect: PURPLE_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bAllStats,.@r/2;
+      bonus2 bSkillAtk,"RA_WUGSTRIKE",3*(.@r);
       skill "SU_ARCLOUSEDASH",1;
-      autobonus3 "{bonus bUseSPrate,-100;}",10000,10000,5035,"{sc_start SC_KAIZEL,10000,1; active_transform 2895,10000;specialeffect2 1722; showscript \"Soul of the Eternal!!\"; }";
+      autobonus3 "{bonus bUseSPrate,-100; bonus2 bSkillCooldown,"RA_WUGSTRIKE",-2000;}",10000,10000,5035,"{active_transform 2895,10000;specialeffect2 1722; showscript \"Soul of the Eternal!!\"; }";
     EquipScript: |
       i = getlook(LOOK_CLOTHES_COLOR);
       percentheal 0,-99;
@@ -35184,7 +35184,6 @@ Body:
       bonus bFlee2,5;
       bonus bMdef,4;
       bonus2 bSkillAtk,"RK_DRAGONBREATH",15;
-      bonus2 bSkillCooldown,"RA_WUGSTRIKE",-1000;
       bonus bMaxSPrate,5;
   - Id: 2555
     AegisName: Freyja_SScarf7

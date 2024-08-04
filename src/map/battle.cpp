@@ -2476,7 +2476,6 @@ static int battle_range_type(struct block_list *src, struct block_list *target, 
 		case NJ_KIRIKAGE:
 			// Cast range mimics NJ_SHADOWJUMP but damage is considered melee
 		case GC_CROSSIMPACT:
-		case RA_WUGSTRIKE:
 			// Cast range is 7 cells and player jumps to target but skill is considered melee
 			return BF_SHORT;
 	}
@@ -4605,9 +4604,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case RA_WUGSTRIKE:
 			skillratio += 100 + 10 * skill_lv + sstatus->vit;
 			if (sc && sc->data[SC_SPL_ATK])
-			skillratio += 100 + 10 * skill_lv + sstatus->vit;
+				skillratio += 100 + 10 * skill_lv + sstatus->vit;
+			if (tsc && tsc->data[SC_BURNING])
+				skillratio += 100 + 10 * skill_lv + sstatus->vit;
 			if (sc && sc->data[SC_HOVERING])
-			skillratio += 5 * skill_lv;
+				skillratio += 5 * skill_lv;
 			break;
 		case RA_WUGBITE:
 			skillratio += 300 + 200 * skill_lv;
@@ -6224,7 +6225,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 				wd.damage2 = wd.statusAtk2 + wd.weaponAtk2 + wd.equipAtk2 + wd.masteryAtk2 + bonus_damage;
 			if (wd.flag & BF_SHORT)
 				ATK_ADDRATE(wd.damage, wd.damage2, sd->bonus.short_attack_atk_rate);
-			if(wd.flag&BF_LONG && (skill_id != RA_WUGBITE && skill_id != RA_WUGSTRIKE)) //Long damage rate addition doesn't use weapon + equip attack
+			if(wd.flag&BF_LONG && (skill_id != RA_WUGBITE)) //Long damage rate addition doesn't use weapon + equip attack
 				ATK_ADDRATE(wd.damage, wd.damage2, sd->bonus.long_attack_atk_rate);
 		}
 #else
