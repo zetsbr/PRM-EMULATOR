@@ -3316,8 +3316,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Insect,18;
-      bonus2 bMagicAddRace,RC_Insect,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Insect,2*(.@r);
+      bonus2 bMagicAddRace,RC_Insect,2*(.@r);
   - Id: 4040
     AegisName: Creamy_Card
     Name: Creamy Card
@@ -3607,8 +3608,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Brute,18;
-      bonus2 bMagicAddRace,RC_Brute,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Undead,2*(.@r);
+      bonus2 bMagicAddRace,RC_Undead,2*(.@r);
   - Id: 4061
     AegisName: Cornutus_Card
     Name: Cornutus Card
@@ -4410,8 +4412,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Dragon,18;
-      bonus2 bMagicAddRace,RC_Dragon,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Dragon,2*(.@r);
+      bonus2 bMagicAddRace,RC_Dragon,2*(.@r);
   - Id: 4119
     AegisName: Bathory_Card
     Name: Bathory Card
@@ -4616,8 +4619,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_Medium,10;
-      bonus2 bMagicAddSize,Size_Medium,10;
+      bonus2 bAddSize,Size_Medium,14;
+      bonus2 bMagicAddSize,Size_Medium,14; 
   - Id: 4134
     AegisName: Dracula_Card
     Name: Dracula Card
@@ -4657,8 +4660,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_All,6;
-      bonus2 bMagicAddSize,Size_All,6;
+      .@r = getrefine();
+      bonus2 bAddSize,Size_All,.@r;
+      bonus2 bMagicAddSize,Size_All,.@r;
   - Id: 4137
     AegisName: Drake_Card
     Name: Drake Card
@@ -5153,9 +5157,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bCritAtkRate,12;
+      bonus bCritAtkRate,15;
       bonus bCritical,3;
-      bonus bMaxSPrate,-20;
   - Id: 4173
     AegisName: Demon_Pungus_Card
     Name: Demon Pungus Card
@@ -5362,8 +5365,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_Small,10;
-      bonus2 bMagicAddSize,Size_Small,10;
+      bonus2 bAddSize,Size_Small,14;
+      bonus2 bMagicAddSize,Size_Small,14;
   - Id: 4188
     AegisName: Leib_Olmai_Card
     Name: Leib Olmai Card
@@ -5676,8 +5679,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_Large,10;
-      bonus2 bMagicAddSize,Size_Large,10;
+      bonus2 bAddSize,Size_Large,14;
+      bonus2 bMagicAddSize,Size_Large,14;
   - Id: 4211
     AegisName: Vocal_Card
     Name: Vocal Card
@@ -5731,10 +5734,11 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_DemiHuman,18;
-      bonus2 bAddRace,RC_Player_Human,18;
-      bonus2 bMagicAddRace,RC_DemiHuman,18;
-      bonus2 bMagicAddRace,RC_Player_Human,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_DemiHuman,2*(.@r);
+      bonus2 bAddRace,RC_Player_Human,2*(.@r);
+      bonus2 bMagicAddRace,RC_DemiHuman,2*(.@r);
+      bonus2 bMagicAddRace,RC_Player_Human,2*(.@r);
   - Id: 4215
     AegisName: Blazzer_Card
     Name: Blazer Card
@@ -7117,8 +7121,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Fish,18;
-      bonus2 bMagicAddRace,RC_Fish,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Fish,2*(.@r);
+      bonus2 bMagicAddRace,RC_Fish,2*(.@r);
   - Id: 4315
     AegisName: PestS_Card
     Name: PestS Card
@@ -7476,8 +7481,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Formless,18;
-      bonus2 bMagicAddRace,RC_Formless,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Formless,2*(.@r);
+      bonus2 bMagicAddRace,RC_Formless,2*(.@r);
   - Id: 4341
     AegisName: Metaling_Card
     Name: Metaling Card
@@ -8582,8 +8588,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Plant,18;
-      bonus2 bMagicAddRace,RC_Plant,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Plant,2*(.@r);
+      bonus2 bMagicAddRace,RC_Plant,2*(.@r);
   - Id: 4422
     AegisName: Roween_Card
     Name: Roween Card
@@ -34880,7 +34887,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bShortAtkRate,4;
+      .@r = getrefine();
+      bonus bShortAtkRate,.@r;
   - Id: 13551
     AegisName: ThorAvatar_Card
     Name: ThorAvatar Card
@@ -35764,7 +35772,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bCritAtkRate,8;
+      .@r = getrefine();
+      bonus bCritAtkRate,2*(.@r);
       bonus bAspd,1;
   - Id: 13614
     AegisName: Abyss_Lord_Card
@@ -43648,7 +43657,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bAtkRate,4;
+      bonus bAtkRate,5;
   - Id: 27320
     AegisName: E_EA1L_Card
     Name: E-EA1L card
