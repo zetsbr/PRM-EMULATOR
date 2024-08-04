@@ -4055,7 +4055,7 @@ Body:
       - Level: 5
         Time: 500
     Requires:
-      SpCost: 50
+      SpCost: 100
   - Id: 115
     Name: HT_SKIDTRAP
     Description: Skid Trap

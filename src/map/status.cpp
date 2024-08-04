@@ -5562,9 +5562,6 @@ void status_calc_regen_rate(struct block_list *bl, struct regen_data *regen, str
 
 	// No natural SP regen
 	if (sc->data[SC_DANCING] ||
-#ifdef RENEWAL
-		sc->data[SC_MAXIMIZEPOWER] ||
-#endif
 #ifndef RENEWAL
 		(bl->type == BL_PC && (((TBL_PC*)bl)->class_&MAPID_UPPERMASK) == MAPID_MONK &&
 		(sc->data[SC_EXTREMITYFIST] || sc->data[SC_EXPLOSIONSPIRITS]) && (!sc->data[SC_SPIRIT] || sc->data[SC_SPIRIT]->val2 != SL_MONK)) ||
@@ -14397,6 +14394,10 @@ TIMER_FUNC(status_change_timer){
 	
 	switch(type) {
 	case SC_MAXIMIZEPOWER:
+		if (!status_charge(bl, 0, 2))
+			break; // Not enough SP to continue.
+		sc_timer_next(sce->val2 + tick);
+		return 0;
 	case SC_CLOAKING:
 		if(!status_charge(bl, 0, 1))
 			break; // Not enough SP to continue.
