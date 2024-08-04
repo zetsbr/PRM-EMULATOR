@@ -11336,7 +11336,7 @@ Body:
       .@r = getrefine();
       bonus2 bSkillAtk,"RA_WUGSTRIKE",3*(.@r);
       skill "SU_ARCLOUSEDASH",1;
-      autobonus3 "{bonus bUseSPrate,-100; bonus2 bSkillCooldown,2243,-2000;}",10000,10000,5035,"{active_transform 2895,10000;specialeffect2 1722; showscript \"Soul of the Eternal!!\"; }";
+      autobonus3 "{bonus bUseSPrate,-100; bonus2 bSkillCooldown,2243,-4000;}",10000,10000,5035,"{active_transform 2895,10000;specialeffect2 1722; showscript \"Soul of the Eternal!!\"; }";
     EquipScript: |
       i = getlook(LOOK_CLOTHES_COLOR);
       percentheal 0,-99;
