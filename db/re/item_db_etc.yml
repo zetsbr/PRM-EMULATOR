@@ -4055,7 +4055,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Garment: true
+      Shoes: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -37136,7 +37136,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Armor: true
+      Garment: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -37149,7 +37149,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Top: true
+      Garment: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
