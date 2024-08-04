@@ -139951,7 +139951,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"AM_DEMONSTRATION",5*(.@r);
+      bonus2 bSkillAtk,"AM_ACIDTERROR",5*(.@r);
   - Id: 30033
     AegisName: Shadowattack_A
     Name: Shadowattack A
