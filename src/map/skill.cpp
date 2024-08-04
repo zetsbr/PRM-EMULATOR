@@ -2789,23 +2789,22 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 				const struct TimerData* td = get_timer(sd->scd[i]->timer);
 				if (td) sec = DIFF_TICK(td->tick, tick);
 			}
-			ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", it.skill1, it.skill2, it.val);
+			//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", it.skill1, it.skill2, it.val);
 			if (sec && it.val < 0) {
 				if (sec <= (-1 * it.val)) {
 					sec = 0.1;
+					delete_timer(sd->scd[i]->timer, skill_blockpc_end);
+					aFree(sd->scd[i]);
+					sd->scd[i] = NULL;
 				}
 				else {
 					sec += it.val;
+					sett_tickimer(sd->scd[i]->timer, sec);
 				}
-				ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Update Time Counter\n");
-				sett_tickimer(sd->scd[i]->timer, sec);
-				ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Send skill cooldown to client for skill: %d\n", sd->scd[i]->skill_id);
-				clif_skill_cooldown(sd, it.skill2, sec);
-				ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Cooldown reduced on client\n");
+				clif_skill_cooldown(sd, it.skill2, tick+sec);
+				clif_skillinfoblock(sd);
 			}
-			if (sec <= 0.1) {
-				ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Timer <= 0.1\n");
-			}
+			
 		}
 	}
 	if (sd && !sd->reduce_cooldown_on_debuff.empty()) {
