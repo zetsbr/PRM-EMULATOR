@@ -10801,7 +10801,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -10837,7 +10836,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -10873,7 +10871,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -10909,7 +10906,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -10945,7 +10941,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -10981,7 +10976,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11018,7 +11012,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11057,7 +11050,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11093,7 +11085,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11130,7 +11121,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11167,7 +11157,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11204,7 +11193,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11244,7 +11232,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11280,7 +11267,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11316,7 +11302,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
     Classes:
       Normal: true
@@ -11411,7 +11396,6 @@ Body:
     Sell: 250
     Weight: 500
     Jobs:
-      Paladin: true
       Knight: true
       Swordman: true
     Classes:
@@ -13713,7 +13697,6 @@ Body:
     Range: 6
     Slots: 1
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13740,7 +13723,6 @@ Body:
     MagicAttack: 5
     Range: 6
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13769,7 +13751,6 @@ Body:
     Range: 6
     Slots: 4
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13801,7 +13782,6 @@ Body:
     Range: 6
     Slots: 1
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13829,7 +13809,6 @@ Body:
     Range: 6
     Slots: 1
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13857,7 +13836,6 @@ Body:
     Range: 6
     Slots: 1
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13886,7 +13864,6 @@ Body:
     Range: 6
     Slots: 3
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13915,7 +13892,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13944,7 +13920,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -13974,7 +13949,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14004,7 +13978,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14034,7 +14007,6 @@ Body:
     Range: 6
     Slots: 1
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14064,7 +14036,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14093,7 +14064,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14122,7 +14092,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14152,7 +14121,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14180,7 +14148,6 @@ Body:
     MagicAttack: 3
     Range: 6
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14208,7 +14175,6 @@ Body:
     Range: 6
     Slots: 1
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14241,7 +14207,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14271,7 +14236,6 @@ Body:
     Range: 6
     Slots: 3
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14301,7 +14265,6 @@ Body:
     Range: 6
     Slots: 3
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14331,7 +14294,6 @@ Body:
     Range: 6
     Slots: 4
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14362,7 +14324,6 @@ Body:
     Range: 6
     Slots: 4
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14391,7 +14352,6 @@ Body:
     Range: 6
     Slots: 4
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14421,7 +14381,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14452,7 +14411,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14484,7 +14442,6 @@ Body:
     Range: 6
     Slots: 3
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14515,7 +14472,6 @@ Body:
     MagicAttack: 12
     Range: 6
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14543,7 +14499,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14573,7 +14528,6 @@ Body:
     Range: 6
     Slots: 4
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14603,7 +14557,6 @@ Body:
     Range: 6
     Slots: 1
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14632,7 +14585,6 @@ Body:
     Range: 6
     Slots: 2
     Jobs:
-      Paladin: true
       Archer: true
     Classes:
       Normal: true
@@ -14868,7 +14820,6 @@ Body:
     MagicAttack: 6
     Range: 6
     Jobs:
-      Paladin: true
       Archer: true
     Locations:
       Both_Hand: true
@@ -14896,7 +14847,6 @@ Body:
     MagicAttack: 5
     Range: 6
     Jobs:
-      Paladin: true
       Archer: true
     Locations:
       Both_Hand: true
@@ -14922,7 +14872,6 @@ Body:
     MagicAttack: 2
     Range: 6
     Jobs:
-      Paladin: true
       Archer: true
     Locations:
       Both_Hand: true
@@ -14955,7 +14904,6 @@ Body:
     MagicAttack: 13
     Range: 6
     Jobs:
-      Paladin: true
       Archer: true
     Locations:
       Both_Hand: true
@@ -136104,7 +136052,6 @@ Body:
     Range: 4
     Slots: 1
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136129,7 +136076,6 @@ Body:
     MagicAttack: 5
     Range: 4
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136155,7 +136101,6 @@ Body:
     Range: 4
     Slots: 4
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136181,7 +136126,6 @@ Body:
     Range: 4
     Slots: 3
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136211,7 +136155,6 @@ Body:
     Range: 4
     Slots: 3
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136240,7 +136183,6 @@ Body:
     Range: 4
     Slots: 2
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
