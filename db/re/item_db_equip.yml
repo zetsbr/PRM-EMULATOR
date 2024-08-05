@@ -11300,7 +11300,7 @@ Body:
       .@r = getrefine();
       bonus2 bSkillAtk,"SJ_SOLARBURST",3*(.@r);
       skill "SU_ARCLOUSEDASH",1;
-      autobonus3 "{bonus bDelayRate,-100; bonus4 bAutoSpellOnSkill,2005,2310,10,1000; bonus4 bAutoSpellOnSkill,2310,2592,10,1000; bonus4 bAutoSpellOnSkill,59,2592,10,1000;}",10000,10000,5035,"{ active_transform 2022,10000;specialeffect2 1722; showscript \"Soul of Nydhogg!!\"; }";
+      autobonus3 "{bonus bDelayRate,-100; bonus4 bAutoSpellOnSkill,2005,2592,10,1000; bonus4 bAutoSpellOnSkill,2310,2592,10,1000; bonus4 bAutoSpellOnSkill,59,2592,10,1000;}",10000,10000,5035,"{ active_transform 2022,10000;specialeffect2 1722; showscript \"Soul of Nydhogg!!\"; }";
     EquipScript: |
       i = getlook(LOOK_CLOTHES_COLOR);
       percentheal 0,-99;
