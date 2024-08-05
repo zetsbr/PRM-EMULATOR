@@ -6532,8 +6532,6 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 	}
 	if(sc->data[SC_INCALLSTATUS])
 		agi += sc->data[SC_INCALLSTATUS]->val1;
-	if (sc->data[SC_DEATHBOUND] && !sc->data[SC_QUAGMIRE])
-		agi += (agi - sc->data[SC_DEATHBOUND]->val3) * sc->data[SC_DEATHBOUND]->val2 / 100;
 	if(sc->data[SC_INCAGI])
 		agi += sc->data[SC_INCAGI]->val1;
 	if(sc->data[SC_AGIFOOD])

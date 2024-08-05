@@ -2753,7 +2753,7 @@ Body:
     Script: |
       bonus2 bHPDrainRate,0,10;
       bonus3 bAutoSpell,"SM_BASH",1,1000;
-      bonus bUseSPrate,10000;
+      bonus bUseSPrate,1000000;
       bonus bAspd,-10;
   - Id: 1175
     AegisName: Atlas_Weapon
