@@ -1486,7 +1486,6 @@ Body:
     Range: 1
     Slots: 4
     Jobs:
-      Paladin: true
       Acolyte: true
     Classes:
       Normal: true
@@ -1892,7 +1891,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Acolyte: true
     Classes:
       Normal: true
@@ -2738,7 +2736,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Acolyte: true
     Classes:
       Normal: true
@@ -3010,7 +3007,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Acolyte: True
     Classes:
       Normal: true
@@ -9519,7 +9515,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12363,7 +12358,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12388,7 +12382,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12415,7 +12408,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12440,7 +12432,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12467,7 +12458,6 @@ Body:
     Range: 3
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12489,7 +12479,6 @@ Body:
     Range: 3
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12513,7 +12502,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Classes:
@@ -12545,7 +12533,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Classes:
@@ -12579,7 +12566,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12603,7 +12589,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12630,7 +12615,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12655,7 +12639,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12680,7 +12663,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12705,7 +12687,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12731,7 +12712,6 @@ Body:
     Attack: 18
     Range: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12756,7 +12736,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12784,7 +12763,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12809,7 +12787,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12835,7 +12812,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12862,7 +12838,6 @@ Body:
     Range: 1
     Slots: 4
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12891,7 +12866,6 @@ Body:
     Range: 1
     Slots: 4
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12917,7 +12891,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12941,7 +12914,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12971,7 +12943,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -12999,7 +12970,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13029,7 +12999,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13059,7 +13028,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13088,7 +13056,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13117,7 +13084,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13188,7 +13154,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13215,7 +13180,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13282,7 +13246,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13309,7 +13272,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13337,7 +13299,6 @@ Body:
     Range: 1
     Slots: 4
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13365,7 +13326,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13394,7 +13354,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13425,7 +13384,6 @@ Body:
     Range: 1
     Slots: 4
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13452,7 +13410,6 @@ Body:
     MagicAttack: 5
     Range: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13486,7 +13443,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13515,7 +13471,6 @@ Body:
     Attack: 25
     Range: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13543,7 +13498,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13568,7 +13522,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -13593,7 +13546,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -27700,7 +27652,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -68399,7 +68350,6 @@ Body:
     Attack: 9
     Range: 1
     Jobs:
-      Paladin: true
       Acolyte: true
     Classes:
       Normal: true
@@ -68439,7 +68389,6 @@ Body:
     Range: 1
     Slots: 2
     Jobs:
-      Paladin: true
       Acolyte: true
     Classes:
       Normal: true
@@ -70889,7 +70838,6 @@ Body:
     Range: 1
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -70946,7 +70894,6 @@ Body:
     Range: 1
     Slots: 3
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -71318,7 +71265,6 @@ Body:
     Type: Armor
     View: 1963
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
