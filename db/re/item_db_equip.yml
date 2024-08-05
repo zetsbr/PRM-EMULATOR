@@ -9359,7 +9359,6 @@ Body:
     Range: 4
     Slots: 3
     Jobs:
-      Paladin: true
       Mage: true
     Locations:
       Right_Hand: true
@@ -19838,7 +19837,6 @@ Body:
     Range: 4
     Slots: 4
     Jobs:
-      Paladin: true
       Mage: true
     Locations:
       Right_Hand: true
@@ -19881,7 +19879,6 @@ Body:
     Range: 5
     Slots: 3
     Jobs:
-      Paladin: true
       Mage: true
     Locations:
       Right_Hand: true
@@ -19921,7 +19918,6 @@ Body:
     Range: 4
     Slots: 4
     Jobs:
-      Paladin: true
       Mage: true
     Locations:
       Right_Hand: true
@@ -22394,7 +22390,6 @@ Body:
     Range: 2
     Slots: 3
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Gender: Female
@@ -22434,7 +22429,6 @@ Body:
     Range: 3
     Slots: 2
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22462,7 +22456,6 @@ Body:
     Range: 3
     Slots: 3
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22492,7 +22485,6 @@ Body:
     Range: 3
     Slots: 1
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22523,7 +22515,6 @@ Body:
     Range: 3
     Slots: 4
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22551,7 +22542,6 @@ Body:
     Range: 3
     Slots: 2
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22582,7 +22572,6 @@ Body:
     Range: 3
     Slots: 1
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22612,7 +22601,6 @@ Body:
     Range: 3
     Slots: 3
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22642,7 +22630,6 @@ Body:
     Range: 3
     Slots: 4
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22674,7 +22661,6 @@ Body:
     Range: 3
     Slots: 2
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -22704,7 +22690,6 @@ Body:
     Range: 3
     Slots: 3
     Jobs:
-      Paladin: true
       BardDancer: true
       SuperNovice: true
     Classes:
@@ -26877,7 +26862,6 @@ Body:
     Weight: 500
     Defense: 10
     Jobs:
-      Paladin: true
       Mage: true
     Classes:
       Normal: true
@@ -42891,7 +42875,6 @@ Body:
     Weight: 100
     Slots: 2
     Jobs:
-      Paladin: true
       Mage: true
     Locations:
       Both_Accessory: true
@@ -52460,7 +52443,6 @@ Body:
     Range: 4
     Slots: 2
     Jobs:
-      Paladin: true
       Mage: true
     Locations:
       Right_Hand: true
@@ -64746,7 +64728,6 @@ Body:
     Range: 7
     Slots: 4
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -64785,7 +64766,6 @@ Body:
     Range: 7
     Slots: 3
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -64824,7 +64804,6 @@ Body:
     Range: 10
     Slots: 2
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -64861,7 +64840,6 @@ Body:
     Range: 7
     Slots: 1
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -64898,7 +64876,6 @@ Body:
     Attack: 24
     Range: 7
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -64934,7 +64911,6 @@ Body:
     Range: 7
     Slots: 4
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -64973,7 +64949,6 @@ Body:
     Range: 7
     Slots: 4
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65012,7 +64987,6 @@ Body:
     Range: 11
     Slots: 3
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65049,7 +65023,6 @@ Body:
     Range: 7
     Slots: 2
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65089,7 +65062,6 @@ Body:
     Range: 7
     Slots: 1
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65127,7 +65099,6 @@ Body:
     Range: 7
     Slots: 3
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65164,7 +65135,6 @@ Body:
     Range: 7
     Slots: 2
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65203,7 +65173,6 @@ Body:
     Range: 7
     Slots: 3
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65241,7 +65210,6 @@ Body:
     Range: 8
     Slots: 4
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65282,7 +65250,6 @@ Body:
     Range: 8
     Slots: 1
     Jobs:
-      Paladin: true
       SuperNovice: true
     Locations:
       Both_Hand: true
@@ -65314,7 +65281,6 @@ Body:
     Range: 7
     Slots: 1
     Jobs:
-      Paladin: true
       Gunslinger: true
       Rebellion: true
     Locations:
@@ -76785,7 +76751,6 @@ Body:
     Weight: 1000
     Slots: 3
     Jobs:
-      Paladin: true
       Mage: true
     Classes:
       Normal: true
