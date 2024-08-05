@@ -794,6 +794,7 @@
 	export_constant2("bSkillUseSPrate",SP_SKILL_USE_SP_RATE);
 	export_constant2("bSkillCooldown",SP_SKILL_COOLDOWN);
 	export_constant2("bReduceCooldown",SP_REDUCE_COOLDOWN);
+	export_constant2("bReduceCooldownOnDebuff", SP_REDUCE_COOLDOWN_ON_DEBUFF);
 	export_constant2("bBounce", SP_BOUNCE);
 	export_constant2("bAutoAtkCap", SP_AUTOATK_CAP);
 	export_constant2("bASPDCap", SP_ASPD_CAP);

@@ -4250,6 +4250,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	sd->autospell3.clear();
 	sd->autospellbaseline.clear();
 	sd->reduce_cooldown.clear();
+	sd->reduce_cooldown_on_debuff.clear();
 	sd->skillbounce.clear();
 	sd->splash_skill.clear();
 	sd->skillhpflat.clear();
@@ -5561,9 +5562,6 @@ void status_calc_regen_rate(struct block_list *bl, struct regen_data *regen, str
 
 	// No natural SP regen
 	if (sc->data[SC_DANCING] ||
-#ifdef RENEWAL
-		sc->data[SC_MAXIMIZEPOWER] ||
-#endif
 #ifndef RENEWAL
 		(bl->type == BL_PC && (((TBL_PC*)bl)->class_&MAPID_UPPERMASK) == MAPID_MONK &&
 		(sc->data[SC_EXTREMITYFIST] || sc->data[SC_EXPLOSIONSPIRITS]) && (!sc->data[SC_SPIRIT] || sc->data[SC_SPIRIT]->val2 != SL_MONK)) ||
@@ -9250,8 +9248,8 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 			sc_def2 = status->mdef*100;
 			break;
 		case SC_ANKLE:
-			if(status_has_mode(status,MD_STATUSIMMUNE)) // Lasts 5 times less on bosses
-				tick /= 30;
+			if(status_has_mode(status,MD_STATUSIMMUNE)) // Lasts only half of the total time on bosses
+				tick /= 2;
 			sc_def = status->agi*150;
 			break;
 		case SC_JOINTBEAT:
@@ -14396,6 +14394,10 @@ TIMER_FUNC(status_change_timer){
 	
 	switch(type) {
 	case SC_MAXIMIZEPOWER:
+		if (!status_charge(bl, 0, 2))
+			break; // Not enough SP to continue.
+		sc_timer_next(sce->val2 + tick);
+		return 0;
 	case SC_CLOAKING:
 		if(!status_charge(bl, 0, 1))
 			break; // Not enough SP to continue.
