@@ -15792,7 +15792,7 @@ Body:
       - Level: 10
         Time: 150000
     Requires:
-      SpCost: 0
+      SpCost: 1
       HpCost: 1
       HpRateCost: -1
   - Id: 544
