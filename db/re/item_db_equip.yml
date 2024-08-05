@@ -136052,7 +136052,6 @@ Body:
     Range: 4
     Slots: 1
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136077,7 +136076,6 @@ Body:
     MagicAttack: 5
     Range: 4
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136103,7 +136101,6 @@ Body:
     Range: 4
     Slots: 4
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136129,7 +136126,6 @@ Body:
     Range: 4
     Slots: 3
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136159,7 +136155,6 @@ Body:
     Range: 4
     Slots: 3
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
@@ -136188,7 +136183,6 @@ Body:
     Range: 4
     Slots: 2
     Jobs:
-      Paladin: true
       Swordman: true
     Classes:
       Baby: true
