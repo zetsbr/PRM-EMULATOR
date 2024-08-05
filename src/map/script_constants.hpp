@@ -735,7 +735,8 @@
 	export_constant2("bAddEffOnSkill",SP_ADDEFF_ONSKILL);
 	export_constant2("bHealPower",SP_ADD_HEAL_RATE);
 	export_constant2("bHealPower2",SP_ADD_HEAL2_RATE);
-
+	export_constant2("bDelSpiritcharm",SP_DEL_SPIRITCHARM);
+	export_constant2("bAddSpiritcharm",SP_ADD_SPIRITCHARM);
 	export_constant2("bRestartFullRecover",SP_RESTART_FULL_RECOVER);
 	export_constant2("bNoCastCancel",SP_NO_CASTCANCEL);
 	export_constant2("bNoSizeFix",SP_NO_SIZEFIX);
@@ -1719,6 +1720,7 @@
 	export_constant(SC_GUARDROCK_T);
 	export_constant(SC_FROSTSPINNER_T);
 	export_constant(SC_BLOODROSE);
+	export_constant(SC_DESTINYBRUSH_UT);
 #ifdef RENEWAL
 	export_constant(SC_EXTREMITYFIST2);
 #endif

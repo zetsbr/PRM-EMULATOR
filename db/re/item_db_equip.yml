@@ -3332,7 +3332,7 @@ Body:
     Attack: 30
     MagicAttack: 30
     Range: 1
-    Slots: 4
+    Slots: 1
     Jobs:
       Acolyte: true
     Classes:
@@ -68447,7 +68447,6 @@ Body:
       .@r = getrefine();
       bonus2 bSkillAtk,"CR_GRANDCROSS",20+(5*(.@r));
       bonus bSPrecovRate,3*(.@r);
-      bonus bMaxHPrate,-2*(.@r);
   - Id: 13466
     AegisName: Diva_Blade
     Name: Diva Blade

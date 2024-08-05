@@ -1764,6 +1764,8 @@ void initChangeTables(void)
 	set_sc_with_vfx_noskill(SC_FROSTSPINNER_T, EFST_FROSTSPINNER_T, SCB_MATK);
 	set_sc_with_vfx_noskill(SC_DEADLYROSE_T, EFST_DEADLYROSE_T, SCB_NONE);
 	set_sc_with_vfx_noskill(SC_GUARDROCK_T, EFST_GUARDROCK_T, SCB_DEF2|SCB_MAXHP);
+	set_sc_with_vfx_noskill(SC_DESTINYBRUSH_UT, EFST_PROVOKE, SCB_NONE);
+	set_sc_with_vfx_noskill(SC_EXPLOSIONSPIRITS, EFST_EXPLOSIONSPIRITS, SCB_CRI | SCB_REGEN);
 
 	/* Other SC which are not necessarily associated to skills */
 	StatusChangeFlagTable[SC_ASPDPOTION0] |= SCB_ASPD;
@@ -9069,6 +9071,8 @@ void status_change_init(struct block_list *bl)
 static int status_get_sc_interval(enum sc_type type)
 {
 	switch (type) {
+		case SC_DEATHBOUND:
+			return 200;
 		case SC_BLOODROSE:
 			return 500;
 		case SC_POISON:
@@ -9608,6 +9612,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 	int calc_flag, undead_flag, val_flag = 0, tick_time = 0;
 	bool sc_isnew = true;
 
+	uint16 tickdelay = 0;
+
 	nullpo_ret(bl);
 	sc = status_get_sc(bl);
 	status = status_get_status_data(bl);
@@ -10103,7 +10109,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			return 0;
 		switch (type) {
 			case SC_BLESSING:
-			case SC_DECREASEAGI:
 			case SC_PROVOKE:
 			case SC_COMA:
 #ifndef RENEWAL
@@ -10746,6 +10751,7 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 		case SC_READYDOWN:
 		case SC_READYCOUNTER:
 		case SC_READYTURN:
+		case SC_PRESERVE:
 		case SC_DODGE:
 		case SC_PUSH_CART:
 		case SC_SPRITEMABLE:
@@ -11711,14 +11717,16 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 
 		/* Rune Knight */
 		case SC_DEATHBOUND:
-			val2 = 2 + val1;
+			tickdelay = status_get_sc_interval(type);
+			val2 = tick / tickdelay;
+			tick_time = tickdelay;
 			if (sd) { // Store the card-bonus data that should not count in the %
 				val3 = sd->indexed_bonus.param_bonus[1]; // Agi
 				val4 = sd->indexed_bonus.param_bonus[4]; // Dex
 			}
 			else
 				val3 = val4 = 0;
-			tick_time = 200;
+
 			break;
 		case SC_STONEHARDSKIN:
 			if (!status_charge(bl, status->hp / 5, 0)) // 20% of HP
@@ -14814,12 +14822,13 @@ TIMER_FUNC(status_change_timer){
 		break;
 
 	case SC_DEATHBOUND:
-		if (sce->val4 >= 0) {
+		if (--(sce->val2) > 0) {
+			uint16 tickdelay = status_get_sc_interval(type);
 			int64 hp_damage = status->max_hp * (0.1 / sce->val1);
 			int64 sp_damage = status->max_sp * (0.1 / sce->val1);
 			if (!sd && hp_damage >= status->hp)
 				hp_damage = status->hp - 1; // No deadly damage for monsters
-			sc_timer_next(200 + tick);
+			sc_timer_next(tick + tickdelay);
 			status_zap(bl, hp_damage, sp_damage);
 			if (sd && status->hp < 1)
 				status_change_end(bl, SC_DEATHBOUND, INVALID_TIMER);

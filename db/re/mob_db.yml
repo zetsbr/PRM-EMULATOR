@@ -11406,6 +11406,8 @@ Body:
     DamageMotion: 288
     Ai: 02
     Drops:
+      - Item: C_GiantCatBag_JP_BL
+        Rate: 100
       - Item: Wild_Rose_Card
         Rate: 100
         StealProtected: true
@@ -18079,7 +18081,7 @@ Body:
         RandomOptionGroup: armor
       - Item: DangerousSackMVP
         Rate: 10
-      - Item: Arrow_Cantrips
+      - Item: Stray_Cantrips
         Rate: 75
   - Id: 1431
     AegisName: G_BAPHOMET_
@@ -28071,7 +28073,7 @@ Body:
       Mvp: true
     MvpDrops:
       - Item: C_Thanatos_Sword
-        Rate: 10
+        Rate: 100
       - Item: Jewel_Shadowdecon
         Rate: 10000
     Drops:
@@ -65311,6 +65313,8 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: C_Loli_Ruri_Moon
+        Rate: 10
       - Item: Bat_Cage
         Rate: 10000
       - Item: Death_Ruri_Card

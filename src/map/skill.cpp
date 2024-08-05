@@ -1985,7 +1985,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000);
+					sc_start(src, src, SC_DESTINYBRUSH_UT, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1626, AREA);
 				clif_specialeffect(bl, 1627, AREA);
@@ -2049,7 +2049,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 1792, AREA);
 				break;
 			}
-			if(ammo_id == 13251) {
+			if(ammo_id == 13251) { // deadly rose trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2066,7 +2066,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 2048, AREA);
 				break;
 			}
-			if (ammo_id == 13252) {
+			if (ammo_id == 13252) { // guard rock trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2083,7 +2083,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 2113, AREA);
 				break;
 			}
-			if (ammo_id == 13253) {
+			if (ammo_id == 13253) { // broken berenade trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2109,7 +2109,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 				clif_specialeffect(bl, 2064, AREA);
 				break;
 			}
-			if (ammo_id == 13254) {
+			if (ammo_id == 13254) { // amulet of siegfried trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -2119,14 +2119,14 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 					}
 				}
 				else {
-					pc_bonus_autospell_onskill_baseline(sd, skill_id, skill_lv, AL_DECAGI, skill_lv, 1000, current_equip_card_id, bl, tick);
+					sc_start(src, bl, SC_RAID, 1000, skill_lv, 5000);
 				}
 				clif_specialeffect(bl, 1570, AREA);
 				clif_specialeffect(bl, 1571, AREA);
 				clif_specialeffect(bl, 1567, AREA);
 				break;
 			}
-			if (ammo_id == 14742) {
+			if (ammo_id == 14742) { // flame spinner trinket
 				if (skill_lv > 5) {
 					if ((sc->data[SC_MANU_DEF])) {
 						status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
@@ -4987,7 +4987,6 @@ static TIMER_FUNC(skill_timerskill) {
 				break;
 			case RL_FIRE_RAIN: {
 				int dummy = 1, i = skill_get_splash(skl->skill_id, skl->skill_lv);
-
 					map_foreachinallarea(skill_cell_overlap, src->m, skl->x - i, skl->y - i, skl->x + i, skl->y + i, BL_SKILL, skl->skill_id, &dummy, src);
 				skill_unitsetting(src, skl->skill_id, skl->skill_lv, skl->x, skl->y, 0);
 			}
@@ -7775,7 +7774,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		break;
 	case NPC_DEFENDER:
 	case NPC_MAGICMIRROR:
-	case ST_PRESERVE:
 	case NPC_KEEPING:
 	case NPC_BARRIER:
 	case NPC_INVINCIBLE:
@@ -7790,7 +7788,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 		status_change_end(bl, SC_MAGNIFICAT, INVALID_TIMER);
 		clif_specialeffect(bl, EF_FLAMELAUNCHER, SELF);
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
-			sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
+			sc_start2(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv), skill_get_time(skill_id, skill_lv)));
 		clif_blown(src);
 		break;
 	case AB_EXPIATIO:
@@ -8490,6 +8488,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case TK_READYSTORM:
 	case TK_READYDOWN:
 	case TK_READYTURN:
+	case ST_PRESERVE:
 	case TK_READYCOUNTER:
 	case TK_DODGE:
 	case CR_SHRINK:
@@ -13960,7 +13959,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 		break;
 	case RL_FIRE_RAIN: {
-		int w, wave = 9, dir = map_calc_dir(src, x, y);
+		int w, wave = skill_lv, dir = map_calc_dir(src, x, y);
 		int sx = x = src->x, sy = y = src->y;
 
 		for (w = 0; w <= wave; w++) { 
@@ -13982,7 +13981,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 				sx = x + w;
 				break;
 			}
-			skill_addtimerskill(src, gettick() + ( 100 * (w * skill_lv)), 0, sx, sy, skill_id, skill_lv, dir, flag);
+			skill_addtimerskill(src, gettick() + ( 100 * w ), 0, sx, sy, skill_id, skill_lv, dir, flag);
 		}
 	}
 					 break;
@@ -22732,6 +22731,7 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case TK_READYDOWN:
 	case TK_READYSTORM:
 	case TK_READYTURN:
+	case ST_PRESERVE:
 	case TK_RUN:
 	case SG_FUSION:
 	case KO_YAMIKUMO:
