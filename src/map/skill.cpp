@@ -1576,7 +1576,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 #else
 		if (skill_break_equip(src, bl, EQP_ARMOR, 100 * skill_get_time(skill_id, skill_lv), BCT_ENEMY))
 #endif
-			clif_emotion(bl, ET_HUK);
+		if (tsc && tsc->data[SC_BURNING])
+			clif_specialeffect(bl, 1759, AREA);
 		break;
 
 	case AM_DEMONSTRATION:
@@ -2692,6 +2693,8 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 	if (sd == nullptr || !skill_id)
 		return 0;
 
+	struct status_change* tsc = status_get_sc(bl);
+
 	for (auto& it : sd->autospell3) {
 		if (it.trigger_skill != skill_id)
 			continue;
@@ -2769,10 +2772,18 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 		t_tick sec = 0;
 		//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: size: %d\n", sd->reduce_cooldown.size());
 		for (auto& it : sd->reduce_cooldown) {
-			if (!it.skill2)
+			if (rnd() % 1000 >= it.rate) {
+				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: rate fail: %d\n", it.rate);
 				continue;
-			if (it.skill1 != skill_id)
+			}
+			if (!it.skill2) {
+				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: skill2 fail: %d\n", it.skill2);
 				continue;
+			}
+			if (it.skill1 != skill_id) {
+				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: skill1 fail: %d, %d\n", it.skill1, skill_id);
+				continue;
+			}
 			ARR_FIND(0, MAX_SKILLCOOLDOWN, i, sd->scd[i] && sd->scd[i]->skill_id == it.skill2);
 			if (i < MAX_SKILLCOOLDOWN) { // Skill already with cooldown
 				const struct TimerData* td = get_timer(sd->scd[i]->timer);
@@ -2780,10 +2791,58 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 			}
 			//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", it.skill1, it.skill2, it.val);
 			if (sec && it.val < 0) {
-				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Timer: %d\n", sec);
-				if (sec < (-1 * it.val)) sec = 1;
-				else sec += it.val;
-				skill_blockpc_start(sd, it.skill2, sec);
+				if (sec <= (-1 * it.val)) {
+					sec = 0.1;
+					delete_timer(sd->scd[i]->timer, skill_blockpc_end);
+					aFree(sd->scd[i]);
+					sd->scd[i] = NULL;
+				}
+				else {
+					sec += it.val;
+				}
+				clif_skill_cooldown(sd, it.skill2, tick + sec);
+				clif_skillinfoblock(sd);
+			}
+		}
+	}
+	if (sd && !sd->reduce_cooldown_on_debuff.empty()) {
+		int i;
+		t_tick sec = 0;
+		//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: size: %d\n", sd->reduce_cooldown.size());
+		for (auto& it : sd->reduce_cooldown_on_debuff) {
+			if (rnd() % 1000 >= it.rate)
+				continue;
+			if (!it.status)
+				continue;
+			if (it.skill1 != skill_id)
+				continue;
+			if (!tsc)
+				continue;
+			if (tsc && tsc->data[it.status] == nullptr)
+				continue;
+
+			if (it.consume) {
+				status_change_end(bl, (sc_type)it.status, INVALID_TIMER);
+			}
+
+			ARR_FIND(0, MAX_SKILLCOOLDOWN, i, sd->scd[i] && sd->scd[i]->skill_id == it.skill1);
+			if (i < MAX_SKILLCOOLDOWN) { // Skill already with cooldown
+				const struct TimerData* td = get_timer(sd->scd[i]->timer);
+				if (td) sec = DIFF_TICK(td->tick, tick);
+			}
+			//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", it.skill1, it.skill2, it.val);
+			if (sec && it.val < 0) {
+				if (sec <= (-1 * it.val)) {
+					sec = 0.1;
+					delete_timer(sd->scd[i]->timer, skill_blockpc_end);
+					aFree(sd->scd[i]);
+					sd->scd[i] = NULL;
+				}
+				else {
+					sec += it.val;
+				}
+				clif_skill_cooldown(sd, it.skill1, tick + sec);
+				clif_skillinfoblock(sd);
 			}
 		}
 	}
@@ -6609,6 +6668,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			if (unit_movepos(src, bl->x + x[dir], bl->y + y[dir], 1, 1)) {
 				clif_blown(src);
 				skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+				clif_blown(src);
 			}
 			break;
 		}
@@ -17863,6 +17923,8 @@ struct s_skill_condition skill_get_requirement(struct map_session_data* sd, uint
 			req.sp += req.sp / 5;
 		if (sc->data[SC_OFFERTORIUM])
 			req.sp += req.sp * sc->data[SC_OFFERTORIUM]->val3 / 100;
+		if (sc->data[SC_MAXIMIZEPOWER])
+			req.sp += req.sp * (sc->data[SC_MAXIMIZEPOWER]->val1 * 20 / 100);
 		if (sc->data[SC_TELEKINESIS_INTENSE] && skill_get_ele(skill_id, skill_lv) == ELE_GHOST)
 			req.sp -= req.sp * sc->data[SC_TELEKINESIS_INTENSE]->val2 / 100;
 #ifdef RENEWAL
@@ -21959,7 +22021,6 @@ TIMER_FUNC(skill_blockpc_end) {
  * @param   sd        the player the skill delay affects
  * @param   skill_id   the skill which should be delayed
  * @param   tick      the length of time the delay should last
- * @param   load      whether this assignment is being loaded upon player login
  * @return  0 if successful, -1 otherwise
  */
 int skill_blockpc_start(struct map_session_data* sd, int skill_id, t_tick tick) {

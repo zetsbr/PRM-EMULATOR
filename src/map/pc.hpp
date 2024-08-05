@@ -176,7 +176,15 @@ struct s_item_bonus {
 };
 
 struct s_reduce_cooldown {
+	short rate;
 	uint16 skill1, skill2;
+	int val;
+};
+
+struct s_reduce_cooldown_on_debuff {
+	short rate;
+	uint16 skill1, status;
+	bool consume;
 	int val;
 };
 
@@ -545,6 +553,7 @@ struct map_session_data {
 	std::vector<s_item_bonus> skillatk, skillusesprate, skillusesp, skillheal, skillheal2, skillblown, skillcastrate, skillfixcastrate, subskill, skillcooldown, skillfixcast,
 		skillvarcast, skilldelay, itemhealrate, add_def, add_mdef, add_mdmg, reseff, itemgrouphealrate, itemsphealrate, itemgroupsphealrate;
 	std::vector<s_reduce_cooldown> reduce_cooldown;
+	std::vector<s_reduce_cooldown_on_debuff> reduce_cooldown_on_debuff;
 	std::vector<s_bounce> skillbounce;
 	std::vector<s_splash_skill> splash_skill;
 	std::vector<s_skill_hpsp> skillhpflat, skillhprate, skillspflat, skillsprate;
