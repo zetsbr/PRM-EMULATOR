@@ -17923,6 +17923,8 @@ struct s_skill_condition skill_get_requirement(struct map_session_data* sd, uint
 			req.sp += req.sp / 5;
 		if (sc->data[SC_OFFERTORIUM])
 			req.sp += req.sp * sc->data[SC_OFFERTORIUM]->val3 / 100;
+		if (sc->data[SC_MAXIMIZEPOWER])
+			req.sp += req.sp * (sc->data[SC_MAXIMIZEPOWER]->val1 * 20 / 100);
 		if (sc->data[SC_TELEKINESIS_INTENSE] && skill_get_ele(skill_id, skill_lv) == ELE_GHOST)
 			req.sp -= req.sp * sc->data[SC_TELEKINESIS_INTENSE]->val2 / 100;
 #ifdef RENEWAL
