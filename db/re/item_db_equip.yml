@@ -26850,7 +26850,6 @@ Body:
     View: 1
     Buy: 500
     Jobs:
-      Paladin: true
       Acolyte: true
     Classes:
       Baby: true
