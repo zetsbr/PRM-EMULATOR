@@ -33077,7 +33077,7 @@ Body:
   - Id: 5014
     Name: ALL_FULL_THROTTLE
     Description: Morroc's Mark
-    MaxLevel: 1
+    MaxLevel: 2
     TargetType: Self
     DamageFlags:
       NoDamage: true
@@ -33088,11 +33088,18 @@ Body:
     AfterCastActDelay: 100
     Duration1:
       - Level: 1
-        Time: 10000
-    Duration2: 100
-    Cooldown: 3600000
+        Time: 1000
+      - Level: 2
+        Time: 2000
+    Duration2: 
+      - Level: 1
+        Time: 1500
+      - Level: 2
+        Time: 2500
+    Cooldown: 10000
     Requires:
-      SpCost: 10
+      SpCost: 1
+      SpRateCost: 10
   - Id: 5015
     Name: NC_MAGMA_ERUPTION_DOTDAMAGE
     Description: Magma Eruption Dot Damage

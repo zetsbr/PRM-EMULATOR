@@ -1328,6 +1328,12 @@ bool battle_status_block_damage(struct block_list *src, struct block_list *targe
 	//	return false;
 	//}
 
+	if (sc->data[SC_FULL_THROTTLE]) {
+		clif_specialeffect(target, 1725, AREA);
+		clif_specialeffect(target, 1728, AREA);
+		return false;
+	}
+
 	if ((sce = sc->data[SC_KAUPE]) && (skill_id != NPC_EARTHQUAKE || (skill_id == NPC_EARTHQUAKE && flag & NPC_EARTHQUAKE_FLAG)) && rnd() % 100 < sce->val2) { //Kaupe blocks damage (skill or otherwise) from players, mobs, homuns, mercenaries.
 		clif_specialeffect(target, EF_STORMKICK4, AREA);
 		//Shouldn't end until Breaker's non-weapon part connects.
