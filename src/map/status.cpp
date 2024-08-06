@@ -14369,7 +14369,7 @@ TIMER_FUNC(status_change_timer){
 	int interval = status_get_sc_interval(type);
 	bool dounlock = false;
 	int damage = 0;
-	char output[128];
+	// char output[128];
 
 	bl = map_id2bl(id);
 	if(!bl) {
