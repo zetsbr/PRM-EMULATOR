@@ -43691,8 +43691,9 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
+      skill "ALL_FULL_THROTTLE",2;
       if (unchainedjob !=1){
-        bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-3480000;
+        bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-2000;
       }
   - Id: 27322
     AegisName: Demon_God's_Apostle_Ahat_Card

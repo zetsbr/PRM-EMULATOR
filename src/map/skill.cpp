@@ -7805,7 +7805,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case WS_OVERTHRUSTMAX:
 	case ST_REJECTSWORD:
 	case HW_MAGICPOWER:
-	case PF_MEMORIZE:
 	case PA_SACRIFICE:
 	case PF_DOUBLECASTING:
 	case SG_SUN_COMFORT:
@@ -8222,15 +8221,14 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case MO_CALLSPIRITS:
 		if (sd) {
 			int limit = 5;
-			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			if (skill_lv == 1)
-			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
 			if (skill_lv >= 2)
-			for (i = 0; i < limit; i++)
-			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+				for (i = 0; i < limit; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
 		}
 		break;
-
 	case CH_SOULCOLLECT:
 		if (sd) {
 			int limit = skill_lv;
@@ -10403,7 +10401,21 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 				pc_delspiritball(sd, 1, 0);
 		}
 		break;
-
+	case PF_MEMORIZE:
+		if (sd) {
+			int limit = 10;
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+			if (skill_lv == 1)
+				for (i = 0; i < 2; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+			if (skill_lv == 2)
+				for (i = 0; i < limit / 2; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+			if (skill_lv == 3)
+				for (i = 0; i < limit; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+		}
+		break;
 	case GS_CRACKER:
 		/* per official standards, this skill works on players and mobs. */
 		if (sd && (dstsd || dstmd))
@@ -16977,6 +16989,12 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 			return false;
 		}
 		break;
+	case PF_MEMORIZE:
+		if (sd->spiritball >= 10) {
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+			return false;
+		}
+		break;
 	case NJ_ISSEN:
 #ifdef RENEWAL
 		if (status->hp < (status->hp / 100)) {
@@ -18231,16 +18249,6 @@ int skill_castfix(struct block_list* bl, uint16 skill_id, uint16 skill_lv) {
 			// Magic Strings stacks additively with item bonuses
 			if (!(flag & 2) && sc->data[SC_POEMBRAGI])
 				reduce_cast_rate += sc->data[SC_POEMBRAGI]->val2;
-			// Foresight halves the cast time, it does not stack additively
-			if (sc->data[SC_MEMORIZE]) {
-				if (!sd || pc_checkskill(sd, skill_id) > 0) { // Foresight only decreases cast times from learned skills, not skills granted by items
-					if (!(flag & 2))
-						time -= time * 50 / 100;
-					// Foresight counter gets reduced even if the skill is not affected by it
-					if ((--sc->data[SC_MEMORIZE]->val2) <= 0)
-						status_change_end(bl, SC_MEMORIZE, INVALID_TIMER);
-				}
-			}
 		}
 
 		time = time * (1 - (float)reduce_cast_rate / 100);
@@ -18385,13 +18393,6 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 			status_change_end(bl, SC_SUFFRAGIUM, INVALID_TIMER);
 #endif
 		}
-		if (sc->data[SC_MEMORIZE]) {
-			if (!sd || pc_checkskill(sd, skill_id) > 0) { // Foresight only decreases cast times from learned skills, not skills granted by items
-				reduce_cast_rate += 50;
-				if ((--sc->data[SC_MEMORIZE]->val2) <= 0)
-					status_change_end(bl, SC_MEMORIZE, INVALID_TIMER);
-			}
-		}
 		if (sc->data[SC_POEMBRAGI])
 			reduce_cast_rate += sc->data[SC_POEMBRAGI]->val2;
 		if (sc->data[SC_IZAYOI])
@@ -18411,8 +18412,8 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		// Multiplicative Fixed CastTime values
 		if (sc->data[SC_SECRAMENT])
 			fixcast_r = max(fixcast_r, sc->data[SC_SECRAMENT]->val2);
-		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)) && skill_id >= WL_WHITEIMPRISON && skill_id <= WL_FREEZE_SP)
-			fixcast_r = skill_lv * 10;
+		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
+			fixcast_r -= skill_lv * 100;
 		if (sc->data[SC_DANCEWITHWUG])
 			fixcast_r = max(fixcast_r, sc->data[SC_DANCEWITHWUG]->val4);
 		if (sc->data[SC_HEAT_BARREL])

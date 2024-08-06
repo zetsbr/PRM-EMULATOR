@@ -29141,6 +29141,15 @@ Body:
       - Item: Strange_Metal_R
         Rate: 1500
         RandomOptionGroup: accessory
+      - Item: Metal_Boots_MKI
+        Rate: 1500
+        RandomOptionGroup: shoes
+      - Item: Metal_Boots_MKII
+        Rate: 1500
+        RandomOptionGroup: shoes
+      - Item: Metal_Boots_MKIII
+        Rate: 1500
+        RandomOptionGroup: shoes
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: MVP_Reward_Box

@@ -1350,7 +1350,7 @@ void initChangeTables(void)
 	set_sc_with_vfx( OB_AKAITSUKI		, SC_AKAITSUKI		, EFST_AKAITSUKI		, SCB_NONE );
 	set_sc( OB_OBOROGENSOU			, SC_GENSOU		, EFST_GENSOU		, SCB_NONE );
 
-	set_sc( ALL_FULL_THROTTLE		, SC_FULL_THROTTLE	, EFST_FULL_THROTTLE	, SCB_SPEED|SCB_STR|SCB_AGI|SCB_VIT|SCB_INT|SCB_DEX|SCB_LUK );
+	set_sc( ALL_FULL_THROTTLE, SC_FULL_THROTTLE	, EFST_FULL_THROTTLE	, SCB_NONE );
 
 	/* Rebellion */
 	add_sc( RL_MASS_SPIRAL		, SC_BLEEDING );
@@ -6498,8 +6498,6 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 		str += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		str += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		str += str * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		str += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6576,8 +6574,6 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 		agi += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		agi += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		agi += agi * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if (sc->data[SC_ARCLOUSEDASH])
 		agi += sc->data[SC_ARCLOUSEDASH]->val2;
 	if(sc->data[SC_CHEERUP])
@@ -6644,8 +6640,6 @@ static unsigned short status_calc_vit(struct block_list *bl, struct status_chang
 		vit += 1;
 	if(sc->data[SC_STRIPARMOR] && bl->type != BL_PC)
 		vit -= vit * sc->data[SC_STRIPARMOR]->val2/100;
-	if(sc->data[SC_FULL_THROTTLE])
-		vit += vit * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 #ifdef RENEWAL
 	if(sc->data[SC_DEFENCE])
 		vit += sc->data[SC_DEFENCE]->val2;
@@ -6730,8 +6724,6 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 		int_ += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		int_ += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		int_ += int_ * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		int_ += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6821,8 +6813,6 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 		dex -= dex * sc->data[SC__STRIPACCESSORY]->val2 / 100;
 	if(sc->data[SC_MARSHOFABYSS])
 		dex -= dex * sc->data[SC_MARSHOFABYSS]->val2 / 100;
-	if(sc->data[SC_FULL_THROTTLE])
-		dex += dex * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		dex += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6889,8 +6879,6 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 		luk += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		luk += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		luk += luk * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		luk += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -7901,8 +7889,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SPEEDUP1]->val1 );
 		if( sc->data[SC_INCREASEAGI] )
 			val = max( val, 25 );
-		if( sc->data[SC_WINDWALK] )
-			val = max( val, 2 * sc->data[SC_WINDWALK]->val1 );
 		if (pc_checkskill(sd, AL_DEMONBANE) > 0)
 			val = max(val, 3 * pc_checkskill(sd, AL_DEMONBANE));
 		if (pc_checkskill(sd, NV_BREAKTHROUGH) > 0)
@@ -7933,8 +7919,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SWINGDANCE]->val3 );
 		if( sc->data[SC_WIND_STEP_OPTION] )
 			val = max( val, sc->data[SC_WIND_STEP_OPTION]->val2 );
-		if( sc->data[SC_FULL_THROTTLE] )
-			val = max( val, 50 );
 		if (sc->data[SC_ARCLOUSEDASH])
 			val = max(val, sc->data[SC_ARCLOUSEDASH]->val3);
 		if( sc->data[SC_DORAM_WALKSPEED] )
@@ -7951,6 +7935,9 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SPEEDUP0]->val1 );
 		if( sd && sd->bonus.speed_rate + sd->bonus.speed_add_rate < 0 ) // Permanent item-based speedup
 			val = max( val, -(sd->bonus.speed_rate + sd->bonus.speed_add_rate) );
+
+		if (sc->data[SC_WINDWALK])
+			val += 2 * sc->data[SC_WINDWALK]->val1;
 
 		speed_rate -= val;
 
@@ -11332,12 +11319,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = val1; // Reflections
 			tick = INFINITE_TICK;
 			break;
-
-		case SC_MEMORIZE:
-			val2 = 7; // Memorized casts.
-			tick = INFINITE_TICK;
-			break;
-
 #ifndef RENEWAL
 		case SC_GRAVITATION:
 			val2 = 50*val1; // aspd reduction
@@ -11411,7 +11392,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					break;
 			}
 			break;
-
+		case SC_FULL_THROTTLE:
+			val2 = 0;
+			break;
 		case SC_COMBO:
 		{
 			// val1: Skill ID
@@ -12333,12 +12316,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					val4 = 50;
 			}
 			break;
-		case SC_FULL_THROTTLE:
-			val2 = ( val1 == 1 ? 6 : 6 - val1 );
-			val3 = 10; //+% AllStats
-			tick_time = 1000;
-			val4 = tick / tick_time;
-			break;
 		case SC_REBOUND:
 			tick_time = 2000;
 			val4 = tick / tick_time;
@@ -13213,7 +13190,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			if (sd)
 				clif_bossmapinfo(sd, map_id2boss(sce->val1), BOSS_INFO_ALIVE_WITHMSG); // First Message
 			break;
-		case SC_FULL_THROTTLE:
 		case SC_MERC_HPUP:
 			status_percent_heal(bl, 100, 100); // Recover Full HP
 			break;
@@ -14019,13 +13995,6 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 				case BL_PC:
 					status_zap(bl,0,status_get_max_sp(bl) / 2);
 					break;
-			}
-			break;
-		case SC_FULL_THROTTLE: {
-				int sec = skill_get_time2(status_sc2skill(type), sce->val1);
-
-				clif_status_change(bl, EFST_DEC_AGI, 1, sec, 0, 0, 0);
-				sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
 			}
 			break;
 		case SC_REBOUND:
@@ -15157,13 +15126,6 @@ TIMER_FUNC(status_change_timer){
 			if(bl->type == BL_MOB) hp = sp*10;
 			if( !status_charge(bl,hp,sp) )break;
 			sc_timer_next(1000+tick);
-			return 0;
-		}
-		break;
-	case SC_FULL_THROTTLE:
-		if( --(sce->val4) >= 0 ) {
-			status_percent_damage(bl, bl, 0, sce->val2, false);
-			sc_timer_next(1000 + tick);
 			return 0;
 		}
 		break;
