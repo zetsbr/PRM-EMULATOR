@@ -14453,13 +14453,13 @@ TIMER_FUNC(status_change_timer){
 		break;
 
 	case SC_BLOODROSE:
-	ShowDebug("sc change timer, val4 = %d\n", &sce->val4);
+	// ShowDebug("sc change timer, val4 = %d\n", &sce->val4);
 	if (--(sce->val4) >= 0) {
 		src = map_id2bl(sce->val2);
-		ShowDebug("sc change timer, sc interval is %d, type is %d, src is %d, bl is %d\n,", interval, type, src, bl);
+		// ShowDebug("sc change timer, sc interval is %d, type is %d, src is %d, bl is %d\n,", interval, type, src, bl);
 		damage = 20 * sce->val1;
-		sprintf(output, "damage = %d", damage);
-		clif_messagecolor(src, color_table[COLOR_LIGHT_GREEN], output, false, SELF);
+		// sprintf(output, "damage = %d", damage);
+		// clif_messagecolor(src, color_table[COLOR_LIGHT_GREEN], output, false, SELF);
 		if ( (bl->type != BL_PC) && damage > 0 )
 			damage = status->hp - 1; // No deadly damage for monsters
 
