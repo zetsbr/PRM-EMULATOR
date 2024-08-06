@@ -32704,7 +32704,6 @@ Body:
       bonus2 bDelSpiritcharm,10,Ele_Water;
       bonus2 bDelSpiritcharm,10,Ele_Fire;
       sc_end SC_EXPLOSIONSPIRITS;
-      skill "PK_BLOOD_ROSE",10;
   - Id: 13247
     AegisName: Destiny_Brush_T
     Name: Destiny Brush T
