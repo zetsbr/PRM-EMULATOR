@@ -18414,8 +18414,6 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		// Multiplicative Fixed CastTime values
 		if (sc->data[SC_SECRAMENT])
 			fixcast_r = max(fixcast_r, sc->data[SC_SECRAMENT]->val2);
-		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
-			fixcast_r -= skill_lv * 100;
 		if (sc->data[SC_DANCEWITHWUG])
 			fixcast_r = max(fixcast_r, sc->data[SC_DANCEWITHWUG]->val4);
 		if (sc->data[SC_HEAT_BARREL])
@@ -18425,6 +18423,8 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		if (sc->data[SC_SWINGDANCE])
 			fixcast_r = max(fixcast_r, skill_lv * 6);
 		// Additive Fixed CastTime values
+		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
+			fixed -= skill_lv * 100;
 		if (sc->data[SC_MANDRAGORA])
 			fixed += sc->data[SC_MANDRAGORA]->val1 * 500;
 		if (sc->data[SC_GUST_OPTION] || sc->data[SC_BLAST_OPTION] || sc->data[SC_WILD_STORM_OPTION])
