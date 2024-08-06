@@ -11296,11 +11296,9 @@ Body:
     Flags:
       AlterRangeRadius: true
     HitCount: 1
-    CastCancel: true
-    FixedCastTime: 3000
-    CastTimeFlags:
-      IgnoreDex: true
-      IgnoreStatus: true
+    FixedCastTime: 500
+    CastTime: 2500
+    Duration1: 600000
     Requires:
       SpCost:
         - Level: 1
@@ -19127,7 +19125,7 @@ Body:
           Amount: 2
   - Id: 2208
     Name: WL_RADIUS
-    Description: Radius
+    Description: Wolf Eyes
     MaxLevel: 3
   - Id: 2209
     Name: WL_STASIS

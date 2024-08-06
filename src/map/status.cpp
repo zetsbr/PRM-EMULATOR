@@ -7890,7 +7890,7 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 		if( sc->data[SC_INCREASEAGI] )
 			val = max( val, 25 );
 		if( sc->data[SC_WINDWALK] )
-			val = max( val, 2 * sc->data[SC_WINDWALK]->val1 );
+			val = max( val, 4 * sc->data[SC_WINDWALK]->val1 );
 		if (pc_checkskill(sd, AL_DEMONBANE) > 0)
 			val = max(val, 3 * pc_checkskill(sd, AL_DEMONBANE));
 		if (pc_checkskill(sd, NV_BREAKTHROUGH) > 0)
@@ -11318,12 +11318,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = val1; // Reflections
 			tick = INFINITE_TICK;
 			break;
-
-		case SC_MEMORIZE:
-			val2 = 7; // Memorized casts.
-			tick = INFINITE_TICK;
-			break;
-
 #ifndef RENEWAL
 		case SC_GRAVITATION:
 			val2 = 50*val1; // aspd reduction
