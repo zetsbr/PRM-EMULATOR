@@ -1869,10 +1869,12 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case NC_COLDSLOWER:
 		// Status chances are applied officially through a check
 		// The skill first trys to give the frozen status to targets that are hit
-		sc_start(src, bl, SC_FREEZING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
+		if (sc && !sc->data[SC_OVERBRANDREADY] && tsc && !tsc->data[SC_BURNING])
+			sc_start(src, bl, SC_FREEZING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case WL_HELLINFERNO:
-		sc_start(src, bl, SC_BURNING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
+		if (sc && !sc->data[SC_OVERBRANDREADY] && tsc && !tsc->data[SC_FREEZING])
+			sc_start(src, bl, SC_BURNING, 200 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case NC_POWERSWING:
 		if (sc && sc->data[SC_EDP])
@@ -5500,34 +5502,25 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break; 
 	case TK_JUMPKICK:
 		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
-		if (sc && sc->data[SC_CONCENTRATE]) {
-			skill_area_temp[1] = 0;
-			map_foreachinshootrange(skill_attack_area, src,
+		if (sstatus->str <= sstatus->int_)
+			skill_blown(src, bl, skill_get_range(skill_id, skill_lv) - distance_bl(src, bl), unit_getdir(bl), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
+		else
+			unit_movepos(src, bl->x, bl->y, 2, 1);
+		skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
+
+		if (sc && (sc->data[SC_CONCENTRATE] || sc->data[SC_NEN])) {
+			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), splash_target(src),
 				BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-			skill_blown(src, src, skill_get_range(skill_id, skill_lv), unit_getdir(src), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
+			
 			clif_blown(src); // Always blow, otherwise it shows a casting animation. [Lemongrass]
-		}
-		else {
-			if (unit_movepos(src, bl->x, bl->y, 2, 1)) {
-				clif_blown(src);
-				if (sc && sc->data[SC_NEN]) {
-					skill_area_temp[1] = 0;
-					map_foreachinshootrange(skill_attack_area, src,
-						skill_get_splash(skill_id, skill_lv), splash_target(src),
-						BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-				}
-				else {
-					skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
-				}
-			}
 		}
 		break;
 	case LK_HEADCRUSH:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
 		break;
 	case BA_MUSICALSTRIKE:
-		if (sc && sc->data[SC_OVERBRANDREADY]){
+		if (sc && sc->data[SC_OVERBRANDREADY] && tsc && tsc->data[SC_BURNING]){
 			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
 				skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
@@ -5829,7 +5822,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	case RA_WUGDASH:
 	case NC_VULCANARM:
 	case SP_SPA:
-	case NC_COLDSLOWER:
 	case NC_SELFDESTRUCTION:
 	case NC_AXETORNADO:
 	case GC_ROLLINGCUTTER:
@@ -6646,9 +6638,17 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, flag | SD_ANIMATION);
 		break;
 	case WL_HELLINFERNO:
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-		if (sc && sc->data[SC_MANU_DEF])
-			status_change_end(src, SC_MANU_DEF, INVALID_TIMER);
+		if (sc && !sc->data[SC_OVERBRANDREADY] && tsc && tsc->data[SC_FREEZING] && !tsc->data[SC_BURNING])
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
+
+		map_foreachinshootrange(skill_attack_area, bl,
+			skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
+			skill_get_type(skill_id), src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
+
+		break;
+	case NC_COLDSLOWER:
+		if (sc && !sc->data[SC_OVERBRANDREADY] && tsc && !tsc->data[SC_FREEZING] && tsc->data[SC_BURNING])
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
 
 		map_foreachinshootrange(skill_attack_area, bl,
 			skill_get_splash(skill_id, skill_lv), skill_get_type(skill_id),
@@ -13780,14 +13780,9 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 			}
 		}
 		break;
-
 	case AC_SHOWER:
 		status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
 	case MA_SHOWER:
-	case NC_COLDSLOWER:
-		sc_start(src, src, SC_MANU_DEF, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-		if (sc && sc->data[SC_OVERBRANDREADY]) 
-			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 	case RK_DRAGONBREATH:
 	case RK_DRAGONBREATH_WATER:
 	case NPC_DRAGONBREATH:

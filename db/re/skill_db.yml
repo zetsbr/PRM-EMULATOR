@@ -8801,7 +8801,8 @@ Body:
       - Level: 5
         Area: 2
     Requires:
-      SpRateCost: 10
+      SpRateCost: 20
+      HpRateCost: 20
       SpCost: 50
   - Id: 317
     Name: BA_DISSONANCE
@@ -19275,7 +19276,7 @@ Body:
     Range: 6
     Hit: Multi_Hit
     HitCount: -2
-    Element: Weapon
+    Element: Fire
     CopyFlags:
       Skill:
         Plagiarism: true
@@ -19302,11 +19303,12 @@ Body:
         Area: 2
     CastTime: 3000
     AfterCastActDelay: 1000
-    Duration1: 10000
-    Duration2: 4000
+    Duration1: 5000
+    Duration2: 3000
     Cooldown: 3000
     FixedCastTime: 500
     Requires:
+      HpRateCost: 20
       SpRateCost: 20
       SpCost: 25
   - Id: 2213
@@ -22132,17 +22134,16 @@ Body:
     Description: Chilling Frost
     MaxLevel: 10
     Type: Magic
-    TargetType: Ground
-    Flags:
-      TargetTrap: true
-      AllowOnMado: true
+    TargetType: Attack
+    DamageFlags:
+      Splash: true
     Range: 6
     CopyFlags:
       Skill:
         Plagiarism: true
     Hit: Multi_Hit
     HitCount: -2
-    Element: Weapon
+    Element: Water
     SplashArea:
       - Level: 1
         Area: 1
@@ -22167,10 +22168,11 @@ Body:
     CastTime: 3000
     AfterCastActDelay: 1000
     FixedCastTime: 500
-    Duration1: 10000
-    Duration2: 4000
+    Duration1: 5000
+    Duration2: 3000
     Cooldown: 3000
     Requires:
+      HpRateCost: 20
       SpRateCost: 20
       SpCost: 25
   - Id: 2261

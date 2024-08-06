@@ -6908,7 +6908,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio += 3 * (sstatus->int_);
 						if (tsc && tsc->data[SC_BURNING])
 							skillratio += 3 * (sstatus->int_);
-						if (sc && sc->data[SC_MANU_DEF])
+						if (sc && sc->data[SC_OVERBRANDREADY] && tsc && tsc->data[SC_FREEZING])
 							skillratio += 50 * skill_lv + 3 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio *= 1 + 15 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
@@ -6996,7 +6996,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case SO_POISON_BUSTER:
 						skillratio += -100 + 35 * skill_lv + 2 * (sstatus->int_) + (3 * pc_checkskill(sd, GC_RESEARCHNEWPOISON));
 						if (tsc && tsc->data[SC_POISON] || tsc && tsc->data[SC_DPOISON])
-						skillratio += -90 + 70 * skill_lv + 4 * (sstatus->int_);
+							skillratio += -90 + 70 * skill_lv + 4 * (sstatus->int_);
 						break;
 					case NPC_POISON_BUSTER:
 						skillratio += -100 + 1500 * skill_lv;
