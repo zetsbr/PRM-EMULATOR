@@ -11079,11 +11079,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = val3;
 			calc_flag = 0; // Actual status changes take effect on petrified state.
 			break;
-		//case SC_BLOODROSE:
-			// val2 = src->id;
-			// val4 = status_get_sc_interval(type);
-			//ShowDebug("SC Start; Val4 = %d",val4);
-			//break;
+	//	case SC_BLOODROSE:
+
 		case SC_POISON:
 		case SC_BLEEDING:
 		case SC_BURNING:
@@ -11192,7 +11189,14 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = tick/20;
 			tick_time = 20; // [GodLesZ] tick time
 			break;
-
+		case SC_BLOODROSE:
+				tickdelay = status_get_sc_interval(type);
+				val4 = tick / tickdelay;
+				val2 = src->id;
+				val3 = bl->id;
+				tick_time = tickdelay;
+			//	ShowDebug("SC Start part2, tickdelay = %d, val4 = %d, tick_time = %d, src id = %d \n", tickdelay, val4, tick_time, src->id );
+				break;
 		case SC_AUTOGUARD:
 			if( !(flag&SCSTART_NOAVOID) ) {
 				struct map_session_data *tsd;
@@ -12721,11 +12725,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 				tick_time = tick;
 				tick = tick_time + max(val4, 0);
 				break;
-			case SC_BLOODROSE:
-				tickdelay = status_get_sc_interval(SC_BLOODROSE);
-				val4 = tick / tickdelay;
-				tick_time = tickdelay;
-				ShowDebug("SC Start part2, tickdelay = %d, val4 = %d, tick_time = %d, src id = %d \n", &tickdelay, &val4, &tick_time, src->id );
 			case SC_DEATHHURT:
 				if (val3 == 1)
 					break;
@@ -14369,7 +14368,8 @@ TIMER_FUNC(status_change_timer){
 	struct map_session_data *sd;
 	int interval = status_get_sc_interval(type);
 	bool dounlock = false;
-	int64 damage;
+	int damage = 0;
+	char output[128];
 
 	bl = map_id2bl(id);
 	if(!bl) {
@@ -14452,6 +14452,32 @@ TIMER_FUNC(status_change_timer){
 		}
 		break;
 
+	case SC_BLOODROSE:
+	ShowDebug("sc change timer, val4 = %d\n", &sce->val4);
+	if (--(sce->val4) >= 0) {
+		src = map_id2bl(sce->val2);
+		ShowDebug("sc change timer, sc interval is %d, type is %d, src is %d, bl is %d\n,", interval, type, src, bl);
+		damage = 20 * sce->val1;
+		sprintf(output, "damage = %d", damage);
+		clif_messagecolor(src, color_table[COLOR_LIGHT_GREEN], output, false, SELF);
+		if ( (bl->type != BL_PC) && damage > 0 )
+			damage = status->hp - 1; // No deadly damage for monsters
+
+		if (src != nullptr) {
+			damage = 20 * sce->val1 * 30 / 100;
+			
+			//sprintf(output, "damage = %d", damage);
+			//clif_messagecolor(src, color_table[COLOR_LIGHT_GREEN], output, false, SELF);
+			
+			clif_specialeffect(bl, 2049, AREA);
+			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
+			status_heal(src, damage, 0, 1);
+			clif_skill_nodamage(NULL, src, AL_HEAL, damage, 1);
+		}
+		sc_timer_next( interval + tick );
+		return 0;
+	}
+	break;
 	case SC_PROVOKE:
 		if(sce->val2) { // Auto-provoke (it is ended in status_heal)
 			sc_timer_next(1000*60+tick);
@@ -14509,28 +14535,6 @@ TIMER_FUNC(status_change_timer){
 		}
 		break;
 
-	case SC_BLOODROSE:
-		ShowDebug("sc change timer, val4 = %d\n", &sce->val4);
-		if (--sce->val4 >= 0) {
-			src = map_id2bl(sce->val2);
-			damage = 20 * sce->val1;
-			if (!sd && damage >= status->hp)
-				damage = status->hp - 1; // No deadly damage for monsters
-			map_freeblock_lock();
-			dounlock = true;
-		
-			ShowDebug("sc change timer, sc interval is %d, type is %d\n",status_get_sc_interval(type), type);
-			
-			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
-			if (src && src != nullptr) {
-				damage *= 30;
-				damage /= 100;
-				status_heal(src, damage, 0, 1);
-				clif_skill_nodamage(NULL, src, AL_HEAL, damage, 1);
-			}
-			sc_timer_next( (status_get_sc_interval(SC_BLOODROSE) + tick) );
-		}
-		break;
 
 	case SC_TOXIN:
 		if (sce->val4 >= 0) { // Damage is every 10 seconds including 3%sp drain.
@@ -15403,6 +15407,11 @@ int status_change_timer_sub(struct block_list* bl, va_list ap)
 	struct status_change_entry* sce = va_arg(ap,struct status_change_entry*);
 	enum sc_type type = (sc_type)va_arg(ap,int); // gcc: enum args get promoted to int
 	t_tick tick = va_arg(ap,t_tick);
+
+
+	int damage = 0;
+	status_data *status = status_get_status_data(bl);
+	int interval = status_get_sc_interval(type);
 
 	if (status_isdead(bl))
 		return 0;

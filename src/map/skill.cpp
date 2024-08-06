@@ -7003,7 +7003,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			status_heal(src, heal, 0, 0);
 			clif_skill_nodamage(NULL, src, AL_HEAL, heal, 1);
 		}
-		sc_start2(src, bl, SC_BLOODROSE, 1000, skill_lv, skill_get_time(skill_id, skill_lv),bl->id); //Debuff com duração infinita mas efeito interessante para conceitos futuros
+		sc_start2(src, bl, SC_BLOODROSE, 1000, skill_lv, bl->id, skill_get_time(skill_id, skill_lv)); //Debuff com duração infinita mas efeito interessante para conceitos futuros
 
 		break;
 
