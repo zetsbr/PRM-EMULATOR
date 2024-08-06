@@ -10165,7 +10165,7 @@ Body:
     TargetType: Attack
     Range: 7
     Hit: Multi_Hit
-    HitCount: 5
+    HitCount: 3
     CopyFlags:
       Skill:
         Plagiarism: true
