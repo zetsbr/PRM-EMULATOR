@@ -7061,8 +7061,10 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		if (heal && rnd() % 100 < heal_rate)
 		{
 			status_heal(src, heal, 0, 0);
+			clif_skill_nodamage(NULL, src, AL_HEAL, heal, 1);
 		}
-		// sc_start(src, bl, SC_BLOODROSE, 100, skill_lv, skill_get_time(skill_id, skill_lv)); //Debuff com duração infinita mas efeito interessante para conceitos futuros
+		sc_start2(src, bl, SC_BLOODROSE, 1000, skill_lv, bl->id, skill_get_time(skill_id, skill_lv));
+
 		break;
 
 	default:
@@ -18412,8 +18414,6 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		// Multiplicative Fixed CastTime values
 		if (sc->data[SC_SECRAMENT])
 			fixcast_r = max(fixcast_r, sc->data[SC_SECRAMENT]->val2);
-		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
-			fixcast_r -= skill_lv * 100;
 		if (sc->data[SC_DANCEWITHWUG])
 			fixcast_r = max(fixcast_r, sc->data[SC_DANCEWITHWUG]->val4);
 		if (sc->data[SC_HEAT_BARREL])
@@ -18423,6 +18423,8 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		if (sc->data[SC_SWINGDANCE])
 			fixcast_r = max(fixcast_r, skill_lv * 6);
 		// Additive Fixed CastTime values
+		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
+			fixed -= skill_lv * 100;
 		if (sc->data[SC_MANDRAGORA])
 			fixed += sc->data[SC_MANDRAGORA]->val1 * 500;
 		if (sc->data[SC_GUST_OPTION] || sc->data[SC_BLAST_OPTION] || sc->data[SC_WILD_STORM_OPTION])
