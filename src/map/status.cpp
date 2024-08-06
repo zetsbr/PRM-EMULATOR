@@ -7889,8 +7889,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SPEEDUP1]->val1 );
 		if( sc->data[SC_INCREASEAGI] )
 			val = max( val, 25 );
-		if( sc->data[SC_WINDWALK] )
-			val = max( val, 4 * sc->data[SC_WINDWALK]->val1 );
 		if (pc_checkskill(sd, AL_DEMONBANE) > 0)
 			val = max(val, 3 * pc_checkskill(sd, AL_DEMONBANE));
 		if (pc_checkskill(sd, NV_BREAKTHROUGH) > 0)
@@ -7937,6 +7935,9 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SPEEDUP0]->val1 );
 		if( sd && sd->bonus.speed_rate + sd->bonus.speed_add_rate < 0 ) // Permanent item-based speedup
 			val = max( val, -(sd->bonus.speed_rate + sd->bonus.speed_add_rate) );
+
+		if (sc->data[SC_WINDWALK])
+			val += 2 * sc->data[SC_WINDWALK]->val1;
 
 		speed_rate -= val;
 
