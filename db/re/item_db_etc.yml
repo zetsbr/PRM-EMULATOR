@@ -3316,8 +3316,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Insect,18;
-      bonus2 bMagicAddRace,RC_Insect,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Insect,2*(.@r);
+      bonus2 bMagicAddRace,RC_Insect,2*(.@r);
   - Id: 4040
     AegisName: Creamy_Card
     Name: Creamy Card
@@ -3607,8 +3608,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Brute,18;
-      bonus2 bMagicAddRace,RC_Brute,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Undead,2*(.@r);
+      bonus2 bMagicAddRace,RC_Undead,2*(.@r);
   - Id: 4061
     AegisName: Cornutus_Card
     Name: Cornutus Card
@@ -4055,7 +4057,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Garment: true
+      Shoes: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -4410,8 +4412,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Dragon,18;
-      bonus2 bMagicAddRace,RC_Dragon,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Dragon,2*(.@r);
+      bonus2 bMagicAddRace,RC_Dragon,2*(.@r);
   - Id: 4119
     AegisName: Bathory_Card
     Name: Bathory Card
@@ -4616,8 +4619,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_Medium,10;
-      bonus2 bMagicAddSize,Size_Medium,10;
+      bonus2 bAddSize,Size_Medium,14;
+      bonus2 bMagicAddSize,Size_Medium,14; 
   - Id: 4134
     AegisName: Dracula_Card
     Name: Dracula Card
@@ -4657,8 +4660,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_All,6;
-      bonus2 bMagicAddSize,Size_All,6;
+      .@r = getrefine();
+      bonus2 bAddSize,Size_All,.@r;
+      bonus2 bMagicAddSize,Size_All,.@r;
   - Id: 4137
     AegisName: Drake_Card
     Name: Drake Card
@@ -5153,9 +5157,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bCritAtkRate,12;
+      bonus bCritAtkRate,15;
       bonus bCritical,3;
-      bonus bMaxSPrate,-20;
   - Id: 4173
     AegisName: Demon_Pungus_Card
     Name: Demon Pungus Card
@@ -5362,8 +5365,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_Small,10;
-      bonus2 bMagicAddSize,Size_Small,10;
+      bonus2 bAddSize,Size_Small,14;
+      bonus2 bMagicAddSize,Size_Small,14;
   - Id: 4188
     AegisName: Leib_Olmai_Card
     Name: Leib Olmai Card
@@ -5676,8 +5679,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddSize,Size_Large,10;
-      bonus2 bMagicAddSize,Size_Large,10;
+      bonus2 bAddSize,Size_Large,14;
+      bonus2 bMagicAddSize,Size_Large,14;
   - Id: 4211
     AegisName: Vocal_Card
     Name: Vocal Card
@@ -5731,10 +5734,11 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_DemiHuman,18;
-      bonus2 bAddRace,RC_Player_Human,18;
-      bonus2 bMagicAddRace,RC_DemiHuman,18;
-      bonus2 bMagicAddRace,RC_Player_Human,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_DemiHuman,2*(.@r);
+      bonus2 bAddRace,RC_Player_Human,2*(.@r);
+      bonus2 bMagicAddRace,RC_DemiHuman,2*(.@r);
+      bonus2 bMagicAddRace,RC_Player_Human,2*(.@r);
   - Id: 4215
     AegisName: Blazzer_Card
     Name: Blazer Card
@@ -7117,8 +7121,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Fish,18;
-      bonus2 bMagicAddRace,RC_Fish,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Fish,2*(.@r);
+      bonus2 bMagicAddRace,RC_Fish,2*(.@r);
   - Id: 4315
     AegisName: PestS_Card
     Name: PestS Card
@@ -7476,8 +7481,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Formless,18;
-      bonus2 bMagicAddRace,RC_Formless,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Formless,2*(.@r);
+      bonus2 bMagicAddRace,RC_Formless,2*(.@r);
   - Id: 4341
     AegisName: Metaling_Card
     Name: Metaling Card
@@ -8139,13 +8145,15 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Mid: true
+      Garment: true
     Refineable: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus4 bAutoSpellOnSkill,"RA_WUGSTRIKE","SJ_SUNSTANCE",1,1000;
+      bonus2 bSkillAtk,"RA_WUGSTRIKE",15;
+      .@r = getrefine();
+      bonus bMaxHP,100*.@r;
   - Id: 4387
     AegisName: Ancient_Mimic_Card
     Name: Ancient Mimic Card
@@ -8582,8 +8590,9 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus2 bAddRace,RC_Plant,18;
-      bonus2 bMagicAddRace,RC_Plant,18;
+      .@r = getrefine();
+      bonus2 bAddRace,RC_Plant,2*(.@r);
+      bonus2 bMagicAddRace,RC_Plant,2*(.@r);
   - Id: 4422
     AegisName: Roween_Card
     Name: Roween Card
@@ -26462,7 +26471,7 @@ Body:
       .@r = getrefine();
       bonus bSPrecovRate,25;
       if (.@r>=10) {
-        bonus bSPrecovRate,0;
+        bonus bSPrecovRate,50;
       }
   - Id: 7384
     AegisName: AwakenedOrphan
@@ -33105,9 +33114,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 534,10;
-      skill 2259,10;
-      skill 2443,10;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 534,10;
+        skill 2259,10;
+        skill 2443,10;
+      }
   - Id: 28444
     AegisName: Water_Cantrips
     Name: Water Cantrips
@@ -33126,9 +33137,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 537,10;
-      skill 2447,10;
-      skill 2203,3;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 537,10;
+        skill 2447,10;
+        skill 2203,3;
+      }
   - Id: 28445
     AegisName: Wind_Cantrips
     Name: Wind Cantrips
@@ -33147,9 +33160,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 540,10;
-      skill 542,10;
-      skill 541,10;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 540,10;
+        skill 542,10;
+        skill 541,10;
+      }
   - Id: 28446
     AegisName: Heal_Cantrips
     Name: Heal Cantrips
@@ -33168,9 +33183,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: |
-      skill 70,10;
-      skill 2050,5;
-      skill 2345,7;
+      if(getskilllv("SG_KNOWLEDGE")>=3){
+        skill 70,10;
+        skill 2050,5;
+        skill 2345,7;
+      }
   - Id: 28447
     AegisName: Thievery_Cantrips
     Name: Thievery Cantrips
@@ -33189,9 +33206,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 4,10;
-      skill 2036,5;
-      skill 52,10;
+      if(getskilllv("SG_KNOWLEDGE")>=1){
+        skill 4,10;
+        skill 2036,5;
+        skill 52,10;
+      }
   - Id: 28448
     AegisName: Slash_Cantrips
     Name: Slash Cantrips
@@ -33210,9 +33229,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 56,5;
-      skill 530,10;
-      skill 2002,10;
+      if(getskilllv("SG_KNOWLEDGE")>=4){
+        skill 56,5;
+        skill 530,10;
+        skill 2002,10;
+      }
   - Id: 28449
     AegisName: Power_Cantrips
     Name: Power Cantrips
@@ -33231,9 +33252,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 136,10;
-      skill 62,5;
-      skill 2336,10;
+      if(getskilllv("SG_KNOWLEDGE")>=6){
+        skill 136,10;
+        skill 62,5;
+        skill 2336,10;
+      }
   - Id: 28450
     AegisName: Stray_Cantrips
     Name: Stray Cantrips
@@ -33252,9 +33275,11 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 359,1;
-      skill 48,10;
-      skill 265,10;
+      if(getskilllv("SG_KNOWLEDGE")>=5){
+        skill 359,1;
+        skill 48,10;
+        skill 265,10;
+      }
   - Id: 28451
     AegisName: Specialized_Cantrips
     Name: Specialized Cantrips
@@ -33273,14 +33298,16 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 379,10;
-      skill 2307,5;
-      skill 2448,10;
-      skill 2327,5;
-      skill 2038,10;
-      skill 2288,10;
-      skill 2485,10;
-      skill 357,5;
+      if(getskilllv("SG_KNOWLEDGE")>=7){
+        skill 379,10;
+        skill 2307,5;
+        skill 2448,10;
+        skill 2327,5;
+        skill 2038,10;
+        skill 2288,10;
+        skill 2485,10;
+        skill 357,5;
+      }
   - Id: 28452
     AegisName: Expert_Cantrips
     Name: Expert Cantrips
@@ -33299,10 +33326,12 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 518,10;
-      skill 481,10;
-      skill 2324,5;
-      skill 421,5;
+      if(getskilllv("SG_KNOWLEDGE")>=8){
+        skill 518,10;
+        skill 481,10;
+        skill 2324,5;
+        skill 421,5;
+      }
   - Id: 28453
     AegisName: Master_Cantrips
     Name: Master Cantrips
@@ -33321,11 +33350,13 @@ Body:
     Flags:
       DropEffect: PURPLE_PILLAR
     Script: | 
-      skill 2454,7;
-      skill 2004,10;
-      skill 2216,10;
-      skill 2213,5;
-      skill 2418,10;
+      if(getskilllv("SG_KNOWLEDGE")>=10){
+        skill 2454,7;
+        skill 2004,10;
+        skill 2216,10;
+        skill 2213,5;
+        skill 2418,10;
+      }
   - Id: 28599
     AegisName: Cantrips_Codex
     Name: Cantrips Codex
@@ -33359,7 +33390,11 @@ Body:
     Attack: 20
     Weight: 500
     Jobs:
+      Paladin: true
+      Crusader: true
+      Creator: true
       Genetic: true
+      Rogue: true
     Locations:
       Ammo: true
     EquipLevelMin: 1
@@ -33378,7 +33413,11 @@ Body:
     Attack: 20
     Weight: 500
     Jobs:
+      Paladin: true
+      Crusader: true
+      Creator: true
       Genetic: true
+      Rogue: true
     Locations:
       Ammo: true
     EquipLevelMin: 1
@@ -34850,7 +34889,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bShortAtkRate,4;
+      .@r = getrefine();
+      bonus bShortAtkRate,.@r;
   - Id: 13551
     AegisName: ThorAvatar_Card
     Name: ThorAvatar Card
@@ -35734,7 +35774,8 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bCritAtkRate,8;
+      .@r = getrefine();
+      bonus bCritAtkRate,2*(.@r);
       bonus bAspd,1;
   - Id: 13614
     AegisName: Abyss_Lord_Card
@@ -37106,7 +37147,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Armor: true
+      Garment: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -37119,7 +37160,7 @@ Body:
     Buy: 20
     Weight: 10
     Locations:
-      Head_Top: true
+      Garment: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -43618,7 +43659,7 @@ Body:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
     Script: |
-      bonus bAtkRate,4;
+      bonus bAtkRate,5;
   - Id: 27320
     AegisName: E_EA1L_Card
     Name: E-EA1L card
@@ -43650,8 +43691,9 @@ Body:
     Flags:
       DropEffect: YELLOW_PILLAR
     Script: |
+      skill "ALL_FULL_THROTTLE",2;
       if (unchainedjob !=1){
-        bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-3480000;
+        bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-2000;
       }
   - Id: 27322
     AegisName: Demon_God's_Apostle_Ahat_Card
