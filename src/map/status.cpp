@@ -14478,10 +14478,11 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_POISON:
 	case SC_DPOISON:
-		if (sce->val4 >= 0 && !sc->data[SC_SLOWPOISON]) {
-			unsigned int damage = 0;																				
-			if (status->hp > umax(status->max_hp / 2, damage)) // Stop damaging after 25% HP left.
-				status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
+		if (sce->val4 >= 0) {
+			int64 damage = 200; // Deals fixed (1000 + 3%*MaxHP)
+			map_freeblock_lock();
+			dounlock = true;
+			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
 		}
 		break;
 

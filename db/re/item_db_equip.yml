@@ -122933,7 +122933,9 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillCooldown,"NC_AXETORNADO",-1000;
+      .@r = getrefine();
+      bonus bStr,2+(.@r);
+      bonus bVit,2+(.@r);
   - Id: 24550
     AegisName: Heavy_Guillotine_S
     Name: Heavy Guillotine S
