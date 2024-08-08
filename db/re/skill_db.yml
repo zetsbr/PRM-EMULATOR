@@ -20228,7 +20228,7 @@ Body:
     Hit: Single
     HitCount: 1
     Element: Weapon
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 500
     Cooldown: 30000
     Requires:
       SpCost:
