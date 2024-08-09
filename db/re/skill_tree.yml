@@ -3382,7 +3382,7 @@ Body:
           - Name: GC_RESEARCHNEWPOISON
             Level: 5
       - Name: GC_POISONINGWEAPON
-        MaxLevel: 10
+        MaxLevel: 5
         Requires:
           - Name: GC_CREATENEWPOISON
             Level: 1
@@ -3432,7 +3432,7 @@ Body:
           - Name: NC_POWERSWING
             Level: 1
       - Name: ASC_EDP
-        MaxLevel: 10
+        MaxLevel: 5
         Requires:
           - Name: GN_HELLS_PLANT
             Level: 1

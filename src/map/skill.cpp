@@ -4343,7 +4343,6 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 			struct status_change* ssc = status_get_sc(src);
 			if (ssc && ssc->data[SC_POISONINGWEAPON] && rnd() % 100 < 50 + 5 * skill_lv) {
 				sc_start4(src, bl, (sc_type)ssc->data[SC_POISONINGWEAPON]->val2, 100, ssc->data[SC_POISONINGWEAPON]->val1, 0, 1, 0, skill_get_time2(GC_POISONINGWEAPON, 1));
-				status_change_end(src, SC_POISONINGWEAPON, INVALID_TIMER);
 				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			}
 		}
@@ -5911,7 +5910,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			}
 		}
 		else {
-			int starget = BL_CHAR | BL_SKILL;
+			int starget = BL_CHAR | BL_SKILL; 
 
 			skill_area_temp[0] = 0;
 			skill_area_temp[1] = bl->id;
@@ -5969,10 +5968,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			if (skill_id == RA_ARROWSTORM)
 				status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
 				status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
-			if (skill_id == AS_SPLASHER) {
-				map_freeblock_unlock(); // Don't consume a second gemstone.
-				return 0;
-			}
 		}
 		break;
 

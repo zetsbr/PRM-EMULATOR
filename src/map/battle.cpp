@@ -3712,8 +3712,9 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 {
 	struct map_session_data *sd = BL_CAST(BL_PC, src);
 	struct status_change *sc = status_get_sc(src);
-	struct status_change *tsc = status_get_sc(target);
+	struct status_change *tsc = status_get_sc(target); 
 	struct status_data *tstatus = status_get_status_data(target);
+	sc_type negative_status[] = { SC_POISON, SC_DPOISON, SC_LEECHESEND, SC_DEATHHURT, SC_BURNING, SC_PYREXIA, SC_MAGICMUSHROOM, SC_BLEEDING, SC_STONE, SC_TOXIN, SC_HELLS_PLANT, SC_BLOODROSE };
 
 	if( sd && !skill_id ) {	// if no skill_id passed, check for double attack [helvetica]
 		short i;
@@ -3817,8 +3818,19 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 					wd->div_++;
 				}
 			}
-		break;
+			break;
 #endif
+		case RL_HAMMER_OF_GOD:
+			if (sc && tsc) {
+				int count = 0;
+				for (sc_type status : negative_status) {
+					if (tsc->data[status]) {
+						++count;
+					}
+				}
+				wd->div_ += count;
+			}
+			break;
 	}
 }
 
@@ -4299,15 +4311,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 100 + 100 * skill_lv;
 #endif
 			break;
-		case AS_SPLASHER:
-#ifdef RENEWAL
-		skillratio += 100 + 15 * skill_lv + 1 * (sstatus->vit) + (3 * pc_checkskill(sd, GC_RESEARCHNEWPOISON));
-#else
-		skillratio += 400 + 50 * skill_lv;
-#endif
-		if (sd)
-			skillratio += 5 * pc_checkskill(sd, AS_POISONREACT);
-		break;
 		case ASC_BREAKER:
 #ifdef RENEWAL
 			skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
@@ -5107,8 +5110,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case RL_HAMMER_OF_GOD:
 			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
-			if (tsc && tsc->data[SC_DPOISON])
-				skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
 			break;
 		case RL_FIRE_RAIN:
 			skillratio += 150 + 10 * skill_lv + 1 * (sstatus->str) + (20 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));
@@ -6683,7 +6684,16 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 			            break;
 					case NC_FLAMELAUNCHER:
 					skillratio += -100 + 25 * skill_lv + 3 * (sstatus->int_);
-					break;										 
+					break;
+					case AS_SPLASHER:
+#ifdef RENEWAL
+						skillratio += 100 + 15 * skill_lv + 2 * (sstatus->int_) + (3 * pc_checkskill(sd, GC_RESEARCHNEWPOISON));
+#else
+						skillratio += 400 + 50 * skill_lv;
+#endif
+						if (sd)
+							skillratio += 5 * pc_checkskill(sd, AS_POISONREACT);
+						break;
 					case NJ_KOUENKA:
 						skillratio -= 50;
 						if(sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
