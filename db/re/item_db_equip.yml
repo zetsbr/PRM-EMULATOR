@@ -6991,7 +6991,7 @@ Body:
     Refineable: true
     Script: |
       bonus2 bSkillAtk,"NC_AXETORNADO",15;
-      bonus bSplashRange,1;
+      bonus bAtkRate,5;
   - Id: 1302
     AegisName: Axe_
     Name: Axe
@@ -7019,7 +7019,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       bonus2 bSkillAtk,"NC_AXETORNADO",15;
-      bonus bSplashRange,1;
+      bonus bAtkRate,5;
   - Id: 1303
     AegisName: Master_Axe
     Name: Master Axe
@@ -7047,7 +7047,8 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,4;
+      bonus bAtkRate,10;
+      bonus bMatkRate,10;
       .@a = getskilllv("AM_AXEMASTERY");
       bonus bMaxHPrate,.@a;
       bonus bMatkRate,.@a;
@@ -7061,9 +7062,9 @@ Body:
     Buy: 500
     Sell: 250
     Weight: 1300
-    Attack: 17
+    Attack: 35
     Range: 1
-    Slots: 3
+    Slots: 1
     Jobs:
       Paladin: true
       Alchemist: true
@@ -7079,9 +7080,8 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
-      .@r = getrefine();
-      bonus bBaseAtk,.@r;
+      bonus bAtkRate,5;
+      bonus bHit,-20;
   - Id: 1305
     AegisName: Nest_Avenger
     Name: Nest Avenger
@@ -7109,16 +7109,12 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,3;
-      bonus bAtkEle,Ele_Poison;
+      bonus bMatkRate,9;
       .@r = getrefine();
       bonus bInt,.@r;
+      bonus bVit,.@r;
       bonus2 bSkillCooldown,"AS_POISONREACT",-600000;
       bonus2 bSkillAtk,"AS_SPLASHER",20;
-      bonus2 bAddEle,Ele_Neutral,15;
-      bonus2 bAddEle,Ele_Ghost,-15;
-      bonus2 bAddEle,Ele_Undead,-15;
-      bonus2 bAddEle,Ele_Holy,-10;
   - Id: 1306
     AegisName: War_Axe
     Name: War Axe
@@ -7146,7 +7142,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,8;
       .@r = getrefine();
       bonus5 bAddEffOnSkill,"NC_AXETORNADO",Eff_Bleeding,3000*(.@r),ATF_TARGET,10000;
   - Id: 1307
@@ -7175,7 +7171,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,6;
       bonus2 bSkillAtk,"AM_ACIDTERROR",30;
       bonus bLongAtkRate,10;
   - Id: 1308
@@ -7205,7 +7201,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,5;
+      bonus bAtkRate,6;
       bonus bMaxHP,500;
   - Id: 1309
     AegisName: Saw_Axe
@@ -7240,7 +7236,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,6;
       .@r = getrefine();
       bonus2 bSkillAtk,"NC_AXEBOOMERANG",3*(.@r);
       bonus bVit,5;
@@ -7322,9 +7318,9 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,8;
       bonus2 bSkillAtk,"NC_POWERSWING",25;
-      bonus bHPrecovRate,25;
+      bonus bAspdRate,3*.@r;
       bonus bFleeRate,-10;
   - Id: 1312
     AegisName: Royal_Axe
@@ -7337,7 +7333,7 @@ Body:
     Attack: 34
     MagicAttack: 10
     Range: 1
-    Slots: 2
+    Slots: 3
     Jobs:
       Paladin: true
       Alchemist: true
@@ -7359,9 +7355,9 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,8;
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_POWERSWING",4*(.@r);
+      bonus2 bSkillAtk,"RL_HAMMER_OF_GOD",4*(.@r);
       bonus2 bIgnoreDefRaceRate,RC_All,10;
   - Id: 1313
     AegisName: Blaster_Axe
@@ -7390,7 +7386,8 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
       .@r = getrefine();
       bonus bMatkRate,.@r;
       bonus bAtkRate,.@r;
@@ -7426,7 +7423,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bMatkRate,7;
       .@r = getrefine();
       bonus2 bSkillAtk,"SO_CLOUD_KILL",3*(.@r);
       bonus5 bAddEffOnSkill,"SO_CLOUD_KILL",Eff_Poison,2000,ATF_TARGET,10000;
@@ -7457,7 +7454,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,7;
       .@r = getrefine();
       bonus2 bSkillAtk,"GN_CRAZYWEED",3*(.@r);
       bonus2 bSkillCooldown,"GN_CRAZYWEED",-3000;
@@ -7489,7 +7486,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,8;
       .@r = getrefine();
       bonus2 bSkillAtk,"AS_SPLASHER",50;
       bonus2 bSkillCooldown,"GC_VENOMIMPRESS",-8000;
@@ -7521,7 +7518,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,9;
       .@r = getrefine();
       bonus2 bSkillAtk,"NC_MAGMA_ERUPTION",5*(.@r);
       bonus bHPrecovRate,12*(.@r);
@@ -7553,6 +7550,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       bonus bMaxSPrate,-99;
+      bonus bAtkRate,7;
       bonus bAspd,-30;
       bonus bSplashRange,8;
   - Id: 1319
@@ -7843,7 +7841,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus2 bMagicAtkEle,Ele_Poison,10;
-      bonus bSplashRange,1;
+      bonus bMatkRate,8;
       bonus5 bAddEffOnSkill,"NC_AXETORNADO",Eff_Poison,400*(.@r),ATF_TARGET,10000;
       bonus bVariableCastrate,-10;
   - Id: 1333
@@ -8083,7 +8081,7 @@ Body:
     EquipLevelMin: 75
     Refineable: true
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,6;
       .@r = getrefine();
       bonus2 bSkillAtk,"NC_AXETORNADO",2*.@r;
       bonus2 bSkillAtk,"NC_AXEBOOMERANG",2*.@r;
@@ -8114,7 +8112,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,6;
       .@r = getrefine();
       bonus2 bSkillAtk,"NC_AXETORNADO",2*.@r;
       bonus2 bSkillAtk,"NC_AXEBOOMERANG",2*.@r;
@@ -8165,7 +8163,7 @@ Body:
     EquipLevelMin: 60
     Refineable: true
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,9;
       bonus bAddMaxWeight,300;
   - Id: 1361
     AegisName: Double_Axe_
@@ -8194,7 +8192,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,9;
       bonus bAddMaxWeight,300;
   - Id: 1362
     AegisName: Two_Handed_Axe__
@@ -8268,7 +8266,8 @@ Body:
     EquipLevelMin: 40
     Refineable: true
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
       bonus bStr,2;
       bonus bInt,2;
   - Id: 1365
@@ -8295,7 +8294,7 @@ Body:
     EquipLevelMin: 85
     Refineable: true
     Script: |
-      bonus bSplashRange,5;
+      bonus bAtkRate,10;
       bonus bHPDrainValue,-100;
       .@r = getrefine();
       bonus bCritical,5*.@r;
@@ -8326,7 +8325,7 @@ Body:
     EquipLevelMin: 75
     Refineable: true
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,6;
       .@r = getrefine();
       bonus2 bSkillAtk,"AM_ACIDTERROR",3*.@r;
       bonus2 bSkillAtk,"AM_DEMONSTRATION",3*.@r;
@@ -8357,7 +8356,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,6;
       .@r = getrefine();
       bonus2 bSkillAtk,"AM_ACIDTERROR",2*.@r;
       bonus2 bSkillAtk,"AM_DEMONSTRATION",2*.@r;
@@ -8538,7 +8537,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,5;
+      bonus bAtkRate,10;
       bonus bHPDrainValue,-100;
       .@r = getrefine();
       bonus bCritical,5*.@r;
@@ -8658,7 +8657,7 @@ Body:
     EquipLevelMin: 60
     Refineable: true
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,7;
       bonus2 bAddEle,Ele_Neutral,10;
       bonus2 bMagicAddEle,Ele_Neutral,10;
   - Id: 1378
@@ -8688,7 +8687,8 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,5;
+      bonus bMatkRate,5;
       bonus bStr,2;
       bonus bInt,2;
   - Id: 1379
@@ -8718,7 +8718,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,7;
       bonus2 bAddEle,Ele_Neutral,10;
       bonus2 bMagicAddEle,Ele_Neutral,10;
   - Id: 1380
@@ -8983,7 +8983,7 @@ Body:
     EquipLevelMin: 60
     Refineable: true
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,6;
       bonus3 bAutoSpell,"TF_POISON",10,30;
   - Id: 1388
     AegisName: Two_Handed_Axe_C
@@ -9044,7 +9044,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,6;
       bonus3 bAutoSpell,"TF_POISON",10,30;
   - Id: 1390
     AegisName: E_Right_Epsilon_C
@@ -9122,7 +9122,8 @@ Body:
     EquipLevelMin: 80
     Refineable: true
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,5;
+      bonus bMatkRate,7;
       .@r = getrefine();
       bonus2 bAddEff,Eff_Burning,200*.@r;
   - Id: 1393
@@ -9150,7 +9151,8 @@ Body:
     EquipLevelMin: 80
     Refineable: true
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,5;
+      bonus bMatkRate,7;
       .@r = getrefine();
       bonus2 bAddEff,Eff_Crystalize,200*.@r;
   - Id: 1394
@@ -9180,7 +9182,8 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,5;
+      bonus bMatkRate,7;
       .@r = getrefine();
       bonus2 bAddEff,Eff_Burning,200*.@r;
   - Id: 1395
@@ -9210,7 +9213,8 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,5;
+      bonus bMatkRate,7;
       .@r = getrefine();
       bonus2 bAddEff,Eff_Crystalize,200*.@r;
   - Id: 1396
@@ -9280,10 +9284,10 @@ Body:
     Buy: 500
     Sell: 250
     Weight: 1300
-    Attack: 30
+    Attack: 10
     MagicAttack: 10
     Range: 1
-    Slots: 1
+    Slots: 4
     Jobs:
       Paladin: true
       Alchemist: true
@@ -9305,7 +9309,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,5;
       bonus2 bIgnoreDefRaceRate,RC_All,20;
   - Id: 1399
     AegisName: TE_Woe_Two_Handed_Axe
@@ -9464,7 +9468,8 @@ Body:
     EquipLevelMin: 80
     Refineable: true
     Script: |
-      bonus bSplashRange,3;
+      bonus bAtkRate,5;
+      bonus bMatkRate,10;
       .@r = getrefine();
       bonus3 bAutoSpellWhenHit,"NJ_HYOUSYOURAKU",3,(.@r*10);
   - Id: 1404
@@ -13119,7 +13124,8 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,4;
+      bonus bAtkRate,10;
+      bonus bMatkRate,10;
       bonus bAddMaxWeight,10000;
       .@r = getrefine();
       bonus2 bIgnoreDefRaceRate,RC_All,.@r;
@@ -70660,7 +70666,8 @@ Body:
     Script: |
       bonus2 bSkillAtk,"SO_POISON_BUSTER",10;
       bonus2 bAddSize,Size_Small,20;
-      bonus bSplashRange,1;
+      bonus bAtkRate,7;
+      bonus bMatkRate,7;
   - Id: 13702
     AegisName: Blood Drinker
     Name: Blood Drinker
@@ -70811,7 +70818,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,6;
       bonus bAspd,5;
   - Id: 13709
     AegisName: Baron_Scythe
@@ -131739,7 +131746,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,2;
+      bonus bAtkRate,7;
       bonus2 bSkillAtk,"NC_AXETORNADO",100;
       bonus2 bSkillCooldown,"NC_AXETORNADO",2000;
       .@r = getrefine();
@@ -131772,7 +131779,7 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bSplashRange,3;
+      bonus bAtkRate,3;
       bonus bMaxHPrate,10;
       bonus bNoMagicDamage,3;
       bonus bNoWeaponDamage,3;
@@ -132212,7 +132219,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bSplashRange,1;
+      bonus bAtkRate,5;
       bonus bMaxHPrate,1;
       bonus bMaxSPrate,1;
   - Id: 28137
