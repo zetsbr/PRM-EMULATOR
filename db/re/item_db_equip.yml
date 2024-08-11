@@ -26065,8 +26065,7 @@ Body:
     Defense: 50
     Slots: 2
     Jobs:
-      Paladin: true
-      All: false
+      All: true
     Classes:
       Normal: true
       Upper: true
