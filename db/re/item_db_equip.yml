@@ -26065,7 +26065,7 @@ Body:
     Defense: 50
     Slots: 2
     Jobs:
-      All: false
+      All: true
     Classes:
       Normal: true
       Upper: true
