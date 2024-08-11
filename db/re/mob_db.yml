@@ -66006,8 +66006,11 @@ Body:
       KnockBackImmune: true
       StatusImmune: true
       Mvp: true
+    MvpDrops:
+      - Item: Emperium_G
+        Rate: 10000
     Drops:
-      - Item: HD_Oridecon
+      - Item: Emperium_G
         Rate: 10000
       - Item: Distortion_Essence
         Rate: 10000
@@ -66117,13 +66120,13 @@ Body:
       StatusImmune: true
       Mvp: true
     MvpDrops:
-      - Item: HD_Elunium
-        Rate: 10000
-      - Item: HD_Oridecon
-        Rate: 10000
       - Item: C_SwordWing
         Rate: 1500
+      - Item: Emperium_G
+        Rate: 10000
     Drops:
+      - Item: Emperium_G
+        Rate: 10000
       - Item: Emperium_Armor
         Rate: 10000
         RandomOptionGroup: armor
@@ -66139,10 +66142,6 @@ Body:
       - Item: Emperium_Ring
         Rate: 10000
         RandomOptionGroup: accessory
-      - Item: HD_Oridecon
-        Rate: 10000
-      - Item: HD_Elunium
-        Rate: 10000
       - Item: Soul_Ymir_Card
         Rate: 300
         StealProtected: true

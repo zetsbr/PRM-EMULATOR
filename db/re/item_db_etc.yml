@@ -18961,11 +18961,6 @@ Body:
     Trade:
       Override: 100
       NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
   - Id: 6445
     AegisName: Blue_Card_X
     Name: Blue Card X
