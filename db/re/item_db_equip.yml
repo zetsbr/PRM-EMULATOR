@@ -105157,6 +105157,8 @@ Body:
     AegisName: C_Thanatos_Sword
     Name: Costume Thanatos Sword
     Type: Armor
+    Flags:
+      DropEffect: PURPLE_PILLAR
     View: 23
     Locations:
       Costume_Garment: true
@@ -105514,6 +105516,8 @@ Body:
     Name: "Costume: Loli Ruri's Crescent"
     Type: Armor
     View: 64
+    Flags:
+      DropEffect: PURPLE_PILLAR
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
@@ -105603,6 +105607,8 @@ Body:
     Name: Costume Giant Cat Bag
     Type: Armor
     View: 80
+    Flags:
+      DropEffect: PURPLE_PILLAR
     Locations:
       Costume_Garment: true
     ArmorLevel: 1
@@ -113341,12 +113347,7 @@ Body:
     Trade:
       Override: 100
       NoDrop: true
-      NoTrade: true
       NoSell: true
-      NoCart: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
     EquipScript: |
       i = getlook(LOOK_CLOTHES_COLOR);
       if (lockedcolor ==1){
