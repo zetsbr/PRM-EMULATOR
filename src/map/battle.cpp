@@ -1765,6 +1765,12 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 				sc_start4(src, bl, (sc_type)sc->data[SC_POISONINGWEAPON]->val2, 100, sc->data[SC_POISONINGWEAPON]->val1, 0, 1, 0, (sc->data[SC_POISONINGWEAPON]->val2 == SC_VENOMBLEED ? skill_get_time2(GC_POISONINGWEAPON, 1) : skill_get_time2(GC_POISONINGWEAPON, 2)));
 		}
 
+		if (sc->data[SC_ENCPOISON] && flag & BF_SHORT && damage > 0) {
+			sce = sc->data[SC_ENCPOISON];
+			status_change_start(src, bl, SC_POISON, sce->val2, sce->val1, src->id, 0, 0,
+				skill_get_time2(AS_ENCHANTPOISON, sce->val1), SCSTART_NONE);
+		}
+
 		if (sc->data[SC__DEADLYINFECT] && (flag & (BF_SHORT | BF_MAGIC)) == BF_SHORT && damage > 0 && rnd() % 100 < 30 + 20 * sc->data[SC__DEADLYINFECT]->val1)
 			status_change_spread(src, bl, 0);
 
