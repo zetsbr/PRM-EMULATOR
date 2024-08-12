@@ -1656,7 +1656,6 @@ Body:
       bonus2 bIgnoreDefRaceRate,RC_All,15;
       .@r = getrefine();
       bonus bCritical,2*.@r;
-      bonus bAtkRate,.@r;
       bonus bFlee,-10*.@r;
       bonus bMaxHPrate,2*.@r;
       bonus bMaxSPrate,-2*.@r;
@@ -1691,7 +1690,7 @@ Body:
     EquipLevelMin: 60
     Refineable: true
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_All,22;
+      bonus2 bIgnoreDefRaceRate,RC_All,12;
       bonus bAspdRate,15;
       bonus bASPDCap,1;
   - Id: 1145
@@ -1727,7 +1726,7 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_All,22;
+      bonus2 bIgnoreDefRaceRate,RC_All,12;
       bonus bAspdRate,15;
       bonus bASPDCap,1;
   - Id: 1146
@@ -1838,7 +1837,6 @@ Body:
       bonus2 bIgnoreDefRaceRate,RC_All,15;
       .@r = getrefine();
       bonus bCritical,2*.@r;
-      bonus bAtkRate,.@r;
       bonus bFlee,-10*.@r;
       bonus bMaxHPrate,2*.@r;
       bonus bMaxSPrate,-2*.@r;
@@ -2340,7 +2338,7 @@ Body:
     Attack: 25
     MagicAttack: 5
     Range: 2
-    Slots: 3
+    Slots: 2
     Jobs:
       Paladin: true
       All: true
@@ -2362,8 +2360,6 @@ Body:
     Refineable: true
     Script: |
       bonus2 bIgnoreDefRaceRate,RC_All,13;
-      bonus bAtkRate,4;
-      bonus bASPD,-3;
   - Id: 1164
     AegisName: Muramasa
     Name: Muramasa
@@ -2668,7 +2664,7 @@ Body:
     Attack: 25
     MagicAttack: 5
     Range: 2
-    Slots: 4
+    Slots: 3
     Jobs:
       Paladin: true
       All: true
@@ -2692,8 +2688,6 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       bonus2 bIgnoreDefRaceRate,RC_All,13;
-      bonus bAtkRate,4;
-      bonus bASPD,-3;
   - Id: 1173
     AegisName: DrakeClawSword
     Name: DrakeClawSword
@@ -3293,7 +3287,7 @@ Body:
       bonus2 bIgnoreDefRaceRate,RC_All,20;
       .@r = getrefine();
       skill "CR_HOLYCROSS",.@r;
-      bonus2 bSkillAtk,"CR_HOLYCROSS",35;
+      bonus2 bSkillAtk,"CR_HOLYCROSS",45;
       bonus bMaxHPrate,.@r;
       bonus bDefrate,.@r;
   - Id: 1190
