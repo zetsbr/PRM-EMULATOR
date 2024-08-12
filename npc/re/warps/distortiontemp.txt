@@ -1364,6 +1364,39 @@ va_orpha,276,319,4	script	Mirror Converter	4_ep18_tamarin,{
 		mes "baldereye";
 		.converted = 1;
 	}
+
+	
+	if (temporalwarp == 0){
+		set #temporalwarp, 0;
+		set temporalwarp, 10;
+		mes "temporalwarp";
+		.converted = 1;
+	}
+	if (temporalwarp == 1){
+		set #temporalwarp, 1;
+		set temporalwarp, 10;
+		mes "temporalwarp";
+		.converted = 1;
+	}
+	if (temporalwarp == 2){
+		set #temporalwarp, 2;
+		set temporalwarp, 10;
+		mes "temporalwarp";
+		.converted = 1;
+	}
+	if (temporalwarp == 3){
+		set #temporalwarp, 3;
+		set temporalwarp, 10;
+		mes "temporalwarp";
+		.converted = 1;
+	}
+	if (temporalwarp == 4){
+		set #temporalwarp, 4;
+		set temporalwarp, 10;
+		mes "temporalwarp";
+		.converted = 1;
+	}
+	
 	if (.converted == 0){
 		mes "No tags were converted.";
 	}
