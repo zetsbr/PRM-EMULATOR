@@ -503,6 +503,10 @@ Body:
             MinValue: 10
             MaxValue: 10
             Chance: 4000
+          - Option: RANGE_ATTACK_DAMAGE_TARGET
+            MinValue: 10
+            MaxValue: 10
+            Chance: 4000
       - Slot: 4
         Options:
           - Option: REFLECT_DAMAGE_PERCENT
@@ -513,17 +517,17 @@ Body:
             MinValue: 200
             MaxValue: 200
             Chance: 4000
-          - Option: ADDEXPPERCENT_KILLRACE_INSECT
-            MinValue: 3
-            MaxValue: 3
-            Chance: 4000
-          - Option: ADDEXPPERCENT_KILLRACE_FISHS
-            MinValue: 3
-            MaxValue: 3
-            Chance: 4000
+          - Option: VAR_ATKPERCENT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 2000
+          - Option: VAR_MAGICATKPERCENT
+            MinValue: 5
+            MaxValue: 5
+            Chance: 2000
           - Option: ADDEXPPERCENT_KILLRACE_DRAGON
-            MinValue: 2
-            MaxValue: 2
+            MinValue: 1
+            MaxValue: 1
             Chance: 4000
   - Id: 10
     Group: katar

@@ -1576,7 +1576,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 #else
 		if (skill_break_equip(src, bl, EQP_ARMOR, 100 * skill_get_time(skill_id, skill_lv), BCT_ENEMY))
 #endif
-			clif_emotion(bl, ET_HUK);
+		if (tsc && tsc->data[SC_BURNING])
+			clif_specialeffect(bl, 1759, AREA);
 		break;
 
 	case AM_DEMONSTRATION:
@@ -2692,6 +2693,8 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 	if (sd == nullptr || !skill_id)
 		return 0;
 
+	struct status_change* tsc = status_get_sc(bl);
+
 	for (auto& it : sd->autospell3) {
 		if (it.trigger_skill != skill_id)
 			continue;
@@ -2769,10 +2772,18 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 		t_tick sec = 0;
 		//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: size: %d\n", sd->reduce_cooldown.size());
 		for (auto& it : sd->reduce_cooldown) {
-			if (!it.skill2)
+			if (rnd() % 1000 >= it.rate) {
+				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: rate fail: %d\n", it.rate);
 				continue;
-			if (it.skill1 != skill_id)
+			}
+			if (!it.skill2) {
+				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: skill2 fail: %d\n", it.skill2);
 				continue;
+			}
+			if (it.skill1 != skill_id) {
+				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: skill1 fail: %d, %d\n", it.skill1, skill_id);
+				continue;
+			}
 			ARR_FIND(0, MAX_SKILLCOOLDOWN, i, sd->scd[i] && sd->scd[i]->skill_id == it.skill2);
 			if (i < MAX_SKILLCOOLDOWN) { // Skill already with cooldown
 				const struct TimerData* td = get_timer(sd->scd[i]->timer);
@@ -2780,10 +2791,58 @@ int skill_onskillusage(struct map_session_data* sd, struct block_list* bl, uint1
 			}
 			//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", it.skill1, it.skill2, it.val);
 			if (sec && it.val < 0) {
-				//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Timer: %d\n", sec);
-				if (sec < (-1 * it.val)) sec = 1;
-				else sec += it.val;
-				skill_blockpc_start(sd, it.skill2, sec);
+				if (sec <= (-1 * it.val)) {
+					sec = 0.1;
+					delete_timer(sd->scd[i]->timer, skill_blockpc_end);
+					aFree(sd->scd[i]);
+					sd->scd[i] = NULL;
+				}
+				else {
+					sec += it.val;
+				}
+				clif_skill_cooldown(sd, it.skill2, tick + sec);
+				clif_skillinfoblock(sd);
+			}
+		}
+	}
+	if (sd && !sd->reduce_cooldown_on_debuff.empty()) {
+		int i;
+		t_tick sec = 0;
+		//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: size: %d\n", sd->reduce_cooldown.size());
+		for (auto& it : sd->reduce_cooldown_on_debuff) {
+			if (rnd() % 1000 >= it.rate)
+				continue;
+			if (!it.status)
+				continue;
+			if (it.skill1 != skill_id)
+				continue;
+			if (!tsc)
+				continue;
+			if (tsc && tsc->data[it.status] == nullptr)
+				continue;
+
+			if (it.consume) {
+				status_change_end(bl, (sc_type)it.status, INVALID_TIMER);
+			}
+
+			ARR_FIND(0, MAX_SKILLCOOLDOWN, i, sd->scd[i] && sd->scd[i]->skill_id == it.skill1);
+			if (i < MAX_SKILLCOOLDOWN) { // Skill already with cooldown
+				const struct TimerData* td = get_timer(sd->scd[i]->timer);
+				if (td) sec = DIFF_TICK(td->tick, tick);
+			}
+			//ShowWarning("skill_onskillusage: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", it.skill1, it.skill2, it.val);
+			if (sec && it.val < 0) {
+				if (sec <= (-1 * it.val)) {
+					sec = 0.1;
+					delete_timer(sd->scd[i]->timer, skill_blockpc_end);
+					aFree(sd->scd[i]);
+					sd->scd[i] = NULL;
+				}
+				else {
+					sec += it.val;
+				}
+				clif_skill_cooldown(sd, it.skill1, tick + sec);
+				clif_skillinfoblock(sd);
 			}
 		}
 	}
@@ -4284,7 +4343,6 @@ int64 skill_attack(int attack_type, struct block_list* src, struct block_list* d
 			struct status_change* ssc = status_get_sc(src);
 			if (ssc && ssc->data[SC_POISONINGWEAPON] && rnd() % 100 < 50 + 5 * skill_lv) {
 				sc_start4(src, bl, (sc_type)ssc->data[SC_POISONINGWEAPON]->val2, 100, ssc->data[SC_POISONINGWEAPON]->val1, 0, 1, 0, skill_get_time2(GC_POISONINGWEAPON, 1));
-				status_change_end(src, SC_POISONINGWEAPON, INVALID_TIMER);
 				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			}
 		}
@@ -5852,7 +5910,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			}
 		}
 		else {
-			int starget = BL_CHAR | BL_SKILL;
+			int starget = BL_CHAR | BL_SKILL; 
 
 			skill_area_temp[0] = 0;
 			skill_area_temp[1] = bl->id;
@@ -5910,10 +5968,6 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			if (skill_id == RA_ARROWSTORM)
 				status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
 				status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
-			if (skill_id == AS_SPLASHER) {
-				map_freeblock_unlock(); // Don't consume a second gemstone.
-				return 0;
-			}
 		}
 		break;
 
@@ -6609,6 +6663,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			if (unit_movepos(src, bl->x + x[dir], bl->y + y[dir], 1, 1)) {
 				clif_blown(src);
 				skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+				clif_blown(src);
 			}
 			break;
 		}
@@ -7001,8 +7056,10 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		if (heal && rnd() % 100 < heal_rate)
 		{
 			status_heal(src, heal, 0, 0);
+			clif_skill_nodamage(NULL, src, AL_HEAL, heal, 1);
 		}
-		// sc_start(src, bl, SC_BLOODROSE, 100, skill_lv, skill_get_time(skill_id, skill_lv)); //Debuff com duração infinita mas efeito interessante para conceitos futuros
+		sc_start2(src, bl, SC_BLOODROSE, 1000, skill_lv, bl->id, skill_get_time(skill_id, skill_lv));
+
 		break;
 
 	default:
@@ -7745,7 +7802,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case WS_OVERTHRUSTMAX:
 	case ST_REJECTSWORD:
 	case HW_MAGICPOWER:
-	case PF_MEMORIZE:
 	case PA_SACRIFICE:
 	case PF_DOUBLECASTING:
 	case SG_SUN_COMFORT:
@@ -8162,15 +8218,14 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case MO_CALLSPIRITS:
 		if (sd) {
 			int limit = 5;
-			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+				clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			if (skill_lv == 1)
-			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+				pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
 			if (skill_lv >= 2)
-			for (i = 0; i < limit; i++)
-			pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+				for (i = 0; i < limit; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
 		}
 		break;
-
 	case CH_SOULCOLLECT:
 		if (sd) {
 			int limit = skill_lv;
@@ -10343,7 +10398,21 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 				pc_delspiritball(sd, 1, 0);
 		}
 		break;
-
+	case PF_MEMORIZE:
+		if (sd) {
+			int limit = 10;
+			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
+			if (skill_lv == 1)
+				for (i = 0; i < 2; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+			if (skill_lv == 2)
+				for (i = 0; i < limit / 2; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+			if (skill_lv == 3)
+				for (i = 0; i < limit; i++)
+					pc_addspiritball(sd, skill_get_time(skill_id, skill_lv), limit);
+		}
+		break;
 	case GS_CRACKER:
 		/* per official standards, this skill works on players and mobs. */
 		if (sd && (dstsd || dstmd))
@@ -16917,6 +16986,12 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 			return false;
 		}
 		break;
+	case PF_MEMORIZE:
+		if (sd->spiritball >= 10) {
+			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
+			return false;
+		}
+		break;
 	case NJ_ISSEN:
 #ifdef RENEWAL
 		if (status->hp < (status->hp / 100)) {
@@ -17863,6 +17938,8 @@ struct s_skill_condition skill_get_requirement(struct map_session_data* sd, uint
 			req.sp += req.sp / 5;
 		if (sc->data[SC_OFFERTORIUM])
 			req.sp += req.sp * sc->data[SC_OFFERTORIUM]->val3 / 100;
+		if (sc->data[SC_MAXIMIZEPOWER])
+			req.sp += req.sp * (sc->data[SC_MAXIMIZEPOWER]->val1 * 20 / 100);
 		if (sc->data[SC_TELEKINESIS_INTENSE] && skill_get_ele(skill_id, skill_lv) == ELE_GHOST)
 			req.sp -= req.sp * sc->data[SC_TELEKINESIS_INTENSE]->val2 / 100;
 #ifdef RENEWAL
@@ -18169,16 +18246,6 @@ int skill_castfix(struct block_list* bl, uint16 skill_id, uint16 skill_lv) {
 			// Magic Strings stacks additively with item bonuses
 			if (!(flag & 2) && sc->data[SC_POEMBRAGI])
 				reduce_cast_rate += sc->data[SC_POEMBRAGI]->val2;
-			// Foresight halves the cast time, it does not stack additively
-			if (sc->data[SC_MEMORIZE]) {
-				if (!sd || pc_checkskill(sd, skill_id) > 0) { // Foresight only decreases cast times from learned skills, not skills granted by items
-					if (!(flag & 2))
-						time -= time * 50 / 100;
-					// Foresight counter gets reduced even if the skill is not affected by it
-					if ((--sc->data[SC_MEMORIZE]->val2) <= 0)
-						status_change_end(bl, SC_MEMORIZE, INVALID_TIMER);
-				}
-			}
 		}
 
 		time = time * (1 - (float)reduce_cast_rate / 100);
@@ -18323,13 +18390,6 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 			status_change_end(bl, SC_SUFFRAGIUM, INVALID_TIMER);
 #endif
 		}
-		if (sc->data[SC_MEMORIZE]) {
-			if (!sd || pc_checkskill(sd, skill_id) > 0) { // Foresight only decreases cast times from learned skills, not skills granted by items
-				reduce_cast_rate += 50;
-				if ((--sc->data[SC_MEMORIZE]->val2) <= 0)
-					status_change_end(bl, SC_MEMORIZE, INVALID_TIMER);
-			}
-		}
 		if (sc->data[SC_POEMBRAGI])
 			reduce_cast_rate += sc->data[SC_POEMBRAGI]->val2;
 		if (sc->data[SC_IZAYOI])
@@ -18349,8 +18409,6 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		// Multiplicative Fixed CastTime values
 		if (sc->data[SC_SECRAMENT])
 			fixcast_r = max(fixcast_r, sc->data[SC_SECRAMENT]->val2);
-		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)) && skill_id >= WL_WHITEIMPRISON && skill_id <= WL_FREEZE_SP)
-			fixcast_r = skill_lv * 10;
 		if (sc->data[SC_DANCEWITHWUG])
 			fixcast_r = max(fixcast_r, sc->data[SC_DANCEWITHWUG]->val4);
 		if (sc->data[SC_HEAT_BARREL])
@@ -18360,6 +18418,8 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		if (sc->data[SC_SWINGDANCE])
 			fixcast_r = max(fixcast_r, skill_lv * 6);
 		// Additive Fixed CastTime values
+		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
+			fixed -= skill_lv * 100;
 		if (sc->data[SC_MANDRAGORA])
 			fixed += sc->data[SC_MANDRAGORA]->val1 * 500;
 		if (sc->data[SC_GUST_OPTION] || sc->data[SC_BLAST_OPTION] || sc->data[SC_WILD_STORM_OPTION])
@@ -21959,7 +22019,6 @@ TIMER_FUNC(skill_blockpc_end) {
  * @param   sd        the player the skill delay affects
  * @param   skill_id   the skill which should be delayed
  * @param   tick      the length of time the delay should last
- * @param   load      whether this assignment is being loaded upon player login
  * @return  0 if successful, -1 otherwise
  */
 int skill_blockpc_start(struct map_session_data* sd, int skill_id, t_tick tick) {

@@ -1350,7 +1350,7 @@ void initChangeTables(void)
 	set_sc_with_vfx( OB_AKAITSUKI		, SC_AKAITSUKI		, EFST_AKAITSUKI		, SCB_NONE );
 	set_sc( OB_OBOROGENSOU			, SC_GENSOU		, EFST_GENSOU		, SCB_NONE );
 
-	set_sc( ALL_FULL_THROTTLE		, SC_FULL_THROTTLE	, EFST_FULL_THROTTLE	, SCB_SPEED|SCB_STR|SCB_AGI|SCB_VIT|SCB_INT|SCB_DEX|SCB_LUK );
+	set_sc( ALL_FULL_THROTTLE, SC_FULL_THROTTLE	, EFST_FULL_THROTTLE	, SCB_NONE );
 
 	/* Rebellion */
 	add_sc( RL_MASS_SPIRAL		, SC_BLEEDING );
@@ -1765,6 +1765,7 @@ void initChangeTables(void)
 	set_sc_with_vfx_noskill(SC_DEADLYROSE_T, EFST_DEADLYROSE_T, SCB_NONE);
 	set_sc_with_vfx_noskill(SC_GUARDROCK_T, EFST_GUARDROCK_T, SCB_DEF2|SCB_MAXHP);
 	set_sc_with_vfx_noskill(SC_DESTINYBRUSH_UT, EFST_PROVOKE, SCB_NONE);
+	set_sc_with_vfx_noskill(SC_EXPLOSIONSPIRITS, EFST_EXPLOSIONSPIRITS, SCB_CRI | SCB_REGEN);
 
 	/* Other SC which are not necessarily associated to skills */
 	StatusChangeFlagTable[SC_ASPDPOTION0] |= SCB_ASPD;
@@ -4249,6 +4250,7 @@ int status_calc_pc_sub(struct map_session_data* sd, enum e_status_calc_opt opt)
 	sd->autospell3.clear();
 	sd->autospellbaseline.clear();
 	sd->reduce_cooldown.clear();
+	sd->reduce_cooldown_on_debuff.clear();
 	sd->skillbounce.clear();
 	sd->splash_skill.clear();
 	sd->skillhpflat.clear();
@@ -5560,9 +5562,6 @@ void status_calc_regen_rate(struct block_list *bl, struct regen_data *regen, str
 
 	// No natural SP regen
 	if (sc->data[SC_DANCING] ||
-#ifdef RENEWAL
-		sc->data[SC_MAXIMIZEPOWER] ||
-#endif
 #ifndef RENEWAL
 		(bl->type == BL_PC && (((TBL_PC*)bl)->class_&MAPID_UPPERMASK) == MAPID_MONK &&
 		(sc->data[SC_EXTREMITYFIST] || sc->data[SC_EXPLOSIONSPIRITS]) && (!sc->data[SC_SPIRIT] || sc->data[SC_SPIRIT]->val2 != SL_MONK)) ||
@@ -6499,8 +6498,6 @@ static unsigned short status_calc_str(struct block_list *bl, struct status_chang
 		str += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		str += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		str += str * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		str += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6533,8 +6530,6 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 	}
 	if(sc->data[SC_INCALLSTATUS])
 		agi += sc->data[SC_INCALLSTATUS]->val1;
-	if (sc->data[SC_DEATHBOUND] && !sc->data[SC_QUAGMIRE])
-		agi += (agi - sc->data[SC_DEATHBOUND]->val3) * sc->data[SC_DEATHBOUND]->val2 / 100;
 	if(sc->data[SC_INCAGI])
 		agi += sc->data[SC_INCAGI]->val1;
 	if(sc->data[SC_AGIFOOD])
@@ -6579,8 +6574,6 @@ static unsigned short status_calc_agi(struct block_list *bl, struct status_chang
 		agi += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		agi += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		agi += agi * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if (sc->data[SC_ARCLOUSEDASH])
 		agi += sc->data[SC_ARCLOUSEDASH]->val2;
 	if(sc->data[SC_CHEERUP])
@@ -6647,8 +6640,6 @@ static unsigned short status_calc_vit(struct block_list *bl, struct status_chang
 		vit += 1;
 	if(sc->data[SC_STRIPARMOR] && bl->type != BL_PC)
 		vit -= vit * sc->data[SC_STRIPARMOR]->val2/100;
-	if(sc->data[SC_FULL_THROTTLE])
-		vit += vit * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 #ifdef RENEWAL
 	if(sc->data[SC_DEFENCE])
 		vit += sc->data[SC_DEFENCE]->val2;
@@ -6733,8 +6724,6 @@ static unsigned short status_calc_int(struct block_list *bl, struct status_chang
 		int_ += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		int_ += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		int_ += int_ * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		int_ += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6824,8 +6813,6 @@ static unsigned short status_calc_dex(struct block_list *bl, struct status_chang
 		dex -= dex * sc->data[SC__STRIPACCESSORY]->val2 / 100;
 	if(sc->data[SC_MARSHOFABYSS])
 		dex -= dex * sc->data[SC_MARSHOFABYSS]->val2 / 100;
-	if(sc->data[SC_FULL_THROTTLE])
-		dex += dex * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		dex += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -6892,8 +6879,6 @@ static unsigned short status_calc_luk(struct block_list *bl, struct status_chang
 		luk += 1;
 	if(sc->data[SC_JUMPINGCLAN])
 		luk += 1;
-	if(sc->data[SC_FULL_THROTTLE])
-		luk += luk * sc->data[SC_FULL_THROTTLE]->val3 / 100;
 	if(sc->data[SC_CHEERUP])
 		luk += 3;
 	if(sc->data[SC_GLASTHEIM_STATE])
@@ -7904,8 +7889,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SPEEDUP1]->val1 );
 		if( sc->data[SC_INCREASEAGI] )
 			val = max( val, 25 );
-		if( sc->data[SC_WINDWALK] )
-			val = max( val, 2 * sc->data[SC_WINDWALK]->val1 );
 		if (pc_checkskill(sd, AL_DEMONBANE) > 0)
 			val = max(val, 3 * pc_checkskill(sd, AL_DEMONBANE));
 		if (pc_checkskill(sd, NV_BREAKTHROUGH) > 0)
@@ -7936,8 +7919,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SWINGDANCE]->val3 );
 		if( sc->data[SC_WIND_STEP_OPTION] )
 			val = max( val, sc->data[SC_WIND_STEP_OPTION]->val2 );
-		if( sc->data[SC_FULL_THROTTLE] )
-			val = max( val, 50 );
 		if (sc->data[SC_ARCLOUSEDASH])
 			val = max(val, sc->data[SC_ARCLOUSEDASH]->val3);
 		if( sc->data[SC_DORAM_WALKSPEED] )
@@ -7954,6 +7935,9 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 			val = max( val, sc->data[SC_SPEEDUP0]->val1 );
 		if( sd && sd->bonus.speed_rate + sd->bonus.speed_add_rate < 0 ) // Permanent item-based speedup
 			val = max( val, -(sd->bonus.speed_rate + sd->bonus.speed_add_rate) );
+
+		if (sc->data[SC_WINDWALK])
+			val += 2 * sc->data[SC_WINDWALK]->val1;
 
 		speed_rate -= val;
 
@@ -9249,8 +9233,8 @@ t_tick status_get_sc_def(struct block_list *src, struct block_list *bl, enum sc_
 			sc_def2 = status->mdef*100;
 			break;
 		case SC_ANKLE:
-			if(status_has_mode(status,MD_STATUSIMMUNE)) // Lasts 5 times less on bosses
-				tick /= 30;
+			if(status_has_mode(status,MD_STATUSIMMUNE)) // Lasts only half of the total time on bosses
+				tick /= 2;
 			sc_def = status->agi*150;
 			break;
 		case SC_JOINTBEAT:
@@ -11079,8 +11063,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			tick = val3;
 			calc_flag = 0; // Actual status changes take effect on petrified state.
 			break;
-		case SC_BLOODROSE:
-			val2 = src->id;
+	//	case SC_BLOODROSE:
+
 		case SC_POISON:
 		case SC_BLEEDING:
 		case SC_BURNING:
@@ -11189,7 +11173,14 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = tick/20;
 			tick_time = 20; // [GodLesZ] tick time
 			break;
-
+		case SC_BLOODROSE:
+				tickdelay = status_get_sc_interval(type);
+				val4 = tick / tickdelay;
+				val2 = src->id;
+				val3 = bl->id;
+				tick_time = tickdelay;
+			//	ShowDebug("SC Start part2, tickdelay = %d, val4 = %d, tick_time = %d, src id = %d \n", tickdelay, val4, tick_time, src->id );
+				break;
 		case SC_AUTOGUARD:
 			if( !(flag&SCSTART_NOAVOID) ) {
 				struct map_session_data *tsd;
@@ -11335,12 +11326,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val3 = val1; // Reflections
 			tick = INFINITE_TICK;
 			break;
-
-		case SC_MEMORIZE:
-			val2 = 7; // Memorized casts.
-			tick = INFINITE_TICK;
-			break;
-
 #ifndef RENEWAL
 		case SC_GRAVITATION:
 			val2 = 50*val1; // aspd reduction
@@ -11414,7 +11399,9 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					break;
 			}
 			break;
-
+		case SC_FULL_THROTTLE:
+			val2 = 0;
+			break;
 		case SC_COMBO:
 		{
 			// val1: Skill ID
@@ -12336,12 +12323,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 					val4 = 50;
 			}
 			break;
-		case SC_FULL_THROTTLE:
-			val2 = ( val1 == 1 ? 6 : 6 - val1 );
-			val3 = 10; //+% AllStats
-			tick_time = 1000;
-			val4 = tick / tick_time;
-			break;
 		case SC_REBOUND:
 			tick_time = 2000;
 			val4 = tick / tick_time;
@@ -12713,7 +12694,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			case SC_POISON:
 			case SC_DPOISON:
 			case SC_BLEEDING:
-			case SC_BLOODROSE:
 			case SC_BURNING:
 			case SC_TOXIN:
 				tick_time = tick;
@@ -13216,7 +13196,6 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			if (sd)
 				clif_bossmapinfo(sd, map_id2boss(sce->val1), BOSS_INFO_ALIVE_WITHMSG); // First Message
 			break;
-		case SC_FULL_THROTTLE:
 		case SC_MERC_HPUP:
 			status_percent_heal(bl, 100, 100); // Recover Full HP
 			break;
@@ -14024,13 +14003,6 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 					break;
 			}
 			break;
-		case SC_FULL_THROTTLE: {
-				int sec = skill_get_time2(status_sc2skill(type), sce->val1);
-
-				clif_status_change(bl, EFST_DEC_AGI, 1, sec, 0, 0, 0);
-				sc_start(bl, bl, SC_REBOUND, 100, sce->val1, sec);
-			}
-			break;
 		case SC_REBOUND:
 			clif_status_load(bl, EFST_DEC_AGI, 0);
 			break;
@@ -14362,7 +14334,8 @@ TIMER_FUNC(status_change_timer){
 	struct map_session_data *sd;
 	int interval = status_get_sc_interval(type);
 	bool dounlock = false;
-	int64 damage;
+	int damage = 0;
+	// char output[128];
 
 	bl = map_id2bl(id);
 	if(!bl) {
@@ -14395,6 +14368,10 @@ TIMER_FUNC(status_change_timer){
 	
 	switch(type) {
 	case SC_MAXIMIZEPOWER:
+		if (!status_charge(bl, 0, 2))
+			break; // Not enough SP to continue.
+		sc_timer_next(sce->val2 + tick);
+		return 0;
 	case SC_CLOAKING:
 		if(!status_charge(bl, 0, 1))
 			break; // Not enough SP to continue.
@@ -14445,6 +14422,32 @@ TIMER_FUNC(status_change_timer){
 		}
 		break;
 
+	case SC_BLOODROSE:
+	// ShowDebug("sc change timer, val4 = %d\n", &sce->val4);
+	if (--(sce->val4) >= 0) {
+		src = map_id2bl(sce->val2);
+		// ShowDebug("sc change timer, sc interval is %d, type is %d, src is %d, bl is %d\n,", interval, type, src, bl);
+		damage = 20 * sce->val1;
+		// sprintf(output, "damage = %d", damage);
+		// clif_messagecolor(src, color_table[COLOR_LIGHT_GREEN], output, false, SELF);
+		if ( (bl->type != BL_PC) && damage > 0 )
+			damage = status->hp - 1; // No deadly damage for monsters
+
+		if (src != nullptr) {
+			damage = 20 * sce->val1 * 30 / 100;
+			
+			//sprintf(output, "damage = %d", damage);
+			//clif_messagecolor(src, color_table[COLOR_LIGHT_GREEN], output, false, SELF);
+			
+			clif_specialeffect(bl, 2049, AREA);
+			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
+			status_heal(src, damage, 0, 1);
+			clif_skill_nodamage(NULL, src, AL_HEAL, damage, 1);
+		}
+		sc_timer_next( interval + tick );
+		return 0;
+	}
+	break;
 	case SC_PROVOKE:
 		if(sce->val2) { // Auto-provoke (it is ended in status_heal)
 			sc_timer_next(1000*60+tick);
@@ -14475,10 +14478,11 @@ TIMER_FUNC(status_change_timer){
 
 	case SC_POISON:
 	case SC_DPOISON:
-		if (sce->val4 >= 0 && !sc->data[SC_SLOWPOISON]) {
-			unsigned int damage = 0;																				
-			if (status->hp > umax(status->max_hp / 2, damage)) // Stop damaging after 25% HP left.
-				status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
+		if (sce->val4 >= 0) {
+			int64 damage = 200; // Deals fixed (1000 + 3%*MaxHP)
+			map_freeblock_lock();
+			dounlock = true;
+			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
 		}
 		break;
 
@@ -14502,20 +14506,6 @@ TIMER_FUNC(status_change_timer){
 		}
 		break;
 
-	case SC_BLOODROSE:
-		if (sce->val4 >= 0) {
-			src = map_id2bl(sce->val2);
-			damage = 100 * sce->val1;
-			if (!sd && damage >= status->hp)
-				damage = status->hp - 1; // No deadly damage for monsters
-			map_freeblock_lock();
-			dounlock = true;
-			sc_timer_next(500 + tick);
-			status_fix_damage(bl, bl, damage, clif_damage(bl, bl, tick, 0, 1, damage, 1, DMG_NORMAL, 0, false), 0);
-			if (src && src != nullptr)
-				status_heal(src, damage, 0, 1);
-		}
-		break;
 
 	case SC_TOXIN:
 		if (sce->val4 >= 0) { // Damage is every 10 seconds including 3%sp drain.
@@ -15159,13 +15149,6 @@ TIMER_FUNC(status_change_timer){
 			return 0;
 		}
 		break;
-	case SC_FULL_THROTTLE:
-		if( --(sce->val4) >= 0 ) {
-			status_percent_damage(bl, bl, 0, sce->val2, false);
-			sc_timer_next(1000 + tick);
-			return 0;
-		}
-		break;
 	case SC_REBOUND:
 		if( --(sce->val4) >= 0 ) {
 			clif_emotion(bl, ET_SWEAT);
@@ -15388,6 +15371,11 @@ int status_change_timer_sub(struct block_list* bl, va_list ap)
 	struct status_change_entry* sce = va_arg(ap,struct status_change_entry*);
 	enum sc_type type = (sc_type)va_arg(ap,int); // gcc: enum args get promoted to int
 	t_tick tick = va_arg(ap,t_tick);
+
+
+	int damage = 0;
+	status_data *status = status_get_status_data(bl);
+	int interval = status_get_sc_interval(type);
 
 	if (status_isdead(bl))
 		return 0;

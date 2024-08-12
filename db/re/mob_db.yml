@@ -11406,6 +11406,8 @@ Body:
     DamageMotion: 288
     Ai: 02
     Drops:
+      - Item: C_GiantCatBag_JP_BL
+        Rate: 100
       - Item: Wild_Rose_Card
         Rate: 100
         StealProtected: true
@@ -28071,7 +28073,7 @@ Body:
       Mvp: true
     MvpDrops:
       - Item: C_Thanatos_Sword
-        Rate: 10
+        Rate: 100
       - Item: Jewel_Shadowdecon
         Rate: 10000
     Drops:
@@ -29139,6 +29141,15 @@ Body:
       - Item: Strange_Metal_R
         Rate: 1500
         RandomOptionGroup: accessory
+      - Item: Metal_Boots_MKI
+        Rate: 1500
+        RandomOptionGroup: shoes
+      - Item: Metal_Boots_MKII
+        Rate: 1500
+        RandomOptionGroup: shoes
+      - Item: Metal_Boots_MKIII
+        Rate: 1500
+        RandomOptionGroup: shoes
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: MVP_Reward_Box
@@ -65311,6 +65322,8 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: C_Loli_Ruri_Moon
+        Rate: 10
       - Item: Bat_Cage
         Rate: 10000
       - Item: Death_Ruri_Card
@@ -65993,8 +66006,11 @@ Body:
       KnockBackImmune: true
       StatusImmune: true
       Mvp: true
+    MvpDrops:
+      - Item: Emperium_G
+        Rate: 10000
     Drops:
-      - Item: HD_Oridecon
+      - Item: Emperium_G
         Rate: 10000
       - Item: Distortion_Essence
         Rate: 10000
@@ -66104,13 +66120,13 @@ Body:
       StatusImmune: true
       Mvp: true
     MvpDrops:
-      - Item: HD_Elunium
-        Rate: 10000
-      - Item: HD_Oridecon
-        Rate: 10000
       - Item: C_SwordWing
         Rate: 1500
+      - Item: Emperium_G
+        Rate: 10000
     Drops:
+      - Item: Emperium_G
+        Rate: 10000
       - Item: Emperium_Armor
         Rate: 10000
         RandomOptionGroup: armor
@@ -66126,10 +66142,6 @@ Body:
       - Item: Emperium_Ring
         Rate: 10000
         RandomOptionGroup: accessory
-      - Item: HD_Oridecon
-        Rate: 10000
-      - Item: HD_Elunium
-        Rate: 10000
       - Item: Soul_Ymir_Card
         Rate: 300
         StealProtected: true

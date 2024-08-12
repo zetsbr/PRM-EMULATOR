@@ -4646,36 +4646,6 @@ void pc_bonus3(struct map_session_data *sd,int type,int type2,int type3,int val)
 		sd->norecover_state_race[type2].rate = type3;
 		sd->norecover_state_race[type2].tick = val;
 		break;
-	case SP_REDUCE_COOLDOWN: // bonus3 bReduceCooldown,sk,sk,t;
-	{
-		bool flag = false;
-		if (sd->state.lr_flag == 2)
-			break;
-		if (sd->reduce_cooldown.size() == MAX_PC_BONUS) {
-			ShowWarning("pc_bonus3: SP_REDUCE_COOLDOWN: Reached max (%d) number of skills per character, bonus skill %d (%d) lost.\n", MAX_PC_BONUS, type2, val);
-			break;
-		}
-
-		for (auto& it : sd->reduce_cooldown) {
-			// Do not stack
-			if (it.skill2 == type3) {
-				it.skill1 = type2;
-				it.skill2 = type3;
-				it.val = val;
-				flag = true;
-				break;
-			}
-		}
-		if (flag) break;
-		struct s_reduce_cooldown entry = {};
-
-		entry.skill1 = type2;
-		entry.skill2 = type3;
-		entry.val = val;
-		ShowWarning("pc_bonus3: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", entry.skill1, entry.skill2, entry.val);
-		sd->reduce_cooldown.push_back(entry);
-	}
-	break;
 	case SP_SPLASH_SKILL: // bonus3 bSplashSkill,sk,r,x; Splash a skill sk for r area with a x chance
 	{
 		bool flag = false;
@@ -4901,6 +4871,41 @@ void pc_bonus4(struct map_session_data *sd,int type,int type2,int type3,int type
 		sd->skillbounce.push_back(entry);
 	}
 	break;
+	case SP_REDUCE_COOLDOWN: // bonus4 bReduceCooldown,sk,sk,rate,t;
+	{
+		bool flag = false;
+		if (sd->state.lr_flag == 2)
+			break;
+		if (sd->reduce_cooldown.size() == MAX_PC_BONUS) {
+			ShowWarning("pc_bonus4: SP_REDUCE_COOLDOWN: Reached max (%d) number of skills per character, bonus skill %d (%d) lost.\n", MAX_PC_BONUS, type2, val);
+			break;
+		}
+
+		for (auto& it : sd->reduce_cooldown) {
+			// Do not stack
+			if (it.skill1 == type2 && it.skill2 == type3) {
+				it.skill1 = type2;
+				it.skill2 = type3;
+				it.rate = type4;
+				it.val = val;
+				flag = true;
+				break;
+			}
+		}
+
+		//ShowWarning("pc_bonus4: SP_REDUCE_COOLDOWN: Skill1 (%d) Skill2 (%d), rate (%d) time(%d).\n", type2, type3, type4, val);
+			
+		if (flag) break;
+		struct s_reduce_cooldown entry = {};
+
+		entry.skill1 = type2;
+		entry.skill2 = type3;
+		entry.rate = type4;
+		entry.val = val;
+		//ShowWarning("pc_bonus3: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", entry.skill1, entry.skill2, entry.val);
+		sd->reduce_cooldown.push_back(entry);
+	}
+	break;
 	default:
 		if (current_equip_combo_pos > 0) {
 			ShowWarning("pc_bonus4: unknown bonus type %d %d %d %d %d in a combo with item #%u\n", type, type2, type3, type4, val, sd->inventory_data[pc_checkequip( sd, current_equip_combo_pos )]->nameid);
@@ -4949,7 +4954,40 @@ void pc_bonus5(struct map_session_data *sd,int type,int type2,int type3,int type
 		if( sd->state.lr_flag != 2 )
 			pc_bonus_addeff_onskill(sd->addeff_onskill, (sc_type)type3, type4, type2, type5, val);
 		break;
+	case SP_REDUCE_COOLDOWN_ON_DEBUFF: // bonus5 bReduceCooldownOnDebuff,sk,sc,rate,consume,t;
+	{
+		bool flag = false;
+		if (sd->state.lr_flag == 2)
+			break;
+		if (sd->reduce_cooldown_on_debuff.size() == MAX_PC_BONUS) {
+			ShowWarning("pc_bonus5: SP_REDUCE_COOLDOWN: Reached max (%d) number of skills per character, bonus skill %d (%d) lost.\n", MAX_PC_BONUS, type2, val);
+			break;
+		}
 
+		for (auto& it : sd->reduce_cooldown_on_debuff) {
+			// Do not stack
+			if (it.skill1 == type2 && it.status == type3) {
+				it.skill1 = type2;
+				it.status = type3;
+				it.rate = type4;
+				it.consume = (bool)type5;
+				it.val = val;
+				flag = true;
+				break;
+			}
+		}
+		if (flag) break;
+		struct s_reduce_cooldown_on_debuff entry = {};
+
+		entry.skill1 = type2;
+		entry.status = type3;
+		entry.rate = type4;
+		entry.consume = (bool)type5;
+		entry.val = val;
+		//ShowWarning("pc_bonus5: SP_REDUCE_COOLDOWN: Skill1: %d, Skill2: %d, value: %d\n", entry.skill1, entry.status, entry.val);
+		sd->reduce_cooldown_on_debuff.push_back(entry);
+	}
+	break;
 	default:
 		if (current_equip_combo_pos > 0) {
 			ShowWarning("pc_bonus5: unknown bonus type %d %d %d %d %d %d in a combo with item #%u\n", type, type2, type3, type4, type5, val, sd->inventory_data[pc_checkequip( sd, current_equip_combo_pos )]->nameid);

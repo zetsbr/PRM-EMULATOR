@@ -21,7 +21,7 @@ rachelnm,1,1,3	script	#ConfEnchant	-1,{
     // Note: It's best if the value stays between 0~100 range.                      //
     /////////////////////////////////////////////////////////////////////////////////
 
-    set $RTMESuccess,10;
+    set $RTMESuccess,55;
 
 
     ///////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ rachelnm,1,1,3	script	#ConfEnchant	-1,{
     // how much it will be boosted.                                               //
     ///////////////////////////////////////////////////////////////////////////////
 
-    set $RTMBoost,10;
+    set $RTMBoost,5;
 
     //////////////////////////////////////////////////
     // Array of Enchantable items.                 //
@@ -167,7 +167,8 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
 	cutin "enchanttry1.png",1;
 	mes "[Weaver]";
     mes "What equipment you're wearing that you want to work with?";
-    mes "The success chance is 10% + Refine x 10%. 100% at +9 refine.";
+    mes "The enchantment success chance is 55% + Refine x 5%. So 100% at +9 refine.";
+    mes "But I'll never fail to remove enchantments.";
 
 	next;
     switch(select("Headgear:Armor:Weapon:Shoes:Garment:Accessory")){

@@ -2,10 +2,10 @@ va_orpha,28,255,3	script	Shadow Assistant#recycle	726,{
 	set .@npc$, "[Chief Cammy]";
 	mes .@npc$;
 	mes "I can give you a <ITEM>Jewel Shadowdecon<INFO>23080</INFO></ITEM>!";
-	mes "In exchange for ^FF0000250^000000 Shadow Ores!";
+	mes "In exchange for <ITEM>Shadow Ore<INFO>25728</INFO></ITEM>!";
 	next;
 	mes .@npc$;
-	mes "I can also trade 10 of those for an Elunium or Oridecon!";
+	mes "I can also trade 10 of those for an <ITEM>Elunium<INFO>985</INFO></ITEM> or <ITEM>Oridecon<INFO>984</INFO></ITEM>!";
 	next;
 	switch(select("Jewel Shadowdecon!:Elunium!:Oridecon!:Nope")) {
 	case 1:
@@ -52,7 +52,7 @@ va_orpha,28,255,3	script	Shadow Assistant#recycle	726,{
 }
 
 ////////////////////////Recycler//////////////////////////////      
-va_orpha,31,250,3	script	Shadow Recycler#recycle2	666,{
+va_orpha,31,251,3	script	Shadow Recycler#recycle2	666,{
 	cutin "h_iris01",2;
 	if (irisunlock ==1){
 	mes "[^000099" + strcharinfo(0) + "^000000]";
@@ -101,8 +101,8 @@ va_orpha,31,250,3	script	Shadow Recycler#recycle2	666,{
 	mes "I can also convert any unused Runes and Manuals...they do have quite a bit of energy on them you know?";
 	next;
 	mes "[Iris]";
-	mes "Why don't you let me recycle some of them for ^0055FFShadowdecons^000000!?";
-	mes "I also will provide you some extra ^0055FFShadow Ores^000000!";
+	mes "Why don't you let me recycle some of them for <ITEM>Shadowdecon<INFO>25729</INFO></ITEM>!?";
+	mes "I also will provide you some extra <ITEM>Shadow Ore<INFO>25728</INFO></ITEM>!";
 	next;
 	if (select("Convert", "Information") == 1) {
 		close2;
@@ -115,7 +115,7 @@ va_orpha,31,250,3	script	Shadow Recycler#recycle2	666,{
 			cutin "h_iris02",2;
 			mes "[Iris]";
 			mes "I've been studying magic with Fenrir for a long time!";
-			mes "I can break down your unused Shadow Gear into Shadowdecons";
+			mes "I can break down your unused Shadow Gear into <ITEM>Shadowdecon<INFO>25729</INFO></ITEM>";
 			next;
 			emotion ET_SCRATCH;
 			mes "[Iris]";

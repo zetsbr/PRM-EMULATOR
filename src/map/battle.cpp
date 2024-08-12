@@ -1328,6 +1328,12 @@ bool battle_status_block_damage(struct block_list *src, struct block_list *targe
 	//	return false;
 	//}
 
+	if (sc->data[SC_FULL_THROTTLE]) {
+		clif_specialeffect(target, 1725, AREA);
+		clif_specialeffect(target, 1728, AREA);
+		return false;
+	}
+
 	if ((sce = sc->data[SC_KAUPE]) && (skill_id != NPC_EARTHQUAKE || (skill_id == NPC_EARTHQUAKE && flag & NPC_EARTHQUAKE_FLAG)) && rnd() % 100 < sce->val2) { //Kaupe blocks damage (skill or otherwise) from players, mobs, homuns, mercenaries.
 		clif_specialeffect(target, EF_STORMKICK4, AREA);
 		//Shouldn't end until Breaker's non-weapon part connects.
@@ -1757,6 +1763,12 @@ int64 battle_calc_damage(struct block_list *src,struct block_list *bl,struct Dam
 			damage += damage * 10 / 100;
 			if (rnd() % 100 < sc->data[SC_POISONINGWEAPON]->val3)
 				sc_start4(src, bl, (sc_type)sc->data[SC_POISONINGWEAPON]->val2, 100, sc->data[SC_POISONINGWEAPON]->val1, 0, 1, 0, (sc->data[SC_POISONINGWEAPON]->val2 == SC_VENOMBLEED ? skill_get_time2(GC_POISONINGWEAPON, 1) : skill_get_time2(GC_POISONINGWEAPON, 2)));
+		}
+
+		if (sc->data[SC_ENCPOISON] && flag & BF_SHORT && damage > 0) {
+			sce = sc->data[SC_ENCPOISON];
+			status_change_start(src, bl, SC_POISON, sce->val2, sce->val1, src->id, 0, 0,
+				skill_get_time2(AS_ENCHANTPOISON, sce->val1), SCSTART_NONE);
 		}
 
 		if (sc->data[SC__DEADLYINFECT] && (flag & (BF_SHORT | BF_MAGIC)) == BF_SHORT && damage > 0 && rnd() % 100 < 30 + 20 * sc->data[SC__DEADLYINFECT]->val1)
@@ -2476,7 +2488,6 @@ static int battle_range_type(struct block_list *src, struct block_list *target, 
 		case NJ_KIRIKAGE:
 			// Cast range mimics NJ_SHADOWJUMP but damage is considered melee
 		case GC_CROSSIMPACT:
-		case RA_WUGSTRIKE:
 			// Cast range is 7 cells and player jumps to target but skill is considered melee
 			return BF_SHORT;
 	}
@@ -3707,8 +3718,9 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 {
 	struct map_session_data *sd = BL_CAST(BL_PC, src);
 	struct status_change *sc = status_get_sc(src);
-	struct status_change *tsc = status_get_sc(target);
+	struct status_change *tsc = status_get_sc(target); 
 	struct status_data *tstatus = status_get_status_data(target);
+	sc_type negative_status[] = { SC_POISON, SC_DPOISON, SC_LEECHESEND, SC_DEATHHURT, SC_BURNING, SC_PYREXIA, SC_MAGICMUSHROOM, SC_BLEEDING, SC_STONE, SC_TOXIN, SC_HELLS_PLANT, SC_BLOODROSE };
 
 	if( sd && !skill_id ) {	// if no skill_id passed, check for double attack [helvetica]
 		short i;
@@ -3812,8 +3824,19 @@ static void battle_calc_multi_attack(struct Damage* wd, struct block_list *src,s
 					wd->div_++;
 				}
 			}
-		break;
+			break;
 #endif
+		case RL_HAMMER_OF_GOD:
+			if (sc && tsc) {
+				int count = 0;
+				for (sc_type status : negative_status) {
+					if (tsc->data[status]) {
+						++count;
+					}
+				}
+				wd->div_ += count;
+			}
+			break;
 	}
 }
 
@@ -4294,15 +4317,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 100 + 100 * skill_lv;
 #endif
 			break;
-		case AS_SPLASHER:
-#ifdef RENEWAL
-		skillratio += 100 + 15 * skill_lv + 1 * (sstatus->vit) + (3 * pc_checkskill(sd, GC_RESEARCHNEWPOISON));
-#else
-		skillratio += 400 + 50 * skill_lv;
-#endif
-		if (sd)
-			skillratio += 5 * pc_checkskill(sd, AS_POISONREACT);
-		break;
 		case ASC_BREAKER:
 #ifdef RENEWAL
 			skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
@@ -4605,9 +4619,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 		case RA_WUGSTRIKE:
 			skillratio += 100 + 10 * skill_lv + sstatus->vit;
 			if (sc && sc->data[SC_SPL_ATK])
-			skillratio += 100 + 10 * skill_lv + sstatus->vit;
+				skillratio += 100 + 10 * skill_lv + sstatus->vit;
+			if (tsc && tsc->data[SC_BURNING])
+				skillratio += 100 + 10 * skill_lv + sstatus->vit;
 			if (sc && sc->data[SC_HOVERING])
-			skillratio += 5 * skill_lv;
+				skillratio += 5 * skill_lv;
 			break;
 		case RA_WUGBITE:
 			skillratio += 300 + 200 * skill_lv;
@@ -5100,8 +5116,6 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case RL_HAMMER_OF_GOD:
 			skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
-			if (tsc && tsc->data[SC_DPOISON])
-				skillratio += 150 + 20 * skill_lv + 4 * (sstatus->vit);
 			break;
 		case RL_FIRE_RAIN:
 			skillratio += 150 + 10 * skill_lv + 1 * (sstatus->str) + (20 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));
@@ -6224,7 +6238,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src, struct bl
 				wd.damage2 = wd.statusAtk2 + wd.weaponAtk2 + wd.equipAtk2 + wd.masteryAtk2 + bonus_damage;
 			if (wd.flag & BF_SHORT)
 				ATK_ADDRATE(wd.damage, wd.damage2, sd->bonus.short_attack_atk_rate);
-			if(wd.flag&BF_LONG && (skill_id != RA_WUGBITE && skill_id != RA_WUGSTRIKE)) //Long damage rate addition doesn't use weapon + equip attack
+			if(wd.flag&BF_LONG && (skill_id != RA_WUGBITE)) //Long damage rate addition doesn't use weapon + equip attack
 				ATK_ADDRATE(wd.damage, wd.damage2, sd->bonus.long_attack_atk_rate);
 		}
 #else
@@ -6676,7 +6690,16 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 			            break;
 					case NC_FLAMELAUNCHER:
 					skillratio += -100 + 25 * skill_lv + 3 * (sstatus->int_);
-					break;										 
+					break;
+					case AS_SPLASHER:
+#ifdef RENEWAL
+						skillratio += 100 + 15 * skill_lv + 2 * (sstatus->int_) + (3 * pc_checkskill(sd, GC_RESEARCHNEWPOISON));
+#else
+						skillratio += 400 + 50 * skill_lv;
+#endif
+						if (sd)
+							skillratio += 5 * pc_checkskill(sd, AS_POISONREACT);
+						break;
 					case NJ_KOUENKA:
 						skillratio -= 50;
 						if(sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
@@ -6881,9 +6904,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case WL_HELLINFERNO:
 						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
-							skillratio *= 1 + 15 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
+							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
-							skillratio *= 1 + 30 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
+							skillratio *= 1 + 24 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
 					case WL_COMET:
 						skillratio += -100 + 50 * skill_lv + 6 * (sstatus->int_);
 						break;
@@ -6904,9 +6927,10 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						if (sc && sc->data[SC_MANU_DEF])
 							skillratio += 50 * skill_lv + 3 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
-							skillratio *= 1 + 15 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
+							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
-							skillratio *= 1 + 30 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
+							skillratio *= 1 + 24 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
+						skillratio *= 0.5;
 #else
 						skillratio += 25 + 25 * skill_lv;
 #endif
@@ -6914,9 +6938,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case NC_COLDSLOWER:
 						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
-							skillratio *= 1 + 15 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
+							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
-							skillratio *= 1 + 30 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
+							skillratio *= 1 + 24 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
 					case TK_JUMPKICK:
 						skillratio += 100 + 10 * skill_lv + 1 * (sstatus->dex);
 						if (sc && sc->data[SC_CONCENTRATE])
