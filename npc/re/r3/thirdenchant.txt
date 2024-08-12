@@ -167,7 +167,7 @@ va_orpha,263,378,5	script	Weaver of Dreams#RTME	422,{
 	cutin "enchanttry1.png",1;
 	mes "[Weaver]";
     mes "What equipment you're wearing that you want to work with?";
-    mes "The enchantment success chance is 55% + Refine x 5%. So 100% at +9 refine."
+    mes "The enchantment success chance is 55% + Refine x 5%. So 100% at +9 refine.";
     mes "But I'll never fail to remove enchantments.";
 
 	next;
