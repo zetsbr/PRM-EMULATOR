@@ -16046,7 +16046,6 @@ Body:
     Range: 1
     Slots: 4
     Jobs:
-      Paladin: true
       All: false
     Trade:
       Override: 100
@@ -16055,7 +16054,6 @@ Body:
       TradePartner: true
       NoSell: true
       NoCart: true
-      NoStorage: true
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
