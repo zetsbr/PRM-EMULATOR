@@ -131709,7 +131709,8 @@ Body:
     Script: |
       bonus2 bMagicAtkEle,Ele_Fire,10;
       .@r = getrefine();
-      bonus bSplashRange,1;
+      bonus bAtkRate,5;
+      bonus bMatkRate,7;
       bonus4 bAutoSpellOnSkill,"NC_AXEBOOMERANG","NJ_KOUENKA",.@r,1000;
       bonus bAtkEle,Ele_Fire;
   - Id: 28101
