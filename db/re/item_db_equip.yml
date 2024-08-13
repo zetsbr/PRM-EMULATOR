@@ -120243,7 +120243,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus bFlee,7;
+      bonus bFleerate,7;
   - Id: 24400
     AegisName: Lucky7_G
     Name: Lucky7 G
@@ -120257,7 +120257,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus bHit,7;
+      bonus bHitrate,7;
   - Id: 24401
     AegisName: Lucky7_S
     Name: Lucky7 S
@@ -120834,6 +120834,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24441
@@ -120853,6 +120861,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24442
@@ -120872,6 +120888,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24443
@@ -120891,6 +120915,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24444
@@ -120967,8 +120999,11 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bMaxHPrate,.@r;
-      bonus bMaxSPrate,.@r;
+      bonus bMaxHPrate,.@r*2;
+      bonus bMaxSPrate,.@r*2;
+      bonus bNoMagicDamage,.@r/2;
+      bonus bNoWeaponDamage,.@r/2;
+      bonus bNoMiscDamage,.@r/2;
   - Id: 24449
     AegisName: First_Orphan_G
     Name: First Orphan G
@@ -120999,7 +121034,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bSpeedAddRate,2*.@r;
+      bonus bSpeedAddRate,4*.@r;
   - Id: 24451
     AegisName: First_Orphan_P
     Name: First Orphan P
@@ -121014,8 +121049,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bFlee2,.@r;
-      bonus bPerfectHitAddRate,.@r;
+      bonus bFlee2,3;
+      bonus bFleeRate,.@r;
   - Id: 24452
     AegisName: Immovable_A
     Name: Immovable A
@@ -121031,7 +121066,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24453
@@ -121049,7 +121083,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24454
@@ -121067,7 +121100,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24455
@@ -121085,7 +121117,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24456
