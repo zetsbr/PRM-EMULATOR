@@ -118435,6 +118435,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118453,6 +118454,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118471,6 +118473,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118489,6 +118492,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118507,6 +118511,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118525,6 +118530,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118543,6 +118549,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118561,6 +118568,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
       if (.@r>=10) {
@@ -118579,6 +118587,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
       if (.@r>=10) {
@@ -118597,6 +118606,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
       if (.@r>=10) {
@@ -118615,6 +118625,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
       if (.@r>=10) {
@@ -118633,6 +118644,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
       if (.@r>=10) {
@@ -118651,6 +118663,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
       if (.@r>=10) {
@@ -118669,6 +118682,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
       if (.@r>=10) {
@@ -118687,6 +118701,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
       if (.@r>=10) {
@@ -118705,6 +118720,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
       if (.@r>=10) {
@@ -119091,6 +119107,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
       if (.@r>=10) {
@@ -119109,6 +119126,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
       if (.@r>=10) {
@@ -119127,6 +119145,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
       if (.@r>=10) {
@@ -119145,6 +119164,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
       if (.@r>=10) {
@@ -119163,6 +119183,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
       if (.@r>=10) {
@@ -119181,6 +119202,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
       if (.@r>=10) {
@@ -119199,6 +119221,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
       if (.@r>=10) {
@@ -119217,6 +119240,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
       if (.@r>=10) {
@@ -119955,6 +119979,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
       if (.@r>=10) {
@@ -119973,6 +119998,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
       if (.@r>=10) {
@@ -119991,6 +120017,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
       if (.@r>=10) {
@@ -120009,6 +120036,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
       if (.@r>=10) {
@@ -120027,6 +120055,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
       if (.@r>=10) {
@@ -120045,6 +120074,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
       if (.@r>=10) {
@@ -120063,6 +120093,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
       if (.@r>=10) {
@@ -120081,6 +120112,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
       if (.@r>=10) {
@@ -120279,6 +120311,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
       if (.@r>=10) {
@@ -120297,6 +120330,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
       if (.@r>=10) {
@@ -120315,6 +120349,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
       if (.@r>=10) {
@@ -120333,6 +120368,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
       if (.@r>=10) {
