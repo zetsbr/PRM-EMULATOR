@@ -1276,52 +1276,52 @@ dicast_in,359,201,8	script	Master of Balder	4_ep18_tamarin,{
 va_orpha,276,319,4	script	Mirror Converter	4_ep18_tamarin,{
 	set .@npc$, "[Sage of Conversion]";
 	mes .@npc$,"Let me check what do you have in your inventory..","This is what I found:";
-	if ( countitem2(1632,1,0,0,1633,1634,1635,1636) >= 1) {
-		set #temporalwarp, 4;
+	if ( countitem2(1632,1,0,0,0,0,0,0) >= 1) {
+		set #bifrostmirror, 1;
+		set #temporalwarp, 0;
+		mes "An Empty Mirror";
+	}
+	if ( countitem2(1633,1,0,0,0,0,0,0) >= 1) {
+		set #vidareye, 1;
+		mes "The Eye of Vidar";
+	}
+	if ( countitem2(1634,1,0,0,0,0,0,0) >= 1) {
+		set #valieye, 1;
+		mes "The Eye of Vali";
+	}
+	if ( countitem2(1635,1,0,0,0,0,0,0) >= 1) {
+		set #thoreye, 1;
+		mes "The Eye of Thor";
+	}
+	if ( countitem2(1636,1,0,0,0,0,0,0) >= 1) {
+		set #baldereye, 1;
+		mes "The Eye of Balder";
+	}
+	if ( countitem2(1632,1,0,0,1633,0,0,0) >= 1) {
+		set #temporalwarp, 1;
+		set #vidareye, 2;
+		mes "A Mirror with 1 eye";
+	}
+	if ( countitem2(1632,1,0,0,1633,1634,0,0) >= 1) {
+		set #temporalwarp, 2;
 		set #vidareye, 2;
 		set #valieye, 2;
-		set #thoreye, 2;
-		set #baldereye, 2;
-		mes "Found Mirror with 4 eyes";
+		mes "A Mirror with 2 eyes";
 	}
 	if ( countitem2(1632,1,0,0,1633,1634,1635,0) >= 1) {
 		set #temporalwarp, 3;
 		set #vidareye, 2;
 		set #valieye, 2;
 		set #thoreye, 2;
-		mes "Found Mirror with 3 eyes";
+		mes "A Mirror with 3 eyes";
 	}
-	if ( countitem2(1632,1,0,0,1633,1634,0,0) >= 1) {
-		set #temporalwarp, 2;
+	if ( countitem2(1632,1,0,0,1633,1634,1635,1636) >= 1) {
+		set #temporalwarp, 4;
 		set #vidareye, 2;
 		set #valieye, 2;
-		mes "Found Mirror with 2 eyes";
-	}
-	if ( countitem2(1632,1,0,0,1633,0,0,0) >= 1) {
-		set #temporalwarp, 1;
-		set #vidareye, 2;
-		mes "Found Mirror with 1 eyes";
-	}
-	if ( countitem2(1632,1,0,0,0,0,0,0) >= 1) {
-		set #bifrostmirror, 1;
-		set #temporalwarp, 0;
-		mes "Found Empty Mirror";
-	}
-	if ( countitem2(1633,1,0,0,0,0,0,0) >= 1) {
-		set #vidareye, 1;
-		mes "Found Vidar Eye";
-	}
-	if ( countitem2(1634,1,0,0,0,0,0,0) >= 1) {
-		set #valieye, 1;
-		mes "Found Vali Eye";
-	}
-	if ( countitem2(1635,1,0,0,0,0,0,0) >= 1) {
-		set #thoreye, 1;
-		mes "Found Thor Eye";
-	}
-	if ( countitem2(1636,1,0,0,0,0,0,0) >= 1) {
-		set #baldereye, 1;
-		mes "Found Valder Eye";
+		set #thoreye, 2;
+		set #baldereye, 2;
+		mes "A Mirror with 4 eyes";
 	}
 	close;
 }
