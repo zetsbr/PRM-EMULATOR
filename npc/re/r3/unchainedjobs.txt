@@ -450,7 +450,7 @@ va_orpha,298,117,4	script	Iruga#mistletoering	10002,{
 	close;
 	}
 	mes .@npc$;
-	mes "...300 <ITEM>Necklace of Oblivion<INFO>1008</INFO></ITEM>.";
+	mes "...100 <ITEM>Necklace of Oblivion<INFO>1008</INFO></ITEM>.";
 	next;
 	mes .@npc$;
 	mes "They were once part of the ritual of the Assassin Cross job change...";
@@ -462,16 +462,16 @@ va_orpha,298,117,4	script	Iruga#mistletoering	10002,{
 	next;
 	mes "...<ITEM>Mistletoe Ring<INFO>2682</INFO></ITEM>?";
 	next;
-	switch(select("I have 300 Necklaces of Oblivion:Nevermind.")) {
+	switch(select("I have 100 Necklaces of Oblivion:Nevermind.")) {
 	case 1:
-	if(countitem(1008) < 300) goto L_noitems;
+	if(countitem(1008) < 100) goto L_noitems;
 	mes .@npc$;
 	mes "You actually did it...Master Loki would be proud if he ever saw someone like you.";
 	next;
 	mes .@npc$;
 	mes "This ring is one of a kind. Keep it safe as you'd keep your soul.";
 	close2;
-	delitem 1008,300;
+	delitem 1008,100;
 	getitem 2682,1;
 	set mistletoeexchange,1;
 	break;
@@ -522,21 +522,21 @@ in_rogue,355,41,4	script	Markie#mistletoering	747 ,{
 	emotion ET_STARE;
 	mes .@npc$;
 	mes "If you want the <ITEM>Unchained Ring<INFO>2683</INFO></ITEM>...";
-	mes "^FF00001000^000000 Distortion Shards."; //7360
-	mes "^FF00005^000000 Gigallopy."; //4957
-	mes "And a special ^FF00001^000000 Costume Fancy Gift Box for my work!"; //666
+	mes "^FF0000300^000000 Distortion Shards."; //7360
+	mes "^FF00002^000000 Gigallopy."; //4957
+	mes "And a special ^FF00001^000000 Costume Cool Gift Box for my work!"; //665
 	next;
 	mes .@npc$;
 	mes "If you want the <ITEM>Tradition Ring<INFO>2684</INFO></ITEM>...";
-	mes "^FF00002000^000000 Distortion Shards."; //7360
-	mes "^FF000010^000000 Valhalla Flowers."; //4961
-	mes "And a rare ^FF00001^000000 Costume Marvelous Gift Box for my help!"; //667
+	mes "^FF0000600^000000 Distortion Shards."; //7360
+	mes "^FF00003^000000 Valhalla Flowers."; //4961
+	mes "And a rare ^FF00001^000000 Costume Fancy Gift Box for my help!"; //666
 	next;
 	mes .@npc$;
 	mes "If you want the <ITEM>Change Ring<INFO>2685</INFO></ITEM>...";
-	mes "^FF00002000^000000 Distortion Shards."; //7360
-	mes "^FF000010^000000 Marks of Sorrow."; //4965
-	mes "And a rare ^FF00001^000000 Costume Marvelous Gift Box for my help!"; //667
+	mes "^FF0000600^000000 Distortion Shards."; //7360
+	mes "^FF00003^000000 Marks of Sorrow."; //4965
+	mes "And a rare ^FF00001^000000 Costume Fancy Gift Box for my help!"; //666
 	next;
 	mes .@npc$;
 	mes "What, you didn't expect me to just GIVE you them right? Hehehe!";
@@ -551,18 +551,18 @@ in_rogue,355,41,4	script	Markie#mistletoering	747 ,{
 	mes "I don't have this ring anymore...";
 	close;
 	}
-	if(countitem(7360) < 1000) goto L_noitems;
-	if(countitem(4957) < 5) goto L_noitems;
-	if(countitem(666) < 1) goto L_noitems;
+	if(countitem(7360) < 300) goto L_noitems;
+	if(countitem(4957) < 2) goto L_noitems;
+	if(countitem(665) < 1) goto L_noitems;
 	mes .@npc$;
 	mes "You really want this ring eh? Very well, it's yours!";
 	next;
 	mes .@npc$;
 	mes "Enjoy the skills of a Thief in a whole new level!";
 	close2;
-	delitem 7360,1000;
-	delitem 4957,5;
-	delitem 666,1;
+	delitem 7360,300;
+	delitem 4957,2;
+	delitem 665,1;
 	getitem 2683,1;
 	set unchainedringa,1;
 	break;
@@ -578,18 +578,18 @@ in_rogue,355,41,4	script	Markie#mistletoering	747 ,{
 	mes "I don't have this ring anymore...";
 	close;
 	}
-	if(countitem(7360) < 2000) goto L_noitems2;
-	if(countitem(4961) < 10) goto L_noitems2;
-	if(countitem(667) < 1) goto L_noitems2;
+	if(countitem(7360) < 600) goto L_noitems2;
+	if(countitem(4961) < 3) goto L_noitems2;
+	if(countitem(666) < 1) goto L_noitems2;
 	mes .@npc$;
 	mes "You really want this ring eh? Very well, it's yours!";
 	next;
 	mes .@npc$;
 	mes "Enjoy the skills of an Assassin in a whole new level!";
 	close2;
-	delitem 7360,2000;
-	delitem 4961,10;
-	delitem 667,1;
+	delitem 7360,600;
+	delitem 4961,3;
+	delitem 666,1;
 	getitem 2684,1;
 	set unchainedringb,1;
 	break;
@@ -605,18 +605,18 @@ in_rogue,355,41,4	script	Markie#mistletoering	747 ,{
 	mes "I don't have this ring anymore...";
 	close;
 	}
-	if(countitem(7360) < 2000) goto L_noitems3;
-	if(countitem(4965) < 10) goto L_noitems3;
-	if(countitem(667) < 1) goto L_noitems3;
+	if(countitem(7360) < 600) goto L_noitems3;
+	if(countitem(4965) < 3) goto L_noitems3;
+	if(countitem(666) < 1) goto L_noitems3;
 	mes .@npc$;
 	mes "You really want this ring eh? Very well, it's yours!";
 	next;
 	mes .@npc$;
 	mes "Enjoy the skills of a Rogue in a whole new level!";
 	close2;
-	delitem 7360,2000;
-	delitem 4965,10;
-	delitem 667,1;
+	delitem 7360,600;
+	delitem 4965,3;
+	delitem 666,1;
 	getitem 2685,1;
 	set unchainedringc,1;
 	break;
