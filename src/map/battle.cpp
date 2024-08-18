@@ -6892,7 +6892,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += -100 + 10 * skill_lv + 2 * (sstatus->int_);
 						break;
 					case WL_HELLINFERNO:
-						skillratio += 400 + 100 * skill_lv + 3 * (sstatus->int_);
+						skillratio += 100 + 100 * skill_lv + 4 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
@@ -6909,7 +6909,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						RE_LVL_DMOD(100);
 						break;
 					case BA_MUSICALSTRIKE:
-						skillratio += 400 + 100 * skill_lv + 3 * (sstatus->int_);
+						skillratio += 100 + 100 * skill_lv + 4 * (sstatus->int_);
 						if (tsc && tsc->data[SC_FREEZING])
 							skillratio += 1 * (sstatus->int_);
 						if (tsc && tsc->data[SC_BURNING])
@@ -6922,7 +6922,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 							skillratio *= 1 + 24 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
 						break;
 					case NC_COLDSLOWER:
-						skillratio += 400 + 100 * skill_lv + 3 * (sstatus->int_);
+						skillratio += 100 + 100 * skill_lv + 4 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
