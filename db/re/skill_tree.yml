@@ -1854,7 +1854,7 @@ Body:
       - Name: SR_SKYNETBLOW
         MaxLevel: 5
       - Name: SO_PSYCHIC_WAVE
-        MaxLevel: 10
+        MaxLevel: 5
       - Name: KO_MAKIBISHI
         MaxLevel: 5
       - Name: NJ_UTSUSEMI
