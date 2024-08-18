@@ -130,7 +130,7 @@ Body:
       Baby_Soul_Linker: true
       Baby_Gunslinger: true
       Baby_Star_Gladiator2: true
-    MaxBaseLevel: 99
+    MaxBaseLevel: 150
     BaseExp:
       - Level: 1
         Exp: 100
@@ -330,6 +330,108 @@ Body:
         Exp: 720000
       - Level: 99
         Exp: 800000
+      - Level: 100
+        Exp: 850000
+      - Level: 101
+        Exp: 900000
+      - Level: 102
+        Exp: 950000
+      - Level: 103
+        Exp: 1000000
+      - Level: 104
+        Exp: 1050000
+      - Level: 105
+        Exp: 1100000
+      - Level: 106
+        Exp: 1200000
+      - Level: 107
+        Exp: 1300000
+      - Level: 108
+        Exp: 1400000
+      - Level: 109
+        Exp: 1500000
+      - Level: 110
+        Exp: 1650000
+      - Level: 111
+        Exp: 1800000
+      - Level: 112
+        Exp: 1950000
+      - Level: 113
+        Exp: 2100000
+      - Level: 114
+        Exp: 2250000
+      - Level: 115
+        Exp: 2500000
+      - Level: 116
+        Exp: 2800000
+      - Level: 117
+        Exp: 3100000
+      - Level: 118
+        Exp: 3400000
+      - Level: 119
+        Exp: 3700000
+      - Level: 120
+        Exp: 4000000
+      - Level: 121
+        Exp: 4300000
+      - Level: 122
+        Exp: 4600000
+      - Level: 123
+        Exp: 4900000
+      - Level: 124
+        Exp: 5200000
+      - Level: 125
+        Exp: 5500000
+      - Level: 126
+        Exp: 6000000
+      - Level: 127
+        Exp: 6500000
+      - Level: 128
+        Exp: 7000000
+      - Level: 129
+        Exp: 7500000
+      - Level: 130
+        Exp: 8000000
+      - Level: 131
+        Exp: 8500000
+      - Level: 132
+        Exp: 9000000
+      - Level: 133
+        Exp: 9500000
+      - Level: 134
+        Exp: 10000000
+      - Level: 135
+        Exp: 10500000
+      - Level: 136
+        Exp: 11000000
+      - Level: 137
+        Exp: 11500000
+      - Level: 138
+        Exp: 12000000
+      - Level: 139
+        Exp: 12500000
+      - Level: 140
+        Exp: 13000000
+      - Level: 141
+        Exp: 13500000
+      - Level: 142
+        Exp: 14000000
+      - Level: 143
+        Exp: 14500000
+      - Level: 144
+        Exp: 15000000
+      - Level: 145
+        Exp: 16000000
+      - Level: 146
+        Exp: 17000000
+      - Level: 147
+        Exp: 18000000
+      - Level: 148
+        Exp: 19000000
+      - Level: 149
+        Exp: 20000000
+      - Level: 150
+        Exp: 21000000
   - Jobs:
       Novice_High: true
       Swordman_High: true
