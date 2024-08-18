@@ -4123,14 +4123,14 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case NPC_DARKCROSS:
 		case CR_HOLYCROSS:
-#ifdef RENEWAL
+			skillratio += 100 + 45 * skill_lv + 2 * (sstatus->agi);
 			if (tsc && tsc->data[SC_JYUMONJIKIRI])
 				skillratio += 50 +  (sstatus->dex);
-			if(sd && sd->status.weapon == W_DOUBLE_SS)
-				skillratio += 100 + 45 * skill_lv + 2 * (sstatus->agi);
-			else
-#endif
-				skillratio += 100 + 30 * skill_lv + 2 * (sstatus->agi);
+			break;
+		case WL_DRAINLIFE:
+			skillratio += 40 * skill_lv + 4 * (sstatus->int_);
+			if (tsc && tsc->data[SC_JYUMONJIKIRI])
+				skillratio +=50 + (sstatus->dex);
 			break;
 		case AM_DEMONSTRATION:
 			skillratio += 50 + 5 * skill_lv + 1 * (sstatus->int_);
@@ -6889,14 +6889,6 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						else
 							skillratio += -100 + 1000 + 300 * skill_lv;
 						RE_LVL_DMOD(100);
-						break;
-					case WL_DRAINLIFE:
-					if (tsc && tsc->data[SC_JYUMONJIKIRI])
-						skillratio +=50 + (sstatus->dex);
-					if(sd && sd->status.weapon == W_DOUBLE_AA)
-						skillratio += 40 * skill_lv + 8 * (sstatus->int_);
-					else
-						skillratio += 30 * skill_lv + 4 * (sstatus->int_);
 						break;
 					case WL_CRIMSONROCK:
 						skillratio += -100 + 10 * skill_lv + 2 * (sstatus->int_);
