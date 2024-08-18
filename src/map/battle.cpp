@@ -6892,11 +6892,12 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += -100 + 10 * skill_lv + 2 * (sstatus->int_);
 						break;
 					case WL_HELLINFERNO:
-						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
+						skillratio += 100 + 100 * skill_lv + 4 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
 							skillratio *= 1 + 24 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
+						break;
 					case WL_COMET:
 						skillratio += -100 + 50 * skill_lv + 6 * (sstatus->int_);
 						break;
@@ -6908,35 +6909,32 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						RE_LVL_DMOD(100);
 						break;
 					case BA_MUSICALSTRIKE:
-#ifdef RENEWAL
-						skillratio += 150 + 30 * skill_lv + 3 * (sstatus->int_);
+						skillratio += 100 + 100 * skill_lv + 4 * (sstatus->int_);
 						if (tsc && tsc->data[SC_FREEZING])
-							skillratio += 3 * (sstatus->int_);
+							skillratio += 1 * (sstatus->int_);
 						if (tsc && tsc->data[SC_BURNING])
-							skillratio += 3 * (sstatus->int_);
+							skillratio += 1 * (sstatus->int_);
 						if (sc && sc->data[SC_MANU_DEF])
-							skillratio += 50 * skill_lv + 3 * (sstatus->int_);
+							skillratio += 10 * skill_lv + 1 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
 							skillratio *= 1 + 24 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
-						skillratio *= 0.5;
-#else
-						skillratio += 25 + 25 * skill_lv;
-#endif
 						break;
 					case NC_COLDSLOWER:
-						skillratio += 50 + 10 * skill_lv + 2 * (sstatus->int_);
+						skillratio += 100 + 100 * skill_lv + 4 * (sstatus->int_);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio *= 1 + 12 * (1 - (3000 + status_get_max_sp(src) - status_get_sp(src)) / (3000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
 							skillratio *= 1 + 24 * (1 - (3000 + status_get_sp(src)) / (3000 + 1.1 * status_get_sp(src)));
+						break;
 					case TK_JUMPKICK:
 						skillratio += 100 + 10 * skill_lv + 1 * (sstatus->dex);
 						if (sc && sc->data[SC_CONCENTRATE])
 							skillratio *= 1 + 5 * (1 - (2000 + status_get_max_sp(src) - status_get_sp(src)) / (2000 + 1.1 * (status_get_max_sp(src) - status_get_sp(src))));
 						if (sc && sc->data[SC_DEATHBOUND])
 							skillratio *= 1 + 10 * (1 - (2000 + status_get_sp(src)) / (2000 + 1.1 * status_get_sp(src)));
+						break;
 					case WL_TETRAVORTEX_FIRE:
 					case WL_TETRAVORTEX_WATER:
 					case WL_TETRAVORTEX_WIND:
@@ -6989,7 +6987,6 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					case NPC_FIREWALK:
 					case NPC_ELECTRICWALK:
 						skillratio += -100 + 100 * skill_lv;
-
 						break;
 					case SO_DIAMONDDUST: // !TODO: Confirm formula
 						skillratio += -100 + 35 * skill_lv + 6 * (sstatus->int_);
@@ -7044,15 +7041,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						if (sc && sc->data[SC_OVERBRANDREADY])
 						skillratio += (sstatus->int_) + (sstatus->luk);
 						break;
-					case GN_DEMONIC_FIRE:
-											   
-						skillratio += 10 + 1 * skill_lv + 1 * (sstatus->int_) + (2 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));
-													  
-															   
-			
-															 
+					case GN_DEMONIC_FIRE:				   
+						skillratio += 10 + 1 * skill_lv + 1 * (sstatus->int_) + (2 * (pc_checkskill(sd, GN_FIRE_EXPANSION)));									 
 						break;
-
 					// Magical Elemental Spirits Attack Skills
 					case EL_FIRE_MANTLE:
 					case EL_WATER_SCREW:
