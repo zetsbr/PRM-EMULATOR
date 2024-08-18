@@ -4752,20 +4752,11 @@ Body:
         Reproduce: true
     DamageFlags:
       Splash: true
+      Critical: true
     Flags:
       TargetTrap: true
       IgnoreHovering: true
-    Range:
-      - Level: 1
-        Size: 3
-      - Level: 2
-        Size: 4
-      - Level: 3
-        Size: 5
-      - Level: 4
-        Size: 6
-      - Level: 5
-        Size: 7
+    Range: 4
     Hit: Single
     HitCount: -2
     Element: Weapon
@@ -4857,7 +4848,7 @@ Body:
         Time: 45000
       - Level: 5
         Time: 50000
-    Cooldown: 70000
+    Cooldown: 25000
     Requires:
       SpCost: 50
       ItemCost:
@@ -7129,7 +7120,6 @@ Body:
           Amount: 75
         - Level: 10
           Amount: 80
-      HpRateCost: 3
   - Id: 254
     Name: CR_GRANDCROSS
     Description: Queen's Gambit
@@ -12577,15 +12567,15 @@ Body:
     HitCount: 1
     Duration1:
       - Level: 1
-        Time: 30000
+        Time: 20000
       - Level: 2
-        Time: 35000
+        Time: 30000
       - Level: 3
         Time: 40000
       - Level: 4
-        Time: 45000
-      - Level: 5
         Time: 50000
+      - Level: 5
+        Time: 60000
     Cooldown: 60000
     Requires:
       SpCost: 100
@@ -14647,7 +14637,7 @@ Body:
       AmmoAmount: 1
   - Id: 525
     Name: NJ_HUUMA
-    Description: Throw Huuma Shuriken
+    Description: Burst Petals
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
@@ -14655,7 +14645,7 @@ Body:
       Splash: true
     Flags:
       TargetTrap: true
-    Range: 9
+    Range: 4
     Hit: Multi_Hit
     HitCount:
       - Level: 1
@@ -14680,12 +14670,9 @@ Body:
         Area: 2
       - Level: 5
         Area: 2
-    CastTime: 1500
     AfterCastActDelay: 1000
     Cooldown: 2000
-    Duration1: 100
-    FixedCastTime: 500
-    
+    Duration1: 100 
     Requires:
       SpCost:
         - Level: 1
@@ -19178,7 +19165,7 @@ Body:
     Name: WL_DRAINLIFE
     Description: Bloody Fangs
     MaxLevel: 5
-    Type: Magic
+    Type: Weapon
     TargetType: Attack
     Range: 11
     Hit: Single
@@ -20336,14 +20323,14 @@ Body:
       - Level: 1
         Time: 20000
       - Level: 2
-        Time: 25000
-      - Level: 3
         Time: 30000
-      - Level: 4
-        Time: 35000
-      - Level: 5
+      - Level: 3
         Time: 40000
-    Cooldown: 120000
+      - Level: 4
+        Time: 50000
+      - Level: 5
+        Time: 60000
+    Cooldown: 60000
     Requires:
       SpCost: 100
       ItemCost:
@@ -22725,7 +22712,7 @@ Body:
     CopyFlags:
       Skill:
         Plagiarism: true
-    Cooldown: 5000
+    Cooldown: 3000
     Requires:
       SpCost:
         - Level: 1
@@ -25294,6 +25281,8 @@ Body:
     Range: 2
     Hit: Single
     HitCount: 1
+    DamageFlags:
+      IgnoreFlee: true
     Element: Weapon
     CopyFlags:
       Skill:
@@ -25361,9 +25350,7 @@ Body:
         - Level: 9
           Amount: 44
         - Level: 10
-          Amount: 51
-      HpRateCost: -10
-      SpRateCost: -10
+          Amount: 47
   - Id: 2345
     Name: SR_GENTLETOUCH_CURE
     Description: Lady Luck's Kiss
@@ -31539,17 +31526,7 @@ Body:
     Hit: Single
     HitCount: -4
     Element: Weapon
-    SplashArea:
-      - Level: 1
-        Area: 2
-      - Level: 2
-        Area: 2
-      - Level: 3
-        Area: 3
-      - Level: 4
-        Area: 3
-      - Level: 5
-        Area: 4
+    SplashArea: 2
     AfterCastActDelay: 500
     Cooldown: 2500
     Requires:
