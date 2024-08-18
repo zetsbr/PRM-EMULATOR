@@ -88,56 +88,56 @@ va_orpha,19,103,3	script	Ornstein#intro	904,{
 }
 
 
-va_orpha,280,311,3	script	Call to Arms#event	106,{
-
-	set .@npc$, "[General Smough]";
-	if (admincheck ==1 && $calltoarms ==1){
-	playbgmall "203","va_orpha";
-	npctalk "CALL TO ARMS IS HAPPENING NOW!";
-	}
-	if ($calltoarms ==0){
-	mes .@npc$;
-	mes "Hello Orphan, the people may fear us but we must do our best to prove we are just like them.";
-	next;
-	mes .@npc$;
-	mes "Whenever we have an issue, city raid or anything we need to do to help others A -Call to Arms- will be raised.";
-	next;
-	mes .@npc$;
-	mes "Be Mindful that Shadows may spawn when someone dies in these cases.";
-	next;
-	emotion ET_BEST;
-	mes .@npc$;
-	mes "I will take you to the location right away, just talk to me. Godspeed!";
-	close;
-	}
-	mes .@npc$;
-	mes "A Call to Arms is happening right now!";
-	next;
-	mes .@npc$;
-	mes "Call to Arms: Night of the Founders!";
-	mes "Visit a familiar place and remember the past!";
-	next;
-	mes .@npc$;
-	mes "Reward: EXP Bonus and a secret!";
-	next;
-	switch(select("Let's go!:Nevermind")) {
-	case 1:
-	if(countitem(20428) == 0){
-	mes .@npc$;
-	mes "You must have the First Crown with you to participate! Sorry! Only Founders could have this Item!";
-	close;
-	}
-	mes .@npc$;
-	mes "Good luck in there!";
-	close2;
-	warp "moc_orpha",31,14;
-	end;
-	case 2:
-	mes .@npc$;
-	mes "Very well. Call a merchant!";
-	close;
-	}
-	}
+//va_orpha,280,311,3	script	Call to Arms#event	106,{
+//
+//	set .@npc$, "[General Smough]";
+//	if (admincheck ==1 && $calltoarms ==1){
+//	playbgmall "203","va_orpha";
+//	npctalk "CALL TO ARMS IS HAPPENING NOW!";
+//	}
+//	if ($calltoarms ==0){
+//	mes .@npc$;
+//	mes "Hello Orphan, the people may fear us but we must do our best to prove we are just like them.";
+//	next;
+//	mes .@npc$;
+//	mes "Whenever we have an issue, city raid or anything we need to do to help others A -Call to Arms- will be raised.";
+//	next;
+//	mes .@npc$;
+//	mes "Be Mindful that Shadows may spawn when someone dies in these cases.";
+//	next;
+//	emotion ET_BEST;
+//	mes .@npc$;
+//	mes "I will take you to the location right away, just talk to me. Godspeed!";
+//	close;
+//	}
+//	mes .@npc$;
+//	mes "A Call to Arms is happening right now!";
+//	next;
+//	mes .@npc$;
+//	mes "Call to Arms: Night of the Founders!";
+//	mes "Visit a familiar place and remember the past!";
+//	next;
+//	mes .@npc$;
+//	mes "Reward: EXP Bonus and a secret!";
+//	next;
+//	switch(select("Let's go!:Nevermind")) {
+//	case 1:
+//	if(countitem(20428) == 0){
+//	mes .@npc$;
+//	mes "You must have the First Crown with you to participate! Sorry! Only Founders could have this Item!";
+//	close;
+//	}
+//	mes .@npc$;
+//	mes "Good luck in there!";
+//	close2;
+//	warp "moc_orpha",31,14;
+//	end;
+//	case 2:
+//	mes .@npc$;
+//	mes "Very well. Call a merchant!";
+//	close;
+//	}
+//	}
 
 moc_orpha,43,178,4	script	Amadeus Windsor#orphanageX	10085,{
 

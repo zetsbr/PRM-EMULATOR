@@ -7120,7 +7120,6 @@ Body:
           Amount: 75
         - Level: 10
           Amount: 80
-      HpRateCost: 3
   - Id: 254
     Name: CR_GRANDCROSS
     Description: Queen's Gambit
@@ -19169,7 +19168,7 @@ Body:
     Name: WL_DRAINLIFE
     Description: Bloody Fangs
     MaxLevel: 5
-    Type: Magic
+    Type: Weapon
     TargetType: Attack
     Range: 11
     Hit: Single
