@@ -1350,8 +1350,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_RAID, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 	case RK_HUNDREDSPEAR:
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
-		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		break;
 	case TK_RUN:
 		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
@@ -2397,7 +2396,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case SJ_FULLMOONKICK:
 		sc_start(src, bl, SC_BLIND, 15 + 5 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 3000);
+		if (sc && sc->data[SC_OVERBRANDREADY]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+		}
 		break;
 	case SJ_STAREMPEROR:
 		sc_start(src, bl, SC_SILENCE, 50 + 10 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
@@ -8366,6 +8368,9 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			status_change_end(src, SC_DIMENSION, INVALID_TIMER);
 		}
 
+		if (skill_id == SR_SKYNETBLOW || skill_id == SJ_NEWMOONKICK)
+			sc_start2(src, src, SC_OVERBRANDREADY, 100, skill_lv, 0, skill_get_time(skill_id, skill_lv));
+
 		skill_area_temp[1] = 0;
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
@@ -12441,12 +12446,11 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			// Detonate RL_B_TRAP
 			if (pc_checkskill(sd, RL_B_TRAP))
 				map_foreachinallrange(skill_bind_trap, src, AREA_SIZE, BL_SKILL, src);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			// Detonate RL_H_MINE
 			if ((i = pc_checkskill(sd, RL_H_MINE)))
 				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, RL_H_MINE, i, tick, flag | BCT_ENEMY | SD_SPLASH, skill_castend_damage_id);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			sd->flicker = false;
+			sc_start4(src, bl, SC_OVERBRANDREADY, 5000, skill_lv, 5000, src->id, 0, skill_get_time(skill_id, skill_lv));
 		}
 		break;
 
@@ -17248,7 +17252,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		}
 		break;
 	case SJ_FULLMOONKICK:
-		if (!(sc && sc->data[SC_NEWMOON])) {
+		if (!(sc && sc->data[SC_OVERBRANDREADY])) {
 			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 			return false;
 		}

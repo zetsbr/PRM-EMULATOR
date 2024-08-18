@@ -4487,16 +4487,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			}
 			break;
 		case RK_HUNDREDSPEAR:
-			if (tsc && tsc->data[SC_SOULCURSE])
-				skillratio += 400 + 75 * skill_lv + (3 * (sstatus->agi) + 3 * (sstatus->dex));
+			if (sc && sc->data[SC_SPL_ATK])
+				skillratio += 400 + 75 * skill_lv + (5 * (sstatus->agi) + 5 * (sstatus->dex));
+			else if (sc && sc->data[SC_OVERBRANDREADY])
+				skillratio += 200 + 30 * skill_lv + 3 * (sstatus->agi);
 			else
-				skillratio += 200 + 75 * skill_lv + 3 * (sstatus->agi);
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
-				skillratio += (2 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
-				skillratio += (2 * skill_lv) * sd->spiritcharm;
-			if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
-				skillratio += (2 * skill_lv) * sd->spiritcharm;
+				skillratio += 100 + 15 * skill_lv;
 			break;
 		case RK_WINDCUTTER:
 			if (sd) {
@@ -5192,7 +5188,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += (3 * skill_lv) * sd->spiritcharm;
 			break;
 		case SJ_FULLMOONKICK:
-			skillratio += 200 + 60 * skill_lv + 8 * (sstatus->agi);
+			skillratio += 200 + 50 * skill_lv + 9 * (sstatus->agi);
 			break;
 		case SJ_NEWMOONKICK:
 			skillratio += 150 + 40 * skill_lv + 5 * (sstatus->agi);

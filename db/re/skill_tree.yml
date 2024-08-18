@@ -3186,7 +3186,7 @@ Body:
       - Name: SR_SKYNETBLOW
         MaxLevel: 5
       - Name: SO_PSYCHIC_WAVE
-        MaxLevel: 10
+        MaxLevel: 5
       - Name: ASC_METEORASSAULT
         MaxLevel: 5
       - Name: LG_CANNONSPEAR
@@ -4935,7 +4935,7 @@ Body:
       - Name: SR_SKYNETBLOW
         MaxLevel: 5
       - Name: SO_PSYCHIC_WAVE
-        MaxLevel: 10
+        MaxLevel: 5
       - Name: ASC_METEORASSAULT
         MaxLevel: 5
       - Name: LG_CANNONSPEAR
