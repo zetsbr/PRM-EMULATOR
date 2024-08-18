@@ -4438,7 +4438,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case NJ_KIRIKAGE:
 #ifdef RENEWAL
-			skillratio += 100 + 15 * skill_lv + (sstatus->luk);
+			skillratio += 100 + 15 * skill_lv + (sstatus->agi);
 			if (sc && sc->data[SC_HALLUCINATIONWALK])
 				skillratio += 5 * pc_checkskill(sd, TF_MISS);
 #else
