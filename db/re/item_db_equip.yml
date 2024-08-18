@@ -118434,8 +118434,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Fire;
+      }
   - Id: 24279
     AegisName: Ancient_Tomb_G
     Name: Ancient Tomb G
@@ -118449,8 +118453,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Fire;
+      }
   - Id: 24280
     AegisName: Ancient_Tomb_S
     Name: Ancient Tomb S
@@ -118464,8 +118472,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Fire;
+      }
   - Id: 24281
     AegisName: Ancient_Tomb_P
     Name: Ancient Tomb P
@@ -118479,8 +118491,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Fire;
+      }
   - Id: 24282
     AegisName: Scorching_Lava_A
     Name: Scorching Lava A
@@ -118494,8 +118510,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Water;
+      }
   - Id: 24283
     AegisName: Scorching_Lava_G
     Name: Scorching Lava G
@@ -118509,8 +118529,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Water;
+      }
   - Id: 24284
     AegisName: Scorching_Lava_S
     Name: Scorching Lava S
@@ -118524,8 +118548,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Water;
+      }
   - Id: 24285
     AegisName: Scorching_Lava_P
     Name: Scorching Lava P
@@ -118539,8 +118567,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Earth,3;
       bonus2 bMagicAddEle,Ele_Earth,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Water;
+      }
   - Id: 24286
     AegisName: Deep_Dive_A
     Name: Deep Dive A
@@ -118554,8 +118586,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Wind;
+      }
   - Id: 24287
     AegisName: Deep_Dive_G
     Name: Deep Dive G
@@ -118569,8 +118605,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Wind;
+      }
   - Id: 24288
     AegisName: Deep_Dive_S
     Name: Deep Dive S
@@ -118584,8 +118624,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Wind;
+      }
   - Id: 24289
     AegisName: Deep_Dive_P
     Name: Deep Dive P
@@ -118599,8 +118643,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Water,3;
       bonus2 bMagicAddEle,Ele_Water,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Wind;
+      }
   - Id: 24290
     AegisName: Roaring_Gale_A
     Name: Roaring Gale A
@@ -118614,8 +118662,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Earth;
+      }
   - Id: 24291
     AegisName: Roaring_Gale_G
     Name: Roaring Gale G
@@ -118629,8 +118681,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Earth;
+      }
   - Id: 24292
     AegisName: Roaring_Gale_S
     Name: Roaring Gale S
@@ -118644,8 +118700,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Earth;
+      }
   - Id: 24293
     AegisName: Roaring_Gale_P
     Name: Roaring Gale P
@@ -118659,8 +118719,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Wind,3;
       bonus2 bMagicAddEle,Ele_Wind,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Earth;
+      }
   - Id: 24294
     AegisName: Pirate_King_A
     Name: Pirate King A
@@ -119042,8 +119106,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Ghost;
+      }
   - Id: 24319
     AegisName: Immortal_G
     Name: Immortal G
@@ -119057,8 +119125,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Ghost;
+      }
   - Id: 24320
     AegisName: Immortal_S
     Name: Immortal S
@@ -119072,8 +119144,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Ghost;
+      }
   - Id: 24321
     AegisName: Immortal_P
     Name: Immortal P
@@ -119087,8 +119163,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddRace,RC_Undead,3;
       bonus2 bMagicAddRace,RC_Undead,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Ghost;
+      }
   - Id: 24322
     AegisName: Venom_Fang_A
     Name: Venom Fang A
@@ -119102,8 +119182,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Undead;
+      }
   - Id: 24323
     AegisName: Venom_Fang_G
     Name: Venom Fang G
@@ -119117,8 +119201,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Undead;
+      }
   - Id: 24324
     AegisName: Venom_Fang_S
     Name: Venom Fang S
@@ -119132,8 +119220,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Undead;
+      }
   - Id: 24325
     AegisName: Venom_Fang_P
     Name: Venom Fang P
@@ -119147,8 +119239,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Poison,3;
       bonus2 bMagicAddEle,Ele_Poison,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Undead;
+      }
   - Id: 24326
     AegisName: Laughing_Chaos_A
     Name: Laughing Chaos A
@@ -119882,8 +119978,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Holy;
+      }
   - Id: 24375
     AegisName: Heavy_Mist_G
     Name: Heavy Mist G
@@ -119897,8 +119997,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Holy;
+      }
   - Id: 24376
     AegisName: Heavy_Mist_S
     Name: Heavy Mist S
@@ -119912,8 +120016,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Holy;
+      }
   - Id: 24377
     AegisName: Heavy_Mist_P
     Name: Heavy Mist P
@@ -119927,8 +120035,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Dark,3;
       bonus2 bMagicAddEle,Ele_Dark,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Holy;
+      }
   - Id: 24379
     AegisName: Piercing_Light_A
     Name: Piercing Light A
@@ -119942,8 +120054,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Dark;
+      }
   - Id: 24380
     AegisName: Piercing_Light_G
     Name: Piercing Light G
@@ -119957,8 +120073,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Dark;
+      }
   - Id: 24381
     AegisName: Piercing_Light_S
     Name: Piercing Light S
@@ -119972,8 +120092,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Dark;
+      }
   - Id: 24382
     AegisName: Piercing_Light_P
     Name: Piercing Light P
@@ -119987,8 +120111,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Holy,3;
       bonus2 bMagicAddEle,Ele_Holy,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Dark;
+      }
   - Id: 24383
     AegisName: Spell_Flow_A
     Name: Spell Flow A
@@ -120182,8 +120310,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Poison;
+      }
   - Id: 24396
     AegisName: Lost_Tech_G
     Name: Lost Tech G
@@ -120197,8 +120329,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Poison;
+      }
   - Id: 24397
     AegisName: Lost_Tech_S
     Name: Lost Tech S
@@ -120212,8 +120348,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Poison;
+      }
   - Id: 24398
     AegisName: Lost_Tech_P
     Name: Lost Tech P
@@ -120227,8 +120367,12 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
+      .@r = getrefine();
       bonus2 bAddEle,Ele_Neutral,3;
       bonus2 bMagicAddEle,Ele_Neutral,3;
+      if (.@r>=10) {
+        bonus bAtkEle,Ele_Poison;
+      }
   - Id: 24399
     AegisName: Lucky7_A
     Name: Lucky7 A
@@ -120242,7 +120386,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus bFlee,7;
+      bonus bFleerate,7;
   - Id: 24400
     AegisName: Lucky7_G
     Name: Lucky7 G
@@ -120256,7 +120400,7 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus bHit,7;
+      bonus bHitrate,7;
   - Id: 24401
     AegisName: Lucky7_S
     Name: Lucky7 S
@@ -120833,6 +120977,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24441
@@ -120852,6 +121004,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24442
@@ -120871,6 +121031,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24443
@@ -120890,6 +121058,14 @@ Body:
       bonus2 bSkillAtk,"NJ_KOUENKA",3;
       bonus2 bSkillAtk,"NJ_HYOUSENSOU",3;
       bonus2 bSkillAtk,"NJ_HUUJIN",3;
+      bonus2 bSkillAtk,"MG_FROSTDIVER",3;
+      bonus2 bSkillAtk,"MG_FIREBALL",3;
+      bonus2 bSkillAtk,"MG_SOULSTRIKE",3;
+      bonus2 bSkillAtk,"AB_JUDEX",3;
+      bonus2 bSkillAtk,"WZ_HEAVENDRIVE",1;
+      bonus2 bSkillAtk,"NJ_BAKUENRYU",1;
+      bonus2 bSkillAtk,"NJ_RAIGEKISAI",1;
+      bonus2 bSkillAtk,"NJ_HYOUSYOURAKU",1;
       bonus bVariableCastrate,25;
       bonus bAtkRate,-10;
   - Id: 24444
@@ -120966,8 +121142,11 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bMaxHPrate,.@r;
-      bonus bMaxSPrate,.@r;
+      bonus bMaxHPrate,.@r*2;
+      bonus bMaxSPrate,.@r*2;
+      bonus bNoMagicDamage,.@r/2;
+      bonus bNoWeaponDamage,.@r/2;
+      bonus bNoMiscDamage,.@r/2;
   - Id: 24449
     AegisName: First_Orphan_G
     Name: First Orphan G
@@ -120998,7 +121177,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bSpeedAddRate,2*.@r;
+      bonus bSpeedAddRate,4*.@r;
   - Id: 24451
     AegisName: First_Orphan_P
     Name: First Orphan P
@@ -121013,8 +121192,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bFlee2,.@r;
-      bonus bPerfectHitAddRate,.@r;
+      bonus bFlee2,3;
+      bonus bFleeRate,.@r;
   - Id: 24452
     AegisName: Immovable_A
     Name: Immovable A
@@ -121030,7 +121209,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24453
@@ -121048,7 +121226,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24454
@@ -121066,7 +121243,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24455
@@ -121084,7 +121260,6 @@ Body:
     Script: |
       bonus bMdef,10;
       bonus bDef,25;
-      bonus bSpeedAddRate,-20;
       bonus bBaseAtk,-25;
       bonus bMatk,-25;
   - Id: 24456
