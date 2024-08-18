@@ -34881,7 +34881,7 @@ Body:
       DropEffect: YELLOW_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bShortAtkRate,.@r;
+      bonus bShortAtkRate,(.@r)/2;
   - Id: 13551
     AegisName: ThorAvatar_Card
     Name: ThorAvatar Card
