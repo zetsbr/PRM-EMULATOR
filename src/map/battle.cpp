@@ -2856,7 +2856,7 @@ static int is_attack_piercing(struct Damage* wd, struct block_list *src, struct 
 		struct map_session_data *sd = BL_CAST(BL_PC, src);
 		struct status_data *tstatus = status_get_status_data(target);
 
-		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS && skill_id != KO_HAPPOKUNAI
+		if( skill_id != PA_SACRIFICE && skill_id != CR_GRANDCROSS && skill_id != NPC_GRANDDARKNESS && skill_id != KO_HAPPOKUNAI && skill_id != SR_GENTLETOUCH_QUIET
 #ifndef RENEWAL
 			&& !is_attack_critical(wd, src, target, skill_id, skill_lv, false)
 #endif
@@ -3589,8 +3589,6 @@ static void battle_calc_skill_base_damage(struct Damage* wd, struct block_list *
 #endif
 					sstatus->batk + sstatus->rhw.atk + (index >= 0 && sd->inventory_data[index] ?
 						sd->inventory_data[index]->atk : 0)) * (skill_lv + 1) / 5;
-				if (sc && sc->data[SC_HALLUCINATIONWALK])
-					damagevalue += (((sstatus->agi)) * pc_checkskill(sd, TF_MISS));
 				ATK_ADD(wd->damage, wd->damage2, damagevalue);
 #ifdef RENEWAL
 				ATK_ADD(wd->weaponAtk, wd->weaponAtk2, damagevalue);
@@ -4412,7 +4410,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 #endif
 		case NJ_HUUMA:
 #ifdef RENEWAL
-			skillratio += 50 + 10 * skill_lv + 2 *(sstatus->dex);
+			skillratio += 50 + 10 * skill_lv + 2 *(sstatus->dex) + 2 *(sstatus->agi);
 			if (sc && sc->data[SC_ADRENALINE2])
 				skillratio += 5 * pc_checkskill(sd, TK_SPTIME);
 #else
@@ -4857,7 +4855,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 2 * (sstatus->str);
 			break;
 		case SR_GENTLETOUCH_QUIET:
-			skillratio += 100 + 20 * skill_lv + 2 * (sstatus->dex);
+			skillratio += 100 + 20 * skill_lv + 2 * (sstatus->agi);
 			if (sc && sc->data[SC_ADRENALINE2])
 				skillratio += 5 * pc_checkskill(sd, TK_SPTIME);
 			break;
