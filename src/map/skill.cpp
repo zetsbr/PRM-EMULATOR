@@ -7887,7 +7887,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case GN_CARTBOOST:
 	case GN_BLOOD_SUCKER:
 	case GN_HELLS_PLANT:
-	case KO_MEIKYOUSISUI:
 	case ALL_ODINS_POWER:
 	case ALL_FULL_THROTTLE:
 	case RA_UNLIMIT:
@@ -8560,6 +8559,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case CR_DEFENDER:
 	case ML_DEFENDER:
 	case CR_AUTOGUARD:
+	case KO_MEIKYOUSISUI:
 	case ML_AUTOGUARD:
 	case TK_READYSTORM:
 	case TK_READYDOWN:
@@ -22802,6 +22802,7 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case CR_DEFENDER:
 	case CR_SHRINK:
 	case CR_AUTOGUARD:
+	case KO_MEIKYOUSISUI:
 	case ML_DEFENDER:
 	case ML_AUTOGUARD:
 	case PA_GOSPEL:
