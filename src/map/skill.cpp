@@ -5911,7 +5911,12 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			if ((skill_id == SP_SHA || skill_id == SP_SWHOO) && !battle_config.allow_es_magic_pc && bl->type != BL_MOB)
 				break;
 
-			heal = (int)skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, sflag);
+			if (skill_id == HW_NAPALMVULCAN || skill_id == SP_CURSEEXPLOSION) {
+				heal = (int)skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, sflag);
+				heal += (int)skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, sflag);
+			}
+			else
+				heal = (int)skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, sflag);
 
 			switch (skill_id) {
 			case NPC_VAMPIRE_GIFT:

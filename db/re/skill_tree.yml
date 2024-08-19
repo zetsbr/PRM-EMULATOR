@@ -3277,7 +3277,7 @@ Body:
       - Name: HW_NAPALMVULCAN
         MaxLevel: 10
         Requires:
-          - Name: KO_MEIKYOUSISUI
+          - Name: SP_SOULCURSE
             Level: 1
       - Name: SO_FIREWALK
         MaxLevel: 10

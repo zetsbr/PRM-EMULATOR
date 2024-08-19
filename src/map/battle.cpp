@@ -594,20 +594,6 @@ int64 battle_attr_fix(struct block_list *src, struct block_list *target, int64 d
 #endif
 				break;
 			case ELE_DARK:
-				if (tsc->data[SC_SOULCURSE]) {
-					if (status_get_class_(target) == CLASS_BOSS)
-#ifdef RENEWAL
-						ratio += 20;
-#else
-						damage += (int64)(damage * 20 / 100);
-#endif
-					else
-#ifdef RENEWAL
-						ratio += 100;
-#else
-						damage *= 2;
-#endif
-				}
 				break;
 		}
 
@@ -4315,6 +4301,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 100 + 100 * skill_lv;
 #endif
 			break;
+		case HW_NAPALMVULCAN:
+			if (tsc && tsc->data[SC_SOULCURSE])
+				skillratio += -100 + 50 * skill_lv + 4 * (sstatus->int_);
+			else
+				skillratio += -100 + 25 * skill_lv + 2 * (sstatus->int_);
+			break;
 		case ASC_BREAKER:
 #ifdef RENEWAL
 			skillratio += 150 + 25 * skill_lv + 5 * (sstatus->int_);
@@ -5177,9 +5169,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case SP_CURSEEXPLOSION:
 			if (tsc && tsc->data[SC_SOULCURSE])
-				skillratio += 200 + 50 * skill_lv + 5 * (sstatus->luk);
+				skillratio += 200 + 50 * skill_lv + 5 * (sstatus->int_);
 			else
-				skillratio += 100 + 25 * skill_lv + 2 * (sstatus->luk);
+				skillratio += 100 + 25 * skill_lv + 2 * (sstatus->int_);
 			if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
 				skillratio += (3 * skill_lv) * sd->spiritcharm;
 			if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
@@ -6662,14 +6654,22 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						break;
 #endif
 					case HW_NAPALMVULCAN:
-#ifdef RENEWAL
 						if (tsc && tsc->data[SC_SOULCURSE])
 							skillratio += -100 + 50 * skill_lv + 4 * (sstatus->int_);
 						else
 							skillratio += -100 + 25 * skill_lv + 2 * (sstatus->int_);
-#else
-						skillratio += 25;
-#endif
+						break;
+					case SP_CURSEEXPLOSION:
+						if (tsc && tsc->data[SC_SOULCURSE])
+							skillratio += 200 + 50 * skill_lv + 5 * (sstatus->int_);
+						else
+							skillratio += 100 + 25 * skill_lv + 2 * (sstatus->int_);
+						if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
+							skillratio += (3 * skill_lv) * sd->spiritcharm;
+						if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
+							skillratio += (3 * skill_lv) * sd->spiritcharm;
+						if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
+							skillratio += (3 * skill_lv) * sd->spiritcharm;
 						break;
 					case SL_STUN:
 						skillratio += 5 * skill_lv;
