@@ -123342,7 +123342,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","NJ_KIRIKAGE",1,100*(.@r);
+      bonus4 bAutoSpellOnSkill,"SR_GENTLETOUCH_QUIET","NJ_KIRIKAGE",1,100*(.@r);
       bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",5*(.@r);
   - Id: 24561
     AegisName: Black_Moon_G
