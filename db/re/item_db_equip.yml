@@ -63286,7 +63286,7 @@ Body:
     Attack: 25
     MagicAttack: 15
     Range: 1
-    Slots: 1
+    Slots: 2
     Jobs:
       Paladin: true
       All: true
@@ -63313,9 +63313,9 @@ Body:
     Script: |
       skill "TF_DOUBLE",1;
       .@r = getrefine();
-      bonus bAspd,5;
-      bonus2 bSkillAtk,"RK_HUNDREDSPEAR",5*(.@r);
-      if (.@r>=7) {
+      bonus bAtkRate,5;
+      bonus2 bSkillAtk,"RK_HUNDREDSPEAR",7*(.@r);
+      if (.@r>=9) {
         bonus2 bSkillCooldown,"RK_HUNDREDSPEAR",-1000;
       }
   - Id: 13064
@@ -123341,7 +123341,9 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",50;
+      .@r = getrefine();
+      bonus4 bAutoSpellOnSkill,"AS_GRIMTOOTH","NJ_KIRIKAGE",1,100*(.@r);
+      bonus2 bSkillAtk,"SR_GENTLETOUCH_QUIET",5*(.@r);
   - Id: 24561
     AegisName: Black_Moon_G
     Name: Black Moon G
