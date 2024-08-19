@@ -6771,13 +6771,11 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 #endif
 						break;
 					case NJ_KAMAITACHI:
-						skillratio += 15 * skill_lv + 2 * (sstatus->int_);
+						skillratio += 15 * skill_lv + 3 * (sstatus->int_);
 						if (sd && sd->spiritcharm_type == CHARM_TYPE_WIND && sd->spiritcharm > 0)
 							skillratio += (2 * skill_lv) * sd->spiritcharm;
 						if (sc->data[SC_WINDWEAPON])
 							skillratio += (sstatus->int_);
-						if (sc && sc->data[SC_OVERBRANDREADY])
-							skillratio += 1 * (sstatus->int_);
 					case NJ_HUUJIN:
 #ifdef RENEWAL
 						skillratio -= 50;
@@ -6966,13 +6964,11 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						RE_LVL_DMOD(100);
 						break;
 					case SO_FIREWALK:
-						skillratio += -100 + 5 * skill_lv + (sstatus->int_);
+						skillratio += -100 + 5 * skill_lv + 2*(sstatus->int_);
 						if (sd && sd->spiritcharm_type == CHARM_TYPE_FIRE && sd->spiritcharm > 0)
 							skillratio += (1 * skill_lv) * sd->spiritcharm;
 						if (sc->data[SC_FIREWEAPON])
 							skillratio += (sstatus->int_);
-						if (sc && sc->data[SC_OVERBRANDREADY])
-							skillratio += (1 * skill_lv);
 						break;
 					case SO_ELECTRICWALK:
 						skillratio += -100 + 60 * skill_lv;
@@ -6985,13 +6981,11 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += -100 + 100 * skill_lv;
 						break;
 					case SO_DIAMONDDUST: // !TODO: Confirm formula
-						skillratio += -100 + 35 * skill_lv + 6 * (sstatus->int_);
+						skillratio += -100 + 35 * skill_lv + 8 * (sstatus->int_);
 						if (sd && sd->spiritcharm_type == CHARM_TYPE_WATER && sd->spiritcharm > 0)
-						skillratio += (4 * skill_lv) * sd->spiritcharm;
+							skillratio += (4 * skill_lv) * sd->spiritcharm;
 						if (sc->data[SC_WATERWEAPON])
-						skillratio += (sstatus->int_);
-						if (sc && sc->data[SC_OVERBRANDREADY])
-							skillratio += 2 * (sstatus->int_);
+							skillratio += (sstatus->int_);
 						break;
 					case SO_POISON_BUSTER:
 						skillratio += -100 + 35 * skill_lv + 2 * (sstatus->int_) + (3 * pc_checkskill(sd, GC_RESEARCHNEWPOISON));
@@ -7002,21 +6996,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += -100 + 1500 * skill_lv;
 						break;
 					case SO_PSYCHIC_WAVE:
-						skillratio += -75 + 12 * skill_lv + (sstatus->int_/5);
-						if (sc->data[SC_WINDWEAPON])
-							skillratio += (sstatus->agi/5);
-						if (sc->data[SC_EARTHWEAPON])
-							skillratio += (sstatus->str/5);
-						if (sc->data[SC_WATERWEAPON])
-							skillratio += (sstatus->vit/5);
-						if (sc->data[SC_FIREWEAPON])
-							skillratio += (sstatus->luk/5);
-						if (sc->data[SC_GHOSTWEAPON])
-							skillratio += (sstatus->int_/5);
-						if (sc->data[SC_SHADOWWEAPON])
-							skillratio += (sstatus->dex/5);
-						if (sc->data[SC_ASPERSIO])
-							skillratio += (sstatus->dex/5);
+						skillratio += -75 + 12 * skill_lv + (2*sstatus->int_/5);
 						break;
 					case GS_FULLBUSTER:
 						skillratio += -100 + 50 * skill_lv + 5 * (sstatus->int_);

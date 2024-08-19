@@ -27313,6 +27313,17 @@ Body:
         Time: 3500
       - Level: 5
         Time: 4000
+    Duration2:
+      - Level: 1
+        Time: 4000
+      - Level: 2
+        Time: 5000
+      - Level: 3
+        Time: 6000
+      - Level: 4
+        Time: 7000
+      - Level: 5
+        Time: 8000
     Cooldown: 3000
     FixedCastTime:
       - Level: 1

@@ -1821,6 +1821,22 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case AB_ADORAMUS:
 		sc_start(src, bl, SC_ADORAMUS, skill_lv * 4 + (sd ? sd->status.job_level : 50) / 2, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
+	case SO_PSYCHIC_WAVE:
+		if (sc->data[SC_WINDWEAPON])
+			sc_start(src, bl, SC_CRYSTALIZE, skill_lv*20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_EARTHWEAPON])
+			sc_start(src, bl, SC_BLEEDING, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_WATERWEAPON])
+			sc_start(src, bl, SC_FREEZING, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_FIREWEAPON])
+			sc_start(src, bl, SC_BURNING, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_GHOSTWEAPON])
+			sc_start(src, bl, SC_CURSE, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_SHADOWWEAPON])
+			sc_start(src, bl, SC_STONE, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_ASPERSIO])
+			sc_start(src, bl, SC_ADORAMUS, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		break;
 	case WL_COMET:
 		sc_start(src, bl, status_skill2sc(skill_id), 100, skill_lv, 20000);
 		break;
