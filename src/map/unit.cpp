@@ -2033,7 +2033,7 @@ int unit_skilluse_id2(struct block_list *src, int target_id, uint16 skill_id, ui
 
 			if (!src->prev)
 				return 0;
-		} else if (sc->data[SC_NEWMOON] && skill_id != SJ_NEWMOONKICK) {
+		} else if (sc->data[SC_NEWMOON] && (skill_id != SJ_NEWMOONKICK || skill_id != SJ_FULLMOONKICK)) {
 			status_change_end(src, SC_NEWMOON, INVALID_TIMER);
 			if (!src->prev)
 				return 0; // Warped away!

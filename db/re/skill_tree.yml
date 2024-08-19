@@ -1854,7 +1854,7 @@ Body:
       - Name: SR_SKYNETBLOW
         MaxLevel: 5
       - Name: SO_PSYCHIC_WAVE
-        MaxLevel: 10
+        MaxLevel: 5
       - Name: KO_MAKIBISHI
         MaxLevel: 5
       - Name: NJ_UTSUSEMI
@@ -3186,7 +3186,7 @@ Body:
       - Name: SR_SKYNETBLOW
         MaxLevel: 5
       - Name: SO_PSYCHIC_WAVE
-        MaxLevel: 10
+        MaxLevel: 5
       - Name: ASC_METEORASSAULT
         MaxLevel: 5
       - Name: LG_CANNONSPEAR
@@ -3277,7 +3277,7 @@ Body:
       - Name: HW_NAPALMVULCAN
         MaxLevel: 10
         Requires:
-          - Name: KO_MEIKYOUSISUI
+          - Name: SP_SOULCURSE
             Level: 1
       - Name: SO_FIREWALK
         MaxLevel: 10
@@ -4935,7 +4935,7 @@ Body:
       - Name: SR_SKYNETBLOW
         MaxLevel: 5
       - Name: SO_PSYCHIC_WAVE
-        MaxLevel: 10
+        MaxLevel: 5
       - Name: ASC_METEORASSAULT
         MaxLevel: 5
       - Name: LG_CANNONSPEAR

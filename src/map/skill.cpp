@@ -1350,8 +1350,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, bl, SC_RAID, 1000, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 	case RK_HUNDREDSPEAR:
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 5000);
-		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
+		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		break;
 	case TK_RUN:
 		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
@@ -1821,6 +1820,22 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case AB_ADORAMUS:
 		sc_start(src, bl, SC_ADORAMUS, skill_lv * 4 + (sd ? sd->status.job_level : 50) / 2, skill_lv, skill_get_time2(skill_id, skill_lv));
+		break;
+	case SO_PSYCHIC_WAVE:
+		if (sc->data[SC_WINDWEAPON])
+			sc_start(src, bl, SC_CRYSTALIZE, skill_lv*20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_EARTHWEAPON])
+			sc_start(src, bl, SC_BLEEDING, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_WATERWEAPON])
+			sc_start(src, bl, SC_FREEZING, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_FIREWEAPON])
+			sc_start(src, bl, SC_BURNING, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_GHOSTWEAPON])
+			sc_start(src, bl, SC_CURSE, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_SHADOWWEAPON])
+			sc_start(src, bl, SC_STONE, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
+		if (sc->data[SC_ASPERSIO])
+			sc_start(src, bl, SC_ADORAMUS, skill_lv * 20, skill_lv, skill_get_time2(skill_id, skill_lv));
 		break;
 	case WL_COMET:
 		sc_start(src, bl, status_skill2sc(skill_id), 100, skill_lv, 20000);
@@ -2397,7 +2412,10 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case SJ_FULLMOONKICK:
 		sc_start(src, bl, SC_BLIND, 15 + 5 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 3000);
+		if (sc && sc->data[SC_OVERBRANDREADY]) {
+			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, skill_get_time(skill_id, skill_lv));
+		}
 		break;
 	case SJ_STAREMPEROR:
 		sc_start(src, bl, SC_SILENCE, 50 + 10 * skill_lv, skill_lv, skill_get_time(skill_id, skill_lv));
@@ -5893,7 +5911,12 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			if ((skill_id == SP_SHA || skill_id == SP_SWHOO) && !battle_config.allow_es_magic_pc && bl->type != BL_MOB)
 				break;
 
-			heal = (int)skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, sflag);
+			if (skill_id == HW_NAPALMVULCAN || skill_id == SP_CURSEEXPLOSION) {
+				heal = (int)skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, sflag);
+				heal += (int)skill_attack(BF_MAGIC, src, src, bl, skill_id, skill_lv, tick, sflag);
+			}
+			else
+				heal = (int)skill_attack(skill_get_type(skill_id), src, src, bl, skill_id, skill_lv, tick, sflag);
 
 			switch (skill_id) {
 			case NPC_VAMPIRE_GIFT:
@@ -7869,7 +7892,6 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case GN_CARTBOOST:
 	case GN_BLOOD_SUCKER:
 	case GN_HELLS_PLANT:
-	case KO_MEIKYOUSISUI:
 	case ALL_ODINS_POWER:
 	case ALL_FULL_THROTTLE:
 	case RA_UNLIMIT:
@@ -8366,6 +8388,9 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			status_change_end(src, SC_DIMENSION, INVALID_TIMER);
 		}
 
+		if (skill_id == SR_SKYNETBLOW || skill_id == SJ_NEWMOONKICK)
+			sc_start2(src, src, SC_OVERBRANDREADY, 100, skill_lv, 0, skill_get_time(skill_id, skill_lv));
+
 		skill_area_temp[1] = 0;
 		clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 		i = map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget,
@@ -8539,6 +8564,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case CR_DEFENDER:
 	case ML_DEFENDER:
 	case CR_AUTOGUARD:
+	case KO_MEIKYOUSISUI:
 	case ML_AUTOGUARD:
 	case TK_READYSTORM:
 	case TK_READYDOWN:
@@ -12441,12 +12467,11 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			// Detonate RL_B_TRAP
 			if (pc_checkskill(sd, RL_B_TRAP))
 				map_foreachinallrange(skill_bind_trap, src, AREA_SIZE, BL_SKILL, src);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			// Detonate RL_H_MINE
 			if ((i = pc_checkskill(sd, RL_H_MINE)))
 				map_foreachinallrange(skill_area_sub, src, skill_get_splash(skill_id, skill_lv), BL_CHAR, src, RL_H_MINE, i, tick, flag | BCT_ENEMY | SD_SPLASH, skill_castend_damage_id);
-				sc_start4(src, bl, SC_NEWMOON, 5000, skill_lv, 5000, src->id, 0, 5000);
 			sd->flicker = false;
+			sc_start4(src, bl, SC_OVERBRANDREADY, 5000, skill_lv, 5000, src->id, 0, skill_get_time(skill_id, skill_lv));
 		}
 		break;
 
@@ -17248,7 +17273,7 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 		}
 		break;
 	case SJ_FULLMOONKICK:
-		if (!(sc && sc->data[SC_NEWMOON])) {
+		if (!(sc && sc->data[SC_OVERBRANDREADY])) {
 			clif_skill_fail(sd, skill_id, USESKILL_FAIL_LEVEL, 0);
 			return false;
 		}
@@ -22782,6 +22807,7 @@ int skill_disable_check(struct status_change* sc, uint16 skill_id)
 	case CR_DEFENDER:
 	case CR_SHRINK:
 	case CR_AUTOGUARD:
+	case KO_MEIKYOUSISUI:
 	case ML_DEFENDER:
 	case ML_AUTOGUARD:
 	case PA_GOSPEL:
