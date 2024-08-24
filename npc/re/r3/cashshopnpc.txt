@@ -484,7 +484,7 @@ moc_prydb1,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
 -	itemshop	halloweenshop	-1,6657,14503:1,20394:3,31853:5,31120:10,19903:20,31121:25,20174:50.
 
 va_orpha,272,367,4	script	Jack O'Morroc#halloween	10015,{
-	
+		
 	cutin "morrocjakk.png",2;
 	set .@npc$, "[Jack O'Morroc]";
 	mes .@npc$;
@@ -504,41 +504,42 @@ va_orpha,272,367,4	script	Jack O'Morroc#halloween	10015,{
 		cutin "",255;
 		end;
 	}
-	switch(select("I want to deliver 100 coins.:Show me the Emblem rewards.:Nevermind.")) {
-	case 1:
-	if(countitem(6658) < 100) goto L_noitems;
-	emotion ET_SPARK;
-	mes .@npc$;
-	mes "Excelennnnntt~~~Now go get more Coins before I bite your head off! Hehehehe!";
-	mes "So far, I gave-away "+$jackfill+" Emblems! Can you guys get to 5.000?";
-	set $jackfill,$jackfill+1;
-	delitem 6658,100;
-	getitem 6657,1;
-	specialeffect2 845;
-	close2;
-	cutin "",255;
-	end;
-	L_noitems:
-		emotion ET_SMILE;
+	switch(select("I want to deliver 100 coins.:Show me the Emblem rewards.:Nevermind.")) 
+	{
+		case 1:
+		if(countitem(6658) < 100) goto L_noitems;
+		emotion ET_SPARK;
 		mes .@npc$;
-		mes "You don't have <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. Come oooon~~";
+		mes "Excelennnnntt~~~Now go get more Coins before I bite your head off! Hehehehe!";
+		mes "So far, I gave-away "+$jackfill+" Emblems! Can you guys get to 5.000?";
+		set $jackfill,$jackfill+1;
+		delitem 6658,100;
+		getitem 6657,1;
+		specialeffect2 845;
 		close2;
 		cutin "",255;
 		end;
-	case 2:
-	emotion ET_SMILE;
-	mes .@npc$;
-	mes "These items are pretty great! Take a look!";
-	close2;
-	cutin "",255;
-	callshop "halloweenshop",1;
-	break;
-	case 3:
-	emotion ET_SMILE;
-	mes .@npc$;
-	mes "Come back anytime... HYAHAHAHAHA~~";
-	close2;
-	cutin "",255;
-	break;
-}
+		L_noitems:
+			emotion ET_SMILE;
+			mes .@npc$;
+			mes "You don't have <ITEM>Halloween Coins<INFO>6658</INFO></ITEM>. Come oooon~~";
+			close2;
+			cutin "",255;
+			end;
+		case 2:
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "These items are pretty great! Take a look!";
+		close2;
+		cutin "",255;
+		callshop "halloweenshop",1;
+		break;
+		case 3:
+		emotion ET_SMILE;
+		mes .@npc$;
+		mes "Come back anytime... HYAHAHAHAHA~~";
+		close2;
+		cutin "",255;
+		break;
+	}
 }
