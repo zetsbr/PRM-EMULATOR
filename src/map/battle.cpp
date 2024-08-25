@@ -4802,6 +4802,8 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 100 + 40 * skill_lv + 5 * sstatus->luk;
 			else
 				skillratio += 100 + 10 * skill_lv + 1 * sstatus->luk;
+				if (skill_lv >= 11)
+					skillratio += 30 * (skill_lv - 10) + 4 * sstatus->luk;
 			if (sc && sc->data[SC_MAXIMIZEPOWER])
 				skillratio += 2 * (sstatus->int_);
 			if (sc && sc->data[SC_SPL_ATK])
