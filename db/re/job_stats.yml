@@ -2177,6 +2177,10 @@ Body:
       Dagger: 50
       1hSword: 55
       Bow: 60
+      Katar: 60
+      1hAxe: 60
+      1hSpear: 60
+      2hSpear: 65
       Shield: 1
   - Jobs:
       Sorcerer: true
