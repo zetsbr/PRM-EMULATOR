@@ -59325,9 +59325,9 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bFlee,10+(.@r);
-      bonus bDelayRate,-3;
+      bonus bSpeedAddRate,5;
       if (.@r>=10) {
-        bonus bDelayRate,-7;
+        bonus bASPDCap,1;
       }
   - Id: 5929
     AegisName: Nature_Weaver
@@ -59347,10 +59347,10 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bDefRate,5;
-      bonus bMaxHPrate,1;
+      bonus bSPrecovRate,5*(.@r);
       bonus bHPrecovRate,10*(.@r);
       if (.@r>=10) {
-        bonus bMaxHPrate,4;
+        bonus bMaxHPrate,5;
       }
   - Id: 5930
     AegisName: Eyes_Hearts
@@ -59370,7 +59370,7 @@ Body:
     Script: |
       bonus bMaxHPrate,5;
       .@r = getrefine();
-      bonus bMaxHP,(100*.@r);
+      bonus bMaxHP,(50*.@r);
   - Id: 5931
     AegisName: Eyes_Souls
     Name: Eyes Souls
@@ -59389,7 +59389,7 @@ Body:
     Script: |
       bonus bMaxSPrate,5;
       .@r = getrefine();
-      bonus bMaxSP,(10*.@r);
+      bonus bMaxSP,(25*.@r);
   - Id: 5932
     AegisName: Eyes_Njord
     Name: Eyes Njord
@@ -143210,7 +143210,6 @@ Body:
       DropEffect: BLUE_PILLAR
     Script: |
       bonus bMdef,5;
-      bonus bDelayRate,-5;
       bonus bSpeedAddRate,5;
       bonus bAspdRate,5;
   - Id: 31219
@@ -143230,7 +143229,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bMdef,10;
-      bonus bDelayRate,-(.@r);
+      bonus bASPDCap,1;
       bonus bSpeedAddRate,.@r;
       bonus bAspdRate,.@r;
   - Id: 31220
