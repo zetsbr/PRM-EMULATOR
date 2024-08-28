@@ -120123,6 +120123,8 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
+    Job:
+      All: False
     Locations:
       Shadow_Armor: true
     EquipLevelMin: 65
@@ -120140,6 +120142,8 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
+    Job:
+      All: False
     Locations:
       Shadow_Shield: true
     EquipLevelMin: 65
@@ -120157,6 +120161,8 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
+    Job:
+      All: False
     Locations:
       Shadow_Shoes: true
     EquipLevelMin: 65
@@ -120174,6 +120180,8 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
+    Job:
+      All: False
     Locations:
       Shadow_Left_Accessory: true
     EquipLevelMin: 65
