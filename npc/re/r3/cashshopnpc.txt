@@ -469,17 +469,17 @@ function	script	HalloweenBox	{
 	end;
 }
 
-nif_fild01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-niflheim,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_fild02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-gef_dun00,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-gef_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-gef_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_cas01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-nif_cas02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
-moc_prydb1,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_fild01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// niflheim,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_fild02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// gef_dun00,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// gef_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// gef_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_dun01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_dun02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_cas01,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// nif_cas02,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
+// moc_prydb1,0,0,1,1	boss_monster	Jack O'Morroc	1722,1,2700000,5400000,0
 
 -	itemshop	halloweenshop	-1,6657,14503:1,20394:3,31853:5,31120:10,19903:20,31121:25,20174:50.
 
