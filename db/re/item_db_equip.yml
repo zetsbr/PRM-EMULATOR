@@ -146140,6 +146140,9 @@ Body:
     Buy: 20
     Sell: 10
     Weight: 200
+    Jobs:
+      Paladin: true
+      All: false
     Slots: 3
     Locations:
       Head_Low: true
