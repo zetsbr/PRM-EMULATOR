@@ -32415,7 +32415,7 @@ Body:
       bonus bAtkEle,Ele_Undead;
   - Id: 13217
     AegisName: Silver_Bullet
-    Name: Silver Bullet
+    Name: Last Objection
     Type: Ammo
     SubType: Bullet
     Buy: 20
@@ -32427,6 +32427,8 @@ Body:
     Locations:
       Ammo: true
     EquipLevelMin: 100
+    Script: | 
+      bonus bAtkEle,Ele_TrueNeutral;
     Flags:
       DropEffect: RED_PILLAR
   - Id: 13218
