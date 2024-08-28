@@ -120123,7 +120123,7 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
-    Job:
+    Jobs:
       All: False
     Locations:
       Shadow_Armor: true
@@ -120142,7 +120142,7 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
-    Job:
+    Jobs:
       All: False
     Locations:
       Shadow_Shield: true
@@ -120161,7 +120161,7 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
-    Job:
+    Jobs:
       All: False
     Locations:
       Shadow_Shoes: true
@@ -120180,7 +120180,7 @@ Body:
     Type: Shadowgear
     Buy: 1400
     Weight: 100
-    Job:
+    Jobs:
       All: False
     Locations:
       Shadow_Left_Accessory: true
