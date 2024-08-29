@@ -1182,6 +1182,8 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	sstatus = status_get_status_data(src);
 	tstatus = status_get_status_data(bl);
 
+	short count = 1;
+
 	// Taekwon combos activate on traps, so we need to check them even for targets that don't have status
 	if (sd && skill_id == 0 && !(attack_type & BF_SKILL) && sc) {
 		// Chance to trigger Taekwon kicks
@@ -1430,6 +1432,16 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case NC_BOOSTKNUCKLE:
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 1500);
+		if (sc->data[SC_GATLINGFEVER]) {
+			count = 1;
+			if (sc && sc->data[SC_ROLLINGCUTTER] && sc->data[SC_OVERBRANDREADY]) {
+				count += (short)sc->data[SC_ROLLINGCUTTER]->val1;
+				if (count > 5)
+					count = 5; // Max counter
+				status_change_end(src, SC_ROLLINGCUTTER, INVALID_TIMER);
+			}
+			sc_start(src, src, SC_ROLLINGCUTTER, 100, count, 6000);
+		}
 	case SM_BASH:
 		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 3000);
 		if (sd && skill_lv > 0 && pc_checkskill(sd, AB_ANCILLA) > 0) {
@@ -1794,10 +1806,22 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
 		sc_start4(src, bl, SC_BURNING, 1000, skill_lv, 1000, src->id, 0, skill_get_time(skill_id, skill_lv));
 		break;
+	case RA_AIMEDBOLT:
+		if (sc && sc->data[SC_ROLLINGCUTTER])
+			sc_start(src, bl, SC_STUN, 20 * sc->data[SC_ROLLINGCUTTER]->val1, skill_lv, 1500);
+	case CG_ARROWVULCAN:
+	case NC_VULCANARM:
 	case SN_SHARPSHOOTING:
-		if ((sc->data[SC_OVERBRANDREADY]))
-		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 5000);
-		status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
+		if (sc->data[SC_GATLINGFEVER]) {
+			count = 1;
+			if (sc && sc->data[SC_ROLLINGCUTTER] && sc->data[SC_OVERBRANDREADY]) {
+				count += (short)sc->data[SC_ROLLINGCUTTER]->val1;
+				if (count > 5)
+					count = 5; // Max counter
+				status_change_end(src, SC_ROLLINGCUTTER, INVALID_TIMER);
+			}
+			sc_start(src, src, SC_ROLLINGCUTTER, 100, count, 6000);
+		}
 		break;
 	case GC_VENOMIMPRESS:
 		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 7000);
@@ -1807,7 +1831,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
 		break;
 	case GS_TRACKING:
-		status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+		status_change_end(src, SC_ROLLINGCUTTER, INVALID_TIMER);
 		break;
 	case RK_DRAGONBREATH_WATER:
 		sc_start(src, bl, SC_FREEZING, 25, skill_lv, skill_get_time(skill_id, skill_lv));
@@ -5514,6 +5538,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case RA_AIMEDBOLT:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
+		skill_blown(src, bl, skill_get_range(skill_id, skill_lv) - distance_bl(src, bl), unit_getdir(bl), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
 		break; 
 	case TK_JUMPKICK:
 		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
@@ -5988,9 +6013,11 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 			// recursive invocation of skill_castend_damage_id() with flag|1
 			map_foreachinrange(skill_area_sub, bl, skill_get_splash(skill_id, skill_lv), starget, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | SD_SPLASH | 1, skill_castend_damage_id);
 
-			if (skill_id == RA_ARROWSTORM)
+			if (skill_id == RA_ARROWSTORM) {
 				status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
 				status_change_end(src, SC_SPL_ATK, INVALID_TIMER);
+				status_change_end(src, SC_ROLLINGCUTTER, INVALID_TIMER);
+			}
 		}
 		break;
 
@@ -13281,7 +13308,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 	std::shared_ptr<s_skill_unit_group> sg;
 	enum sc_type type;
 	int i;
-
+	short count = 0;
 	//if(skill_lv <= 0) return 0;
 	if (skill_id > 0 && !skill_lv) return 0;	// celest
 
@@ -13805,7 +13832,18 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		break;
 
 	case AC_SHOWER:
+		if (sc->data[SC_GATLINGFEVER]) {
+			count = 1;
+			if (sc && sc->data[SC_ROLLINGCUTTER] && sc->data[SC_OVERBRANDREADY]) {
+				count += (short)sc->data[SC_ROLLINGCUTTER]->val1;
+				if (count > 5)
+					count = 5; // Max counter
+				status_change_end(src, SC_ROLLINGCUTTER, INVALID_TIMER);
+			}
+			sc_start(src, src, SC_ROLLINGCUTTER, 100, count, 6000);
+		}
 		status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
+		break;
 	case MA_SHOWER:
 	case NC_COLDSLOWER:
 		sc_start(src, src, SC_MANU_DEF, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
@@ -17496,8 +17534,6 @@ bool skill_check_condition_castbegin(struct map_session_data* sd, uint16 skill_i
 
 	if (require.weapon && !pc_check_weapontype(sd, require.weapon)) {
 		switch (skill_id) {
-		case RA_AIMEDBOLT:
-			break;
 		default:
 			switch ((unsigned int)log2(require.weapon)) {
 			case W_REVOLVER:
@@ -18445,6 +18481,8 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 			fixcast_r -= 50;
 		if (sc->data[SC_SWINGDANCE])
 			fixcast_r = max(fixcast_r, skill_lv * 6);
+		if (sc && sc->data[SC_ROLLINGCUTTER] && skill_id == GS_TRACKING)
+			fixed -= (fixed * 0.2 * sc->data[SC_ROLLINGCUTTER]->val1);
 		// Additive Fixed CastTime values
 		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
 			fixed -= skill_lv * 100;

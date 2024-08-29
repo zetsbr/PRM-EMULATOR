@@ -2796,15 +2796,12 @@ static bool is_attack_critical(struct Damage* wd, struct block_list *src, struct
 				else
 					cri <<= 1;
 				break;
+			case NC_VULCANARM:
 			case SN_SHARPSHOOTING:
 			case MA_SHARPSHOOTING:
-#ifdef RENEWAL
 				cri += 250; // !TODO: Confirm new bonus
 				if (sc && sc->data[SC_OVERBRANDREADY])
 					cri += 500; // !TODO: Confirm new bonus
-#else
-				cri += 200;
-#endif
 				break;
 			case NJ_KIRIKAGE:
 				cri += 50 + 50*skill_lv;
@@ -3930,17 +3927,13 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case AC_DOUBLE:
 		case MA_DOUBLE:
-			skillratio += 7 * (skill_lv - 1);
+			skillratio += 10 + 5 * skill_lv + 1 * (sstatus->dex);
 			break;
 		case AC_SHOWER:
 		case MA_SHOWER:
-#ifdef RENEWAL
-			skillratio += 50 + 10 * skill_lv;
+			skillratio += 30 + 5 * skill_lv + 1* (sstatus->dex);
 			if (sc && sc->data[SC_OVERBRANDREADY])
-			skillratio += 80 + 1 * (sstatus->dex);
-#else
-			skillratio += -25 + 5 * skill_lv;
-#endif
+				skillratio += 100 + 10 * skill_lv + 1 * (sstatus->dex);
 			break;
 		case AC_CHARGEARROW:
 		case MA_CHARGEARROW:
@@ -4272,7 +4265,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				if (wd->miscflag & 2) // Splash damage bonus
 					skillratio += 200 + 35 * skill_lv + 3 * sstatus->luk;
 				else
-					skillratio += 200 + 50 * skill_lv;
+					skillratio += 200 + 50 * skill_lv + 3 * sstatus->luk;;
 				break;
 			}
 			// Fall through
@@ -4291,15 +4284,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 #endif
 		case CG_ARROWVULCAN:
-#ifdef RENEWAL
-				skillratio += 150 + 10 * skill_lv + (sstatus->dex) + (sstatus->str);
-				if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 10 + (sstatus->dex) + (sstatus->str);
-				if (tstatus->hp < tstatus->max_hp >> 1)
-				skillratio += skillratio / 2;					
-#else
-			skillratio += 100 + 100 * skill_lv;
-#endif
+			skillratio += 25 + 1 * skill_lv + 1 * (sstatus->dex);
+			if (sc && sc->data[SC_OVERBRANDREADY]) 
+				skillratio += 125 + 9 * skill_lv + 3 * (sstatus->dex);
+			if (tstatus->hp < tstatus->max_hp >> 1)
+				skillratio += skillratio / 2;				
 			break;
 		case HW_NAPALMVULCAN:
 			if (tsc && tsc->data[SC_SOULCURSE])
@@ -4365,10 +4354,11 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case GS_TRACKING:
 			skillratio += 10 + 5 * skill_lv + 1 * (sstatus->dex);
-			if (sc->data[SC_GATLINGFEVER])
-			skillratio += 190 + 50 * skill_lv + 9 * (sstatus->dex);
-			if (sc->data[SC_SPL_ATK] && sc->data[SC_GATLINGFEVER])
-			skillratio += 15 * (sstatus->dex);
+			if (sc->data[SC_OVERBRANDREADY]) {
+				skillratio += 190 + 50 * skill_lv + 9 * (sstatus->dex);
+				if (sc->data[SC_ROLLINGCUTTER])
+					skillratio += 3 * (sstatus->dex) * sc->data[SC_ROLLINGCUTTER]->val1;
+			}
 			break;
 		case GS_PIERCINGSHOT:
 			skillratio += 100 + 20 * skill_lv + 2 * (sstatus->int_);
@@ -4581,16 +4571,17 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 500 + 500 * skill_lv;	// Level 1-5 is using fire element, like RK_DRAGONBREATH
 			break;
 		case RA_ARROWSTORM:
-			skillratio += 125 + 20 * skill_lv + 4 * (sstatus->dex);
-			if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 5 * (sstatus->dex);
-			if (sc->data[SC_SPL_ATK])
-				skillratio += 6  * (sstatus->dex);
+			skillratio += 25 + 5 * skill_lv + 1 * (sstatus->dex);
+			if (sc && sc->data[SC_OVERBRANDREADY]) {
+				skillratio += 125 + 25 * skill_lv + 9 * (sstatus->dex);
+				if (sc->data[SC_ROLLINGCUTTER])
+					skillratio += 1 * (sstatus->dex) * sc->data[SC_ROLLINGCUTTER]->val1;
+			}
 			break;
 		case RA_AIMEDBOLT:
-				skillratio += 75 + 5 * skill_lv + (sstatus->dex);
+				skillratio += 10 + 1 * skill_lv + (sstatus->dex);
 				if (sc && sc->data[SC_OVERBRANDREADY])
-					skillratio += (sstatus->dex);
+					skillratio += 45 + 4 * skill_lv + 4 * (sstatus->dex);
 			break;
 		case RA_CLUSTERBOMB:
 			skillratio += 25 * skill_lv;
@@ -4620,9 +4611,12 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 50 * skill_lv;
 			break;
 		case NC_BOOSTKNUCKLE:
-			skillratio += 150 + 20 * skill_lv + 1 * (sstatus->dex);
-			if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 2 * (sstatus->dex);
+			skillratio += 10 + 5 * skill_lv + 1 * (sstatus->dex);
+			if (sc && sc->data[SC_OVERBRANDREADY]) {
+				skillratio += 140 + 15 * skill_lv + 2 * (sstatus->dex);
+				if (sc->data[SC_ROLLINGCUTTER])
+					skillratio += 1 * (sstatus->dex) * sc->data[SC_ROLLINGCUTTER]->val1;
+			}
 			break;
 		case NC_PILEBUNKER:
 			skillratio += 200 + 20 * skill_lv + 2 * sstatus->vit;
@@ -4630,9 +4624,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				skillratio += 2 * (sstatus->dex);
 			break;
 		case NC_VULCANARM:
-			skillratio += 50 + 20 * skill_lv + (sstatus->luk);
+			skillratio += 20 + 5 * skill_lv + (sstatus->luk);
 			if (sc && sc->data[SC_OVERBRANDREADY])
-				skillratio += 70 + 2 * (sstatus->luk);
+				skillratio += 100 + 15 * skill_lv + 2 * (sstatus->luk);
 			break;
 		case NC_ARMSCANNON:
 			skillratio += 30 + 10 * skill_lv + 2 * (sstatus->luk);

@@ -82405,7 +82405,7 @@ Body:
       bonus bSPDrainValue,-10;
       skill "AC_VULTURE",4;
       bonus bAspdRate,-40;
-      .@r = getrefine()-1;
+      .@r = getrefine();
       bonus3 bAutoSpell,"AC_DOUBLE",10,1000;
       bonus bLongAtkRate,2*.@r;
       bonus2 bSkillUseSPrate,"AC_DOUBLE",-10000;
@@ -124409,7 +124409,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NC_VULCANARM",10+2*(.@r);
+      bonus2 bSkillAtk,"CG_ARROWVULCAN",10+2*(.@r);
   - Id: 24611
     AegisName: Tribulations_Raid_P
     Name: Tribulations Raid P
@@ -124430,7 +124430,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"CG_ARROWVULCAN",50;
+      bonus2 bSkillAtk,"GS_TRACKING",10+2*(.@r);
   - Id: 24612
     AegisName: Siege_Captain_A
     Name: Siege Captain A
@@ -124452,7 +124452,8 @@ Body:
     Flags:
       DropEffect: GREEN_PILLAR
     Script: |
-      bonus bAtkRange,1;
+      .@r = getrefine();
+      bonus bDelayRate,-2*(.@r);  
   - Id: 24613
     AegisName: Siege_Captain_G
     Name: Siege Captain G
@@ -124475,7 +124476,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"AC_SHOWER",10*(.@r);
+      bonus2 bSkillAtk,"NC_VULCANARM",7*(.@r);
       bonus bDex,3;
   - Id: 24614
     AegisName: Siege_Captain_S
@@ -124500,7 +124501,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bDex,2+(.@r);
-      bonus bVit,2+(.@r);
+      bonus bLuk,2+(.@r);
   - Id: 24615
     AegisName: Siege_Captain_P
     Name: Siege Captain P
@@ -124524,7 +124525,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus2 bSkillAtk,"SN_SHARPSHOOTING",7*(.@r);
-      bonus bVit,3;
+      bonus bLuk,3;
   - Id: 24616
     AegisName: Last_Sin_A
     Name: Last Sin A
