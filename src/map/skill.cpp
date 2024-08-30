@@ -1431,10 +1431,11 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		sc_start(src, src, SC_SPL_ATK, 100, skill_lv, 10000);
 		break;
 	case NC_BOOSTKNUCKLE:
-		sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 1500);
-		if (sc->data[SC_GATLINGFEVER]) {
+		if (sc && sc->data[SC_OVERBRANDREADY] && sc->data[SC_OVERBRANDREADY]->timer < 1500)
+			sc_start(src, src, SC_OVERBRANDREADY, 100, skill_lv, 1500);
+		if (sc && sc->data[SC_GATLINGFEVER] && sc->data[SC_OVERBRANDREADY]) {
 			count = 1;
-			if (sc && sc->data[SC_ROLLINGCUTTER] && sc->data[SC_OVERBRANDREADY]) {
+			if (sc && sc->data[SC_ROLLINGCUTTER]) {
 				count += (short)sc->data[SC_ROLLINGCUTTER]->val1;
 				if (count > 5)
 					count = 5; // Max counter
@@ -1812,9 +1813,9 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case CG_ARROWVULCAN:
 	case NC_VULCANARM:
 	case SN_SHARPSHOOTING:
-		if (sc->data[SC_GATLINGFEVER]) {
+		if (sc->data[SC_GATLINGFEVER] && sc->data[SC_OVERBRANDREADY]) {
 			count = 1;
-			if (sc && sc->data[SC_ROLLINGCUTTER] && sc->data[SC_OVERBRANDREADY]) {
+			if (sc && sc->data[SC_ROLLINGCUTTER]) {
 				count += (short)sc->data[SC_ROLLINGCUTTER]->val1;
 				if (count > 5)
 					count = 5; // Max counter
@@ -13832,9 +13833,9 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		break;
 
 	case AC_SHOWER:
-		if (sc->data[SC_GATLINGFEVER]) {
+		if (sc->data[SC_GATLINGFEVER] && sc->data[SC_OVERBRANDREADY]) {
 			count = 1;
-			if (sc && sc->data[SC_ROLLINGCUTTER] && sc->data[SC_OVERBRANDREADY]) {
+			if (sc && sc->data[SC_ROLLINGCUTTER]) {
 				count += (short)sc->data[SC_ROLLINGCUTTER]->val1;
 				if (count > 5)
 					count = 5; // Max counter
