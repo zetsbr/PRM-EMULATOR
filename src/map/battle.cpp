@@ -4265,7 +4265,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 				if (wd->miscflag & 2) // Splash damage bonus
 					skillratio += 200 + 35 * skill_lv + 3 * sstatus->luk;
 				else
-					skillratio += 200 + 50 * skill_lv + 3 * sstatus->luk;;
+					skillratio += 200 + 50 * skill_lv + 3 * sstatus->luk;
 				break;
 			}
 			// Fall through
