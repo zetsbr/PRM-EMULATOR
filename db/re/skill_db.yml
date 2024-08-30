@@ -14004,13 +14004,13 @@ Body:
       Skill:
         Plagiarism: true
     Hit: Single
-    HitCount: 1
+    HitCount: -5
     Flags:
       AlterRangeRadius: true
     Element: Weapon
     CastCancel: true
-    AfterCastActDelay: 4000
-    Cooldown: 10000
+    AfterCastActDelay: 2000
+    Cooldown: 7000
     FixedCastTime:
       - Level: 1
         Time: 1500
@@ -14229,21 +14229,9 @@ Body:
     Element: Weapon
     CastTime: 5000
     AfterCastActDelay: 2000
-    Duration1:
-      - Level: 1
-        Time: 60000
-      - Level: 2
-        Time: 60000
-      - Level: 3
-        Time: 60000
-      - Level: 4
-        Time: 60000
-      - Level: 5
-        Time: 60000
-    FixedCastTime: 3500
+    FixedCastTime: 1000
     Requires:
       SpCost: 100
-      SpiritSphereCost: 3
       Weapon:
         Bow: true
   - Id: 518
@@ -21351,7 +21339,6 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
-    Knockback: 3
     Flags:
       AlterRangeRadius: true
       AlterRangeVulture: true
@@ -21919,7 +21906,7 @@ Body:
         Plagiarism: true
     DamageFlags:
       Splash: true
-      IgnoreFlee: true
+      Critical: true
     Flags:
       AlterRangeVulture: true
     Range: 5
@@ -22816,7 +22803,7 @@ Body:
         2hAxe: true
   - Id: 2281
     Name: NC_SILVERSNIPER
-    Description: Turret
+    Description: Cannon Turret
     MaxLevel: 5
     TargetType: Ground
     DamageFlags:

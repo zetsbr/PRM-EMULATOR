@@ -997,12 +997,7 @@ void initChangeTables(void)
 #ifdef RENEWAL
 	set_sc( GS_MAGICALBULLET	, SC_MAGICALBULLET	, EFST_GS_MAGICAL_BULLET	, SCB_NONE );
 #endif
-	set_sc( GS_GATLINGFEVER		, SC_GATLINGFEVER	, EFST_GS_GATLINGFEVER, SCB_FLEE|SCB_SPEED|SCB_ASPD
-#ifndef RENEWAL
-		|SCB_BATK );
-#else
-		 );
-#endif
+	set_sc( GS_GATLINGFEVER		, SC_GATLINGFEVER	, EFST_GS_GATLINGFEVER, SCB_ASPD);
 	add_sc( NJ_TATAMIGAESHI		, SC_TATAMIGAESHI	);
 	set_sc( NJ_SUITON		, SC_SUITON		, EFST_BLANK		, SCB_AGI|SCB_SPEED );
 	add_sc( NJ_HYOUSYOURAKU		, SC_FREEZE		);
@@ -6909,10 +6904,6 @@ static unsigned short status_calc_batk(struct block_list *bl, struct status_chan
 		batk += sc->data[SC_ATKPOTION]->val1;
 	if(sc->data[SC_BATKFOOD])
 		batk += sc->data[SC_BATKFOOD]->val1;
-#ifndef RENEWAL
-	if(sc->data[SC_GATLINGFEVER])
-		batk += sc->data[SC_GATLINGFEVER]->val3;
-#endif
 	if(sc->data[SC_FULL_SWING_K])
 		batk += sc->data[SC_FULL_SWING_K]->val1;
 	if(sc->data[SC_ASH])
@@ -7388,8 +7379,6 @@ static signed short status_calc_flee(struct block_list *bl, struct status_change
 		flee += 30;
 	if(sc->data[SC_SPEED])
 		flee += 10 + sc->data[SC_SPEED]->val1 * 10;
-	if(sc->data[SC_GATLINGFEVER])
-		flee -= sc->data[SC_GATLINGFEVER]->val4;
 	if(sc->data[SC_PARTYFLEE])
 		flee += sc->data[SC_PARTYFLEE]->val1 * 10;
 	if(sc->data[SC_MERC_FLEEUP])
@@ -7840,8 +7829,6 @@ static unsigned short status_calc_speed(struct block_list *bl, struct status_cha
 				val = max( val, 75 );
 			if( sc->data[SC_SLOWDOWN] ) // Slow Potion
 				val = max( val, sc->data[SC_SLOWDOWN]->val1 );
-			if( sc->data[SC_GATLINGFEVER] )
-				val = max( val, 100 );
 			if( sc->data[SC_SUITON] )
 				val = max( val, sc->data[SC_SUITON]->val3 );
 			if( sc->data[SC_SWOO] )
@@ -11515,11 +11502,11 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = (sd?5:10)*val1; // Agi/Dex decrease.
 			break;
 
-		// gs_something1 [Vicious]
+		// sniper nest
 		case SC_GATLINGFEVER:
+			tick = INFINITE_TICK;
 			val2 = 50*val1; // Aspd increase
 			val3 = 50+10*val1; // Atk increase
-			val4 = 20*val1; // Flee decrease
 			break;
 
 		case SC_FLING:
