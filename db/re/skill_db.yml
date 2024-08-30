@@ -14054,7 +14054,7 @@ Body:
           Amount: 55
         - Level: 10
           Amount: 60
-      SpRateCost: -20
+      SpRateCost: 20
       Weapon:
         Bow: true
       Ammo:
