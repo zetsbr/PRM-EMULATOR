@@ -18406,6 +18406,9 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 			fixed = 0;
 	}
 
+	if (sd)
+		fixed -= pc_checkskill(sd, WL_RADIUS) * 100;
+
 	// Additive Variable Cast bonus adjustments by items
 	if (sd && !(flag & 4)) {
 		if (sd->bonus.varcastrate != 0)
@@ -18485,8 +18488,6 @@ float skill_vfcastfix(struct block_list* bl, double time, uint16 skill_id, uint1
 		if (sc && sc->data[SC_ROLLINGCUTTER] && skill_id == GS_TRACKING)
 			fixed -= (fixed * 0.2 * sc->data[SC_ROLLINGCUTTER]->val1);
 		// Additive Fixed CastTime values
-		if (sd && (skill_lv = pc_checkskill(sd, WL_RADIUS)))
-			fixed -= skill_lv * 100;
 		if (sc->data[SC_MANDRAGORA])
 			fixed += sc->data[SC_MANDRAGORA]->val1 * 500;
 		if (sc->data[SC_GUST_OPTION] || sc->data[SC_BLAST_OPTION] || sc->data[SC_WILD_STORM_OPTION])
