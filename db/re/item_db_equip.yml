@@ -80636,7 +80636,7 @@ Body:
       bonus bSPDrainValue,-1;
       skill "AC_VULTURE",10;
       bonus bDex,.@r;
-      bonus2 bSkillAtk,"GS_TRACKING",125;
+      bonus2 bSkillAtk,"GS_TRACKING",25;
       bonus2 bFixedCastrate,"GS_GATLINGFEVER",-100;
       bonus2 bCastrate,"GS_GATLINGFEVER",-100;
       bonus bAspd,-20;
