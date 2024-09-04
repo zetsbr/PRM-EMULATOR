@@ -235,7 +235,7 @@ va_orpha,287,132,4	script	Phantom Master#unchthief	648,{
 		mes "You'll have to help Iruga if you want to truly unlock your potential...";
 		next;
 		mes .@npc$;
-		mes "Good luck! Master Assassin!";
+		mes "Good luck! Phantom Thief!";
 		close2;
 		delitem2 1708,1,1,7,0,0,0,0,0;
 		getitem 31593,1;
