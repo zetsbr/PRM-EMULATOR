@@ -202,7 +202,57 @@ va_orpha,287,132,4	script	Phantom Master#unchthief	648,{
 	if (phantomthief ==1){
 	mes .@npc$;
 	mes "Look at you. You're like me. But you actually need to try! Hahaha!";
-	close;
+	next;
+	mes .@npc$;
+	mes "You'll be worthy enough to wear items that once belonged to Master Loki himself...If you are worthy to us.";
+	next;
+	switch(select("What are the requirements?:I'm ready to wear it with honor:Nevermind.")) {
+	case 1:
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "The Unchained Thief is the core of our group. However, the potential we have here far surpasses those...of incomplete skillsets.";
+		next;
+		mes .@npc$;
+		mes "We can teach you to infuse your weapon energy directly into your skills! With a good enough weapon you can use them up to Lv15!";
+		next;
+		mes .@npc$;
+		mes "However you gotta show your potential..bringing us a <ITEM>+7 Great Bow<INFO>1708</INFO></ITEM>, with random options.";
+		next;
+		emotion ET_BEST;
+		mes .@npc$;
+		mes "Do not slot cards into it... we will keep the bow as a symbol of your dedication, Phantom Thief.";
+		close;
+	case 2:
+		if ( countitem2(1708,1,7,0,0,0,0,0) < 1) goto L_noitems3;
+		emotion ET_SPARK;
+		mes .@npc$;
+		mes "Incredible... you really got the skills needed.";
+		next;
+		mes .@npc$;
+		mes "I will give you a piece of Master Loki's Scarf... It's part of what can truly awaken your potential.";
+		next;
+		mes .@npc$;
+		mes "You'll have to help Iruga if you want to truly unlock your potential...";
+		next;
+		mes .@npc$;
+		mes "Good luck! Master Assassin!";
+		close2;
+		delitem2 1708,1,1,7,0,0,0,0,0;
+		getitem 31593,1;
+		specialeffect2 234;
+		specialeffect2 834;
+		end;
+		L_noitems3:
+		emotion ET_QUESTION;
+		mes .@npc$;
+		mes "So...where's the Great Bow...?";
+		close;
+	case 3:
+		mes .@npc$;
+		mes "I'll be here... Phantom Thieves shall always serve the world...no matter how painful it is.";
+		close;
+		break;
+	}
 	}
 	if (unchainedthief ==1 && BaseLevel >=99 && JobLevel==50){
 	mes .@npc$;
