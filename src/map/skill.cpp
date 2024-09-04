@@ -13832,6 +13832,7 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 		}
 		break;
 
+	case MA_SHOWER:
 	case AC_SHOWER:
 		if (sc->data[SC_GATLINGFEVER] && sc->data[SC_OVERBRANDREADY]) {
 			count = 1;
@@ -13844,8 +13845,14 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 			sc_start(src, src, SC_ROLLINGCUTTER, 100, count, 6000);
 		}
 		status_change_end(src, SC_CAMOUFLAGE, INVALID_TIMER);
+
+		// Cast center might be relevant later (e.g. for knockback direction)
+		skill_area_temp[4] = x;
+		skill_area_temp[5] = y;
+		i = skill_get_splash(skill_id, skill_lv);
+		map_foreachinarea(skill_area_sub, src->m, x - i, y - i, x + i, y + i, BL_CHAR | BL_SKILL, src, skill_id, skill_lv, tick, flag | BCT_ENEMY | 1, skill_castend_damage_id);
+
 		break;
-	case MA_SHOWER:
 	case NC_COLDSLOWER:
 		sc_start(src, src, SC_MANU_DEF, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
 		if (sc && sc->data[SC_OVERBRANDREADY]) 
