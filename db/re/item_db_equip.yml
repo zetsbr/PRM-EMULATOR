@@ -124453,7 +124453,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus bDelayRate,-2*(.@r);  
+      bonus2 bIgnoreDefRaceRate,RC_All,1*(.@r);  
   - Id: 24613
     AegisName: Siege_Captain_G
     Name: Siege Captain G
