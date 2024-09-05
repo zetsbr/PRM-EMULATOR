@@ -7138,7 +7138,7 @@ Body:
     Script: |
       bonus bAtkRate,8;
       .@r = getrefine();
-      bonus5 bAddEffOnSkill,"NC_AXETORNADO",Eff_Bleeding,3000*(.@r),ATF_TARGET,10000;
+      bonus5 bAddEffOnSkill,"NC_AXETORNADO",Eff_Bleeding,1000*(.@r),ATF_TARGET,10000;
   - Id: 1307
     AegisName: Acid_Elevation
     Name: Acid Elevation
