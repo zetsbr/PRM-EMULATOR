@@ -10814,7 +10814,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	}
 	break;
 	case GC_WEAPONBLOCKING:
-		if (sd->status.weapon == W_DOUBLE_DS || sd->status.weapon == W_DOUBLE_DD || sd->status.weapon == W_DOUBLE_SS || sd->status.weapon == W_DOUBLE_DA || sd->status.weapon == W_DOUBLE_AA || sd->status.weapon == W_DOUBLE_SA)
+		if (sd->status.weapon == W_DOUBLE_DS || sd->status.weapon == W_DOUBLE_DD || sd->status.weapon == W_DOUBLE_SS || sd->status.weapon == W_DOUBLE_DA || sd->status.weapon == W_DOUBLE_AA || sd->status.weapon == W_DOUBLE_SA || sd->status.weapon == W_1HSWORD)
 			sc_start(src, bl, SC_WEAPONBLOCKING, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		else
 			status_change_end(bl, SC_WEAPONBLOCKING, INVALID_TIMER);
