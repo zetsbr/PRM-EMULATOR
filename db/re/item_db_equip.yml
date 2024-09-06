@@ -127813,8 +127813,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillCooldown,"TF_HIDING",-100*(.@r);
-      bonus bPerfectHide;
+      bonus bFlee2,2*(.@r);
+      bonus2 bSkillCooldown,"ALL_FULL_THROTTLE",-200*(.@r);
   - Id: 24802
     AegisName: Iai_Draw_G
     Name: Iai Draw G

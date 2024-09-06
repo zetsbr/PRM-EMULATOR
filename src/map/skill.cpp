@@ -1370,7 +1370,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 	case GS_DUST:
 		if (sc->data[SC_OVERBRANDREADY]) {
 			sc_start(src, src, SC_SPL_ATK, 100, skill_lv, skill_get_time2(skill_id, skill_lv));
-			sc_start(src, src, SC_KAUPE, 100, 3, 3000);
+			sc_start(src, src, SC_KAUPE, 100, 1, 3000);
 			status_change_end(src, SC_OVERBRANDREADY, INVALID_TIMER);
 			status_change_end(src, SC_RUN, INVALID_TIMER);
 		}
@@ -7940,7 +7940,7 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 	case SJ_LIGHTOFSUN:
 		clif_skill_nodamage(src, bl, skill_id, skill_lv,
 		sc_start(src, bl, type, 100, skill_lv, skill_get_time(skill_id, skill_lv)));
-		sc_start(src, src, SC_KAUPE, 100, 6, 10000);
+		sc_start(src, src, SC_KAUPE, 100, 1, 10000);
 		break;
 	case LK_BERSERK:if ((tsc && tsc->data[SC_BERSERK])) {
 		status_change_end(src, SC_BERSERK, INVALID_TIMER);

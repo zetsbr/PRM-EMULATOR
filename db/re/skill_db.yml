@@ -29835,9 +29835,9 @@ Body:
       Critical: true
     HitCount: -5
     Element: Weapon
-    CastTime: 500
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 500
     Duration1: 5000
+    FixedCastTime: 100
     Duration2:
       - Level: 1
         Time: 7000
@@ -30413,7 +30413,7 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    FixedCastTime: 1000
+    FixedCastTime: 500
     Cooldown:
       - Level: 1
         Time: 60000
