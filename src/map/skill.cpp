@@ -1765,6 +1765,7 @@ int skill_additional_effect(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case TK_JUMPKICK:
 		sc_start(src, src, SC_OVERBRANDREADY, 150, skill_lv, skill_get_time2(skill_id, skill_lv));
+		sc_start(src, bl, SC_CURSE, 100, skill_lv, skill_get_time(skill_id, skill_lv));
 		break;
 	case TK_TURNKICK:
 	case MO_BALKYOUNG: //Note: attack_type is passed as BF_WEAPON for the actual target, BF_MISC for the splash-affected mobs.
@@ -5358,7 +5359,7 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	struct map_session_data* sd = NULL;
 	struct status_data* tstatus,* sstatus;
 	struct status_change* sc, * tsc;
-	int heal, heal_rate;
+	int heal, heal_rate, conditional_blewcount;
 
 	if (skill_id > 0 && !skill_lv) return 0;
 
@@ -5397,6 +5398,10 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 	uint16 BF_FLEX_TYPE = BF_WEAPON;
 	if (sstatus->str <= sstatus->int_)
 		BF_FLEX_TYPE = BF_MAGIC;
+
+	conditional_blewcount = skill_get_range(skill_id, skill_lv) - distance_client_bl(src, bl);
+	if (conditional_blewcount < 0)
+		conditional_blewcount = 0;
 
 	map_freeblock_lock();
 
@@ -5539,31 +5544,22 @@ int skill_castend_damage_id(struct block_list* src, struct block_list* bl, uint1
 		break;
 	case RA_AIMEDBOLT:
 		skill_attack(BF_WEAPON, src, src, bl, skill_id, skill_lv, tick, flag);
-		skill_blown(src, bl, skill_get_range(skill_id, skill_lv) - distance_bl(src, bl), unit_getdir(bl), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
+		skill_blown(src, bl, conditional_blewcount, map_calc_dir_bl(bl, src), (enum e_skill_blown)(BLOWN_NONE));
 		break; 
 	case TK_JUMPKICK:
 		/* Check if the target is an enemy; if not, skill should fail so the character doesn't unit_movepos (exploitable) */
-		if (sc && sc->data[SC_CONCENTRATE]) {
-			skill_area_temp[1] = 0;
-			map_foreachinshootrange(skill_attack_area, src,
+		if (sstatus->str <= sstatus->int_)
+			skill_blown(src, bl, conditional_blewcount, map_calc_dir_bl(bl, src), (enum e_skill_blown)(BLOWN_NONE));
+		else
+			unit_movepos(src, bl->x, bl->y, 2, 1);
+		skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
+
+		if (sc && (sc->data[SC_CONCENTRATE] || sc->data[SC_NEN])) {
+			map_foreachinshootrange(skill_attack_area, bl,
 				skill_get_splash(skill_id, skill_lv), splash_target(src),
 				BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-			skill_blown(src, src, skill_get_range(skill_id, skill_lv), unit_getdir(src), (enum e_skill_blown)(BLOWN_IGNORE_NO_KNOCKBACK | BLOWN_DONT_SEND_PACKET));
+
 			clif_blown(src); // Always blow, otherwise it shows a casting animation. [Lemongrass]
-		}
-		else {
-			if (unit_movepos(src, bl->x, bl->y, 2, 1)) {
-				clif_blown(src);
-				if (sc && sc->data[SC_NEN]) {
-					skill_area_temp[1] = 0;
-					map_foreachinshootrange(skill_attack_area, src,
-						skill_get_splash(skill_id, skill_lv), splash_target(src),
-						BF_FLEX_TYPE, src, src, skill_id, skill_lv, tick, flag, BCT_ENEMY);
-				}
-				else {
-					skill_attack(BF_FLEX_TYPE, src, src, bl, skill_id, skill_lv, tick, flag);
-				}
-			}
 		}
 		break;
 	case LK_HEADCRUSH:

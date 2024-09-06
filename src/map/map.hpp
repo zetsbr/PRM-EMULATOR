@@ -1161,6 +1161,8 @@ uint8 map_calc_dir(struct block_list *src,int16 x,int16 y);
 uint8 map_calc_dir_xy(int16 srcx, int16 srcy, int16 x, int16 y, uint8 srcdir);
 int map_random_dir(struct block_list *bl, int16 *x, int16 *y); // [Skotlex]
 
+#define map_calc_dir_bl(src, bl) map_calc_dir(src, (bl)->x, (bl)->y)
+
 int cleanup_sub(struct block_list *bl, va_list ap);
 
 int map_delmap(char* mapname);
