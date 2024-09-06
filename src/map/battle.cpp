@@ -4372,7 +4372,7 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += 50 * (skill_lv - 1);
 			break;
 		case GS_DUST:
-				skillratio += 150 + (25 * skill_lv)
+			skillratio += 150 + (25 * skill_lv);
 			if (sc && sc->data[SC_OVERBRANDREADY])
 				skillratio += 10 + 10 * skill_lv + (sstatus->int_);
 			if (sc && sc->data[SC_LIGHTOFSUN])
