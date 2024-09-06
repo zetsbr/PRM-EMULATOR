@@ -63314,7 +63314,7 @@ Body:
       skill "TF_DOUBLE",1;
       .@r = getrefine();
       bonus bAtkRate,5;
-      bonus2 bSkillAtk,"RK_HUNDREDSPEAR",7*(.@r);
+      bonus2 bSkillAtk,"RK_HUNDREDSPEAR",5*(.@r);
       if (.@r>=9) {
         bonus2 bSkillCooldown,"RK_HUNDREDSPEAR",-1000;
       }
@@ -80636,10 +80636,7 @@ Body:
       bonus bSPDrainValue,-1;
       skill "AC_VULTURE",10;
       bonus bDex,.@r;
-      bonus2 bSkillAtk,"GS_TRACKING",25;
-      bonus2 bFixedCastrate,"GS_GATLINGFEVER",-100;
-      bonus2 bCastrate,"GS_GATLINGFEVER",-100;
-      bonus bAspd,-20;
+      bonus2 bSkillAtk,"GS_TRACKING",5*(.@r);
   - Id: 18109
     AegisName: Bow of Famine
     Name: Bow of Famine
