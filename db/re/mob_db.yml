@@ -76718,6 +76718,15 @@ Body:
       - Item: Tetra_Brooch
         Rate: 500
         RandomOptionGroup: accessory
+      - Item: Battery_Charger
+        Rate: 1500
+        RandomOptionGroup: dagger
+      - Item: Scienza
+        Rate: 1500
+        RandomOptionGroup: axe
+      - Item: Eye_Crossbow
+        Rate: 1500
+        RandomOptionGroup: bow
       - Item: Yggdrasilberry
         Rate: 10000
       - Item: MVP_Reward_Box

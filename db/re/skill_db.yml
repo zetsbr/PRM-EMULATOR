@@ -11649,21 +11649,14 @@ Body:
       Skill:
         Plagiarism: true
         Reproduce: true
+    Duration1: 2000
     Duration2: 2000
     Cooldown: 3000
     Requires:
-      SpCost:
-        - Level: 1
-          Amount: 30
-        - Level: 2
-          Amount: 35
-        - Level: 3
-          Amount: 40
-        - Level: 4
-          Amount: 45
-        - Level: 5
-          Amount: 50
+      SpCost: 10
+      HpCost: 10
       HpRateCost: -10
+      SPRateCost: -10
   - Id: 422
     Name: TK_HPTIME
     Description: Card Mastery
@@ -29842,9 +29835,9 @@ Body:
       Critical: true
     HitCount: -5
     Element: Weapon
-    CastTime: 500
-    AfterCastActDelay: 1000
+    AfterCastActDelay: 500
     Duration1: 5000
+    FixedCastTime: 100
     Duration2:
       - Level: 1
         Time: 7000
@@ -30420,7 +30413,7 @@ Body:
     Hit: Single
     HitCount: 1
     CastCancel: true
-    FixedCastTime: 1000
+    FixedCastTime: 500
     Cooldown:
       - Level: 1
         Time: 60000

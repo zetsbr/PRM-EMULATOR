@@ -11372,19 +11372,8 @@ int status_change_start(struct block_list* src, struct block_list* bl,enum sc_ty
 			val2 = val1; // Number of bounces: 1 + skill_lv/5
 			break;
 		case SC_KAUPE:
-			switch (val1) {
-				case 3: // 33*3 + 1 -> 100%
-					val2++;
-				case 1:
-				case 2: // 33, 66%
-					val2 += 33*val1;
-					val3 = 1; // Dodge 1 attack total.
-					break;
-				default: // Custom. For high level mob usage, higher level means more blocks. [Skotlex]
-					val2 = 100;
-					val3 = val1-2;
-					break;
-			}
+			val2 = 100;
+			val3 = 1;
 			break;
 		case SC_FULL_THROTTLE:
 			val2 = 0;
