@@ -3453,7 +3453,7 @@ Body:
     Attack: 10
     MagicAttack: 30
     Range: 1
-    Slots: 2
+    Slots: 3
     Jobs:
       Paladin: true
       All: true
@@ -3475,14 +3475,10 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bIgnoreMdefClassRate,Class_Normal,22;
-      bonus2 bIgnoreMdefClassRate,Class_Boss,22;
+      bonus2 bIgnoreMdefClassRate,Class_Normal,20;
+      bonus2 bIgnoreMdefClassRate,Class_Boss,20;
       .@r = getrefine();
-      bonus2 bSkillHeal,"AL_HEAL",5*(.@r);
-      bonus2 bSkillHeal,"CR_SLIMPITCHER",5*(.@r);
-      bonus2 bSkillHeal,"AB_CHEAL",5*(.@r);
-      bonus2 bSkillHeal,"AM_POTIONPITCHER",5*(.@r);
-      bonus4 bAutoSpellOnSkill,"AL_HEAL","GS_INCREASING",1,1000;
+      bonus2 bSkillAtk,"WL_TETRAVORTEX",5*(.@r);
   - Id: 1195
     AegisName: Royal_L_Sword
     Name: Royal L Sword
@@ -3494,7 +3490,7 @@ Body:
     Attack: 30
     MagicAttack: 10
     Range: 2
-    Slots: 2
+    Slots: 3
     Jobs:
       Paladin: true
       All: true
@@ -3517,9 +3513,9 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus2 bIgnoreDefRaceRate,RC_All,22;
+      bonus2 bIgnoreDefRaceRate,RC_All,20;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"SC_TRIANGLESHOT","NJ_KIRIKAGE",1,1000;
+      bonus4 bAutoSpellOnSkill,"GS_DUST","SR_GENTLETOUCH",1,1000;
       bonus bCritAtkRate,5*(.@r);
   - Id: 1196
     AegisName: Abandoned_Guardian
@@ -3841,10 +3837,10 @@ Body:
     Buy: 500
     Sell: 250
     Weight: 600
-    Attack: 20
-    MagicAttack: 10
+    Attack: 5
+    MagicAttack: 21
     Range: 1
-    Slots: 2
+    Slots: 3
     Jobs:
       Paladin: true
       All: true
@@ -3871,8 +3867,9 @@ Body:
     Script: |
       skill "TF_DOUBLE",7;
       .@r = getrefine();
-      autobonus "{}",100,3000,BF_NORMAL,"{ sc_start SC_OVERBRANDREADY,3000,1; specialeffect2 EF_FIRESPLASHHIT;}";
-      bonus bAtkRate,.@r;
+      bonus2 bSkillAtk,"NJ_KOUENKA",3*.@r;
+      bonus2 bSkillAtk,"NJ_HYOUSENSOU",3*.@r;
+      bonus2 bSkillAtk,"NJ_HUUJIN",3*.@r;
       bonus bASPDCap,1;
   - Id: 1207
     AegisName: Main_Gauche
@@ -4073,7 +4070,7 @@ Body:
     Attack: 10
     MagicAttack: 22
     Range: 1
-    Slots: 2
+    Slots: 3
     Jobs:
       Paladin: true
       All: true
@@ -4100,9 +4097,8 @@ Body:
     Script: |
       skill "TF_DOUBLE",7;
       .@r = getrefine();
-      autobonus "{}",100,3000,BF_NORMAL,"{ sc_start SC_SUFFRAGIUM,3000,1; specialeffect2 EF_FIRESPLASHHIT;}";
       bonus bMatkRate,.@r;
-      bonus bFixedCast,-100;
+      bonus bFixedCast,-300;
   - Id: 1213
     AegisName: Gemstone_Knife
     Name: Gemstone Knife
@@ -4770,9 +4766,9 @@ Body:
     Sell: 250
     Weight: 600
     Attack: 5
-    MagicAttack: 21
+    MagicAttack: 11
     Range: 1
-    Slots: 2
+    Slots: 1
     Jobs:
       Paladin: true
       All: true
@@ -4795,7 +4791,6 @@ Body:
     EquipLevelMin: 45
     Refineable: true
     Script: |
-      bonus bInt,3;
       skill "TF_DOUBLE",5;
       bonus2 bMagicAtkEle,Ele_Water,10;
       bonus2 bMagicAtkEle,Ele_Wind,10;
@@ -4928,9 +4923,9 @@ Body:
     Sell: 250
     Weight: 600
     Attack: 5
-    MagicAttack: 21
+    MagicAttack: 11
     Range: 1
-    Slots: 3
+    Slots: 2
     Jobs:
       Paladin: true
       All: true
@@ -4955,7 +4950,6 @@ Body:
     Flags:
       DropEffect: RED_PILLAR
     Script: |
-      bonus bInt,3;
       skill "TF_DOUBLE",5;
       bonus2 bMagicAtkEle,Ele_Water,10;
       bonus2 bMagicAtkEle,Ele_Wind,10;
@@ -6333,7 +6327,7 @@ Body:
     Attack: 35
     MagicAttack: 10
     Range: 1
-    Slots: 2
+    Slots: 3
     Jobs:
       Paladin: true
       Assassin: true
@@ -10114,7 +10108,7 @@ Body:
     Attack: 30
     MagicAttack: 10
     Range: 3
-    Slots: 2
+    Slots: 3
     Jobs:
       Paladin: true
       Knight: true
@@ -10130,9 +10124,9 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "SJ_PROMINENCEKICK",9;
-      bonus4 bAutoSpellOnSkill,"KN_SPEARBOOMERANG","NPC_PHANTOMTHRUST",1,1000;
+      bonus2 bSkillCooldown,"RK_DRAGONBREATH",-2000;
       .@r = getrefine();
-      bonus bLongAtkRate,3*(.@r);
+      bonus bLongAtkRate,5*(.@r);
   - Id: 1426
     AegisName: Cold_SoulSpear
     Name: Cold SoulSpear
@@ -13254,7 +13248,7 @@ Body:
     Attack: 30
     MagicAttack: 10
     Range: 1
-    Slots: 2
+    Slots: 3
     Jobs:
       Gunslinger: true
       Rebellion: true
@@ -14350,7 +14344,7 @@ Body:
     Attack: 11
     MagicAttack: 11
     Range: 6
-    Slots: 4
+    Slots: 3
     Jobs:
       Archer: true
     Classes:
@@ -14365,7 +14359,7 @@ Body:
     Script: |
       bonus bNoRegen,2;
       bonus bLuk,11;
-      bonus2 bSkillUseSPrate,"LK_JOINTBEAT",2*(.@r);
+      bonus2 bSkillAtk,"LK_HEADCRUSH",5*(.@r);
       bonus4 bautospellonskill,"LK_JOINTBEAT","LK_HEADCRUSH",7,1000;
       bonus bUseSPrate,-15;
   - Id: 1574
@@ -22557,7 +22551,7 @@ Body:
     Attack: 22
     MagicAttack: 22
     Range: 3
-    Slots: 2
+    Slots: 3
     Jobs:
       BardDancer: true
       SuperNovice: true
@@ -22573,8 +22567,7 @@ Body:
     Script: |
       .@r = getrefine();
       bonus bSPrecovRate,readparam(bInt);
-      bonus2 bAddSize,Size_All,7;
-      bonus2 bMagicAddSize,Size_All,7;
+      bonus2 bSkillAtk,"SU_SCRATCH",5*(.@r);
       bonus2 bAddEff,Eff_Curse,500;
   - Id: 1961
     AegisName: Et_Crystal_Whip
@@ -26463,7 +26456,7 @@ Body:
     Type: Armor
     View: 1
     Buy: 500
-    Weight: 1200
+    Weight: 3200
     Defense: 15
     Slots: 1
     Jobs:
@@ -63147,10 +63140,12 @@ Body:
       DropEffect: RED_PILLAR
     Script: |
       skill "TF_DOUBLE",1;
-      bonus4 bAutoSpellOnSkill,"AL_HEAL","GS_INCREASING",1,1000;
       .@r = getrefine();
-      bonus bMatkRate,.@r;
-      bonus bAtkRate,.@r;
+      bonus2 bSkillHeal,"AL_HEAL",5*(.@r);
+      bonus2 bSkillHeal,"CR_SLIMPITCHER",5*(.@r);
+      bonus2 bSkillHeal,"AB_CHEAL",5*(.@r);
+      bonus2 bSkillHeal,"AM_POTIONPITCHER",5*(.@r);
+      bonus4 bAutoSpellOnSkill,"AL_HEAL","GS_INCREASING",1,1000;
       bonus bInt,.@r;
   - Id: 13060
     AegisName: Apex_Knife
@@ -120128,9 +120123,7 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bSkillAtk,"NJ_KOUENKA",3*.@r;
-      bonus2 bSkillAtk,"NJ_HYOUSENSOU",3*.@r;
-      bonus2 bSkillAtk,"NJ_HUUJIN",3*.@r;
+      bonus bFixedCast,-30*(.@r);
   - Id: 24384
     AegisName: Spell_Flow_G
     Name: Spell Flow G
@@ -120179,9 +120172,8 @@ Body:
       DropEffect: GREEN_PILLAR
     Script: |
       .@r = getrefine();
-      bonus2 bMagicAtkEle,Ele_Fire,3*.@r;
-      bonus2 bMagicAtkEle,Ele_Water,3*.@r;
-      bonus2 bMagicAtkEle,Ele_Wind,3*.@r;
+      bonus2 bIgnoreMdefClassRate,Class_Normal,(.@r);
+      bonus2 bIgnoreMdefClassRate,Class_Boss,(.@r);
   - Id: 24387
     AegisName: Bushido_A
     Name: Bushido A
