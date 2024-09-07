@@ -66552,7 +66552,7 @@ Body:
         Rate: 300
       - Item: Royal_Whip
         Rate: 100
-        RandomOptionGroup: sword
+        RandomOptionGroup: whip
       - Item: Royal_ScepterMVP
         Rate: 10
   - Id: 2802
