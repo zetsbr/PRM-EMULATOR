@@ -36261,6 +36261,8 @@ Body:
     Type: Card
     Buy: 20
     Weight: 10
+    Locations:
+      Both_Accessory: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
@@ -36272,6 +36274,8 @@ Body:
     Type: Card
     Buy: 20
     Weight: 10
+    Locations:
+      Both_Accessory: true
     Flags:
       BuyingStore: true
       DropEffect: YELLOW_PILLAR
