@@ -4260,29 +4260,29 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			skillratio += -60 + 40 * skill_lv;
 #endif
 			break;
+		case MA_SHARPSHOOTING:
 		case SN_SHARPSHOOTING:
 			if (src->type == BL_MOB) { // TODO: Did these formulas change in the renewal balancing?
+				if (wd->miscflag & 2) // Splash damage bonus
+					skillratio += 100 + 20 * skill_lv + 3 * sstatus->luk;
+				else
+					skillratio += 100 + 50 * skill_lv;
+				break;
+			}
+			else {
 				if (wd->miscflag & 2) // Splash damage bonus
 					skillratio += 200 + 35 * skill_lv + 3 * sstatus->luk;
 				else
 					skillratio += 200 + 50 * skill_lv + 3 * sstatus->luk;
 				break;
 			}
-			// Fall through
-		case MA_SHARPSHOOTING:
-#ifdef RENEWAL
-			skillratio += 100 + 20 * skill_lv + 3 * sstatus->luk;
-#else
-			skillratio += 100 + 50 * skill_lv;
-#endif
 			break;
-#ifdef RENEWAL
 		case CR_ACIDDEMONSTRATION:
 			skillratio += 1 * (sstatus->int_ + tstatus->vit/2); // !TODO: Confirm status bonus
 			if (target->type == BL_PC)
 				skillratio /= 5;
 			break;
-#endif
+
 		case CG_ARROWVULCAN:
 			skillratio += 25 + 1 * skill_lv + 1 * (sstatus->dex);
 			if (sc && sc->data[SC_OVERBRANDREADY]) 
