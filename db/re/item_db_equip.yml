@@ -3515,7 +3515,7 @@ Body:
     Script: |
       bonus2 bIgnoreDefRaceRate,RC_All,20;
       .@r = getrefine();
-      bonus4 bAutoSpellOnSkill,"GS_DUST","SR_GENTLETOUCH",1,1000;
+      bonus4 bAutoSpellOnSkill,"GS_DUST","SR_GENTLETOUCH_QUIET",1,1000;
       bonus bCritAtkRate,5*(.@r);
   - Id: 1196
     AegisName: Abandoned_Guardian
