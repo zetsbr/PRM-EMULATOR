@@ -146131,9 +146131,9 @@ Body:
     Sell: 10
     Weight: 200
     Jobs:
-      Paladin: true
       Assassin: true
       Rogue: true
+      Paladin: true
       All: false
     Slots: 3
     Locations:
