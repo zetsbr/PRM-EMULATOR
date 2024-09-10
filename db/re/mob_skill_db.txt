@@ -8899,7 +8899,7 @@
 3040,Volcano Agni@NJ_KAENSIN,attack,535,7,8000,1300,15000,no,self,always,0,,,,,,6,
 1379,Magma Terror@NJ_KAENSIN,attack,535,6,8000,800,7000,no,self,always,0,,,,,,6,
 3039,Bonfire Agni@NPC_WIDESTONE,any,666,1,4000,2200,15000,no,self,always,0,,,,,,6,
-3040,Volcano Agni@SC_MAELSTROM,any,2302,1,8000,2400,15000,no,target,always,0,,,,,,6,
+// 3040,Volcano Agni@SC_MAELSTROM,any,2302,1,8000,2400,15000,no,target,always,0,,,,,,6,
 3041,Hellfire Agni@NJ_KAENSIN,attack,535,9,8000,500,15000,no,self,afterskill,264,,,,,,6,
 3041,Hellfire Agni@WL_TETRAVORTEX_FIRE,any,2218,3,7500,2500,9000,no,target,always,0,,,,,,7,
 2925,Serpens@WL_TETRAVORTEX_GROUND,any,2221,5,7500,1000,9000,no,target,friendhpltmaxrate,20,,,,,,28,
