@@ -12242,8 +12242,10 @@ int skill_castend_nodamage_id(struct block_list* src, struct block_list* bl, uin
 			clif_skill_nodamage(src, bl, skill_id, skill_lv, 1);
 			//clif_skill_estimation(sd, bl);
 			// Sense skill to mobinfo
-			if (bl->type == BL_PC) 
-				npc_event(sd, "illusionclones::OnClones", 0);
+
+			//issaqui quebra os mob
+			//if (bl->type == BL_PC) 
+				//npc_event(sd, "illusionclones::OnClones", 0);
 			if (skill_check_unit_movepos(5, src, bl->x, bl->y, 0, 0)) {
 				clif_skill_nodamage(src, src, skill_id, skill_lv, 1);
 				clif_blown(src);
